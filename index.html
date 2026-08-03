@@ -339,9 +339,116 @@
     .grid { grid-template-columns: 1fr; }
     .daily-progress-grid { grid-template-columns: 1fr; }
   }
+  /* Lock screen — client-side passphrase gate, added 2026-08-03 for the
+     bobbydigitaldev.com/fitness publish. NOT real security (the passphrase
+     is plain text in this file's source, visible via view-source) — this
+     is only meant to keep casual/accidental visitors out, per Bobby's own
+     choice when this was set up. See WORKFLOW.md for how to change it. */
+  body.locked { overflow: hidden; }
+  .lock-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .lock-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+  }
+  .lock-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; }
+  .lock-sub { color: var(--muted); font-size: 0.85rem; margin-bottom: 20px; }
+  .lock-input {
+    width: 100%;
+    background: var(--surface-2);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 1rem;
+    font-family: inherit;
+    margin-bottom: 12px;
+  }
+  .lock-input:focus { outline: 2px solid var(--accent-2); outline-offset: 1px; }
+  .lock-button {
+    width: 100%;
+    background: var(--accent-2);
+    color: #0f1115;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+  }
+  .lock-button:hover { opacity: 0.9; }
+  .lock-error {
+    color: var(--danger);
+    font-size: 0.82rem;
+    margin-top: 12px;
+  }
 </style>
 </head>
 <body>
+
+<!-- CLAUDE REMINDER: This lock screen exists only for the public
+     bobbydigitaldev.com/fitness copy. It is NOT real security — the
+     passphrase below is plain text, visible to anyone who views this
+     file's source. It exists to keep casual/accidental visitors out,
+     nothing more. Bobby chose this specifically over publishing with no
+     gate at all when this went live 2026-08-03 (see WORKFLOW.md). To
+     change the passphrase, edit CORRECT_PASSPHRASE in the script just
+     below and tell Bobby the new value — there's no way to recover the
+     old one from this file once changed. -->
+<div id="lockScreen" class="lock-screen">
+  <div class="lock-box">
+    <div class="lock-title">🔒 Bobby's Fitness Journey</div>
+    <div class="lock-sub">Enter the passphrase to continue</div>
+    <input type="password" id="lockInput" class="lock-input" placeholder="Passphrase" autocomplete="off" />
+    <button id="lockSubmit" class="lock-button" type="button">Unlock</button>
+    <div class="lock-error" id="lockError" style="display:none;">Wrong passphrase — try again.</div>
+  </div>
+</div>
+<script>
+(function () {
+  var CORRECT_PASSPHRASE = 'FitBobby2026';
+  var lockScreen = document.getElementById('lockScreen');
+  var input = document.getElementById('lockInput');
+  var button = document.getElementById('lockSubmit');
+  var errorEl = document.getElementById('lockError');
+
+  function tryUnlock() {
+    if (input.value === CORRECT_PASSPHRASE) {
+      localStorage.setItem('fitnessUnlocked', 'true');
+      lockScreen.style.display = 'none';
+      document.body.classList.remove('locked');
+    } else {
+      errorEl.style.display = 'block';
+      input.value = '';
+      input.focus();
+    }
+  }
+
+  button.addEventListener('click', tryUnlock);
+  input.addEventListener('keydown', function (e) { if (e.key === 'Enter') tryUnlock(); });
+
+  if (localStorage.getItem('fitnessUnlocked') === 'true') {
+    lockScreen.style.display = 'none';
+  } else {
+    document.body.classList.add('locked');
+    setTimeout(function () { input.focus(); }, 50);
+  }
+})();
+</script>
 
 <header>
   <h1>Bobby's Fitness Journey</h1>
