@@ -52,7 +52,7 @@
 //   meals:           { date: "2026-07-26", time: "12:00", description: "grilled chicken + rice", photo: "../progress/food-photos/2026-07-26-grilled-chicken.jpeg",
 //                       calories: 520, protein: 40, carbs: 45, fat: 15, sodium: 380, sodiumNote: "" }
 //                    → one entry per photographed meal (see WORKFLOW.md for the full food-photo SOP).
-//                      photo path is relative to dashboard/index.html. sodiumNote: short flag text
+//                      photo path is relative to site/index.html. sodiumNote: short flag text
 //                      when an ingredient is notably high-sodium (blank/omit otherwise) — Bobby is on
 //                      BP meds, so sodium gets called out same as calories.
 //                      time: 24-hour "HH:MM", REQUIRED going forward (added 2026-08-03) — the
@@ -290,8 +290,9 @@ const measurementData = [
 
 // Photographed meals — one entry per photo, added automatically per the
 // food-photo workflow in WORKFLOW.md. Photo paths are relative to this
-// dashboard folder. This is the per-meal detail behind the daily totals
-// in calorieData above.
+// site folder (formerly "dashboard/", renamed 2026-08-03 once it started
+// holding more than just the dashboard — see workout_guides/). This is
+// the per-meal detail behind the daily totals in calorieData above.
 const meals = [
   // July 30 — all times as logged
   { date: "2026-07-30", time: "08:00", description: "Breakfast (8:00 AM) — 2 eggs + sausage patty",
