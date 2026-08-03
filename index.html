@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bobby's Fitness Journey</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  :root {
+    --bg: #0f1115;
+    --surface: #191c23;
+    --surface-2: #21252e;
+    --border: #2b303b;
+    --text: #e8eaf0;
+    --muted: #9aa1b0;
+    --accent: #4ade80;
+    --accent-2: #60a5fa;
+    --warn: #fbbf24;
+    --orange: #fb923c;
+    --danger: #f87171;
+    --radius: 14px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    padding: 16px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  header { padding: 24px 4px 20px; }
+  header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; }
+  header .date { color: var(--muted); font-size: 0.9rem; margin-top: 4px; }
+  .month-picker { display: flex; align-items: center; gap: 8px; margin-top: 14px; }
+  .month-picker label { color: var(--muted); font-size: 0.85rem; }
+  .month-picker select {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 0.9rem;
+    font-family: inherit;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px;
+  }
+  .card h2 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .chart-wrap {
+    position: relative;
+    height: 230px;
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .dot.green  { background: var(--accent); }
+  .dot.blue   { background: var(--accent-2); }
+  .dot.amber  { background: var(--warn); }
+  .dot.orange { background: var(--orange); }
+  .dot.danger { background: var(--danger); }
+  /* Section headings */
+  .section-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 28px 4px 12px;
+  }
+  .section-note {
+    color: var(--muted);
+    font-size: 0.8rem;
+    margin: -8px 4px 12px;
+  }
+  /* Protocol card */
+  .chart-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px;
+    margin-bottom: 12px;
+  }
+  .protocol-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    margin-bottom: 14px;
+  }
+  .protocol-table thead th {
+    text-align: left;
+    color: var(--muted);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    padding: 0 8px 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-weight: 600;
+  }
+  .protocol-table thead th.col-protein { text-align: right; padding-right: 0; }
+  .protocol-table thead th.col-calories { text-align: right; padding-right: 8px; }
+  .protocol-table tbody tr { border-bottom: 1px solid var(--border); }
+  .protocol-table tbody tr:last-child { border-bottom: none; }
+  .protocol-table tbody td { padding: 10px 8px 10px 0; vertical-align: top; }
+  .protocol-table .col-time {
+    color: var(--accent-2);
+    font-size: 0.82rem;
+    font-weight: 600;
+    white-space: nowrap;
+    min-width: 72px;
+    padding-right: 14px;
+  }
+  .protocol-table .col-calories {
+    color: var(--warn);
+    font-weight: 600;
+    white-space: nowrap;
+    text-align: right;
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+  .protocol-table .col-protein {
+    color: var(--accent);
+    font-weight: 700;
+    white-space: nowrap;
+    text-align: right;
+    padding-right: 0;
+    padding-left: 8px;
+  }
+  .protocol-table tr.totals-row {
+    border-top: 2px solid var(--border);
+    background: var(--surface-2);
+  }
+  .protocol-table tr.totals-row td {
+    font-weight: 700;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  .protocol-table tr.totals-row .col-time {
+    color: var(--text);
+  }
+  .protocol-table tr.totals-row .col-calories {
+    color: var(--warn);
+  }
+  .protocol-table tr.totals-row .col-protein {
+    color: var(--accent);
+  }
+  .protocol-notes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+  .protocol-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .protocol-note .dot { flex-shrink: 0; margin-top: 5px; }
+  .protocol-note strong { color: var(--text); font-weight: 600; }
+  /* Weekly Workout Schedule */
+  .schedule-table-wrap { overflow-x: auto; }
+  .schedule-table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 0.85rem; }
+  .schedule-table thead th {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    padding: 0 8px 10px;
+    border-bottom: 1px solid var(--border);
+    font-weight: 600;
+  }
+  .schedule-cell {
+    text-align: center;
+    vertical-align: top;
+    padding: 14px 10px;
+    border-right: 1px solid var(--border);
+  }
+  .schedule-cell:last-child { border-right: none; }
+  .schedule-cell.schedule-gym { color: var(--text); font-weight: 600; }
+  .schedule-cell.schedule-rest,
+  .schedule-cell.schedule-off { color: var(--muted); }
+  .schedule-subtext {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--muted);
+  }
+  .schedule-tbd {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--warn);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .schedule-pdf-link {
+    display: block;
+    margin-top: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent-2);
+    text-decoration: none;
+  }
+  .schedule-pdf-link:hover { text-decoration: underline; }
+  /* Activity / meals feed */
+  .activity-item {
+    display: flex;
+    gap: 12px;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+    align-items: baseline;
+  }
+  .activity-item:last-child { border-bottom: none; }
+  .activity-item.empty { color: var(--muted); justify-content: center; padding: 22px; }
+  /* Daily progress rings (Meals section) */
+  .daily-progress-card { margin-bottom: 12px; }
+  .progress-subhead {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .daily-progress-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .progress-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .progress-ring-wrap { position: relative; width: 150px; height: 150px; }
+  .progress-caption { text-align: center; font-size: 0.8rem; color: var(--muted); }
+  .progress-caption strong { color: var(--text); font-weight: 700; }
+  .meal-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+  }
+  .meal-item:last-child { border-bottom: none; }
+  .meal-item img {
+    width: 56px; height: 56px;
+    border-radius: 10px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: var(--surface-2);
+  }
+  .meal-item .meal-main { flex: 1; min-width: 0; }
+  .meal-item .meal-desc { font-size: 0.9rem; font-weight: 600; }
+  .meal-item .meal-meta { color: var(--muted); font-size: 0.78rem; margin-top: 3px; }
+  .meal-item .meal-sodium { color: var(--warn); font-size: 0.76rem; margin-top: 3px; }
+  .day-grouped-list { display: flex; flex-direction: column; gap: 14px; }
+  .meal-day-group {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .meal-day-header {
+    padding: 10px 18px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .meal-day-totals {
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: normal;
+    color: var(--muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  /* Workouts card */
+  .workout-session { padding: 14px 18px; border-bottom: 1px solid var(--border); }
+  .workout-session:last-child { border-bottom: none; }
+  .workout-session-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    margin-bottom: 10px;
+  }
+  .workout-session-title { font-weight: 700; font-size: 0.92rem; }
+  .workout-session-meta { color: var(--muted); font-size: 0.78rem; }
+  .workout-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  .workout-table th {
+    text-align: left;
+    color: var(--muted);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0 8px 6px 0;
+    border-bottom: 1px solid var(--border);
+    font-weight: 600;
+  }
+  .workout-table td { padding: 7px 8px 7px 0; vertical-align: top; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .workout-table tr:last-child td { border-bottom: none; }
+  .workout-equip { color: var(--muted); font-size: 0.78rem; }
+  .workout-note {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.8rem;
+  }
+  @media (max-width: 640px) {
+    body { padding: 10px; }
+    .grid { grid-template-columns: 1fr; }
+    .daily-progress-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Bobby's Fitness Journey</h1>
+  <div class="date" id="today"></div>
+  <div class="section-note" id="goalsSummary" style="margin-top:6px;"></div>
+  <div class="month-picker">
+    <label for="monthSelect">Viewing</label>
+    <select id="monthSelect"></select>
+  </div>
+</header>
+
+<!-- ── Chart metric cards ─────────────────────────────────── -->
+<div class="grid">
+
+  <div class="card">
+    <h2><span class="dot green"></span> Weight (lb)</h2>
+    <div class="chart-wrap"><canvas id="weightChart"></canvas></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="dot amber"></span> Sleep — Hours &amp; Score</h2>
+    <div class="chart-wrap"><canvas id="sleepChart"></canvas></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="dot orange"></span> Calories Burned</h2>
+    <div class="chart-wrap"><canvas id="caloriesBurnedChart"></canvas></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="dot blue"></span> Daily Consumed Calories</h2>
+    <div class="chart-wrap"><canvas id="calorieChart"></canvas></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="dot green"></span> Daily Protein (g)</h2>
+    <div class="chart-wrap"><canvas id="proteinChart"></canvas></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="dot blue"></span> Daily Steps</h2>
+    <div class="chart-wrap"><canvas id="stepsChart"></canvas></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="dot blue"></span> Distance Traversed (mi)</h2>
+    <div class="chart-wrap"><canvas id="walksChart"></canvas></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="dot danger"></span> Strava Runs — Distance (mi)</h2>
+    <div class="chart-wrap"><canvas id="runsChart"></canvas></div>
+  </div>
+
+</div>
+
+<!-- CLAUDE REMINDER: Update this section whenever Bobby changes his feeding schedule, meal timing, or food choices. Keep calories and protein columns in sync. Update totals row. This is a RECOMMENDATION/plan, not a log of what actually happened — don't rename it back to something that implies it's real-time or actual. -->
+<!-- ── Recommended Daily Eating Schedule (table — not a chart) ───────────────── -->
+<div class="section-title">Recommended Daily Eating Schedule</div>
+<div class="section-note">13:11 Intermittent Fasting Window — 11:00 AM → 8:00 PM &nbsp;·&nbsp; Target: 180–200g protein · 2,400 cal</div>
+
+<div class="chart-card">
+  <table class="protocol-table">
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Meal</th>
+        <th class="col-calories">Calories</th>
+        <th class="col-protein">Protein</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="col-time">11:00 AM</td>
+        <td>Breakfast: 2 eggs overhard + sausage</td>
+        <td class="col-calories">~335</td>
+        <td class="col-protein">~21g</td>
+      </tr>
+      <tr>
+        <td class="col-time">12:00 PM</td>
+        <td>Lunch: 0.25 lbs shrimp + 2 hard boiled eggs</td>
+        <td class="col-calories">~268</td>
+        <td class="col-protein">~36g</td>
+      </tr>
+      <tr>
+        <td class="col-time">2:00 PM</td>
+        <td>Shake: 3 scoops rice protein + banana + almond milk</td>
+        <td class="col-calories">~480</td>
+        <td class="col-protein">~45g</td>
+      </tr>
+      <tr>
+        <td class="col-time">7:00 PM</td>
+        <td>Dinner salad: mixed greens, avocado, cucumber, TJ's Nut Mix, sesame seeds, olive oil dressing</td>
+        <td class="col-calories">~528</td>
+        <td class="col-protein">~11g</td>
+      </tr>
+      <tr>
+        <td class="col-time">7:00 PM</td>
+        <td>Dinner protein: ribeye or thick-cut pork chop</td>
+        <td class="col-calories">~380–420</td>
+        <td class="col-protein">~42–54g</td>
+      </tr>
+      <tr>
+        <td class="col-time">8:00 PM</td>
+        <td>Close eating window</td>
+        <td class="col-calories">—</td>
+        <td class="col-protein">—</td>
+      </tr>
+      <tr class="totals-row">
+        <td class="col-time">Totals</td>
+        <td><em>(meals only — ~370–410 cal room for snacks/sides)</em></td>
+        <td class="col-calories">~1,991–2,031</td>
+        <td class="col-protein">~155–167g</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="protocol-notes">
+    <div class="protocol-note">
+      <span class="dot green"></span>
+      <span>Daily protein target: <strong>180–200g</strong> &nbsp;·&nbsp; Daily calorie target: <strong>2,400 cal</strong></span>
+    </div>
+    <div class="protocol-note">
+      <span class="dot amber"></span>
+      <span>Use <strong>3 scoops per shake</strong> (not 2) — leucine threshold at 50 requires ~3g leucine/dose</span>
+    </div>
+    <div class="protocol-note">
+      <span class="dot blue"></span>
+      <span>Daily total <strong>~155–167g from meals.</strong> Add snacks (e.g. Greek yogurt, cottage cheese) to reach 180g goal.</span>
+    </div>
+  </div>
+</div>
+
+<!-- CLAUDE REMINDER: This is a RECOMMENDATION/plan (a weekly template), not
+     a log of what actually happened — same convention as the Recommended
+     Daily Eating Schedule above (static HTML, not driven by data.js).
+     Update this table whenever the weekly split changes, and keep
+     workouts/plans/current-plan.md's "Weekly structure" table in sync with
+     whatever this shows — they should never disagree. When a real guide PDF
+     gets built for a gym day (see workouts/guides/), replace that cell's
+     "TBD — guide not yet built" span with an <a class="schedule-pdf-link"
+     href="../workouts/guides/FILENAME.pdf" target="_blank">📄 View Guide</a>
+     link. The Sunday column is intentionally NOT prescribed — Bobby manages
+     running/Pilates himself; don't add specifics there without being asked. -->
+<!-- ── Weekly Workout Schedule ─────────────────────── -->
+<div class="section-title">Weekly Workout Schedule</div>
+<div class="section-note">3 gym days/week — Tue · Thu · Sat, spaced for at least 1 rest day between sessions per the current training plan. Sunday running/Pilates is self-managed, not scheduled here.</div>
+
+<div class="chart-card">
+  <div class="schedule-table-wrap">
+    <table class="schedule-table">
+      <thead>
+        <tr>
+          <th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="schedule-cell schedule-off">Run / Pilates<span class="schedule-subtext">self-managed</span></td>
+          <td class="schedule-cell schedule-rest">Rest</td>
+          <td class="schedule-cell schedule-gym">Gym — Session A<span class="schedule-tbd">TBD — guide not yet built</span></td>
+          <td class="schedule-cell schedule-rest">Rest</td>
+          <td class="schedule-cell schedule-gym">Gym — Session B<span class="schedule-tbd">TBD — guide not yet built</span></td>
+          <td class="schedule-cell schedule-rest">Rest</td>
+          <td class="schedule-cell schedule-gym">Gym — Session C<span class="schedule-tbd">TBD — guide not yet built</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- CLAUDE REMINDER: Update this section (and meals array in data.js) whenever Bobby logs any food or meal. Add newest meal at the top. Include: date, time, description, calories, protein. Scoped to the month selector — renderFeeds() re-filters this on every month change, same as the charts above. -->
+<!-- ── Meals ───────────────────────────────────────── -->
+<div class="section-title">Meals</div>
+
+<!-- Daily progress rings — always reflect TODAY specifically (not the month
+     selector above, which only scopes the charts/feeds). Calories/protein
+     pull straight from calorieData/proteinData's daily totals; sodium is
+     summed live from today's meals[] entries (no dedicated sodiumData
+     array exists), so all three "fill" the moment a meal is logged — no
+     separate tracking needed. Sodium ring added 2026-08-03 — Bobby's on BP
+     medication, so it's worth watching alongside calories/protein, not just
+     flagging per-meal in sodiumNote. -->
+<div class="chart-card daily-progress-card">
+  <div class="progress-subhead">Today's Nutrition</div>
+  <div class="daily-progress-grid">
+    <div class="progress-item">
+      <div class="progress-ring-wrap"><canvas id="calorieProgressChart"></canvas></div>
+      <div class="progress-caption" id="calorieProgressCaption"></div>
+    </div>
+    <div class="progress-item">
+      <div class="progress-ring-wrap"><canvas id="proteinProgressChart"></canvas></div>
+      <div class="progress-caption" id="proteinProgressCaption"></div>
+    </div>
+    <div class="progress-item">
+      <div class="progress-ring-wrap"><canvas id="sodiumProgressChart"></canvas></div>
+      <div class="progress-caption" id="sodiumProgressCaption"></div>
+    </div>
+  </div>
+</div>
+
+<div class="day-grouped-list" id="meals"></div>
+
+<!-- CLAUDE REMINDER: Update this section (and data.js events/stepsData/walksData/runsData) whenever Bobby reports Fitbit stats, a walk, a run, or any workout. Most recent first. Include: date, time, activity type, distance, duration, steps, zone min, readiness.
+     walksData vs runsData: walksData is the day's general Fitbit distance (add an entry every day EOD stats come in, even with no dedicated tracked walk — see data.js comments). runsData is ONLY for dedicated GPS-tracked runs (Strava), with their own pace/elevation/HR detail, and feeds the separate "Strava Runs" chart, not the "Walks" chart. Scoped to the month selector — renderFeeds() re-filters this on every month change, same as the charts above. -->
+<!-- ── Activity ───────────────────────────────────── -->
+<div class="section-title">Activity</div>
+<div class="day-grouped-list" id="activity"></div>
+
+<!-- CLAUDE REMINDER: Update this section (and data.js gymWorkoutsData) whenever Bobby logs a gym session — exercises, sets, reps, weights. Do NOT also add a summary line to events[] — that got removed 2026-08-03 as a duplicate once this card existed. Scoped to the month selector — renderWorkouts() re-filters this on every month change, same as Meals/Activity above. -->
+<!-- ── Workouts ───────────────────────────────────── -->
+<div class="section-title">Workouts</div>
+<div class="day-grouped-list" id="workouts"></div>
+
+<script src="data.js"></script>
+<!-- CLAUDE REMINDER: Charts pull from data.js arrays. When logging food → update calorieData + proteinData. When Bobby weighs in → update weightData. When Fitbit EOD comes in → update stepsData + walksData. When sleep data comes in → update sleepData. Always update data.js AND index.html static sections together. -->
+<script>
+  // ── Date header ──────────────────────────────────────────
+  document.getElementById('today').textContent = new Date().toLocaleDateString('en-US', {
+    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+  });
+
+  // ── Helpers ──────────────────────────────────────────────
+  const isNonFasted  = p => (p.note || '').toLowerCase().includes('non-fasted');
+  const isPartialDay = p => (p.note || '').toLowerCase().includes('partial');
+
+  // "2026-07-24" → "(Fri) Jul 24 '26"  (used as the day-group header in
+  // the Meals/Activity feeds below) — day-of-week added 2026-08-03,
+  // matching the same "(Fri)" treatment already used on the chart x-axes,
+  // so Bobby can spot day-of-week patterns (e.g. "I always slip on
+  // Mondays") in the feeds too, not just the charts.
+  function formatLabel(iso) {
+    const [y, m, day] = iso.split('-').map(Number);
+    const dt = new Date(y, m - 1, day);
+    const dow = dt.toLocaleDateString('en-US', { weekday: 'short' });
+    return `(${dow}) ${dt.toLocaleDateString('en-US', { month: 'short' })} ${day} '${String(y).slice(2)}`;
+  }
+
+  // "2026-07-24" → "(Fri) Jul 24"  (used on chart x-axes)
+  // Day-of-week stays inline on the same line as the date (rather than a
+  // second stacked line) so every column keeps the same label width and
+  // the bars stay evenly spaced — a stacked two-line version was tried
+  // first (2026-08-03) but threw off alignment since Chart.js doesn't
+  // rotate multi-line array labels the same way as plain strings.
+  function fmtDate(iso) {
+    const [y, m, day] = iso.split('-').map(Number);
+    const dt = new Date(y, m - 1, day);
+    const dow = dt.toLocaleDateString('en-US', { weekday: 'short' });
+    const monthDay = dt.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    return `(${dow}) ${monthDay}`;
+  }
+
+  // ── Static sections ──────────────────────────────────────
+  document.getElementById('goalsSummary').textContent = meta.goalsSummary;
+
+  function formatTime(hhmm) {
+    const [h, min] = hhmm.split(':').map(Number);
+    const period = h >= 12 ? 'PM' : 'AM';
+    const h12 = h % 12 === 0 ? 12 : h % 12;
+    return `${h12}:${String(min).padStart(2, '0')} ${period}`;
+  }
+
+  // Meals + Activity feeds — both scoped to the same month selector as the
+  // charts (added 2026-08-03; previously these two feeds always showed
+  // every entry regardless of the dropdown). Within the selected month,
+  // sorted newest-first (meals by date+time, activity by date only since
+  // events[] has no time field) and visually grouped under a header per
+  // day, so a day's entries are easy to scan together. Every meals[] entry
+  // needs a `time` field for the sort to work correctly (see the schema
+  // comment near the top of data.js) — a missing time sorts before all
+  // others that day.
+  function renderFeeds(month) {
+    const inMonth = p => ym(p.date) === month;
+
+    const mealsEl = document.getElementById('meals');
+    const sortedMeals = meals.filter(inMonth).sort((a, b) => (b.date + b.time).localeCompare(a.date + a.time));
+    if (!sortedMeals.length) {
+      mealsEl.innerHTML = `<div class="activity-item empty">No meals logged this month.</div>`;
+    } else {
+      // Per-day totals for the header — added 2026-08-03 so a day's overall
+      // calories/protein/sodium are visible at a glance without adding up
+      // every meal-item underneath by hand. Sodium sums only meals that
+      // actually have it tracked (many older entries have sodium: null) and
+      // flags with a "*" when some of that day's meals are missing it, same
+      // "don't silently show a falsely clean number" approach as the
+      // sodium progress ring above.
+      const dailyTotals = {};
+      sortedMeals.forEach(m => {
+        if (!dailyTotals[m.date]) dailyTotals[m.date] = { calories: 0, protein: 0, sodium: 0, hasUnknownSodium: false };
+        const t = dailyTotals[m.date];
+        t.calories += m.calories || 0;
+        t.protein += m.protein || 0;
+        if (m.sodium != null) t.sodium += m.sodium;
+        else t.hasUnknownSodium = true;
+      });
+
+      let html = '';
+      let lastDate = null;
+      sortedMeals.forEach(m => {
+        if (m.date !== lastDate) {
+          if (lastDate !== null) html += '</div>'; // close the previous day's group
+          const t = dailyTotals[m.date];
+          const totalsText = `🔥${t.calories.toLocaleString()} cal · 💪P${t.protein}g · 🧂${t.sodium.toLocaleString()}mg${t.hasUnknownSodium ? '*' : ''}`;
+          const totalsTitle = t.hasUnknownSodium ? ' title="* some of this day\'s meals don\'t have sodium tracked, so this total is a minimum, not the full day"' : '';
+          html += `<div class="meal-day-group"><div class="meal-day-header"><span>${formatLabel(m.date)}</span><span class="meal-day-totals"${totalsTitle}>${totalsText}</span></div>`;
+          lastDate = m.date;
+        }
+        html += `
+          <div class="meal-item">
+            <img src="${m.photo}" alt="${m.description}" loading="lazy" onerror="this.style.display='none'">
+            <div class="meal-main">
+              <div class="meal-desc">${m.description}</div>
+              <div class="meal-meta">${formatTime(m.time)} &nbsp;·&nbsp; ${m.calories} cal &nbsp;·&nbsp; P${m.protein}g / C${m.carbs}g / F${m.fat}g${m.sodium != null ? ` &nbsp;·&nbsp; ${m.sodium}mg sodium` : ''}</div>
+              ${m.sodiumNote ? `<div class="meal-sodium">⚠ ${m.sodiumNote}</div>` : ''}
+            </div>
+          </div>`;
+      });
+      html += '</div>'; // close final .meal-day-group
+      mealsEl.innerHTML = html;
+    }
+
+    const activityEl = document.getElementById('activity');
+    const sortedEvents = events.filter(inMonth).sort((a, b) => b.date.localeCompare(a.date));
+    if (!sortedEvents.length) {
+      activityEl.innerHTML = `<div class="activity-item empty">No activity logged this month.</div>`;
+    } else {
+      let activityHtml = '';
+      let lastActivityDate = null;
+      sortedEvents.forEach(e => {
+        if (e.date !== lastActivityDate) {
+          if (lastActivityDate !== null) activityHtml += '</div>';
+          activityHtml += `<div class="meal-day-group"><div class="meal-day-header">${formatLabel(e.date)}</div>`;
+          lastActivityDate = e.date;
+        }
+        activityHtml += `<div class="activity-item"><span>${e.text}</span></div>`;
+      });
+      activityHtml += '</div>';
+      activityEl.innerHTML = activityHtml;
+    }
+  }
+
+  // Workouts — full-width card built from gymWorkoutsData (added 2026-08-03;
+  // this array existed in data.js but had no display surface until now — it
+  // was likely intended for a card like this one from the start). Same
+  // month-scoped, day-grouped-box treatment as Meals/Activity above. Each
+  // exercise's sets render as reps×weight (or duration for holds/planks),
+  // with a per-set note in parentheses when present (e.g. "bare bar").
+  function formatSet(s) {
+    let base;
+    if (s.duration != null) base = `${s.duration}s`;
+    else if (s.weight != null) base = `${s.reps}×${s.weight}lb`;
+    else base = `${s.reps} reps`;
+    return s.note ? `${base} (${s.note})` : base;
+  }
+
+  function renderWorkouts(month) {
+    const inMonth = p => ym(p.date) === month;
+    const workoutsEl = document.getElementById('workouts');
+    const sessions = gymWorkoutsData.filter(inMonth).sort((a, b) => b.date.localeCompare(a.date));
+    if (!sessions.length) {
+      workoutsEl.innerHTML = `<div class="activity-item empty">No gym sessions logged this month.</div>`;
+      return;
+    }
+    let html = '';
+    let lastDate = null;
+    sessions.forEach(s => {
+      if (s.date !== lastDate) {
+        if (lastDate !== null) html += '</div>'; // close the previous day's group
+        html += `<div class="meal-day-group"><div class="meal-day-header">${formatLabel(s.date)}</div>`;
+        lastDate = s.date;
+      }
+      const timeRange = (s.startTime && s.endTime) ? `${formatTime(s.startTime)}–${formatTime(s.endTime)}` : '';
+      const durationText = s.duration ? `${s.duration} min` : '';
+      const metaLine = [timeRange, durationText].filter(Boolean).join(' · ');
+      html += `
+        <div class="workout-session">
+          <div class="workout-session-head">
+            <span class="workout-session-title">${s.label ? s.label + ' · ' : ''}${s.gym || 'Gym'}</span>
+            <span class="workout-session-meta">${metaLine}</span>
+          </div>
+          <table class="workout-table">
+            <thead><tr><th>Exercise</th><th>Sets</th></tr></thead>
+            <tbody>
+              ${s.exercises.map(ex => `
+                <tr>
+                  <td>${ex.name}${ex.equipment ? ` <span class="workout-equip">(${ex.equipment})</span>` : ''}</td>
+                  <td>${ex.sets.map(formatSet).join(', ')}</td>
+                </tr>
+                ${ex.note ? `<tr><td colspan="2" class="workout-equip">${ex.note}</td></tr>` : ''}
+              `).join('')}
+            </tbody>
+          </table>
+          ${s.note ? `<div class="workout-note">${s.note}</div>` : ''}
+        </div>`;
+    });
+    html += '</div>'; // close final .meal-day-group
+    workoutsEl.innerHTML = html;
+  }
+
+  // ── Chart.js global dark-theme defaults ──────────────────
+  const css = getComputedStyle(document.documentElement);
+  const C = {
+    bg:     css.getPropertyValue('--bg').trim(),
+    text:   css.getPropertyValue('--text').trim(),
+    muted:  css.getPropertyValue('--muted').trim(),
+    border: css.getPropertyValue('--border').trim(),
+    green:  css.getPropertyValue('--accent').trim(),
+    blue:   css.getPropertyValue('--accent-2').trim(),
+    amber:  css.getPropertyValue('--warn').trim(),
+    orange: css.getPropertyValue('--orange').trim(),
+    danger: css.getPropertyValue('--danger').trim(),
+  };
+  Chart.defaults.color          = C.muted;
+  Chart.defaults.borderColor    = C.border;
+  Chart.defaults.font.family    = getComputedStyle(document.body).fontFamily;
+
+  // Shared tick rotation for all x-axes
+  const xTicksRotated = { maxRotation: 90, minRotation: 90 };
+
+  // Reusable horizontal dashed target-line plugin factory
+  function targetLine(value, color, label, axisId = 'y') {
+    return {
+      id: 'tl_' + label,
+      afterDatasetsDraw(chart) {
+        const { ctx, chartArea, scales } = chart;
+        const ax = scales[axisId] || scales.y || scales.yHours;
+        if (!ax) return;
+        const py = ax.getPixelForValue(value);
+        ctx.save();
+        ctx.strokeStyle = color;
+        ctx.lineWidth   = 1.5;
+        ctx.setLineDash([6, 4]);
+        ctx.beginPath();
+        ctx.moveTo(chartArea.left, py);
+        ctx.lineTo(chartArea.right, py);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = color;
+        ctx.font = `11px ${Chart.defaults.font.family}`;
+        ctx.textAlign = 'right';
+        ctx.fillText(label, chartArea.right - 2, py - 5);
+        ctx.restore();
+      },
+    };
+  }
+
+  // Reusable "print the value on the bar itself" plugin factory — added
+  // 2026-08-03 for mobile readability, so a glance at the bar is enough
+  // without lining it up against the y-axis scale. Text is rotated 90°
+  // (reads bottom-to-top, matching the rotated date labels on the x-axis)
+  // so it fits within a narrow bar's width instead of overflowing
+  // sideways into neighboring bars. Every label anchors at the same
+  // height — just above each bar's own baseline — and grows straight up
+  // from there, rather than centering per-bar (which made labels land at
+  // a different height on every bar depending on its value, looking like
+  // they were floating all over the chart). Dark text is used when the
+  // label's full length fits within the bar's own height, since every bar
+  // color in this palette is light/pastel enough for dark text to read
+  // best; if the bar is short enough that the label would poke up past
+  // its top into the page background, the label switches to the page's
+  // muted text color instead so it stays legible there.
+  function barValueLabels(formatter) {
+    return {
+      id: 'bvl_' + Math.random().toString(36).slice(2),
+      afterDatasetsDraw(chart) {
+        const { ctx, scales } = chart;
+        const meta = chart.getDatasetMeta(0);
+        const data = chart.data.datasets[0].data;
+        const font = `600 12px ${Chart.defaults.font.family}`;
+        const PAD = 8; // gap between the baseline and where the label starts
+        // Anchor at the y-axis's own visible floor (its `min`), not the bar's
+        // `.base` property. `.base` is the pixel for value 0, which is fine
+        // when the axis starts at 0 (calories/protein/steps/walks/runs), but
+        // for an axis like weight's that starts at a non-zero min, `.base`
+        // points to a pixel far below the visible chart — off-canvas, so the
+        // label silently never appears. Using the axis's actual min pixel
+        // keeps the anchor inside the visible chart area either way.
+        const floorPx = scales.y.getPixelForValue(scales.y.min);
+        ctx.save();
+        ctx.font = font;
+        meta.data.forEach((el, i) => {
+          const value = data[i];
+          if (value === null || value === undefined) return;
+          const text = formatter(value);
+          const textLength = ctx.measureText(text).width; // becomes the vertical extent once rotated
+          const barHeight = floorPx - el.y;
+          const fitsInside = barHeight > textLength + PAD + 4;
+          ctx.save();
+          ctx.font = font;
+          ctx.translate(el.x, floorPx - PAD);
+          ctx.rotate(-Math.PI / 2);
+          ctx.fillStyle = fitsInside ? C.bg : C.text;
+          ctx.textAlign = 'left';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(text, 0, 0);
+          ctx.restore();
+        });
+        ctx.restore();
+      },
+    };
+  }
+
+  // ── Daily progress rings ──────────────────────────────────
+  // Two doughnut charts in the Meals section showing today's calorie and
+  // protein progress against the daily target, with the remaining balance
+  // printed in the center — added 2026-08-03 for an at-a-glance "how am I
+  // doing / what's left" check. Deliberately NOT scoped to the month
+  // selector above (that dropdown answers "what happened in month X";
+  // this widget only ever answers "how is today going") — it always reads
+  // today's real calendar date, so it "fills" automatically the moment
+  // calorieData/proteinData's daily total for today is updated after a
+  // meal is logged, no separate tracking needed.
+  function todayISO() {
+    const d = new Date();
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${y}-${m}-${day}`;
+  }
+
+  // Draws two lines of text centered inside a doughnut's hole. getText()
+  // is called at draw time (not passed in once), so it always reflects
+  // the chart's current data if this ever needs to be updated in place.
+  function centerLabel(getText) {
+    return {
+      id: 'center_' + Math.random().toString(36).slice(2),
+      afterDraw(chart) {
+        const { ctx, chartArea } = chart;
+        const cx = (chartArea.left + chartArea.right) / 2;
+        const cy = (chartArea.top + chartArea.bottom) / 2;
+        const { line1, line2, color1 } = getText();
+        ctx.save();
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.font = `700 17px ${Chart.defaults.font.family}`;
+        ctx.fillStyle = color1 || C.text;
+        ctx.fillText(line1, cx, cy - 9);
+        ctx.font = `600 10.5px ${Chart.defaults.font.family}`;
+        ctx.fillStyle = C.muted;
+        ctx.fillText(line2, cx, cy + 10);
+        ctx.restore();
+      },
+    };
+  }
+
+  function renderDailyProgress() {
+    const todayStr = todayISO();
+    const consumedCal = (calorieData.find(p => p.date === todayStr) || {}).value || 0;
+    const consumedProtein = (proteinData.find(p => p.date === todayStr) || {}).value || 0;
+
+    // Calories: going over target is the thing to avoid, so an over-target
+    // day fills the ring amber (matching the amber-over-target bar color on
+    // the Daily Consumed Calories chart) instead of showing a negative
+    // "remaining".
+    const calOver = consumedCal > DAILY_CALORIE_TARGET;
+    const calRemaining = DAILY_CALORIE_TARGET - consumedCal;
+    const calSegments = calOver ? [DAILY_CALORIE_TARGET, 0] : [consumedCal, calRemaining];
+    new Chart(document.getElementById('calorieProgressChart'), {
+      type: 'doughnut',
+      data: {
+        datasets: [{
+          data: calSegments,
+          backgroundColor: [calOver ? C.amber : C.blue, C.border],
+          borderWidth: 0,
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '72%',
+        plugins: { legend: { display: false }, tooltip: { enabled: false } },
+      },
+      plugins: [centerLabel(() => calOver
+        ? { line1: `+${(consumedCal - DAILY_CALORIE_TARGET).toLocaleString()}`, line2: 'cal over', color1: C.amber }
+        : { line1: calRemaining.toLocaleString(), line2: 'cal left' }
+      )],
+    });
+    document.getElementById('calorieProgressCaption').innerHTML =
+      `<strong>${consumedCal.toLocaleString()}</strong> / ${DAILY_CALORIE_TARGET.toLocaleString()} cal consumed`;
+
+    // Protein: going over target is fine (goal is a floor, not a ceiling),
+    // so an over-target day fills the ring green with a "+Xg over goal"
+    // label instead of amber — same ring mechanic, opposite meaning.
+    const proteinMet = consumedProtein >= DAILY_PROTEIN_TARGET;
+    const proteinRemaining = DAILY_PROTEIN_TARGET - consumedProtein;
+    const proteinSegments = proteinMet ? [DAILY_PROTEIN_TARGET, 0] : [consumedProtein, proteinRemaining];
+    new Chart(document.getElementById('proteinProgressChart'), {
+      type: 'doughnut',
+      data: {
+        datasets: [{
+          data: proteinSegments,
+          backgroundColor: [C.green, C.border],
+          borderWidth: 0,
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '72%',
+        plugins: { legend: { display: false }, tooltip: { enabled: false } },
+      },
+      plugins: [centerLabel(() => proteinMet
+        ? { line1: `+${consumedProtein - DAILY_PROTEIN_TARGET}g`, line2: 'over goal', color1: C.green }
+        : { line1: `${proteinRemaining}g`, line2: 'left' }
+      )],
+    });
+    document.getElementById('proteinProgressCaption').innerHTML =
+      `<strong>${consumedProtein}g</strong> / ${DAILY_PROTEIN_TARGET}g protein`;
+
+    // Sodium: no dedicated sodiumData daily-total array exists (unlike
+    // calories/protein), so it's summed live from today's meals[] entries.
+    // Some meals have sodium: null (not tracked at the time) — those are
+    // excluded from the sum rather than counted as 0, and the caption flags
+    // it when that happens so an artificially-low ring doesn't read as a
+    // clean day when it's actually just incomplete data. Same over/under
+    // mechanic as calories (a ceiling, not a floor) but amber even while
+    // under target rather than blue — sodium's worth a cautious eye
+    // throughout the day, not just once it's blown past the limit — and
+    // red once over, one step more urgent than calories' amber, matching
+    // how directly it works against Bobby's BP medication.
+    const todaysMeals = meals.filter(m => m.date === todayStr);
+    const knownSodiumMeals = todaysMeals.filter(m => m.sodium != null);
+    const consumedSodium = knownSodiumMeals.reduce((sum, m) => sum + m.sodium, 0);
+    const hasUnknownSodium = todaysMeals.some(m => m.sodium == null);
+    const sodiumOver = consumedSodium > DAILY_SODIUM_TARGET;
+    const sodiumRemaining = DAILY_SODIUM_TARGET - consumedSodium;
+    const sodiumSegments = sodiumOver ? [DAILY_SODIUM_TARGET, 0] : [consumedSodium, sodiumRemaining];
+    new Chart(document.getElementById('sodiumProgressChart'), {
+      type: 'doughnut',
+      data: {
+        datasets: [{
+          data: sodiumSegments,
+          backgroundColor: [sodiumOver ? C.danger : C.amber, C.border],
+          borderWidth: 0,
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: '72%',
+        plugins: { legend: { display: false }, tooltip: { enabled: false } },
+      },
+      plugins: [centerLabel(() => sodiumOver
+        ? { line1: `+${(consumedSodium - DAILY_SODIUM_TARGET).toLocaleString()}`, line2: 'mg over', color1: C.danger }
+        : { line1: sodiumRemaining.toLocaleString(), line2: 'mg left' }
+      )],
+    });
+    document.getElementById('sodiumProgressCaption').innerHTML =
+      `<strong>${consumedSodium.toLocaleString()}</strong> / ${DAILY_SODIUM_TARGET.toLocaleString()} mg sodium` +
+      (hasUnknownSodium ? ` <span title="Some of today's meals don't have sodium tracked">(incomplete)</span>` : '');
+  }
+
+  // ── Month selector ─────────────────────────────────────────
+  // Every bar chart below is scoped to one calendar month at a time. This
+  // is what keeps bar width readable no matter how much history piles up
+  // in data.js — added 2026-08-03 after working out that ~9 bars is about
+  // the ceiling before they start getting squeezed unreadably thin at this
+  // card width. A fixed rolling window (e.g. "last 30 days") was
+  // considered and would've solved the crowding on its own, but a real
+  // month picker gives Bobby actual control over which window he's
+  // looking at, not just whatever the last N days happen to be.
+  function ym(dateStr) { return dateStr.slice(0, 7); }
+
+  function getAvailableMonths() {
+    // Includes meals + events too (added 2026-08-03 when the Meals/Activity
+    // feeds became month-scoped) so a month with, say, a logged meal but no
+    // Fitbit sync yet still shows up as a selectable option.
+    const all = [
+      ...weightData, ...calorieData, ...proteinData, ...stepsData,
+      ...sleepData, ...walksData, ...runsData, ...meals, ...events,
+      ...gymWorkoutsData,
+    ];
+    return [...new Set(all.map(p => ym(p.date)))].sort().reverse();
+  }
+
+  function monthLabel(yearMonth) {
+    const [y, m] = yearMonth.split('-').map(Number);
+    return new Date(y, m - 1, 1).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+  }
+
+  const availableMonths = getAvailableMonths();
+  const monthSelectEl = document.getElementById('monthSelect');
+  monthSelectEl.innerHTML = availableMonths.map(m => `<option value="${m}">${monthLabel(m)}</option>`).join('');
+  monthSelectEl.value = availableMonths[0]; // default: most recent month with data
+  monthSelectEl.addEventListener('change', () => {
+    renderDashboard(monthSelectEl.value);
+    renderFeeds(monthSelectEl.value);
+    renderWorkouts(monthSelectEl.value);
+  });
+
+  // Chart instances — created once on first render, then updated in place
+  // (chart.data and chart.options replaced, then .update() called) on
+  // every month switch, rather than destroyed and rebuilt. The
+  // targetLine/barValueLabels plugins read chart.data live at draw time,
+  // so they only need to be attached once at creation, not re-passed on
+  // every update.
+  let weightChart, burnedChart, calorieChart, proteinChart, stepsChart, sleepChart, walksChartInst, runsChartInst;
+  const STEPS_GOAL = 10000;
+  const SLEEP_GOAL = 7;
+
+  function renderDashboard(month) {
+    const inMonth = p => ym(p.date) === month;
+
+    // ── 1. Weight — bar chart ────────────────────────────────
+    // Hard min/max (not suggestedMin/Max) so bars are based at the floor
+    // instead of 0 — otherwise the narrow-band undulation disappears.
+    // Computed fresh from each month's own data (± 3 lb padding) rather
+    // than a fixed 195–210, so this keeps working correctly as weight
+    // trends over many future months instead of one day falling outside
+    // a hardcoded band.
+    const weightTrend = weightData.filter(p => inMonth(p) && !isNonFasted(p));
+    const wVals = weightTrend.map(p => p.value);
+    const wMin = wVals.length ? Math.floor(Math.min(...wVals) - 3) : 195;
+    const wMax = wVals.length ? Math.ceil(Math.max(...wVals) + 3) : 210;
+    const weightConfig = {
+      type: 'bar',
+      data: {
+        labels: weightTrend.map(p => fmtDate(p.date)),
+        datasets: [{
+          data: weightTrend.map(p => p.value),
+          backgroundColor: C.green,
+          borderRadius: 6,
+          maxBarThickness: 44,
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: ctx => `${ctx.parsed.y.toFixed(1)} lb` } },
+        },
+        scales: {
+          x: { grid: { display: false }, ticks: xTicksRotated },
+          y: {
+            grid: { color: 'rgba(255,255,255,0.06)' },
+            min: wMin,
+            max: wMax,
+            ticks: { callback: v => v + ' lb' },
+          },
+        },
+      },
+    };
+    if (weightChart) { weightChart.data = weightConfig.data; weightChart.options = weightConfig.options; weightChart.update(); }
+    else weightChart = new Chart(document.getElementById('weightChart'), { ...weightConfig, plugins: [barValueLabels(v => v.toFixed(1))] });
+
+    // ── 2a. Calories Burned — bar chart ──────────────────────
+    // From Fitbit's daily calorie-burn figure (stepsData[].calories). Some
+    // days are missing this field entirely — those are skipped rather
+    // than drawn as a false zero. Shares the same suggestedMax as the
+    // Consumed chart below (4500) on purpose, so the two bar heights are
+    // directly, visually comparable — that's the point of the
+    // deficit/excess-at-a-glance pairing.
+    const burnedData = stepsData.filter(p => inMonth(p) && p.calories != null);
+    const burnedConfig = {
+      type: 'bar',
+      data: {
+        labels: burnedData.map(p => fmtDate(p.date)),
+        datasets: [{
+          data: burnedData.map(p => p.calories),
+          backgroundColor: C.orange,
+          borderRadius: 6,
+          maxBarThickness: 44,
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: ctx => `${ctx.parsed.y.toLocaleString()} cal burned` } },
+        },
+        scales: {
+          x: { grid: { display: false }, ticks: xTicksRotated },
+          y: {
+            grid: { color: 'rgba(255,255,255,0.06)' },
+            beginAtZero: true,
+            suggestedMax: 4500,
+            ticks: { callback: v => v.toLocaleString() },
+          },
+        },
+      },
+    };
+    if (burnedChart) { burnedChart.data = burnedConfig.data; burnedChart.options = burnedConfig.options; burnedChart.update(); }
+    else burnedChart = new Chart(document.getElementById('caloriesBurnedChart'), { ...burnedConfig, plugins: [barValueLabels(v => v.toLocaleString())] });
+
+    // ── 2b. Calories Consumed — bar chart ────────────────────
+    const monthCalories = calorieData.filter(inMonth);
+    const calorieConfig = {
+      type: 'bar',
+      data: {
+        labels: monthCalories.map(p => fmtDate(p.date) + (isPartialDay(p) ? '*' : '')),
+        datasets: [{
+          data: monthCalories.map(p => p.value),
+          backgroundColor: monthCalories.map(p =>
+            p.value > DAILY_CALORIE_TARGET ? C.amber : C.blue
+          ),
+          borderRadius: 6,
+          maxBarThickness: 44,
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: ctx => `${ctx.parsed.y.toLocaleString()} cal` } },
+        },
+        layout: { padding: { top: 22 } },
+        scales: {
+          x: { grid: { display: false }, ticks: xTicksRotated },
+          y: {
+            grid: { color: 'rgba(255,255,255,0.06)' },
+            beginAtZero: true,
+            suggestedMax: 4500,
+            ticks: { callback: v => v.toLocaleString() },
+          },
+        },
+      },
+    };
+    if (calorieChart) { calorieChart.data = calorieConfig.data; calorieChart.options = calorieConfig.options; calorieChart.update(); }
+    else calorieChart = new Chart(document.getElementById('calorieChart'), {
+      ...calorieConfig,
+      plugins: [
+        targetLine(DAILY_CALORIE_TARGET, C.danger, `Target · ${DAILY_CALORIE_TARGET.toLocaleString()} cal`),
+        barValueLabels(v => v.toLocaleString()),
+      ],
+    });
+
+    // ── 3. Protein — bar chart ───────────────────────────────
+    const validProtein = proteinData.filter(p => inMonth(p) && p.value !== null);
+    const proteinConfig = {
+      type: 'bar',
+      data: {
+        labels: validProtein.map(p => fmtDate(p.date) + (isPartialDay(p) ? '*' : '')),
+        datasets: [{
+          data: validProtein.map(p => p.value),
+          backgroundColor: validProtein.map(p =>
+            p.value >= DAILY_PROTEIN_TARGET ? C.green : C.orange
+          ),
+          borderRadius: 6,
+          maxBarThickness: 44,
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: ctx => `${ctx.parsed.y}g protein` } },
+        },
+        layout: { padding: { top: 22 } },
+        scales: {
+          x: { grid: { display: false }, ticks: xTicksRotated },
+          y: {
+            grid: { color: 'rgba(255,255,255,0.06)' },
+            beginAtZero: true,
+            suggestedMax: 220,
+            ticks: { callback: v => v + 'g' },
+          },
+        },
+      },
+    };
+    if (proteinChart) { proteinChart.data = proteinConfig.data; proteinChart.options = proteinConfig.options; proteinChart.update(); }
+    else proteinChart = new Chart(document.getElementById('proteinChart'), {
+      ...proteinConfig,
+      plugins: [
+        targetLine(DAILY_PROTEIN_TARGET, C.green, `Target · ${DAILY_PROTEIN_TARGET}g`),
+        barValueLabels(v => v + 'g'),
+      ],
+    });
+
+    // ── 4. Steps — bar chart ─────────────────────────────────
+    const monthSteps = stepsData.filter(inMonth);
+    const stepsConfig = {
+      type: 'bar',
+      data: {
+        labels: monthSteps.map(p => fmtDate(p.date)),
+        datasets: [{
+          data: monthSteps.map(p => p.value),
+          backgroundColor: monthSteps.map(p =>
+            p.value >= STEPS_GOAL ? C.green : C.amber
+          ),
+          borderRadius: 6,
+          maxBarThickness: 44,
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: ctx => `${ctx.parsed.y.toLocaleString()} steps` } },
+        },
+        layout: { padding: { top: 22 } },
+        scales: {
+          x: { grid: { display: false }, ticks: xTicksRotated },
+          y: {
+            grid: { color: 'rgba(255,255,255,0.06)' },
+            beginAtZero: true,
+            suggestedMax: 22000,
+            ticks: { callback: v => (v / 1000).toFixed(0) + 'k' },
+          },
+        },
+      },
+    };
+    if (stepsChart) { stepsChart.data = stepsConfig.data; stepsChart.options = stepsConfig.options; stepsChart.update(); }
+    else stepsChart = new Chart(document.getElementById('stepsChart'), {
+      ...stepsConfig,
+      plugins: [
+        targetLine(STEPS_GOAL, C.amber, `Goal · ${STEPS_GOAL.toLocaleString()}`),
+        barValueLabels(v => v.toLocaleString()),
+      ],
+    });
+
+    // ── 5. Sleep — bars (hours) + line (score) ───────────────
+    const monthSleep = sleepData.filter(inMonth);
+    const sleepConfig = {
+      type: 'bar',
+      data: {
+        labels: monthSleep.map(p => fmtDate(p.date)),
+        datasets: [
+          {
+            type: 'bar',
+            label: 'Hours',
+            data: monthSleep.map(p => p.hours),
+            backgroundColor: monthSleep.map(p =>
+              p.hours >= SLEEP_GOAL ? C.blue : C.amber + 'cc'
+            ),
+            borderRadius: 6,
+            maxBarThickness: 44,
+            yAxisID: 'yHours',
+          },
+          {
+            type: 'line',
+            label: 'Score',
+            data: monthSleep.map(p => p.score),
+            borderColor: C.green,
+            backgroundColor: 'transparent',
+            pointBackgroundColor: C.green,
+            pointRadius: 4,
+            tension: 0.3,
+            yAxisID: 'yScore',
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: true,
+            labels: { color: C.muted, boxWidth: 12, boxHeight: 12, font: { size: 11 } },
+          },
+        },
+        layout: { padding: { top: 22 } },
+        scales: {
+          x: { grid: { display: false }, ticks: xTicksRotated },
+          yHours: {
+            position: 'left',
+            grid: { color: 'rgba(255,255,255,0.06)' },
+            suggestedMin: 4,
+            suggestedMax: 10,
+            title: { display: true, text: 'hours', color: C.muted, font: { size: 10 } },
+            ticks: { callback: v => v + 'h' },
+          },
+          yScore: {
+            position: 'right',
+            grid: { display: false },
+            suggestedMin: 60,
+            suggestedMax: 100,
+            title: { display: true, text: 'score', color: C.muted, font: { size: 10 } },
+          },
+        },
+      },
+    };
+    if (sleepChart) { sleepChart.data = sleepConfig.data; sleepChart.options = sleepConfig.options; sleepChart.update(); }
+    else sleepChart = new Chart(document.getElementById('sleepChart'), {
+      ...sleepConfig,
+      plugins: [targetLine(SLEEP_GOAL, C.danger, `Goal · ${SLEEP_GOAL}h`, 'yHours')],
+    });
+
+    // ── 6. Distance Traversed — bar chart ────────────────────
+    // Aggregate walksData by date (multiple walks on same day are summed),
+    // scoped to the selected month first.
+    const walkMap = {};
+    walksData.filter(inMonth).forEach(w => {
+      walkMap[w.date] = +((walkMap[w.date] || 0) + w.distance).toFixed(2);
+    });
+    const walkAgg = Object.entries(walkMap)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([date, distance]) => ({ date, distance }));
+    const walksConfig = {
+      type: 'bar',
+      data: {
+        labels: walkAgg.map(p => fmtDate(p.date)),
+        datasets: [{
+          data: walkAgg.map(p => p.distance),
+          backgroundColor: C.blue,
+          borderRadius: 6,
+          maxBarThickness: 44,
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: ctx => `${ctx.parsed.y.toFixed(2)} mi walked` } },
+        },
+        scales: {
+          x: { grid: { display: false }, ticks: xTicksRotated },
+          y: {
+            grid: { color: 'rgba(255,255,255,0.06)' },
+            beginAtZero: true,
+            ticks: { callback: v => v + ' mi' },
+          },
+        },
+      },
+    };
+    if (walksChartInst) { walksChartInst.data = walksConfig.data; walksChartInst.options = walksConfig.options; walksChartInst.update(); }
+    else walksChartInst = new Chart(document.getElementById('walksChart'), { ...walksConfig, plugins: [barValueLabels(v => v.toFixed(2) + ' mi')] });
+
+    // ── 7. Strava Runs — distance bar chart ──────────────────
+    // Separate from the Distance Traversed box above: this is only
+    // dedicated, GPS-tracked runs (runsData), each with its own
+    // pace/elevation/HR detail available in the tooltip.
+    const runsSorted = runsData.filter(inMonth).sort((a, b) => a.date.localeCompare(b.date));
+    const runsConfig = {
+      type: 'bar',
+      data: {
+        labels: runsSorted.map(r => fmtDate(r.date)),
+        datasets: [{
+          data: runsSorted.map(r => r.distance),
+          backgroundColor: C.danger,
+          borderRadius: 6,
+          maxBarThickness: 44,
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: ctx => {
+                const r = runsSorted[ctx.dataIndex];
+                const parts = [`${r.distance.toFixed(2)} mi`];
+                if (r.name) parts.unshift(r.name);
+                if (r.avgPace) parts.push(`pace ${r.avgPace}/mi`);
+                if (r.calories) parts.push(`${r.calories} cal`);
+                if (r.elevationGain != null) parts.push(`+${r.elevationGain} ft elev`);
+                return parts.join(' · ');
+              },
+            },
+          },
+        },
+        scales: {
+          x: { grid: { display: false }, ticks: xTicksRotated },
+          y: {
+            grid: { color: 'rgba(255,255,255,0.06)' },
+            beginAtZero: true,
+            ticks: { callback: v => v + ' mi' },
+          },
+        },
+      },
+    };
+    if (runsChartInst) { runsChartInst.data = runsConfig.data; runsChartInst.options = runsConfig.options; runsChartInst.update(); }
+    else runsChartInst = new Chart(document.getElementById('runsChart'), { ...runsConfig, plugins: [barValueLabels(v => v.toFixed(2) + ' mi')] });
+  }
+
+  renderDashboard(monthSelectEl.value);
+  renderFeeds(monthSelectEl.value);
+  renderWorkouts(monthSelectEl.value);
+  renderDailyProgress();
+</script>
+
+</body>
+</html>
