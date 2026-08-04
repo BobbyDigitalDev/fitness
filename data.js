@@ -101,7 +101,8 @@ const weightData = [
   { date: "2026-07-31", value: 204.6, note: "morning" },
   { date: "2026-08-01", value: 203.8, note: "morning fasted" },
   { date: "2026-08-02", value: 202.4, note: "morning fasted (via Fitbit sync, fishing day)" },
-  { date: "2026-08-03", value: 203.4, note: "morning fasted" }
+  { date: "2026-08-03", value: 203.4, note: "morning fasted" },
+  { date: "2026-08-04", value: 203.8, note: "morning fasted" }
 ];
 
 const calorieData = [
