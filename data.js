@@ -49,7 +49,7 @@
 //                      data from Fitbit (sometimes a partial capture if the watch started late — note it when so)
 //   measurementData: { date: "2026-07-26", neck, shoulders, chest, waist, hips, bicep, thigh, calf }
 //                    → tailor's-tape measurements in inches; leave a field null until measured
-//   meals:           { date: "2026-07-26", time: "12:00", description: "grilled chicken + rice", photo: "../progress/food-photos/2026-07-26-grilled-chicken.jpeg",
+//   meals:           { date: "2026-07-26", time: "12:00", description: "grilled chicken + rice", photo: "food-photos/2026-07-26-grilled-chicken.jpeg",
 //                       calories: 520, protein: 40, carbs: 45, fat: 15, sodium: 380, sodiumNote: "" }
 //                    → one entry per photographed meal (see WORKFLOW.md for the full food-photo SOP).
 //                      photo path is relative to site/index.html. sodiumNote: short flag text
@@ -307,23 +307,23 @@ const measurementData = [
 const meals = [
   // July 30 — all times as logged
   { date: "2026-07-30", time: "08:00", description: "Breakfast (8:00 AM) — 2 eggs + sausage patty",
-    photo: "../progress/food-photos/2026-07-30-breakfast.jpeg",
+    photo: "food-photos/2026-07-30-breakfast.jpeg",
     calories: 335, protein: 21, carbs: 2, fat: 27, sodium: null },
   { date: "2026-07-30", time: "13:00", description: "Lunch (1:00 PM) — 0.24 lbs shrimp + 2 hard boiled eggs",
-    photo: "../progress/food-photos/2026-07-30-lunch.jpeg",
+    photo: "food-photos/2026-07-30-lunch.jpeg",
     calories: 255, protein: 37, carbs: 1, fat: 11, sodium: null },
   { date: "2026-07-30", time: "20:30", description: "Dinner (8:30 PM) — Air fryer salmon (~5.5 oz) + dinner salad (mixed greens, avocado, cucumber, TJ's Nut Mix, sesame seeds) + TJ's Green Onion Pancake",
-    photo: "../progress/food-photos/2026-07-30-dinner.jpeg",
+    photo: "food-photos/2026-07-30-dinner.jpeg",
     calories: 1157, protein: 64, carbs: 65, fat: 71, sodium: null },
   { date: "2026-07-30", time: "21:30", description: "Protein Shake (9:30 PM) — 3 scoops rice protein + banana + 2 tbsp PB + 4 oz almond milk",
-    photo: "../progress/food-photos/2026-07-30-shake.jpeg",
+    photo: "food-photos/2026-07-30-shake.jpeg",
     calories: 731, protein: 56, carbs: 45, fat: 36, sodium: null },
   // July 31 — only Breakfast had a logged time; the rest are estimated
   // (2026-08-03) based on the usual meal-timing pattern, since the
   // original entries didn't capture one. Correct these if you remember
   // the actual times.
   { date: "2026-07-31", time: "11:00", description: "Breakfast (11:00 AM) — 2 eggs overhard + sausage patty",
-    photo: "../progress/food-photos/2026-07-31-breakfast.jpeg",
+    photo: "food-photos/2026-07-31-breakfast.jpeg",
     calories: 335, protein: 21, carbs: 2, fat: 27, sodium: null },
   { date: "2026-07-31", time: "13:00", description: "Lunch — Shrimp + Hard Boiled Eggs (0.3 lbs cooked shrimp ~136g + 2 hard boiled eggs)",
     calories: 290, protein: 46, sodium: 274, note: "time estimated — not logged" },
@@ -378,22 +378,22 @@ const meals = [
   { date: "2026-08-03", time: "11:26", name: "Over-Hard Eggs & Sausage Patty",
     description: "2 large eggs, over-hard + 1 breakfast sausage patty (~2 oz, standard) — first meal, ~11:26 AM. Portion/brand assumed, not confirmed.",
     calories: 350, protein: 21, carbs: 2, fat: 29, sodium: 550, sodiumNote: "Sausage patty ~380mg of the 550mg total" },
-  { date: "2026-08-03", time: "13:00", name: "Hard Boiled Eggs, Jerk Shrimp & Chobani Yogurt", photo: "../progress/food-photos/2026-08-03-chobani-blueberry-yogurt-1.jpeg",
+  { date: "2026-08-03", time: "13:00", name: "Hard Boiled Eggs, Jerk Shrimp & Chobani Yogurt", photo: "food-photos/2026-08-03-chobani-blueberry-yogurt-1.jpeg",
     description: "2 hard boiled eggs + 0.31 lb (~140g) jerk shrimp + Chobani Blueberry Yogurt (Protein Rich), 1 container (150g) — second meal, all eaten together. Sodium estimate for the shrimp has wider-than-usual uncertainty since jerk seasoning intensity varies a lot by brand/recipe; yogurt values are exact from the label.",
     calories: 465, protein: 56, carbs: 20, fat: 18, sodium: 770, sodiumNote: "Jerk marinade/seasoning is the main sodium driver — shrimp itself is naturally lean and low-sodium", note: "time estimated — not logged" },
-  { date: "2026-08-03", time: "15:05", name: "Afternoon Snack — Chips, Fig Bar & Sparkling Water", photo: "../progress/food-photos/2026-08-03-community-snacks-honey-bbq-chips.jpeg",
+  { date: "2026-08-03", time: "15:05", name: "Afternoon Snack — Chips, Fig Bar & Sparkling Water", photo: "food-photos/2026-08-03-community-snacks-honey-bbq-chips.jpeg",
     description: "Community Snacks Honey BBQ Kettle Cooked Potato Chips (1 package, 2oz/56g — flavor confirmed via front-of-bag photo) + Nature's Bakery Fig Bar, Strawberry (1 package, 57g) + LaCroix Pure sparkling water (1 can, plain, 0 cal). Label values, exact.",
     calories: 490, protein: 6, carbs: 72, fat: 21, sodium: 365, sodiumNote: "Chips are the whole story — 290mg of the 365mg total. Moderate, not a major flag." },
-  { date: "2026-08-03", time: "20:12", name: "Pork Cutlet, Broccoli & Sweet Potato", photo: "../progress/food-photos/2026-08-03-pork-cutlet-broccoli-sweet-potato.jpeg",
+  { date: "2026-08-03", time: "20:12", name: "Pork Cutlet, Broccoli & Sweet Potato", photo: "food-photos/2026-08-03-pork-cutlet-broccoli-sweet-potato.jpeg",
     description: "Pork cutlet (~6oz cooked, boneless loin, sliced), seasoned with salt and pepper only, pan-seared + broccoli + 1 small roasted sweet potato — dinner. Portion sizes estimated from the photo.",
     calories: 485, protein: 52, carbs: 31, fat: 20, sodium: 610, sodiumNote: "Mostly home seasoning (salt) on the pork, not a packaged ingredient — moderate, not a major flag" },
   { date: "2026-08-03", time: "21:00", name: "Peanut Butter Rice Protein Shake", photo: "",
     description: "3 flat scoops rice protein + 2 tbsp peanut butter + almond milk, no banana — after dinner. Same recipe as the August 1 evening shake, macros reused directly rather than re-estimated. No photo shared for this one.",
     calories: 645, protein: 58, carbs: 18, fat: 24, sodium: 290 },
-  { date: "2026-08-04", time: "10:56", name: "Chobani Blueberry Greek Yogurt", photo: "../progress/food-photos/2026-08-04-chobani-blueberry-greek-yogurt.jpeg",
+  { date: "2026-08-04", time: "10:56", name: "Chobani Blueberry Greek Yogurt", photo: "food-photos/2026-08-04-chobani-blueberry-greek-yogurt.jpeg",
     description: "Chobani Greek Yogurt, Blueberry on the Bottom, 1 container (150g) — breakfast. Label values, exact.",
     calories: 110, protein: 12, carbs: 15, fat: 0, sodium: 60 },
-  { date: "2026-08-04", time: "10:56", name: "Banana", photo: "../progress/food-photos/2026-08-04-banana.jpeg",
+  { date: "2026-08-04", time: "10:56", name: "Banana", photo: "food-photos/2026-08-04-banana.jpeg",
     description: "1 medium banana, eaten alongside the yogurt above — breakfast. USDA standard estimate (no label to read from).",
     calories: 105, protein: 1, carbs: 27, fat: 0, sodium: 1, note: "outside the usual noon-start eating window — a one-off, not flagged unless it becomes a pattern" },
 ];
