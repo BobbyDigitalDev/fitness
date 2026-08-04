@@ -27,9 +27,11 @@ hr { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
 .safety-box b { color: var(--text); }
 .section-title { font-size: 1.05rem; font-weight: 700; margin: 20px 4px 10px; }
 .focus-text { color: var(--text); font-size: 0.92rem; line-height: 1.6; margin: 0 4px 18px; }
-.exercise-card { display: flex; gap: 14px; flex-wrap: wrap; }
-.exercise-card img { width: 140px; height: auto; border-radius: 10px; object-fit: cover; flex-shrink: 0; }
-.exercise-body { flex: 1; min-width: 200px; }
+.exercise-card img {
+  display: block; width: 100%; max-height: 320px; object-fit: contain;
+  background: var(--surface-2); border-radius: 10px; margin-bottom: 14px;
+}
+.exercise-body { }
 .exercise-name { font-size: 1.05rem; font-weight: 700; }
 .exercise-target { color: var(--orange); font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 2px; margin-bottom: 8px; }
 .exercise-cue { font-size: 0.88rem; color: var(--muted); line-height: 1.5; margin-bottom: 12px; }
