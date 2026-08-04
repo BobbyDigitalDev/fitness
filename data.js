@@ -121,7 +121,8 @@ const calorieData = [
   { date: "2026-07-31", value: 2675, note: "final" },
   { date: "2026-08-01", value: 1935, note: "final" },
   { date: "2026-08-02", value: null, note: "not logged — fishing day, off pattern" },
-  { date: "2026-08-03", value: 2435, note: "final — ~35 cal over the 2,400 target" }
+  { date: "2026-08-03", value: 2435, note: "final — ~35 cal over the 2,400 target" },
+  { date: "2026-08-04", value: 215, note: "partial — breakfast only so far" }
 ];
 
 const sleepData = [
@@ -389,6 +390,12 @@ const meals = [
   { date: "2026-08-03", time: "21:00", name: "Peanut Butter Rice Protein Shake", photo: "",
     description: "3 flat scoops rice protein + 2 tbsp peanut butter + almond milk, no banana — after dinner. Same recipe as the August 1 evening shake, macros reused directly rather than re-estimated. No photo shared for this one.",
     calories: 645, protein: 58, carbs: 18, fat: 24, sodium: 290 },
+  { date: "2026-08-04", time: "10:56", name: "Chobani Blueberry Greek Yogurt", photo: "../progress/food-photos/2026-08-04-chobani-blueberry-greek-yogurt.jpeg",
+    description: "Chobani Greek Yogurt, Blueberry on the Bottom, 1 container (150g) — breakfast. Label values, exact.",
+    calories: 110, protein: 12, carbs: 15, fat: 0, sodium: 60 },
+  { date: "2026-08-04", time: "10:56", name: "Banana", photo: "../progress/food-photos/2026-08-04-banana.jpeg",
+    description: "1 medium banana, eaten alongside the yogurt above — breakfast. USDA standard estimate (no label to read from).",
+    calories: 105, protein: 1, carbs: 27, fat: 0, sodium: 1, note: "outside the usual noon-start eating window — a one-off, not flagged unless it becomes a pattern" },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -433,5 +440,6 @@ const proteinData = [
   { date: "2026-07-31", value: 184, note: "final" },
   { date: "2026-08-01", value: 152, note: "final" },
   { date: "2026-08-02", value: null, note: "not logged — fishing day, off pattern" },
-  { date: "2026-08-03", value: 193, note: "final — right in the 180–200g target range" }
+  { date: "2026-08-03", value: 193, note: "final — right in the 180–200g target range" },
+  { date: "2026-08-04", value: 13, note: "partial — breakfast only so far" }
 ];
