@@ -114,7 +114,7 @@ const calorieData = [
   { date: "2026-07-31", value: 2675, note: "final" },
   { date: "2026-08-01", value: 1935, note: "final" },
   { date: "2026-08-02", value: null, note: "not logged — fishing day, off pattern" },
-  { date: "2026-08-03", value: 1305, note: "partial" }
+  { date: "2026-08-03", value: 2435, note: "final — ~35 cal over the 2,400 target" }
 ];
 
 const sleepData = [
@@ -373,6 +373,12 @@ const meals = [
   { date: "2026-08-03", time: "15:05", name: "Afternoon Snack — Chips, Fig Bar & Sparkling Water", photo: "../progress/food-photos/2026-08-03-community-snacks-honey-bbq-chips.jpeg",
     description: "Community Snacks Honey BBQ Kettle Cooked Potato Chips (1 package, 2oz/56g — flavor confirmed via front-of-bag photo) + Nature's Bakery Fig Bar, Strawberry (1 package, 57g) + LaCroix Pure sparkling water (1 can, plain, 0 cal). Label values, exact.",
     calories: 490, protein: 6, carbs: 72, fat: 21, sodium: 365, sodiumNote: "Chips are the whole story — 290mg of the 365mg total. Moderate, not a major flag." },
+  { date: "2026-08-03", time: "20:12", name: "Pork Cutlet, Broccoli & Sweet Potato", photo: "../progress/food-photos/2026-08-03-pork-cutlet-broccoli-sweet-potato.jpeg",
+    description: "Pork cutlet (~6oz cooked, boneless loin, sliced), seasoned with salt and pepper only, pan-seared + broccoli + 1 small roasted sweet potato — dinner. Portion sizes estimated from the photo.",
+    calories: 485, protein: 52, carbs: 31, fat: 20, sodium: 610, sodiumNote: "Mostly home seasoning (salt) on the pork, not a packaged ingredient — moderate, not a major flag" },
+  { date: "2026-08-03", time: "21:00", name: "Peanut Butter Rice Protein Shake", photo: "",
+    description: "3 flat scoops rice protein + 2 tbsp peanut butter + almond milk, no banana — after dinner. Same recipe as the August 1 evening shake, macros reused directly rather than re-estimated. No photo shared for this one.",
+    calories: 645, protein: 58, carbs: 18, fat: 24, sodium: 290 },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -416,5 +422,5 @@ const proteinData = [
   { date: "2026-07-31", value: 184, note: "final" },
   { date: "2026-08-01", value: 152, note: "final" },
   { date: "2026-08-02", value: null, note: "not logged — fishing day, off pattern" },
-  { date: "2026-08-03", value: 83, note: "partial" }
+  { date: "2026-08-03", value: 193, note: "final — right in the 180–200g target range" }
 ];
