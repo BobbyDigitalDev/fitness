@@ -142,7 +142,8 @@ const stepsData = [
   { date: "2026-07-30", value: 15425, distance: 7.47, calories: 3434, floors: 20, zoneMin: 8, note: "burned corrected 2026-08-03 from 3,337 to 3,434 per final Fitbit sync" },
   { date: "2026-07-31", value: 9723, distance: 4.65, calories: 2853, floors: 12, zoneMin: 3, note: "burned corrected 2026-08-03 from 2,871 to 2,853 per final Fitbit sync" },
   { date: "2026-08-01", value: 8136, distance: 3.84, calories: 2986, floors: 17, zoneMin: 0 },
-  { date: "2026-08-02", value: 5059, distance: 2.51, calories: 3346, floors: 3, zoneMin: 0 }
+  { date: "2026-08-02", value: 5059, distance: 2.51, calories: 3346, floors: 3, zoneMin: 0 },
+  { date: "2026-08-03", value: 7908, distance: 3.85, calories: 2792, floors: 11, zoneMin: 0 }
 ];
 
 // Tracked runs. distance/pace/calories are from Strava (usually the full
@@ -216,7 +217,8 @@ const walksData = [
   { date: "2026-07-30", distance: 0.74, duration: 17, pace: 22.97 },
   { date: "2026-07-31", distance: 1.44, duration: 29, pace: 20.14 },
   { date: "2026-08-01", distance: 3.84, note: "No dedicated tracked walk — this is the day's total Fitbit distance (gym day)" },
-  { date: "2026-08-02", distance: 2.51, note: "No dedicated tracked walk — this is the day's total Fitbit distance (fishing day)" }
+  { date: "2026-08-02", distance: 2.51, note: "No dedicated tracked walk — this is the day's total Fitbit distance (fishing day)" },
+  { date: "2026-08-03", distance: 3.85, note: "No dedicated tracked walk — this is the day's total Fitbit distance (desk/computer day)" }
 ];
 
 // Gym workout sessions. One entry per session; exercises listed in order performed.
@@ -397,6 +399,7 @@ const events = [
   { date: "2026-08-01", text: "<strong>Daily stats:</strong> 8,136 steps · 3.84 mi · 17 floors · 2,986 cal burned · 0 zone min · Readiness 68 (High) · RHR 65 bpm (range 52–125) · Cardio Load 16 · 6 of 5 exercise days last week" },
   { date: "2026-08-02", text: "Fishing day — nutrition not logged (off normal pattern, skipped by request)" },
   { date: "2026-08-02", text: "<strong>Daily stats:</strong> 5,059 steps · 2.51 mi · 3 floors · 3,346 cal burned · 0 zone min · Readiness 67 (High) · RHR 66 bpm (range 54–118) · Cardio Load 62 · 0 of 5 exercise days this week" },
+  { date: "2026-08-03", text: "<strong>Daily stats:</strong> 7,908 steps · 3.85 mi · 11 floors · 2,792 cal burned · 0 zone min · Readiness 56 (Moderate) · RHR 66 bpm (range 55–111) · Cardio Load 2 · 0 of 5 exercise days this week" },
 ];
 
 // Structured facts that don't fit a time series — just a one-line goals
