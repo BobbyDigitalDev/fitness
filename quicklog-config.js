@@ -14,8 +14,8 @@
 // on his behalf). accessKey should be a JSONBin "Access Key" scoped to
 // read+update only, NOT the account's master key.
 const QUICKLOG_CONFIG = {
-  binId: "",
-  accessKey: "",
+  binId: "6a720beeda38895dfeb91347",
+  accessKey: "$2a$10$PXXdtpX3b.VbECgjDD.G0e1JE9VJX6GG.tWZlP8f1AHhoA3c045oe",
 };
 
 function quicklogConfigured() {
