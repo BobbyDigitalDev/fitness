@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full-Body B — Workout Guide</title>
+<style>
+:root {
+  --bg: #0f1115; --surface: #191c23; --surface-2: #21252e; --border: #2b303b;
+  --text: #e8eaf0; --muted: #9aa1b0; --accent: #4ade80; --accent-2: #60a5fa;
+  --warn: #fbbf24; --orange: #fb923c; --danger: #f87171; --radius: 14px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5; padding: 16px; max-width: 720px; margin: 0 auto;
+}
+a { color: var(--accent-2); }
+.back-link { display: inline-block; color: var(--muted); font-size: 0.85rem; margin-bottom: 14px; text-decoration: none; }
+.back-link:hover { color: var(--text); }
+h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; text-align: center; }
+.subtitle { color: var(--muted); font-size: 0.9rem; text-align: center; margin-top: 6px; margin-bottom: 18px; }
+hr { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; margin-bottom: 14px; }
+.safety-box { background: var(--surface-2); border-radius: var(--radius); padding: 16px 18px; margin-bottom: 18px; font-size: 0.92rem; line-height: 1.6; }
+.safety-box b { color: var(--text); }
+.section-title { font-size: 1.05rem; font-weight: 700; margin: 20px 4px 10px; }
+.focus-text { color: var(--text); font-size: 0.92rem; line-height: 1.6; margin: 0 4px 18px; }
+.exercise-card { display: flex; gap: 14px; flex-wrap: wrap; }
+.exercise-card img { width: 140px; height: auto; border-radius: 10px; object-fit: cover; flex-shrink: 0; }
+.exercise-body { flex: 1; min-width: 200px; }
+.exercise-name { font-size: 1.05rem; font-weight: 700; }
+.exercise-target { color: var(--orange); font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 2px; margin-bottom: 8px; }
+.exercise-cue { font-size: 0.88rem; color: var(--muted); line-height: 1.5; margin-bottom: 12px; }
+.sets-table { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
+.sets-table th { text-align: left; color: var(--muted); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0 6px 6px 0; border-bottom: 1px solid var(--border); }
+.sets-table td { padding: 6px 6px 6px 0; }
+.sets-table input, .sets-table select {
+  width: 100%; background: var(--surface-2); color: var(--text); border: 1px solid var(--border);
+  border-radius: 6px; padding: 7px 8px; font-size: 0.9rem; font-family: inherit;
+}
+.feel-row { display: flex; align-items: center; gap: 10px; margin-top: 8px; flex-wrap: wrap; }
+.feel-row label { color: var(--muted); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.feel-btn {
+  background: var(--surface-2); color: var(--muted); border: 1px solid var(--border);
+  border-radius: 999px; padding: 6px 12px; font-size: 0.82rem; font-family: inherit; cursor: pointer;
+}
+.feel-btn.selected { background: var(--accent-2); color: #0f1115; border-color: var(--accent-2); }
+.save-bar { position: sticky; bottom: 0; background: var(--bg); padding: 14px 0 6px; margin-top: 10px; }
+.save-btn {
+  width: 100%; background: var(--accent); color: #0f1115; border: none; border-radius: 10px;
+  padding: 14px; font-size: 1rem; font-weight: 700; font-family: inherit; cursor: pointer;
+}
+.save-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.save-status { margin-top: 10px; font-size: 0.85rem; text-align: center; }
+.save-status.ok { color: var(--accent); }
+.save-status.err { color: var(--danger); }
+.save-status.info { color: var(--muted); }
+.closing-note { color: var(--muted); font-size: 0.82rem; line-height: 1.5; margin-top: 16px; }
+/* Lock screen (identical to index.html's — kept in sync by hand, 4 files total) */
+body.locked { overflow: hidden; }
+.lock-screen { position: fixed; inset: 0; z-index: 9999; background: var(--bg); display: flex; align-items: center; justify-content: center; padding: 20px; }
+.lock-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px 28px; width: 100%; max-width: 320px; text-align: center; }
+.lock-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; }
+.lock-sub { color: var(--muted); font-size: 0.85rem; margin-bottom: 20px; }
+.lock-input { width: 100%; background: var(--surface-2); color: var(--text); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; font-size: 1rem; font-family: inherit; margin-bottom: 12px; }
+.lock-button { width: 100%; background: var(--accent-2); color: #0f1115; border: none; border-radius: 8px; padding: 10px 12px; font-size: 0.95rem; font-weight: 700; font-family: inherit; cursor: pointer; }
+.lock-error { color: var(--danger); font-size: 0.82rem; margin-top: 12px; }
+</style>
+</head>
+<body>
+
+<!-- CLAUDE REMINDER: This lock screen is a hand-kept copy of index.html's —
+     there are 4 files total (index.html + 3 guides) that need the exact
+     same passphrase. If it ever changes, update all 4. Not real security,
+     see index.html's own reminder for why. -->
+
+<div id="lockScreen" class="lock-screen">
+  <div class="lock-box">
+    <div class="lock-title">🔒 Workout Guide</div>
+    <div class="lock-sub">Enter the passphrase to continue</div>
+    <input type="password" id="lockInput" class="lock-input" placeholder="Passphrase" autocomplete="off" />
+    <button id="lockSubmit" class="lock-button" type="button">Unlock</button>
+    <div class="lock-error" id="lockError" style="display:none;">Wrong passphrase — try again.</div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var CORRECT_PASSPHRASE = 'FitBobby2026';
+  var lockScreen = document.getElementById('lockScreen');
+  var input = document.getElementById('lockInput');
+  var button = document.getElementById('lockSubmit');
+  var errorEl = document.getElementById('lockError');
+  function tryUnlock() {
+    if (input.value === CORRECT_PASSPHRASE) {
+      localStorage.setItem('fitnessUnlocked', 'true');
+      lockScreen.style.display = 'none';
+      document.body.classList.remove('locked');
+    } else {
+      errorEl.style.display = 'block';
+      input.value = '';
+      input.focus();
+    }
+  }
+  button.addEventListener('click', tryUnlock);
+  input.addEventListener('keydown', function (e) { if (e.key === 'Enter') tryUnlock(); });
+  if (localStorage.getItem('fitnessUnlocked') === 'true') {
+    lockScreen.style.display = 'none';
+  } else {
+    document.body.classList.add('locked');
+    setTimeout(function () { input.focus(); }, 50);
+  }
+})();
+</script>
+
+<a class="back-link" href="../index.html">&larr; Back to dashboard</a>
+<h1>Full-Body B</h1>
+<div class="subtitle">Thursday · Shoulders &amp; Posterior Chain Emphasis · Life Time Battery Park · ~45–60 min</div>
+
+<div class="safety-box"><b>Before you start — warm-up (5–10 min):</b> 5 min light cardio (brisk walk, bike, or rower, easy pace) &rarr; arm circles and band pull-aparts, 15–20 reps each &rarr; one light warm-up set of exercise #1 (light plates, 12–15 easy reps) before loading real weight.<br><br>Several moves here have you lying, seated, or bending forward: move between positions calmly rather than popping up fast — Nifedipine can cause dizziness on standing. Hydrate before, during, and after.</div>
+
+<div class="section-title">Today's Full-Body Focus</div>
+<div class="focus-text">Today's push is overhead instead of flat/incline — it hits front and side delt directly. The pull moves to horizontal rowing for back thickness, and the leg pattern flips to hamstring/glute-dominant with the Romanian deadlift. Isolation work targets the rear delt — the head that finishes the “3D” shoulder look from behind.</div>
+
+<div class="section-title">The Session</div>
+
+  <div class="card exercise-card" data-exercise-idx="0" data-exercise-name="Seated Shoulder Press">
+    <img src="images/shoulder_press.jpg" alt="Seated Shoulder Press" />
+    <div class="exercise-body">
+      <div class="exercise-name">1. Seated Shoulder Press</div>
+      <div class="exercise-target">PUSH · FRONT + SIDE DELT</div>
+      <div class="exercise-cue">Press straight overhead, ribs down (don't arch the lower back to finish the rep).</div>
+      <table class="sets-table">
+        <thead><tr><th>Set</th><th>Reps</th><th>Weight (lb)</th></tr></thead>
+        <tbody><tr><td>Set 1</td><td><input type="number" class="ql-reps" data-ex="0" data-set="0" placeholder="8-12" /></td><td><span class="ql-weight-slot" data-ex="0" data-set="0" data-exname="Seated Shoulder Press"></span></td></tr><tr><td>Set 2</td><td><input type="number" class="ql-reps" data-ex="0" data-set="1" placeholder="8-12" /></td><td><span class="ql-weight-slot" data-ex="0" data-set="1" data-exname="Seated Shoulder Press"></span></td></tr><tr><td>Set 3</td><td><input type="number" class="ql-reps" data-ex="0" data-set="2" placeholder="8-12" /></td><td><span class="ql-weight-slot" data-ex="0" data-set="2" data-exname="Seated Shoulder Press"></span></td></tr></tbody>
+      </table>
+      <div class="feel-row">
+        <label>How'd it feel?</label>
+        <button type="button" class="feel-btn" data-ex="0" data-feel="Easy">💪 Easy</button><button type="button" class="feel-btn" data-ex="0" data-feel="Just right">🎯 Just right</button><button type="button" class="feel-btn" data-ex="0" data-feel="Hard">😓 Hard</button><button type="button" class="feel-btn" data-ex="0" data-feel="Too much">⚠️ Too much</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card exercise-card" data-exercise-idx="1" data-exercise-name="Seated Cable Row">
+    <img src="images/seated_cable_row.jpg" alt="Seated Cable Row" />
+    <div class="exercise-body">
+      <div class="exercise-name">2. Seated Cable Row</div>
+      <div class="exercise-target">PULL · BACK THICKNESS</div>
+      <div class="exercise-cue">Sit tall, drive elbows back past the ribs, squeeze the shoulder blades together at the finish.</div>
+      <table class="sets-table">
+        <thead><tr><th>Set</th><th>Reps</th><th>Weight (lb)</th></tr></thead>
+        <tbody><tr><td>Set 1</td><td><input type="number" class="ql-reps" data-ex="1" data-set="0" placeholder="8-12" /></td><td><span class="ql-weight-slot" data-ex="1" data-set="0" data-exname="Seated Cable Row"></span></td></tr><tr><td>Set 2</td><td><input type="number" class="ql-reps" data-ex="1" data-set="1" placeholder="8-12" /></td><td><span class="ql-weight-slot" data-ex="1" data-set="1" data-exname="Seated Cable Row"></span></td></tr><tr><td>Set 3</td><td><input type="number" class="ql-reps" data-ex="1" data-set="2" placeholder="8-12" /></td><td><span class="ql-weight-slot" data-ex="1" data-set="2" data-exname="Seated Cable Row"></span></td></tr></tbody>
+      </table>
+      <div class="feel-row">
+        <label>How'd it feel?</label>
+        <button type="button" class="feel-btn" data-ex="1" data-feel="Easy">💪 Easy</button><button type="button" class="feel-btn" data-ex="1" data-feel="Just right">🎯 Just right</button><button type="button" class="feel-btn" data-ex="1" data-feel="Hard">😓 Hard</button><button type="button" class="feel-btn" data-ex="1" data-feel="Too much">⚠️ Too much</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card exercise-card" data-exercise-idx="2" data-exercise-name="Romanian Deadlift">
+    <img src="images/romanian_deadlift.jpg" alt="Romanian Deadlift" />
+    <div class="exercise-body">
+      <div class="exercise-name">3. Romanian Deadlift</div>
+      <div class="exercise-target">LEG · HAMSTRING/GLUTE</div>
+      <div class="exercise-cue">Soft knee bend, hinge at the hips, bar stays close to the legs. Stretch to roughly mid-shin, not the floor.</div>
+      <table class="sets-table">
+        <thead><tr><th>Set</th><th>Reps</th><th>Weight (lb)</th></tr></thead>
+        <tbody><tr><td>Set 1</td><td><input type="number" class="ql-reps" data-ex="2" data-set="0" placeholder="8-12" /></td><td><span class="ql-weight-slot" data-ex="2" data-set="0" data-exname="Romanian Deadlift"></span></td></tr><tr><td>Set 2</td><td><input type="number" class="ql-reps" data-ex="2" data-set="1" placeholder="8-12" /></td><td><span class="ql-weight-slot" data-ex="2" data-set="1" data-exname="Romanian Deadlift"></span></td></tr><tr><td>Set 3</td><td><input type="number" class="ql-reps" data-ex="2" data-set="2" placeholder="8-12" /></td><td><span class="ql-weight-slot" data-ex="2" data-set="2" data-exname="Romanian Deadlift"></span></td></tr></tbody>
+      </table>
+      <div class="feel-row">
+        <label>How'd it feel?</label>
+        <button type="button" class="feel-btn" data-ex="2" data-feel="Easy">💪 Easy</button><button type="button" class="feel-btn" data-ex="2" data-feel="Just right">🎯 Just right</button><button type="button" class="feel-btn" data-ex="2" data-feel="Hard">😓 Hard</button><button type="button" class="feel-btn" data-ex="2" data-feel="Too much">⚠️ Too much</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card exercise-card" data-exercise-idx="3" data-exercise-name="Rear Delt Fly">
+    <img src="images/rear_delt_fly.jpg" alt="Rear Delt Fly" />
+    <div class="exercise-body">
+      <div class="exercise-name">4. Rear Delt Fly</div>
+      <div class="exercise-target">SHOULDER ISOLATION · REAR DELT</div>
+      <div class="exercise-cue">Reverse pec-deck or cable if available, otherwise bent-over dumbbell fly. Don't skip this one.</div>
+      <table class="sets-table">
+        <thead><tr><th>Set</th><th>Reps</th><th>Weight (lb)</th></tr></thead>
+        <tbody><tr><td>Set 1</td><td><input type="number" class="ql-reps" data-ex="3" data-set="0" placeholder="12-15" /></td><td><span class="ql-weight-slot" data-ex="3" data-set="0" data-exname="Rear Delt Fly"></span></td></tr><tr><td>Set 2</td><td><input type="number" class="ql-reps" data-ex="3" data-set="1" placeholder="12-15" /></td><td><span class="ql-weight-slot" data-ex="3" data-set="1" data-exname="Rear Delt Fly"></span></td></tr><tr><td>Set 3</td><td><input type="number" class="ql-reps" data-ex="3" data-set="2" placeholder="12-15" /></td><td><span class="ql-weight-slot" data-ex="3" data-set="2" data-exname="Rear Delt Fly"></span></td></tr></tbody>
+      </table>
+      <div class="feel-row">
+        <label>How'd it feel?</label>
+        <button type="button" class="feel-btn" data-ex="3" data-feel="Easy">💪 Easy</button><button type="button" class="feel-btn" data-ex="3" data-feel="Just right">🎯 Just right</button><button type="button" class="feel-btn" data-ex="3" data-feel="Hard">😓 Hard</button><button type="button" class="feel-btn" data-ex="3" data-feel="Too much">⚠️ Too much</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card exercise-card" data-exercise-idx="4" data-exercise-name="Flat/Machine Chest Press">
+    <img src="images/flat_chest_press.jpg" alt="Flat/Machine Chest Press" />
+    <div class="exercise-body">
+      <div class="exercise-name">5. Flat/Machine Chest Press</div>
+      <div class="exercise-target">PEC ACCESSORY · MID PEC</div>
+      <div class="exercise-cue">Push for one more rep than last time if the top set still leaves 2 in the tank with good form.</div>
+      <table class="sets-table">
+        <thead><tr><th>Set</th><th>Reps</th><th>Weight (lb)</th></tr></thead>
+        <tbody><tr><td>Set 1</td><td><input type="number" class="ql-reps" data-ex="4" data-set="0" placeholder="8-12" /></td><td><span class="ql-weight-slot" data-ex="4" data-set="0" data-exname="Flat/Machine Chest Press"></span></td></tr><tr><td>Set 2</td><td><input type="number" class="ql-reps" data-ex="4" data-set="1" placeholder="8-12" /></td><td><span class="ql-weight-slot" data-ex="4" data-set="1" data-exname="Flat/Machine Chest Press"></span></td></tr><tr><td>Set 3</td><td><input type="number" class="ql-reps" data-ex="4" data-set="2" placeholder="8-12" /></td><td><span class="ql-weight-slot" data-ex="4" data-set="2" data-exname="Flat/Machine Chest Press"></span></td></tr></tbody>
+      </table>
+      <div class="feel-row">
+        <label>How'd it feel?</label>
+        <button type="button" class="feel-btn" data-ex="4" data-feel="Easy">💪 Easy</button><button type="button" class="feel-btn" data-ex="4" data-feel="Just right">🎯 Just right</button><button type="button" class="feel-btn" data-ex="4" data-feel="Hard">😓 Hard</button><button type="button" class="feel-btn" data-ex="4" data-feel="Too much">⚠️ Too much</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card exercise-card" data-exercise-idx="5" data-exercise-name="Forearm Plank">
+    <img src="images/plank.png" alt="Forearm Plank" />
+    <div class="exercise-body">
+      <div class="exercise-name">6. Forearm Plank</div>
+      <div class="exercise-target">CORE</div>
+      <div class="exercise-cue">Straight line from shoulder to hip to ankle — no sagging hips, no piked butt.</div>
+      <table class="sets-table">
+        <thead><tr><th>Set</th><th>Duration</th></tr></thead>
+        <tbody><tr><td>Set 1</td><td><input type="number" class="ql-duration" data-ex="5" data-set="0" placeholder="45" /> sec</td></tr><tr><td>Set 2</td><td><input type="number" class="ql-duration" data-ex="5" data-set="1" placeholder="45" /> sec</td></tr><tr><td>Set 3</td><td><input type="number" class="ql-duration" data-ex="5" data-set="2" placeholder="45" /> sec</td></tr></tbody>
+      </table>
+      <div class="feel-row">
+        <label>How'd it feel?</label>
+        <button type="button" class="feel-btn" data-ex="5" data-feel="Easy">💪 Easy</button><button type="button" class="feel-btn" data-ex="5" data-feel="Just right">🎯 Just right</button><button type="button" class="feel-btn" data-ex="5" data-feel="Hard">😓 Hard</button><button type="button" class="feel-btn" data-ex="5" data-feel="Too much">⚠️ Too much</button>
+      </div>
+    </div>
+  </div>
+
+
+<div class="save-bar">
+  <button class="save-btn" id="saveBtn" type="button">Save Session</button>
+  <div class="save-status" id="saveStatus"></div>
+</div>
+
+<div class="closing-note">Everything you log here syncs to the dashboard right away and gets folded into your permanent workout history next time you're in a session with Claude.</div>
+
+<script src="../quicklog-config.js"></script>
+<script src="../data.js"></script>
+<script>
+  const EXERCISES = [{"name": "Seated Shoulder Press", "setCount": 3, "isHold": false}, {"name": "Seated Cable Row", "setCount": 3, "isHold": false}, {"name": "Romanian Deadlift", "setCount": 3, "isHold": false}, {"name": "Rear Delt Fly", "setCount": 3, "isHold": false}, {"name": "Flat/Machine Chest Press", "setCount": 3, "isHold": false}, {"name": "Forearm Plank", "setCount": 3, "isHold": true}];
+  const GUIDE_DATE_TODAY = new Date().toISOString().slice(0, 10);
+
+  // Fuzzy match: does the guide's exercise name and a historical
+  // gymWorkoutsData exercise name refer to the same lift, even if the
+  // exact wording differs (e.g. "Lat Pulldown" here vs "Lat Pulldown
+  // (Technogym Vertical Traction)" in an actual logged session)? Bare
+  // substring check, case-insensitive, either direction — deliberately
+  // simple rather than a fuzzy-distance algorithm, since false negatives
+  // (missing a real match) are much safer here than false positives
+  // (recommending a weight from a genuinely different exercise).
+  function namesMatch(a, b) {
+    const na = a.toLowerCase(), nb = b.toLowerCase();
+    return na.includes(nb) || nb.includes(na);
+  }
+
+  // Finds the most recent logged session with a matching exercise name,
+  // returns that set's weight, or null if there's no history yet.
+  function findLastWeight(exerciseName, setIndex) {
+    const sessions = [...gymWorkoutsData].sort((a, b) => b.date.localeCompare(a.date));
+    for (const session of sessions) {
+      const match = session.exercises.find(e => namesMatch(e.name, exerciseName));
+      if (match && match.sets[setIndex] && match.sets[setIndex].weight != null) {
+        return match.sets[setIndex].weight;
+      }
+    }
+    return null;
+  }
+
+  // Builds either a dropdown (anchored on last time's weight, ±10/±5 lb,
+  // plus a custom-entry escape valve) or a plain number input (no history
+  // yet — nothing to anchor on, so don't fabricate a fake "recommended"
+  // weight out of thin air).
+  function buildWeightControl(slot) {
+    const exName = slot.dataset.exname;
+    const setIdx = Number(slot.dataset.set);
+    const last = findLastWeight(exName, setIdx);
+    if (last == null) {
+      slot.innerHTML = `<input type="number" class="ql-weight" data-ex="${slot.dataset.ex}" data-set="${setIdx}" placeholder="starting weight" />`;
+      return;
+    }
+    const options = [last - 10, last - 5, last, last + 5, last + 10].filter(v => v > 0);
+    const selectHtml = options.map(v =>
+      `<option value="${v}"${v === last ? ' selected' : ''}>${v} lb${v === last ? ' (last time)' : ''}</option>`
+    ).join('') + `<option value="__other__">Other…</option>`;
+    slot.innerHTML = `
+      <select class="ql-weight-select" data-ex="${slot.dataset.ex}" data-set="${setIdx}">${selectHtml}</select>
+      <input type="number" class="ql-weight-other" data-ex="${slot.dataset.ex}" data-set="${setIdx}" placeholder="lb" style="display:none; margin-top:4px;" />
+    `;
+    const sel = slot.querySelector('.ql-weight-select');
+    const other = slot.querySelector('.ql-weight-other');
+    sel.addEventListener('change', () => {
+      other.style.display = sel.value === '__other__' ? 'block' : 'none';
+    });
+  }
+
+  document.querySelectorAll('.ql-weight-slot').forEach(buildWeightControl);
+
+  // Feel picker — single-select per exercise
+  document.querySelectorAll('.feel-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const exIdx = btn.dataset.ex;
+      document.querySelectorAll(`.feel-btn[data-ex="${exIdx}"]`).forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+    });
+  });
+
+  function getWeightValue(exIdx, setIdx) {
+    const card = document.querySelector(`[data-exercise-idx="${exIdx}"]`);
+    const select = card.querySelector(`.ql-weight-select[data-set="${setIdx}"]`);
+    if (select) {
+      if (select.value === '__other__') {
+        const other = card.querySelector(`.ql-weight-other[data-set="${setIdx}"]`);
+        return other.value === '' ? null : Number(other.value);
+      }
+      return Number(select.value);
+    }
+    const plain = card.querySelector(`.ql-weight[data-set="${setIdx}"]`);
+    return plain && plain.value !== '' ? Number(plain.value) : null;
+  }
+
+  document.getElementById('saveBtn').addEventListener('click', async () => {
+    const statusEl = document.getElementById('saveStatus');
+    const saveBtn = document.getElementById('saveBtn');
+
+    const exercisesOut = EXERCISES.map((meta, idx) => {
+      const card = document.querySelectorAll('.exercise-card')[idx];
+      const feelBtn = card.querySelector('.feel-btn.selected');
+      const feel = feelBtn ? feelBtn.dataset.feel : '';
+      let sets;
+      if (meta.isHold) {
+        sets = Array.from({ length: meta.setCount }, (_, i) => {
+          const input = card.querySelector(`.ql-duration[data-set="${i}"]`);
+          return { duration: input.value === '' ? null : Number(input.value) };
+        });
+      } else {
+        sets = Array.from({ length: meta.setCount }, (_, i) => {
+          const reps = card.querySelector(`.ql-reps[data-set="${i}"]`);
+          return {
+            reps: reps.value === '' ? null : Number(reps.value),
+            weight: getWeightValue(idx, i),
+          };
+        });
+      }
+      return { name: meta.name, feel, sets };
+    });
+
+    const hasAnyData = exercisesOut.some(ex => ex.sets.some(s => (s.reps != null || s.weight != null || s.duration != null)));
+    if (!hasAnyData) {
+      statusEl.textContent = 'Fill in at least one set before saving.'; statusEl.className = 'save-status err';
+      return;
+    }
+
+    const entry = {
+      type: 'workout',
+      date: GUIDE_DATE_TODAY,
+      guide: '2026-08-03-full-body-b-guide',
+      exercises: exercisesOut,
+      loggedAt: new Date().toISOString(),
+    };
+
+    if (!quicklogConfigured()) {
+      statusEl.textContent = 'Not synced yet (setup pending) — this will be lost on refresh.'; statusEl.className = 'save-status info';
+      return;
+    }
+
+    saveBtn.disabled = true;
+    statusEl.textContent = 'Saving…'; statusEl.className = 'save-status info';
+    try {
+      const pending = await fetchPendingEntries();
+      pending.push(entry);
+      await savePendingEntries(pending);
+      statusEl.textContent = 'Saved ✅ — synced, pending review next session.'; statusEl.className = 'save-status ok';
+    } catch (err) {
+      statusEl.textContent = "Couldn't save — check your connection and try again."; statusEl.className = 'save-status err';
+      console.error(err);
+    } finally {
+      saveBtn.disabled = false;
+    }
+  });
+</script>
+
+</body>
+</html>

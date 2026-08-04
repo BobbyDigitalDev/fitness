@@ -823,13 +823,16 @@
      Daily Eating Schedule above (static HTML, not driven by data.js).
      Update this table whenever the weekly split changes, and keep
      ../workouts/plans/current-plan.md's "Weekly structure" table in sync
-     with whatever this shows — they should never disagree. When a real
-     guide PDF gets built for a gym day (see workout_guides/ — lives inside
-     this folder, not ../workouts/guides/, so it travels with the site if
-     this ever gets published), replace that cell's "TBD — guide not yet
-     built" span with an <a class="schedule-pdf-link"
-     href="workout_guides/FILENAME.pdf" target="_blank">📄 View Guide</a>
-     link. The Sunday column is intentionally NOT prescribed — Bobby manages
+     with whatever this shows — they should never disagree. Guides are
+     interactive HTML pages now (workout_guides/*.html), not PDFs — retired
+     2026-08-04 in favor of pages with built-in weight/reps/feel logging
+     that syncs through the same JSONBin queue as Quick Log. When a new
+     guide gets built for a gym day, link it with <a
+     class="schedule-pdf-link" href="workout_guides/FILENAME.html"
+     target="_blank">📝 Open Guide</a> (class name is a holdover from the
+     PDF era, not worth renaming). See build_workout_guide_pages.py at the
+     Fitness root for the generator, and WORKFLOW.md for the full picture.
+     The Sunday column is intentionally NOT prescribed — Bobby manages
      running/Pilates himself; don't add specifics there without being asked. -->
 <!-- ── Weekly Workout Schedule ─────────────────────── -->
 <div class="section-title">Weekly Workout Schedule</div>
@@ -847,11 +850,11 @@
         <tr>
           <td class="schedule-cell schedule-off">Run / Pilates<span class="schedule-subtext">self-managed</span></td>
           <td class="schedule-cell schedule-rest">Rest</td>
-          <td class="schedule-cell schedule-gym">Gym — Full-Body A<span class="schedule-subtext">Chest &amp; Back</span><a class="schedule-pdf-link" href="workout_guides/2026-08-03-full-body-a-guide.pdf" target="_blank">📄 View Guide</a></td>
+          <td class="schedule-cell schedule-gym">Gym — Full-Body A<span class="schedule-subtext">Chest &amp; Back</span><a class="schedule-pdf-link" href="workout_guides/2026-08-03-full-body-a-guide.html" target="_blank">📝 Open Guide</a></td>
           <td class="schedule-cell schedule-rest">Rest</td>
-          <td class="schedule-cell schedule-gym">Gym — Full-Body B<span class="schedule-subtext">Shoulders &amp; Posterior Chain</span><a class="schedule-pdf-link" href="workout_guides/2026-08-03-full-body-b-guide.pdf" target="_blank">📄 View Guide</a></td>
+          <td class="schedule-cell schedule-gym">Gym — Full-Body B<span class="schedule-subtext">Shoulders &amp; Posterior Chain</span><a class="schedule-pdf-link" href="workout_guides/2026-08-03-full-body-b-guide.html" target="_blank">📝 Open Guide</a></td>
           <td class="schedule-cell schedule-rest">Rest</td>
-          <td class="schedule-cell schedule-gym">Gym — Full-Body C<span class="schedule-subtext">Legs</span><a class="schedule-pdf-link" href="workout_guides/2026-08-03-full-body-c-guide.pdf" target="_blank">📄 View Guide</a></td>
+          <td class="schedule-cell schedule-gym">Gym — Full-Body C<span class="schedule-subtext">Legs</span><a class="schedule-pdf-link" href="workout_guides/2026-08-03-full-body-c-guide.html" target="_blank">📝 Open Guide</a></td>
         </tr>
       </tbody>
     </table>
@@ -903,6 +906,7 @@
 
 <script src="data.js"></script>
 <!-- CLAUDE REMINDER: Charts pull from data.js arrays. When logging food → update calorieData + proteinData. When Bobby weighs in → update weightData. When Fitbit EOD comes in → update stepsData + walksData. When sleep data comes in → update sleepData. Always update data.js AND index.html static sections together. -->
+<script src="quicklog-config.js"></script>
 <script>
   // ══════════════════════════════════════════════════════════════════════
   // Quick Log — added 2026-08-04. Lets Bobby log a stat straight from the
@@ -918,45 +922,11 @@
   // still works (buttons just show a friendly "not set up yet" message).
   // ══════════════════════════════════════════════════════════════════════
 
-  // Fill in binId + accessKey once the JSONBin bin exists (Bobby creates
-  // it — see WORKFLOW.md for exact steps; Claude can't create third-party
-  // accounts on his behalf). accessKey should be a JSONBin "Access Key"
-  // scoped to read+update only, NOT the account's master key.
-  const QUICKLOG_CONFIG = {
-    binId: "",
-    accessKey: "",
-  };
-
-  function quicklogConfigured() {
-    return !!(QUICKLOG_CONFIG.binId && QUICKLOG_CONFIG.accessKey);
-  }
-
-  async function fetchPendingEntries() {
-    if (!quicklogConfigured()) return [];
-    try {
-      const res = await fetch(`https://api.jsonbin.io/v3/b/${QUICKLOG_CONFIG.binId}/latest`, {
-        headers: { "X-Access-Key": QUICKLOG_CONFIG.accessKey },
-      });
-      if (!res.ok) throw new Error(`read failed (${res.status})`);
-      const json = await res.json();
-      return Array.isArray(json.record) ? json.record : [];
-    } catch (err) {
-      console.warn("Quick Log: couldn't read pending queue —", err);
-      return [];
-    }
-  }
-
-  async function savePendingEntries(entries) {
-    const res = await fetch(`https://api.jsonbin.io/v3/b/${QUICKLOG_CONFIG.binId}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Access-Key": QUICKLOG_CONFIG.accessKey,
-      },
-      body: JSON.stringify(entries),
-    });
-    if (!res.ok) throw new Error(`write failed (${res.status})`);
-  }
+  // QUICKLOG_CONFIG + quicklogConfigured/fetchPendingEntries/savePendingEntries
+  // now live in quicklog-config.js (loaded via <script> tag below, right
+  // before this block) — extracted 2026-08-04 so the bin ID/access key
+  // can't drift out of sync with the 3 workout guide pages, which need the
+  // exact same credential. See that file's header comment for why.
 
   // Merges pending entries into the in-memory arrays that renderDashboard/
   // renderFeeds/renderWorkouts/renderDailyProgress all read from, so a
@@ -1240,6 +1210,19 @@
     return s.note ? `${base} (${s.note})` : base;
   }
 
+  // Per-exercise feel rating, logged via the interactive workout guides
+  // (workout_guides/*.html) — added 2026-08-04. Blank for older sessions
+  // or anything logged by hand without asking how each exercise felt.
+  const FEEL_DISPLAY = {
+    "Easy": "💪 Easy",
+    "Just right": "🎯 Just right",
+    "Hard": "😓 Hard",
+    "Too much": "⚠️ Too much",
+  };
+  function formatFeel(feel) {
+    return FEEL_DISPLAY[feel] || (feel || '—');
+  }
+
   function renderWorkouts(month) {
     const inMonth = p => ym(p.date) === month;
     const workoutsEl = document.getElementById('workouts');
@@ -1266,14 +1249,15 @@
             <span class="workout-session-meta">${metaLine}</span>
           </div>
           <table class="workout-table">
-            <thead><tr><th>Exercise</th><th>Sets</th></tr></thead>
+            <thead><tr><th>Exercise</th><th>Sets</th><th>Feel</th></tr></thead>
             <tbody>
               ${s.exercises.map(ex => `
                 <tr>
                   <td>${ex.name}${ex.equipment ? ` <span class="workout-equip">(${ex.equipment})</span>` : ''}</td>
                   <td>${ex.sets.map(formatSet).join(', ')}</td>
+                  <td>${formatFeel(ex.feel)}</td>
                 </tr>
-                ${ex.note ? `<tr><td colspan="2" class="workout-equip">${ex.note}</td></tr>` : ''}
+                ${ex.note ? `<tr><td colspan="3" class="workout-equip">${ex.note}</td></tr>` : ''}
               `).join('')}
             </tbody>
           </table>

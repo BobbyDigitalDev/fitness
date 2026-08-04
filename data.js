@@ -61,7 +61,7 @@
 //                      estimate rather than omitting it — a missing time sorts before all others on
 //                      that day and throws the grouping off, which is worse than an approximate time.
 //   gymWorkoutsData: { date: "2026-08-01", gym: "Gym", label: "Day 1", startTime: "08:35", endTime: "09:34",
-//                       duration: 59, exercises: [ { name: "Machine Chest Press", equipment: "",
+//                       duration: 59, exercises: [ { name: "Machine Chest Press", equipment: "", feel: "",
 //                       sets: [ { reps: 12, weight: 60, note: "" }, ... ], note: "" } ], note: "" }
 //                    → one entry per gym session, feeds the full-width Workouts card (added
 //                      2026-08-03). exercises[].sets[] entries use either reps+weight (weighted/
@@ -70,6 +70,12 @@
 //                      the top-level session note is for whole-session context (e.g. a Fitbit
 //                      auto-detect discrepancy). Scoped to the month-selector dropdown like the
 //                      Meals/Activity feeds.
+//                      exercises[].feel: added 2026-08-04, one of "Easy" / "Just right" / "Hard" /
+//                      "Too much" — captured per exercise (not per session) via the interactive
+//                      HTML workout guides in workout_guides/, which log directly through the same
+//                      JSONBin pending-queue pattern as Quick Log (see WORKFLOW.md). Leave "" if not
+//                      set (older sessions logged before this field existed, or sessions logged by
+//                      hand in a Cowork session without asking how each exercise felt).
 //   events:          { date: "2026-07-26", text: "Whatever happened, in one line. <strong>tags</strong> ok for emphasis." }
 //                    → the Activity feed. Newest-looking-first is automatic (sorted by date,
 //                      same-day entries shown in reverse of the order you added them). Both this
