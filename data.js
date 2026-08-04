@@ -122,7 +122,7 @@ const calorieData = [
   { date: "2026-08-01", value: 1935, note: "final" },
   { date: "2026-08-02", value: null, note: "not logged — fishing day, off pattern" },
   { date: "2026-08-03", value: 2435, note: "final — ~35 cal over the 2,400 target" },
-  { date: "2026-08-04", value: 1345, note: "partial — breakfast + lunch so far" }
+  { date: "2026-08-04", value: 1295, note: "partial — breakfast + lunch so far" }
 ];
 
 const sleepData = [
@@ -397,8 +397,8 @@ const meals = [
     description: "1 medium banana, eaten alongside the yogurt above — breakfast. USDA standard estimate (no label to read from).",
     calories: 105, protein: 1, carbs: 27, fat: 0, sodium: 1, note: "outside the usual noon-start eating window — a one-off, not flagged unless it becomes a pattern" },
   { date: "2026-08-04", time: "12:18", name: "Shrimp", photo: "food-photos/2026-08-04-shrimp.jpeg",
-    description: "0.33 lb (~150g) shrimp, butter and herb seasoned (thyme visible) — lunch. Estimate, no label.",
-    calories: 230, protein: 36, carbs: 2, fat: 9, sodium: 480, sodiumNote: "Butter/seasoning is the main sodium driver here" },
+    description: "0.33 lb (~150g) shrimp, herb seasoned (thyme visible), no butter (corrected 2026-08-04 — originally assumed butter from the glossy look in the photo) — lunch. Estimate, no label.",
+    calories: 180, protein: 36, carbs: 2, fat: 3, sodium: 350, sodiumNote: "Shrimp itself carries some natural/processing sodium, plus the seasoning — moderate, not a major flag without butter added on top" },
   { date: "2026-08-04", time: "12:18", name: "Hard Boiled Eggs & Romaine", photo: "food-photos/2026-08-04-hard-boiled-eggs-romaine.jpeg",
     description: "Made Here \"Eggs, Romaine\" pack, 2 hard boiled eggs + a few romaine leaves (114g net wt) — lunch, eaten alongside the shrimp above. Label values, exact (see food-photos/2026-08-04-hard-boiled-eggs-romaine-label.jpeg).",
     calories: 150, protein: 13, carbs: 1, fat: 10, sodium: 130 },
