@@ -125,7 +125,7 @@ const calorieData = [
   { date: "2026-08-02", value: null, note: "not logged — fishing day, off pattern" },
   { date: "2026-08-03", value: 2435, note: "final — ~35 cal over the 2,400 target" },
   { date: "2026-08-04", value: 1945, note: "final — corrected after chicken label" },
-  { date: "2026-08-05", value: 955, note: "partial — Lunch 1, Lunch 2, and a fig bar so far" }
+  { date: "2026-08-05", value: 1780, note: "partial — Lunch 1, Lunch 2, fig bar, and a PB banana shake so far" }
 ];
 
 const sleepData = [
@@ -506,6 +506,9 @@ const meals = [
   { date: "2026-08-05", time: "13:38", name: "Nature's Bakery Fig Bar, Strawberry", photo: "food-photos/2026-08-05-fig-bar-front.jpeg",
     description: "1 package (57g), after the lunchtime walk — afternoon snack. Same product as the August 3 entry. Label values, exact.",
     calories: 200, protein: 3, carbs: 38, fat: 5, sodium: 75 },
+  { date: "2026-08-05", time: "14:59", name: "Rice Protein, Peanut Butter & Banana Shake", photo: "",
+    description: "3 scoops rice protein + almond milk + 3 tbsp crunchy peanut butter (1 more than the usual 2 tbsp) + 1 smallish banana (smaller than the usual medium), no creatine this time. Recalculated from the base recipe (no banana, 2 tbsp PB = 645 cal/58g protein/18g carb/24g fat/290mg sodium) plus the extra tbsp PB and a scaled-down banana, rather than reusing the standard recipe whole, since both quantities differ this time. No photo shared.",
+    calories: 825, protein: 63, carbs: 43, fat: 32, sodium: 360 },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -553,5 +556,5 @@ const proteinData = [
   { date: "2026-08-02", value: null, note: "not logged — fishing day, off pattern" },
   { date: "2026-08-03", value: 193, note: "final — right in the 180–200g target range" },
   { date: "2026-08-04", value: 179, note: "final — corrected after chicken label, just under the 180–200g target" },
-  { date: "2026-08-05", value: 72, note: "partial — Lunch 1, Lunch 2, and a fig bar so far" }
+  { date: "2026-08-05", value: 135, note: "partial — Lunch 1, Lunch 2, fig bar, and a PB banana shake so far" }
 ];
