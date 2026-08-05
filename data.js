@@ -291,6 +291,68 @@ const gymWorkoutsData = [
       }
     ],
     note: "First gym session. Fitbit auto-detected this as \"Strength training\" 8:35 AM · 1h8m · 252 cal — slightly longer/lower-cal than the manually logged 59 min, likely includes a few minutes of setup/cooldown Fitbit kept tracking."
+  },
+  {
+    date: "2026-08-04",
+    gym: "Gym",
+    label: "Full-Body A",
+    exercises: [
+      {
+        name: "Incline Chest Press",
+        feel: "Just right",
+        sets: [
+          { reps: 15, weight: 20 },
+          { reps: 15, weight: 20 },
+          { reps: 12, weight: 20 }
+        ]
+      },
+      {
+        name: "Lat Pulldown",
+        feel: "Just right",
+        sets: [
+          { reps: 10, weight: 100 },
+          { reps: 15, weight: 100 },
+          { reps: 15, weight: 110 }
+        ]
+      },
+      {
+        name: "Leg Press",
+        feel: "Just right",
+        sets: [
+          { reps: 15, weight: 140 },
+          { reps: 15, weight: 160 },
+          { reps: 15, weight: 180 }
+        ]
+      },
+      {
+        name: "Lateral Raises",
+        feel: "Just right",
+        sets: [
+          { reps: 10, weight: 10 },
+          { reps: 15, weight: 10 },
+          { reps: 10, weight: 15 }
+        ]
+      },
+      {
+        name: "Dumbbell Flat Bench Fly",
+        feel: "Hard",
+        sets: [
+          { reps: 12, weight: 20 },
+          { reps: 15, weight: 20 },
+          { reps: 10, weight: 25 }
+        ]
+      },
+      {
+        name: "Forearm Plank",
+        feel: "Just right",
+        sets: [
+          { duration: 60 },
+          { duration: 60 },
+          { duration: 60 }
+        ]
+      }
+    ],
+    note: "Logged via the interactive Full-Body A guide (workout_guides/2026-08-03-full-body-a-guide.html) and synced through JSONBin — the first session to go through the guide end-to-end since the credentials were wired up. Start/end time and total duration aren't captured by the guide's Save Session flow, so they're omitted here rather than guessed."
   }
 ];
 
