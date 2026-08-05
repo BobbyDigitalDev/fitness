@@ -47,7 +47,9 @@
 //                       cardioLoad: 99, zoneMin: 100, laps: ["14:21/mi", ...], note: "" }
 //                    → distance/pace/calories from Strava (usually the complete track); distanceFitbit + HR/zone
 //                      data from Fitbit (sometimes a partial capture if the watch started late — note it when so)
-//   measurementData: { date: "2026-07-26", neck, shoulders, chest, waist, hips, bicep, thigh, calf }
+//   measurementData: { date: "2026-07-26", neck, shoulders, chest, waist, hips, bicepL, bicepR, thigh, calf, note: "" }
+//                    → bicepL/bicepR (flexed) instead of a single bicep value, since Bobby's arms measure
+//                      differently side to side — always log both.
 //                    → tailor's-tape measurements in inches; leave a field null until measured
 //   meals:           { date: "2026-07-26", time: "12:00", description: "grilled chicken + rice", photo: "food-photos/2026-07-26-grilled-chicken.jpeg",
 //                       calories: 520, protein: 40, carbs: 45, fat: 15, sodium: 380, sodiumNote: "" }
@@ -363,8 +365,11 @@ const gymWorkoutsData = [
 ];
 
 const measurementData = [
-  // { date: "2026-07-25", neck: null, shoulders: null, chest: null, waist: null, hips: null, bicep: null, thigh: null, calf: null }
-  // Tape measurements pending — Bobby getting a tailor's tape
+  // First real tape measurements. bicepL/bicepR used instead of a single
+  // "bicep" field since Bobby's are notably asymmetric (0.5" difference) —
+  // update the schema comment near the top of this file if this becomes
+  // the standing convention for future entries too.
+  { date: "2026-08-05", neck: 13.75, shoulders: 44.75, chest: 42, waist: 39.75, hips: null, bicepL: 12.5, bicepR: 12, thigh: null, calf: null, note: "flexed bicep measurements; left 0.5\" bigger than right" }
 ];
 
 // Photographed meals — one entry per photo, added automatically per the
