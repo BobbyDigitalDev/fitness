@@ -296,6 +296,9 @@ const gymWorkoutsData = [
     date: "2026-08-04",
     gym: "Gym",
     label: "Full-Body A",
+    startTime: "18:08",
+    endTime: "19:38",
+    duration: 90,           // minutes
     exercises: [
       {
         name: "Incline Chest Press",
@@ -352,7 +355,7 @@ const gymWorkoutsData = [
         ]
       }
     ],
-    note: "Logged via the interactive Full-Body A guide (workout_guides/2026-08-03-full-body-a-guide.html) and synced through JSONBin — the first session to go through the guide end-to-end since the credentials were wired up. Start/end time and total duration aren't captured by the guide's Save Session flow, so they're omitted here rather than guessed."
+    note: "10 min brisk treadmill walk warm-up at the start, 5 min of an ~11 min/mile treadmill run at the end (bookending the strength work below — not separately GPS-tracked, so not logged in walksData/runsData; captured here as session context instead). Logged via the interactive Full-Body A guide (workout_guides/2026-08-03-full-body-a-guide.html) and synced through JSONBin — the first session to go through the guide end-to-end since the credentials were wired up. Start/end time/duration added from Fitbit (guide itself doesn't capture session timing, only exercise/set data). Fitbit auto-detected the whole session as \"Strength training\" 6:08 PM · 1h30m · 460 cal · avg HR 99bpm · Cardio Load 19 · 21 zone min (81% light, 14% moderate, 4% vigorous, 0% peak)."
   }
 ];
 
