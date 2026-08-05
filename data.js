@@ -122,7 +122,7 @@ const calorieData = [
   { date: "2026-08-01", value: 1935, note: "final" },
   { date: "2026-08-02", value: null, note: "not logged — fishing day, off pattern" },
   { date: "2026-08-03", value: 2435, note: "final — ~35 cal over the 2,400 target" },
-  { date: "2026-08-04", value: 1295, note: "partial — breakfast + lunch so far" }
+  { date: "2026-08-04", value: 2095, note: "final" }
 ];
 
 const sleepData = [
@@ -405,6 +405,9 @@ const meals = [
   { date: "2026-08-04", time: "12:18", name: "Rice Protein, Peanut Butter & Banana Shake", photo: "",
     description: "3 scoops rice protein + almond milk + 1 tsp creatine + 6 tsp (2 tbsp) crunchy peanut butter + 1 medium banana — lunch. Same recipe as the August 1 post-workout shake, cal/protein/sodium reused directly; carbs/fat estimated since that original entry didn't track them. No photo shared for this one.",
     calories: 750, protein: 59, carbs: 46, fat: 22, sodium: 291 },
+  { date: "2026-08-04", time: "21:46", name: "Half Whole Foods Roast Chicken", photo: "food-photos/2026-08-04-wholefoods-roast-chicken.jpeg",
+    description: "Half a roasted chicken (breast, wing, thigh, drumstick — skin on), salt & pepper seasoning, no sauce or breading — dinner. Portion estimated at ~12oz/340g skin+meat (bone excluded) from the photo, no label read.",
+    calories: 800, protein: 90, carbs: 0, fat: 48, sodium: 850, sodiumNote: "Store rotisserie/roast chicken is commonly brined or injected for moisture — sodium here is a wider-than-usual estimate; send the label if you have it" },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -450,5 +453,5 @@ const proteinData = [
   { date: "2026-08-01", value: 152, note: "final" },
   { date: "2026-08-02", value: null, note: "not logged — fishing day, off pattern" },
   { date: "2026-08-03", value: 193, note: "final — right in the 180–200g target range" },
-  { date: "2026-08-04", value: 121, note: "partial — breakfast + lunch so far" }
+  { date: "2026-08-04", value: 211, note: "final — well past the 180–200g target" }
 ];
