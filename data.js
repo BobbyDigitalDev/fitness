@@ -124,7 +124,8 @@ const calorieData = [
   { date: "2026-08-01", value: 1935, note: "final" },
   { date: "2026-08-02", value: null, note: "not logged — fishing day, off pattern" },
   { date: "2026-08-03", value: 2435, note: "final — ~35 cal over the 2,400 target" },
-  { date: "2026-08-04", value: 1945, note: "final — corrected after chicken label" }
+  { date: "2026-08-04", value: 1945, note: "final — corrected after chicken label" },
+  { date: "2026-08-05", value: 350, note: "partial — Lunch 1 only so far" }
 ];
 
 const sleepData = [
@@ -481,6 +482,9 @@ const meals = [
   { date: "2026-08-04", time: "21:46", name: "Half Whole Foods Classic Rotisserie Chicken", photo: "food-photos/2026-08-04-wholefoods-roast-chicken.jpeg",
     description: "Half a Whole Foods Market Classic Rotisserie Chicken (chicken, organic salt & pepper blend only — no sauce/breading), net wt 1lb 12oz (794g) whole bird including bone. Corrected 2026-08-04 from an initial no-label estimate once the package label was shared: label gives 200 cal / 18g protein / 14g fat / 0g carb / 360mg sodium per 3oz edible serving; half the bird's edible meat+skin estimated at ~278g (~3.3 servings), assuming ~70% edible yield from the bone-in whole-bird weight (label doesn't state edible weight directly, so this fraction is the main remaining estimate).",
     calories: 650, protein: 58, carbs: 0, fat: 46, sodium: 1160, sodiumNote: "Confirmed via label — Whole Foods rotisserie chicken runs 360mg sodium per 3oz, well above home-roasted (brined/seasoned before cooking). This is now the single biggest sodium contributor of the day." },
+  { date: "2026-08-05", time: "11:27", name: "Eggs Over-Hard & Sausage Patty", photo: "food-photos/2026-08-05-lunch1.jpeg",
+    description: "2 large eggs, over-hard + 1 breakfast sausage patty (~2oz) — \"Lunch 1,\" more may follow today. Same combo as the August 3 first meal, macros reused directly since ingredients match exactly.",
+    calories: 350, protein: 21, carbs: 2, fat: 29, sodium: 550, sodiumNote: "Sausage patty is doing most of the sodium here — breakfast sausage doesn't taste as salty as chips or bacon, but it's a sneaky contributor." },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -527,5 +531,6 @@ const proteinData = [
   { date: "2026-08-01", value: 152, note: "final" },
   { date: "2026-08-02", value: null, note: "not logged — fishing day, off pattern" },
   { date: "2026-08-03", value: 193, note: "final — right in the 180–200g target range" },
-  { date: "2026-08-04", value: 179, note: "final — corrected after chicken label, just under the 180–200g target" }
+  { date: "2026-08-04", value: 179, note: "final — corrected after chicken label, just under the 180–200g target" },
+  { date: "2026-08-05", value: 21, note: "partial — Lunch 1 only so far" }
 ];
