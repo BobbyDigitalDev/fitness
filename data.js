@@ -369,7 +369,7 @@ const measurementData = [
   // "bicep" field since Bobby's are notably asymmetric (0.5" difference) —
   // update the schema comment near the top of this file if this becomes
   // the standing convention for future entries too.
-  { date: "2026-08-05", neck: 13.75, shoulders: 44.75, chest: 42, waist: 39.75, hips: null, bicepL: 12.5, bicepR: 12, thigh: null, calf: null, note: "flexed bicep measurements; left 0.5\" bigger than right" }
+  { date: "2026-08-05", neck: 13.75, shoulders: 44.75, chest: 42, waist: 40, hips: null, bicepL: 12.5, bicepR: 12, thigh: null, calf: null, note: "flexed bicep measurements; left 0.5\" bigger than right. Waist corrected same day — first pass was taken above the navel (39.75\"), retaken at the navel per protocol (40\")" }
 ];
 
 // Photographed meals — one entry per photo, added automatically per the
