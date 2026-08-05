@@ -125,7 +125,7 @@ const calorieData = [
   { date: "2026-08-02", value: null, note: "not logged — fishing day, off pattern" },
   { date: "2026-08-03", value: 2435, note: "final — ~35 cal over the 2,400 target" },
   { date: "2026-08-04", value: 1945, note: "final — corrected after chicken label" },
-  { date: "2026-08-05", value: 755, note: "partial — Lunch 1 + Lunch 2 so far" }
+  { date: "2026-08-05", value: 955, note: "partial — Lunch 1, Lunch 2, and a fig bar so far" }
 ];
 
 const sleepData = [
@@ -488,6 +488,9 @@ const meals = [
   { date: "2026-08-05", time: "12:04", name: "Apple Cinnamon Crisps, Eggs & Romaine, Shrimp", photo: "food-photos/2026-08-05-lunch2-crisps-front.jpeg",
     description: "\"Lunch 2\": That's It Organic Fruit Crunchables Apple + Cinnamon Crisps x2 pouches (label, exact — see food-photos/2026-08-05-lunch2-crisps-label.jpeg) + Made Here \"Eggs, Romaine\" pack, 2 hard boiled eggs + romaine (114g, label exact — see food-photos/2026-08-05-lunch2-eggs-romaine-label.jpeg) + LaCroix Pure sparkling water (label, exact — see food-photos/2026-08-05-lunch2-lacroix.jpeg) + 0.32 lb (~145g) shrimp, no label/photo this time, macros scaled from the Aug 4 shrimp entry assuming similar preparation.",
     calories: 405, protein: 48, carbs: 21, fat: 13, sodium: 470, sodiumNote: "LaCroix and the crisps are both 0mg sodium — the Made Here eggs pack (130mg) and shrimp (~340mg, estimated) account for all of it." },
+  { date: "2026-08-05", time: "13:38", name: "Nature's Bakery Fig Bar, Strawberry", photo: "food-photos/2026-08-05-fig-bar-front.jpeg",
+    description: "1 package (57g), after the lunchtime walk — afternoon snack. Same product as the August 3 entry. Label values, exact.",
+    calories: 200, protein: 3, carbs: 38, fat: 5, sodium: 75 },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -535,5 +538,5 @@ const proteinData = [
   { date: "2026-08-02", value: null, note: "not logged — fishing day, off pattern" },
   { date: "2026-08-03", value: 193, note: "final — right in the 180–200g target range" },
   { date: "2026-08-04", value: 179, note: "final — corrected after chicken label, just under the 180–200g target" },
-  { date: "2026-08-05", value: 69, note: "partial — Lunch 1 + Lunch 2 so far" }
+  { date: "2026-08-05", value: 72, note: "partial — Lunch 1, Lunch 2, and a fig bar so far" }
 ];
