@@ -138,7 +138,7 @@ const sleepData = [
   { date: "2026-08-02", hours: 5.4, score: 81, readiness: 67, note: "summary only, no stage breakdown available" },
   { date: "2026-08-03", hours: 6.58, score: 88, bedtime: "23:31", wake: "06:44", deep: 88, rem: 80, light: 227, awake: 38 },
   { date: "2026-08-04", hours: 7.35, score: 93, bedtime: "22:45", wake: "06:42", deep: 99, rem: 84, light: 257, awake: 36, oxygenVariation: "Low" },
-  { date: "2026-08-05", hours: 6.93, score: 86, bedtime: "23:43", wake: "07:10", deep: 77, rem: 81, light: 258, awake: 31, oxygenVariation: "Low" }
+  { date: "2026-08-05", hours: 6.93, score: 86, bedtime: "23:43", wake: "07:10", deep: 77, rem: 81, light: 258, awake: 31, oxygenVariation: "Low", note: "bedtime ~1hr later than usual — got home later than a normal rest day (gym night), pushed the whole night back; deep sleep down to 77min from 99min the night before, likely just the delayed first sleep cycle" }
 ];
 
 const stepsData = [
