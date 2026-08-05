@@ -125,7 +125,7 @@ const calorieData = [
   { date: "2026-08-02", value: null, note: "not logged — fishing day, off pattern" },
   { date: "2026-08-03", value: 2435, note: "final — ~35 cal over the 2,400 target" },
   { date: "2026-08-04", value: 1945, note: "final — corrected after chicken label" },
-  { date: "2026-08-05", value: 350, note: "partial — Lunch 1 only so far" }
+  { date: "2026-08-05", value: 755, note: "partial — Lunch 1 + Lunch 2 so far" }
 ];
 
 const sleepData = [
@@ -485,6 +485,9 @@ const meals = [
   { date: "2026-08-05", time: "11:27", name: "Eggs Over-Hard & Sausage Patty", photo: "food-photos/2026-08-05-lunch1.jpeg",
     description: "2 large eggs, over-hard + 1 breakfast sausage patty (~2oz) — \"Lunch 1,\" more may follow today. Same combo as the August 3 first meal, macros reused directly since ingredients match exactly.",
     calories: 350, protein: 21, carbs: 2, fat: 29, sodium: 550, sodiumNote: "Sausage patty is doing most of the sodium here — breakfast sausage doesn't taste as salty as chips or bacon, but it's a sneaky contributor." },
+  { date: "2026-08-05", time: "12:04", name: "Apple Cinnamon Crisps, Eggs & Romaine, Shrimp", photo: "food-photos/2026-08-05-lunch2-crisps-front.jpeg",
+    description: "\"Lunch 2\": That's It Organic Fruit Crunchables Apple + Cinnamon Crisps x2 pouches (label, exact — see food-photos/2026-08-05-lunch2-crisps-label.jpeg) + Made Here \"Eggs, Romaine\" pack, 2 hard boiled eggs + romaine (114g, label exact — see food-photos/2026-08-05-lunch2-eggs-romaine-label.jpeg) + LaCroix Pure sparkling water (label, exact — see food-photos/2026-08-05-lunch2-lacroix.jpeg) + 0.32 lb (~145g) shrimp, no label/photo this time, macros scaled from the Aug 4 shrimp entry assuming similar preparation.",
+    calories: 405, protein: 48, carbs: 21, fat: 13, sodium: 470, sodiumNote: "LaCroix and the crisps are both 0mg sodium — the Made Here eggs pack (130mg) and shrimp (~340mg, estimated) account for all of it." },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -532,5 +535,5 @@ const proteinData = [
   { date: "2026-08-02", value: null, note: "not logged — fishing day, off pattern" },
   { date: "2026-08-03", value: 193, note: "final — right in the 180–200g target range" },
   { date: "2026-08-04", value: 179, note: "final — corrected after chicken label, just under the 180–200g target" },
-  { date: "2026-08-05", value: 21, note: "partial — Lunch 1 only so far" }
+  { date: "2026-08-05", value: 69, note: "partial — Lunch 1 + Lunch 2 so far" }
 ];
