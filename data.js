@@ -231,7 +231,22 @@ const walksData = [
   { date: "2026-08-01", distance: 3.84, note: "No dedicated tracked walk — this is the day's total Fitbit distance (gym day)" },
   { date: "2026-08-02", distance: 2.51, note: "No dedicated tracked walk — this is the day's total Fitbit distance (fishing day)" },
   { date: "2026-08-03", distance: 3.85, note: "No dedicated tracked walk — this is the day's total Fitbit distance (desk/computer day)" },
-  { date: "2026-08-04", name: "Evening walk (auto-detected)", distance: 0.77, duration: 22, note: "Fitbit auto-detected, 7:43 PM — right after the Full-Body A gym session ended (7:38 PM), likely a cooldown walk" }
+  { date: "2026-08-04", name: "Evening walk (auto-detected)", distance: 0.77, duration: 22, note: "Fitbit auto-detected, 7:43 PM — right after the Full-Body A gym session ended (7:38 PM), likely a cooldown walk" },
+  {
+    date: "2026-08-05",
+    name: "Lunchtime walk",
+    distance: 1.56,
+    duration: 34.53,      // 34:32
+    pace: 22.13,          // 22'08"/mi
+    steps: 3270,
+    calories: 277,
+    avgHR: 97,
+    hrZones: {
+      light: { pct: 100, min: 36 }
+    },
+    cardioLoad: 3,
+    note: "Fitbit (Versa 4), 12:56 PM — entirely light-intensity zone"
+  }
 ];
 
 // Gym workout sessions. One entry per session; exercises listed in order performed.
