@@ -122,7 +122,7 @@ const calorieData = [
   { date: "2026-08-01", value: 1935, note: "final" },
   { date: "2026-08-02", value: null, note: "not logged — fishing day, off pattern" },
   { date: "2026-08-03", value: 2435, note: "final — ~35 cal over the 2,400 target" },
-  { date: "2026-08-04", value: 2095, note: "final" }
+  { date: "2026-08-04", value: 1945, note: "final — corrected after chicken label" }
 ];
 
 const sleepData = [
@@ -405,9 +405,9 @@ const meals = [
   { date: "2026-08-04", time: "12:18", name: "Rice Protein, Peanut Butter & Banana Shake", photo: "",
     description: "3 scoops rice protein + almond milk + 1 tsp creatine + 6 tsp (2 tbsp) crunchy peanut butter + 1 medium banana — lunch. Same recipe as the August 1 post-workout shake, cal/protein/sodium reused directly; carbs/fat estimated since that original entry didn't track them. No photo shared for this one.",
     calories: 750, protein: 59, carbs: 46, fat: 22, sodium: 291 },
-  { date: "2026-08-04", time: "21:46", name: "Half Whole Foods Roast Chicken", photo: "food-photos/2026-08-04-wholefoods-roast-chicken.jpeg",
-    description: "Half a roasted chicken (breast, wing, thigh, drumstick — skin on), salt & pepper seasoning, no sauce or breading — dinner. Portion estimated at ~12oz/340g skin+meat (bone excluded) from the photo, no label read.",
-    calories: 800, protein: 90, carbs: 0, fat: 48, sodium: 850, sodiumNote: "Store rotisserie/roast chicken is commonly brined or injected for moisture — sodium here is a wider-than-usual estimate; send the label if you have it" },
+  { date: "2026-08-04", time: "21:46", name: "Half Whole Foods Classic Rotisserie Chicken", photo: "food-photos/2026-08-04-wholefoods-roast-chicken.jpeg",
+    description: "Half a Whole Foods Market Classic Rotisserie Chicken (chicken, organic salt & pepper blend only — no sauce/breading), net wt 1lb 12oz (794g) whole bird including bone. Corrected 2026-08-04 from an initial no-label estimate once the package label was shared: label gives 200 cal / 18g protein / 14g fat / 0g carb / 360mg sodium per 3oz edible serving; half the bird's edible meat+skin estimated at ~278g (~3.3 servings), assuming ~70% edible yield from the bone-in whole-bird weight (label doesn't state edible weight directly, so this fraction is the main remaining estimate).",
+    calories: 650, protein: 58, carbs: 0, fat: 46, sodium: 1160, sodiumNote: "Confirmed via label — Whole Foods rotisserie chicken runs 360mg sodium per 3oz, well above home-roasted (brined/seasoned before cooking). This is now the single biggest sodium contributor of the day." },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -453,5 +453,5 @@ const proteinData = [
   { date: "2026-08-01", value: 152, note: "final" },
   { date: "2026-08-02", value: null, note: "not logged — fishing day, off pattern" },
   { date: "2026-08-03", value: 193, note: "final — right in the 180–200g target range" },
-  { date: "2026-08-04", value: 211, note: "final — well past the 180–200g target" }
+  { date: "2026-08-04", value: 179, note: "final — corrected after chicken label, just under the 180–200g target" }
 ];
