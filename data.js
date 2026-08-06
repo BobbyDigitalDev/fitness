@@ -126,7 +126,7 @@ const calorieData = [
   { date: "2026-08-03", value: 2435, note: "final — ~35 cal over the 2,400 target" },
   { date: "2026-08-04", value: 1945, note: "final — corrected after chicken label" },
   { date: "2026-08-05", value: 2850, note: "final — well over the 2,400 target, driven mostly by the restaurant dinner" },
-  { date: "2026-08-06", value: 1425, note: "partial — breakfast, PB banana shake, and eggs/romaine/shrimp so far" }
+  { date: "2026-08-06", value: 1565, note: "partial — breakfast, PB banana shake, eggs/romaine/shrimp, and a chips snack so far" }
 ];
 
 const sleepData = [
@@ -524,6 +524,9 @@ const meals = [
   { date: "2026-08-06", time: "16:19", name: "Hard Boiled Eggs, Romaine & Shrimp", photo: "food-photos/2026-08-06-eggs-shrimp-front.jpeg",
     description: "Made Here \"Eggs, Romaine\" pack, 2 hard boiled eggs + arugula/romaine (114g net wt, label exact — see food-photos/2026-08-06-eggs-romaine-label.jpeg) + 0.32 lb (~145g) shrimp, herb seasoned, no label — macros scaled from the same shrimp entries used on August 4 and 5.",
     calories: 325, protein: 48, carbs: 3, fat: 13, sodium: 470 },
+  { date: "2026-08-06", time: "19:29", name: "Kettle-Cooked Chipotle Chips", photo: "food-photos/2026-08-06-chips-label.jpeg",
+    description: "1 serving (1oz/28g, ~13 chips), seed-oil-free, avocado oil, kettle cooked. Ingredients: potatoes, avocado oil, cane sugar, sea salt, paprika, tomato powder, onion powder, garlic powder, black pepper, chipotle pepper. Label values, exact.",
+    calories: 140, protein: 2, carbs: 16, fat: 8, sodium: 170 },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -573,5 +576,5 @@ const proteinData = [
   { date: "2026-08-03", value: 193, note: "final — right in the 180–200g target range" },
   { date: "2026-08-04", value: 179, note: "final — corrected after chicken label, just under the 180–200g target" },
   { date: "2026-08-05", value: 175, note: "final — close to the 180–200g target" },
-  { date: "2026-08-06", value: 128, note: "partial — breakfast, PB banana shake, and eggs/romaine/shrimp so far" }
+  { date: "2026-08-06", value: 130, note: "partial — breakfast, PB banana shake, eggs/romaine/shrimp, and a chips snack so far" }
 ];
