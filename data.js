@@ -125,7 +125,8 @@ const calorieData = [
   { date: "2026-08-02", value: null, note: "not logged — fishing day, off pattern" },
   { date: "2026-08-03", value: 2435, note: "final — ~35 cal over the 2,400 target" },
   { date: "2026-08-04", value: 1945, note: "final — corrected after chicken label" },
-  { date: "2026-08-05", value: 2850, note: "partial — Lunch 1, Lunch 2, fig bar, PB banana shake, and Japanese restaurant dinner so far" }
+  { date: "2026-08-05", value: 2850, note: "final — well over the 2,400 target, driven mostly by the restaurant dinner" },
+  { date: "2026-08-06", value: 350, note: "partial — breakfast only so far" }
 ];
 
 const sleepData = [
@@ -514,6 +515,9 @@ const meals = [
   { date: "2026-08-05", time: "22:53", name: "Japanese Restaurant Dinner: Vegetable Curry Rice + Pork Katsu", photo: "food-photos/2026-08-05-dinner-curry-rice.jpeg",
     description: "Japanese-style vegetable curry rice (roux-based curry over white rice with roasted potato, carrot, eggplant, zucchini, red pepper, lotus root, a floss-style topping, and pickled red ginger — see food-photos/2026-08-05-dinner-curry-rice.jpeg) plus a pork katsu side, no visible sauce (see food-photos/2026-08-05-dinner-katsu.jpeg). Restaurant meal, no label — portions estimated from photos, wider-than-usual uncertainty especially on the curry sauce and rice amount.",
     calories: 1070, protein: 40, carbs: 108, fat: 46, sodium: 1430, sodiumNote: "Likely the single biggest sodium contributor of the day — Japanese curry roux runs high, and this was a restaurant kitchen's version." },
+  { date: "2026-08-06", time: "10:21", name: "Eggs Over-Hard (No Salt) & Sausage Patty", photo: "food-photos/2026-08-06-breakfast.jpeg",
+    description: "2 large eggs, over-hard, no salt added + 1 breakfast sausage patty (~2oz) — breakfast. Same combo as the August 3 and August 5 first meals, macros reused directly; the no-salt eggs don't move the total meaningfully since the sausage patty already accounts for nearly all the sodium.",
+    calories: 350, protein: 21, carbs: 2, fat: 29, sodium: 550, sodiumNote: "Sausage patty is doing nearly all the sodium here, not the eggs (no salt added to those)." },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -562,5 +566,6 @@ const proteinData = [
   { date: "2026-08-02", value: null, note: "not logged — fishing day, off pattern" },
   { date: "2026-08-03", value: 193, note: "final — right in the 180–200g target range" },
   { date: "2026-08-04", value: 179, note: "final — corrected after chicken label, just under the 180–200g target" },
-  { date: "2026-08-05", value: 175, note: "partial — Lunch 1, Lunch 2, fig bar, PB banana shake, and Japanese restaurant dinner so far" }
+  { date: "2026-08-05", value: 175, note: "final — close to the 180–200g target" },
+  { date: "2026-08-06", value: 21, note: "partial — breakfast only so far" }
 ];
