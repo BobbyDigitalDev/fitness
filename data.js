@@ -126,7 +126,7 @@ const calorieData = [
   { date: "2026-08-03", value: 2435, note: "final — ~35 cal over the 2,400 target" },
   { date: "2026-08-04", value: 1945, note: "final — corrected after chicken label" },
   { date: "2026-08-05", value: 2850, note: "final — well over the 2,400 target, driven mostly by the restaurant dinner" },
-  { date: "2026-08-06", value: 350, note: "partial — breakfast only so far" }
+  { date: "2026-08-06", value: 1100, note: "partial — breakfast + PB banana shake so far" }
 ];
 
 const sleepData = [
@@ -518,6 +518,9 @@ const meals = [
   { date: "2026-08-06", time: "10:21", name: "Eggs Over-Hard (No Salt) & Sausage Patty", photo: "food-photos/2026-08-06-breakfast.jpeg",
     description: "2 large eggs, over-hard, no salt added + 1 breakfast sausage patty (~2oz) — breakfast. Same combo as the August 3 and August 5 first meals, macros reused directly; the no-salt eggs don't move the total meaningfully since the sausage patty already accounts for nearly all the sodium.",
     calories: 350, protein: 21, carbs: 2, fat: 29, sodium: 550, sodiumNote: "Sausage patty is doing nearly all the sodium here, not the eggs (no salt added to those)." },
+  { date: "2026-08-06", time: "10:40", name: "Rice Protein, Peanut Butter & Banana Shake", photo: "",
+    description: "3 scoops rice protein + unsweetened almond milk + 6 tsp (2 tbsp) crunchy peanut butter + 1 medium banana. Standard recipe, macros reused directly from the August 1 post-workout shake. No photo shared for this one.",
+    calories: 750, protein: 59, carbs: 46, fat: 22, sodium: 291 },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -567,5 +570,5 @@ const proteinData = [
   { date: "2026-08-03", value: 193, note: "final — right in the 180–200g target range" },
   { date: "2026-08-04", value: 179, note: "final — corrected after chicken label, just under the 180–200g target" },
   { date: "2026-08-05", value: 175, note: "final — close to the 180–200g target" },
-  { date: "2026-08-06", value: 21, note: "partial — breakfast only so far" }
+  { date: "2026-08-06", value: 80, note: "partial — breakfast + PB banana shake so far" }
 ];
