@@ -126,7 +126,7 @@ const calorieData = [
   { date: "2026-08-03", value: 2435, note: "final — ~35 cal over the 2,400 target" },
   { date: "2026-08-04", value: 1945, note: "final — corrected after chicken label" },
   { date: "2026-08-05", value: 2850, note: "final — well over the 2,400 target, driven mostly by the restaurant dinner" },
-  { date: "2026-08-06", value: 1100, note: "partial — breakfast + PB banana shake so far" }
+  { date: "2026-08-06", value: 1425, note: "partial — breakfast, PB banana shake, and eggs/romaine/shrimp so far" }
 ];
 
 const sleepData = [
@@ -521,6 +521,9 @@ const meals = [
   { date: "2026-08-06", time: "10:40", name: "Rice Protein, Peanut Butter & Banana Shake", photo: "",
     description: "3 scoops rice protein + unsweetened almond milk + 6 tsp (2 tbsp) crunchy peanut butter + 1 medium banana. Standard recipe, macros reused directly from the August 1 post-workout shake. No photo shared for this one.",
     calories: 750, protein: 59, carbs: 46, fat: 22, sodium: 291 },
+  { date: "2026-08-06", time: "16:19", name: "Hard Boiled Eggs, Romaine & Shrimp", photo: "food-photos/2026-08-06-eggs-shrimp-front.jpeg",
+    description: "Made Here \"Eggs, Romaine\" pack, 2 hard boiled eggs + arugula/romaine (114g net wt, label exact — see food-photos/2026-08-06-eggs-romaine-label.jpeg) + 0.32 lb (~145g) shrimp, herb seasoned, no label — macros scaled from the same shrimp entries used on August 4 and 5.",
+    calories: 325, protein: 48, carbs: 3, fat: 13, sodium: 470 },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -570,5 +573,5 @@ const proteinData = [
   { date: "2026-08-03", value: 193, note: "final — right in the 180–200g target range" },
   { date: "2026-08-04", value: 179, note: "final — corrected after chicken label, just under the 180–200g target" },
   { date: "2026-08-05", value: 175, note: "final — close to the 180–200g target" },
-  { date: "2026-08-06", value: 80, note: "partial — breakfast + PB banana shake so far" }
+  { date: "2026-08-06", value: 128, note: "partial — breakfast, PB banana shake, and eggs/romaine/shrimp so far" }
 ];
