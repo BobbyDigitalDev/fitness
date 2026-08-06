@@ -125,7 +125,7 @@ const calorieData = [
   { date: "2026-08-02", value: null, note: "not logged — fishing day, off pattern" },
   { date: "2026-08-03", value: 2435, note: "final — ~35 cal over the 2,400 target" },
   { date: "2026-08-04", value: 1945, note: "final — corrected after chicken label" },
-  { date: "2026-08-05", value: 1780, note: "partial — Lunch 1, Lunch 2, fig bar, and a PB banana shake so far" }
+  { date: "2026-08-05", value: 2850, note: "partial — Lunch 1, Lunch 2, fig bar, PB banana shake, and Japanese restaurant dinner so far" }
 ];
 
 const sleepData = [
@@ -509,6 +509,9 @@ const meals = [
   { date: "2026-08-05", time: "14:59", name: "Rice Protein, Peanut Butter & Banana Shake", photo: "",
     description: "3 scoops rice protein + almond milk + 3 tbsp crunchy peanut butter (1 more than the usual 2 tbsp) + 1 smallish banana (smaller than the usual medium), no creatine this time. Recalculated from the base recipe (no banana, 2 tbsp PB = 645 cal/58g protein/18g carb/24g fat/290mg sodium) plus the extra tbsp PB and a scaled-down banana, rather than reusing the standard recipe whole, since both quantities differ this time. No photo shared.",
     calories: 825, protein: 63, carbs: 43, fat: 32, sodium: 360 },
+  { date: "2026-08-05", time: "22:53", name: "Japanese Restaurant Dinner: Vegetable Curry Rice + Pork Katsu", photo: "food-photos/2026-08-05-dinner-curry-rice.jpeg",
+    description: "Japanese-style vegetable curry rice (roux-based curry over white rice with roasted potato, carrot, eggplant, zucchini, red pepper, lotus root, a floss-style topping, and pickled red ginger — see food-photos/2026-08-05-dinner-curry-rice.jpeg) plus a pork katsu side, no visible sauce (see food-photos/2026-08-05-dinner-katsu.jpeg). Restaurant meal, no label — portions estimated from photos, wider-than-usual uncertainty especially on the curry sauce and rice amount.",
+    calories: 1070, protein: 40, carbs: 108, fat: 46, sodium: 1430, sodiumNote: "Likely the single biggest sodium contributor of the day — Japanese curry roux runs high, and this was a restaurant kitchen's version." },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -556,5 +559,5 @@ const proteinData = [
   { date: "2026-08-02", value: null, note: "not logged — fishing day, off pattern" },
   { date: "2026-08-03", value: 193, note: "final — right in the 180–200g target range" },
   { date: "2026-08-04", value: 179, note: "final — corrected after chicken label, just under the 180–200g target" },
-  { date: "2026-08-05", value: 135, note: "partial — Lunch 1, Lunch 2, fig bar, and a PB banana shake so far" }
+  { date: "2026-08-05", value: 175, note: "partial — Lunch 1, Lunch 2, fig bar, PB banana shake, and Japanese restaurant dinner so far" }
 ];
