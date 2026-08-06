@@ -155,7 +155,8 @@ const stepsData = [
   { date: "2026-08-01", value: 8136, distance: 3.84, calories: 2986, floors: 17, zoneMin: 0 },
   { date: "2026-08-02", value: 5059, distance: 2.51, calories: 3346, floors: 3, zoneMin: 0 },
   { date: "2026-08-03", value: 7908, distance: 3.85, calories: 2792, floors: 11, zoneMin: 0 },
-  { date: "2026-08-04", value: 16370, distance: 7.74, calories: 3545, floors: 20, zoneMin: 40 }
+  { date: "2026-08-04", value: 16370, distance: 7.74, calories: 3545, floors: 20, zoneMin: 40 },
+  { date: "2026-08-05", value: 14654, distance: 7.05, calories: 3257, floors: 17, zoneMin: 12 }
 ];
 
 // Tracked runs. distance/pace/calories are from Strava (usually the full
@@ -246,7 +247,8 @@ const walksData = [
     },
     cardioLoad: 3,
     note: "Fitbit (Versa 4), 12:56 PM — entirely light-intensity zone"
-  }
+  },
+  { date: "2026-08-05", name: "Evening walk (auto-detected)", distance: 0.33, duration: 21, note: "Fitbit auto-detected, 10:15 PM — right after the Japanese restaurant dinner" }
 ];
 
 // Gym workout sessions. One entry per session; exercises listed in order performed.
@@ -530,6 +532,7 @@ const events = [
   { date: "2026-08-02", text: "<strong>Daily stats:</strong> 5,059 steps · 2.51 mi · 3 floors · 3,346 cal burned · 0 zone min · Readiness 67 (High) · RHR 66 bpm (range 54–118) · Cardio Load 62 · 0 of 5 exercise days this week" },
   { date: "2026-08-03", text: "<strong>Daily stats:</strong> 7,908 steps · 3.85 mi · 11 floors · 2,792 cal burned · 0 zone min · Readiness 56 (Moderate) · RHR 66 bpm (range 55–111) · Cardio Load 2 · 0 of 5 exercise days this week" },
   { date: "2026-08-04", text: "<strong>Daily stats:</strong> 16,370 steps · 7.74 mi · 20 floors · 3,545 cal burned · 40 zone min · Sleep 7h21m (score 93) · Readiness 67 (High) · RHR 66 bpm · Cardio Load 41 · 1 of 5 exercise days this week" },
+  { date: "2026-08-05", text: "<strong>Daily stats:</strong> 14,654 steps · 7.05 mi · 17 floors · 3,257 cal burned · 12 zone min · Sleep 6h56m (score 86) · Readiness 58 (Moderate) · RHR 65 bpm · Cardio Load 17 · 2 of 5 exercise days this week" },
 ];
 
 // Structured facts that don't fit a time series — just a one-line goals
