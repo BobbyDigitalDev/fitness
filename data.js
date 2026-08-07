@@ -126,7 +126,7 @@ const calorieData = [
   { date: "2026-08-03", value: 2435, note: "final — ~35 cal over the 2,400 target" },
   { date: "2026-08-04", value: 1945, note: "final — corrected after chicken label" },
   { date: "2026-08-05", value: 2850, note: "final — well over the 2,400 target, driven mostly by the restaurant dinner" },
-  { date: "2026-08-06", value: 1565, note: "partial — breakfast, PB banana shake, eggs/romaine/shrimp, and a chips snack so far" }
+  { date: "2026-08-06", value: 2183, note: "final — includes a retroactively-logged concert bratwurst + beer" }
 ];
 
 const sleepData = [
@@ -527,6 +527,9 @@ const meals = [
   { date: "2026-08-06", time: "19:29", name: "Kettle-Cooked Chipotle Chips", photo: "food-photos/2026-08-06-chips-label.jpeg",
     description: "1 serving (1oz/28g, ~13 chips), seed-oil-free, avocado oil, kettle cooked. Ingredients: potatoes, avocado oil, cane sugar, sea salt, paprika, tomato powder, onion powder, garlic powder, black pepper, chipotle pepper. Label values, exact.",
     calories: 140, protein: 2, carbs: 16, fat: 8, sodium: 170 },
+  { date: "2026-08-06", time: "20:30", name: "Bratwurst on a Bun + Modelo Especial", photo: "food-photos/2026-08-06-bratwurst.jpeg",
+    description: "At the Yoasobi concert, Barclays Center: bratwurst on a bun with light mustard (stadium vendor food, no label, estimated as a standard ~4oz grilled bratwurst) + Modelo Especial, 1 can (12 fl oz, standard published beer nutrition — see food-photos/2026-08-06-modelo.jpeg). Logged the morning after, retroactively.",
+    calories: 618, protein: 18, carbs: 42, fat: 31, sodium: 1156, sodiumNote: "Single biggest sodium contributor of the day — stadium bratwurst runs high, brand/size uncertain." },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -576,5 +579,5 @@ const proteinData = [
   { date: "2026-08-03", value: 193, note: "final — right in the 180–200g target range" },
   { date: "2026-08-04", value: 179, note: "final — corrected after chicken label, just under the 180–200g target" },
   { date: "2026-08-05", value: 175, note: "final — close to the 180–200g target" },
-  { date: "2026-08-06", value: 130, note: "partial — breakfast, PB banana shake, eggs/romaine/shrimp, and a chips snack so far" }
+  { date: "2026-08-06", value: 148, note: "final — just under the 180–200g target" }
 ];
