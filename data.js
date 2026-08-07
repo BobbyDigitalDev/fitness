@@ -129,7 +129,7 @@ const calorieData = [
   { date: "2026-08-04", value: 1945, note: "final — corrected after chicken label" },
   { date: "2026-08-05", value: 2850, note: "final — well over the 2,400 target, driven mostly by the restaurant dinner" },
   { date: "2026-08-06", value: 2183, note: "final — includes a retroactively-logged concert bratwurst + beer" },
-  { date: "2026-08-07", value: 1100, note: "partial — breakfast + shake so far" }
+  { date: "2026-08-07", value: 1830, note: "partial — breakfast+shake and eggs/shrimp/gummy bears lunch so far" }
 ];
 
 const sleepData = [
@@ -540,6 +540,9 @@ const meals = [
   { date: "2026-08-07", time: "09:28", name: "Eggs Over-Hard (No Salt), Sausage Patty & PB Banana Shake", photo: "food-photos/2026-08-07-breakfast-eggs-sausage.jpeg",
     description: "2 large eggs, over-hard, no salt + 1 breakfast sausage patty (~2oz), same combo as recent breakfasts, macros reused. Plus a Rice Protein, Peanut Butter & Banana Shake: 1 cup ice + almond milk + 3 scoops rice protein + 6 tsp (2 tbsp) crunchy peanut butter + 1 medium banana — standard recipe, macros reused from the August 1 post-workout shake (see food-photos/2026-08-07-breakfast-shake.jpeg).",
     calories: 1100, protein: 80, carbs: 48, fat: 51, sodium: 841, sodiumNote: "Sausage patty and the shake's almond milk/rice protein are the main sodium sources — nothing unusual." },
+  { date: "2026-08-07", time: "13:56", name: "Hard Boiled Eggs & Romaine, Shrimp & Gummy Bears", photo: "food-photos/2026-08-07-lunch-eggs-shrimp.jpeg",
+    description: "Made Here \"Eggs, Romaine\" pack, 2 hard boiled eggs + arugula/romaine (114g net wt, label exact — see food-photos/2026-08-07-lunch-eggs-romaine-label.jpeg) + 0.33 lb (~150g) shrimp (same weight as the August 4 lunch shrimp, macros reused directly) + Black Forest Organic Gummy Bears, 4 small snack bags (~1oz each, no nutrition panel visible — see food-photos/2026-08-07-lunch-gummy-bears.jpeg — estimated from this product's typical published label).",
+    calories: 730, protein: 49, carbs: 103, fat: 13, sodium: 520, sodiumNote: "Eggs pack and shrimp account for nearly all of it — the gummy bears are low-sodium." },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -591,5 +594,5 @@ const proteinData = [
   { date: "2026-08-04", value: 179, note: "final — corrected after chicken label, just under the 180–200g target" },
   { date: "2026-08-05", value: 175, note: "final — close to the 180–200g target" },
   { date: "2026-08-06", value: 148, note: "final — just under the 180–200g target" },
-  { date: "2026-08-07", value: 80, note: "partial — breakfast + shake so far" }
+  { date: "2026-08-07", value: 129, note: "partial — breakfast+shake and eggs/shrimp/gummy bears lunch so far" }
 ];
