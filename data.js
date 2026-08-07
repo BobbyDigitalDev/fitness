@@ -126,7 +126,8 @@ const calorieData = [
   { date: "2026-08-03", value: 2435, note: "final — ~35 cal over the 2,400 target" },
   { date: "2026-08-04", value: 1945, note: "final — corrected after chicken label" },
   { date: "2026-08-05", value: 2850, note: "final — well over the 2,400 target, driven mostly by the restaurant dinner" },
-  { date: "2026-08-06", value: 2183, note: "final — includes a retroactively-logged concert bratwurst + beer" }
+  { date: "2026-08-06", value: 2183, note: "final — includes a retroactively-logged concert bratwurst + beer" },
+  { date: "2026-08-07", value: 1100, note: "partial — breakfast + shake so far" }
 ];
 
 const sleepData = [
@@ -530,6 +531,9 @@ const meals = [
   { date: "2026-08-06", time: "20:30", name: "Bratwurst on a Bun + Modelo Especial", photo: "food-photos/2026-08-06-bratwurst.jpeg",
     description: "At the Yoasobi concert, Barclays Center: bratwurst on a bun with light mustard (stadium vendor food, no label, estimated as a standard ~4oz grilled bratwurst) + Modelo Especial, 1 can (12 fl oz, standard published beer nutrition — see food-photos/2026-08-06-modelo.jpeg). Logged the morning after, retroactively.",
     calories: 618, protein: 18, carbs: 42, fat: 31, sodium: 1156, sodiumNote: "Single biggest sodium contributor of the day — stadium bratwurst runs high, brand/size uncertain." },
+  { date: "2026-08-07", time: "09:28", name: "Eggs Over-Hard (No Salt), Sausage Patty & PB Banana Shake", photo: "food-photos/2026-08-07-breakfast-eggs-sausage.jpeg",
+    description: "2 large eggs, over-hard, no salt + 1 breakfast sausage patty (~2oz), same combo as recent breakfasts, macros reused. Plus a Rice Protein, Peanut Butter & Banana Shake: 1 cup ice + almond milk + 3 scoops rice protein + 6 tsp (2 tbsp) crunchy peanut butter + 1 medium banana — standard recipe, macros reused from the August 1 post-workout shake (see food-photos/2026-08-07-breakfast-shake.jpeg).",
+    calories: 1100, protein: 80, carbs: 48, fat: 51, sodium: 841, sodiumNote: "Sausage patty and the shake's almond milk/rice protein are the main sodium sources — nothing unusual." },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -579,5 +583,6 @@ const proteinData = [
   { date: "2026-08-03", value: 193, note: "final — right in the 180–200g target range" },
   { date: "2026-08-04", value: 179, note: "final — corrected after chicken label, just under the 180–200g target" },
   { date: "2026-08-05", value: 175, note: "final — close to the 180–200g target" },
-  { date: "2026-08-06", value: 148, note: "final — just under the 180–200g target" }
+  { date: "2026-08-06", value: 148, note: "final — just under the 180–200g target" },
+  { date: "2026-08-07", value: 80, note: "partial — breakfast + shake so far" }
 ];
