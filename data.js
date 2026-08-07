@@ -129,7 +129,7 @@ const calorieData = [
   { date: "2026-08-04", value: 1945, note: "final — corrected after chicken label" },
   { date: "2026-08-05", value: 2850, note: "final — well over the 2,400 target, driven mostly by the restaurant dinner" },
   { date: "2026-08-06", value: 2183, note: "final — includes a retroactively-logged concert bratwurst + beer" },
-  { date: "2026-08-07", value: 1830, note: "partial — breakfast+shake and eggs/shrimp/gummy bears lunch so far" }
+  { date: "2026-08-07", value: 2110, note: "partial — breakfast+shake, lunch, and fig bar/crisps snack so far" }
 ];
 
 const sleepData = [
@@ -543,6 +543,9 @@ const meals = [
   { date: "2026-08-07", time: "13:56", name: "Hard Boiled Eggs & Romaine, Shrimp & Gummy Bears", photo: "food-photos/2026-08-07-lunch-eggs-shrimp.jpeg",
     description: "Made Here \"Eggs, Romaine\" pack, 2 hard boiled eggs + arugula/romaine (114g net wt, label exact — see food-photos/2026-08-07-lunch-eggs-romaine-label.jpeg) + 0.33 lb (~150g) shrimp (same weight as the August 4 lunch shrimp, macros reused directly) + Black Forest Organic Gummy Bears, 4 small snack bags (~1oz each, no nutrition panel visible — see food-photos/2026-08-07-lunch-gummy-bears.jpeg — estimated from this product's typical published label).",
     calories: 730, protein: 49, carbs: 103, fat: 13, sodium: 520, sodiumNote: "Eggs pack and shrimp account for nearly all of it — the gummy bears are low-sodium." },
+  { date: "2026-08-07", time: "14:49", name: "Fig Bar & Apple Cinnamon Crisps", photo: "food-photos/2026-08-07-snack-figbar-front.jpeg",
+    description: "Nature's Bakery Fig Bar, Strawberry, 1 package (57g, label exact — see food-photos/2026-08-07-snack-figbar-label.jpeg, same product as recent snacks) + That's It Organic Fruit Crunchables Apple + Cinnamon Crisps, 2 pouches (10g each, label exact — see food-photos/2026-08-07-snack-crisps-label.jpeg, same product as the August 5 snack).",
+    calories: 280, protein: 3, carbs: 56, fat: 5, sodium: 75 },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -594,5 +597,5 @@ const proteinData = [
   { date: "2026-08-04", value: 179, note: "final — corrected after chicken label, just under the 180–200g target" },
   { date: "2026-08-05", value: 175, note: "final — close to the 180–200g target" },
   { date: "2026-08-06", value: 148, note: "final — just under the 180–200g target" },
-  { date: "2026-08-07", value: 129, note: "partial — breakfast+shake and eggs/shrimp/gummy bears lunch so far" }
+  { date: "2026-08-07", value: 132, note: "partial — breakfast+shake, lunch, and fig bar/crisps snack so far" }
 ];
