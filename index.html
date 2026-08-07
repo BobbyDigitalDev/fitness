@@ -952,7 +952,9 @@
         ctx.font = font;
         meta.data.forEach((el, i) => {
           const value = data[i];
-          if (value === null || value === undefined) return;
+          // Array-valued points are gap-placeholder boxes (see GAP_COLOR /
+          // monthDayGrid above) — no real number to print on those.
+          if (value === null || value === undefined || Array.isArray(value)) return;
           const text = formatter(value);
           const textLength = ctx.measureText(text).width; // becomes the vertical extent once rotated
           const barHeight = floorPx - el.y;
@@ -1133,6 +1135,31 @@
   // looking at, not just whatever the last N days happen to be.
   function ym(dateStr) { return dateStr.slice(0, 7); }
 
+  // Fill color for "no data logged this day" placeholder boxes on the
+  // daily-cadence bar charts (weight, calories, protein, steps, sleep,
+  // walks) — added 2026-08-07 at Bobby's request. Without these, a chart
+  // simply skips missing days and draws adjacent bars right next to each
+  // other, which visually compresses the timeline and can make a gap look
+  // like a real jump/trend. A flat grey box in the gap's exact calendar
+  // position keeps the x-axis spacing honest so the trend shape isn't lying.
+  const GAP_COLOR = 'rgba(255,255,255,0.07)';
+
+  // Every calendar day in `month`, from the 1st through either the last day
+  // of the month or today (whichever is earlier) — so a chart never draws
+  // gap boxes for future days that just haven't happened yet. Months are
+  // only ever selectable (see getAvailableMonths below) if they contain at
+  // least one logged data point somewhere, so there's no "before Bobby
+  // started tracking" case to worry about at the front of the grid either.
+  function monthDayGrid(month) {
+    const [y, m] = month.split('-').map(Number);
+    const daysInMonth = new Date(y, m, 0).getDate();
+    const todayIso = new Date().toISOString().slice(0, 10);
+    const lastDay = (month === ym(todayIso)) ? Number(todayIso.slice(8, 10)) : daysInMonth;
+    const days = [];
+    for (let d = 1; d <= lastDay; d++) days.push(`${month}-${String(d).padStart(2, '0')}`);
+    return days;
+  }
+
   function getAvailableMonths() {
     // Includes meals + events too (added 2026-08-03 when the Meals/Activity
     // feeds became month-scoped) so a month with, say, a logged meal but no
@@ -1184,13 +1211,16 @@
     const wVals = weightTrend.map(p => p.value);
     const wMin = wVals.length ? Math.floor(Math.min(...wVals) - 3) : 195;
     const wMax = wVals.length ? Math.ceil(Math.max(...wVals) + 3) : 210;
+    const weightGrid = monthDayGrid(month);
+    const weightByDate = {};
+    weightTrend.forEach(p => weightByDate[p.date] = p);
     const weightConfig = {
       type: 'bar',
       data: {
-        labels: weightTrend.map(p => fmtDate(p.date)),
+        labels: weightGrid.map(fmtDate),
         datasets: [{
-          data: weightTrend.map(p => p.value),
-          backgroundColor: C.green,
+          data: weightGrid.map(date => weightByDate[date] ? weightByDate[date].value : [wMin, wMax]),
+          backgroundColor: weightGrid.map(date => weightByDate[date] ? C.green : GAP_COLOR),
           borderRadius: 6,
           maxBarThickness: 44,
         }],
@@ -1200,7 +1230,7 @@
         maintainAspectRatio: false,
         plugins: {
           legend: { display: false },
-          tooltip: { callbacks: { label: ctx => `${ctx.parsed.y.toFixed(1)} lb` } },
+          tooltip: { callbacks: { label: ctx => Array.isArray(ctx.raw) ? 'No weigh-in logged' : `${ctx.parsed.y.toFixed(1)} lb` } },
         },
         scales: {
           x: { grid: { display: false }, ticks: xTicksRotated },
@@ -1223,14 +1253,16 @@
     // Consumed chart below (4500) on purpose, so the two bar heights are
     // directly, visually comparable — that's the point of the
     // deficit/excess-at-a-glance pairing.
-    const burnedData = stepsData.filter(p => inMonth(p) && p.calories != null);
+    const burnedGrid = monthDayGrid(month);
+    const burnedByDate = {};
+    stepsData.filter(p => inMonth(p) && p.calories != null).forEach(p => burnedByDate[p.date] = p);
     const burnedConfig = {
       type: 'bar',
       data: {
-        labels: burnedData.map(p => fmtDate(p.date)),
+        labels: burnedGrid.map(fmtDate),
         datasets: [{
-          data: burnedData.map(p => p.calories),
-          backgroundColor: C.orange,
+          data: burnedGrid.map(date => burnedByDate[date] ? burnedByDate[date].calories : [0, 4500]),
+          backgroundColor: burnedGrid.map(date => burnedByDate[date] ? C.orange : GAP_COLOR),
           borderRadius: 6,
           maxBarThickness: 44,
         }],
@@ -1240,7 +1272,7 @@
         maintainAspectRatio: false,
         plugins: {
           legend: { display: false },
-          tooltip: { callbacks: { label: ctx => `${ctx.parsed.y.toLocaleString()} cal burned` } },
+          tooltip: { callbacks: { label: ctx => Array.isArray(ctx.raw) ? 'No Fitbit sync logged' : `${ctx.parsed.y.toLocaleString()} cal burned` } },
         },
         scales: {
           x: { grid: { display: false }, ticks: xTicksRotated },
@@ -1257,16 +1289,26 @@
     else burnedChart = new Chart(document.getElementById('caloriesBurnedChart'), { ...burnedConfig, plugins: [barValueLabels(v => v.toLocaleString())] });
 
     // ── 2b. Calories Consumed — bar chart ────────────────────
-    const monthCalories = calorieData.filter(inMonth);
+    const calorieGrid = monthDayGrid(month);
+    const calorieByDate = {};
+    calorieData.filter(inMonth).forEach(p => calorieByDate[p.date] = p);
     const calorieConfig = {
       type: 'bar',
       data: {
-        labels: monthCalories.map(p => fmtDate(p.date) + (isPartialDay(p) ? '*' : '')),
+        labels: calorieGrid.map(date => {
+          const p = calorieByDate[date];
+          return fmtDate(date) + (p && isPartialDay(p) ? '*' : '');
+        }),
         datasets: [{
-          data: monthCalories.map(p => p.value),
-          backgroundColor: monthCalories.map(p =>
-            p.value > DAILY_CALORIE_TARGET ? C.amber : C.blue
-          ),
+          data: calorieGrid.map(date => {
+            const p = calorieByDate[date];
+            return (p && p.value != null) ? p.value : [0, 4500];
+          }),
+          backgroundColor: calorieGrid.map(date => {
+            const p = calorieByDate[date];
+            if (!p || p.value == null) return GAP_COLOR;
+            return p.value > DAILY_CALORIE_TARGET ? C.amber : C.blue;
+          }),
           borderRadius: 6,
           maxBarThickness: 44,
         }],
@@ -1276,7 +1318,7 @@
         maintainAspectRatio: false,
         plugins: {
           legend: { display: false },
-          tooltip: { callbacks: { label: ctx => `${ctx.parsed.y.toLocaleString()} cal` } },
+          tooltip: { callbacks: { label: ctx => Array.isArray(ctx.raw) ? 'No meals logged' : `${ctx.parsed.y.toLocaleString()} cal` } },
         },
         layout: { padding: { top: 22 } },
         scales: {
@@ -1300,16 +1342,26 @@
     });
 
     // ── 3. Protein — bar chart ───────────────────────────────
-    const validProtein = proteinData.filter(p => inMonth(p) && p.value !== null);
+    const proteinGrid = monthDayGrid(month);
+    const proteinByDate = {};
+    proteinData.filter(inMonth).forEach(p => proteinByDate[p.date] = p);
     const proteinConfig = {
       type: 'bar',
       data: {
-        labels: validProtein.map(p => fmtDate(p.date) + (isPartialDay(p) ? '*' : '')),
+        labels: proteinGrid.map(date => {
+          const p = proteinByDate[date];
+          return fmtDate(date) + (p && isPartialDay(p) ? '*' : '');
+        }),
         datasets: [{
-          data: validProtein.map(p => p.value),
-          backgroundColor: validProtein.map(p =>
-            p.value >= DAILY_PROTEIN_TARGET ? C.green : C.orange
-          ),
+          data: proteinGrid.map(date => {
+            const p = proteinByDate[date];
+            return (p && p.value != null) ? p.value : [0, 220];
+          }),
+          backgroundColor: proteinGrid.map(date => {
+            const p = proteinByDate[date];
+            if (!p || p.value == null) return GAP_COLOR;
+            return p.value >= DAILY_PROTEIN_TARGET ? C.green : C.orange;
+          }),
           borderRadius: 6,
           maxBarThickness: 44,
         }],
@@ -1319,7 +1371,7 @@
         maintainAspectRatio: false,
         plugins: {
           legend: { display: false },
-          tooltip: { callbacks: { label: ctx => `${ctx.parsed.y}g protein` } },
+          tooltip: { callbacks: { label: ctx => Array.isArray(ctx.raw) ? 'No protein logged' : `${ctx.parsed.y}g protein` } },
         },
         layout: { padding: { top: 22 } },
         scales: {
@@ -1343,16 +1395,20 @@
     });
 
     // ── 4. Steps — bar chart ─────────────────────────────────
-    const monthSteps = stepsData.filter(inMonth);
+    const stepsGrid = monthDayGrid(month);
+    const stepsByDate = {};
+    stepsData.filter(inMonth).forEach(p => stepsByDate[p.date] = p);
     const stepsConfig = {
       type: 'bar',
       data: {
-        labels: monthSteps.map(p => fmtDate(p.date)),
+        labels: stepsGrid.map(fmtDate),
         datasets: [{
-          data: monthSteps.map(p => p.value),
-          backgroundColor: monthSteps.map(p =>
-            p.value >= STEPS_GOAL ? C.green : C.amber
-          ),
+          data: stepsGrid.map(date => stepsByDate[date] ? stepsByDate[date].value : [0, 22000]),
+          backgroundColor: stepsGrid.map(date => {
+            const p = stepsByDate[date];
+            if (!p) return GAP_COLOR;
+            return p.value >= STEPS_GOAL ? C.green : C.amber;
+          }),
           borderRadius: 6,
           maxBarThickness: 44,
         }],
@@ -1362,7 +1418,7 @@
         maintainAspectRatio: false,
         plugins: {
           legend: { display: false },
-          tooltip: { callbacks: { label: ctx => `${ctx.parsed.y.toLocaleString()} steps` } },
+          tooltip: { callbacks: { label: ctx => Array.isArray(ctx.raw) ? 'No Fitbit sync logged' : `${ctx.parsed.y.toLocaleString()} steps` } },
         },
         layout: { padding: { top: 22 } },
         scales: {
@@ -1386,19 +1442,23 @@
     });
 
     // ── 5. Sleep — bars (hours) + line (score) ───────────────
-    const monthSleep = sleepData.filter(inMonth);
+    const sleepGrid = monthDayGrid(month);
+    const sleepByDate = {};
+    sleepData.filter(inMonth).forEach(p => sleepByDate[p.date] = p);
     const sleepConfig = {
       type: 'bar',
       data: {
-        labels: monthSleep.map(p => fmtDate(p.date)),
+        labels: sleepGrid.map(fmtDate),
         datasets: [
           {
             type: 'bar',
             label: 'Hours',
-            data: monthSleep.map(p => p.hours),
-            backgroundColor: monthSleep.map(p =>
-              p.hours >= SLEEP_GOAL ? C.blue : C.amber + 'cc'
-            ),
+            data: sleepGrid.map(date => sleepByDate[date] ? sleepByDate[date].hours : [4, 10]),
+            backgroundColor: sleepGrid.map(date => {
+              const p = sleepByDate[date];
+              if (!p) return GAP_COLOR;
+              return p.hours >= SLEEP_GOAL ? C.blue : C.amber + 'cc';
+            }),
             borderRadius: 6,
             maxBarThickness: 44,
             yAxisID: 'yHours',
@@ -1406,7 +1466,8 @@
           {
             type: 'line',
             label: 'Score',
-            data: monthSleep.map(p => p.score),
+            data: sleepGrid.map(date => sleepByDate[date] ? sleepByDate[date].score : null),
+            spanGaps: false, // breaks the line at missing days instead of bridging over them
             borderColor: C.green,
             backgroundColor: 'transparent',
             pointBackgroundColor: C.green,
@@ -1423,6 +1484,16 @@
           legend: {
             display: true,
             labels: { color: C.muted, boxWidth: 12, boxHeight: 12, font: { size: 11 } },
+          },
+          tooltip: {
+            callbacks: {
+              label: ctx => {
+                const isGap = ctx.raw == null || Array.isArray(ctx.raw);
+                if (isGap) return `${ctx.dataset.label}: no data logged`;
+                const suffix = ctx.dataset.yAxisID === 'yHours' ? 'h' : '';
+                return `${ctx.dataset.label}: ${ctx.parsed.y}${suffix}`;
+              },
+            },
           },
         },
         layout: { padding: { top: 22 } },
@@ -1455,20 +1526,26 @@
     // ── 6. Distance Traversed — bar chart ────────────────────
     // Aggregate walksData by date (multiple walks on same day are summed),
     // scoped to the selected month first.
+    const walksGrid = monthDayGrid(month);
     const walkMap = {};
     walksData.filter(inMonth).forEach(w => {
       walkMap[w.date] = +((walkMap[w.date] || 0) + w.distance).toFixed(2);
     });
-    const walkAgg = Object.entries(walkMap)
-      .sort(([a], [b]) => a.localeCompare(b))
-      .map(([date, distance]) => ({ date, distance }));
+    // No fixed suggestedMax previously existed here (Chart.js auto-scaled to
+    // the data), but the gap boxes need a concrete [0, top] range to fill —
+    // computed fresh from this month's own max distance (+15% headroom,
+    // roughly matching Chart.js's own auto-padding), with a 5mi floor so an
+    // all-gap month doesn't collapse to a zero-height axis.
+    const walkDistances = Object.values(walkMap);
+    const walkMax = walkDistances.length ? Math.max(...walkDistances) : 5;
+    const walkAxisMax = Math.max(5, Math.ceil(walkMax * 1.15 * 10) / 10);
     const walksConfig = {
       type: 'bar',
       data: {
-        labels: walkAgg.map(p => fmtDate(p.date)),
+        labels: walksGrid.map(fmtDate),
         datasets: [{
-          data: walkAgg.map(p => p.distance),
-          backgroundColor: C.blue,
+          data: walksGrid.map(date => walkMap[date] != null ? walkMap[date] : [0, walkAxisMax]),
+          backgroundColor: walksGrid.map(date => walkMap[date] != null ? C.blue : GAP_COLOR),
           borderRadius: 6,
           maxBarThickness: 44,
         }],
@@ -1478,13 +1555,14 @@
         maintainAspectRatio: false,
         plugins: {
           legend: { display: false },
-          tooltip: { callbacks: { label: ctx => `${ctx.parsed.y.toFixed(2)} mi walked` } },
+          tooltip: { callbacks: { label: ctx => Array.isArray(ctx.raw) ? 'No walk logged' : `${ctx.parsed.y.toFixed(2)} mi walked` } },
         },
         scales: {
           x: { grid: { display: false }, ticks: xTicksRotated },
           y: {
             grid: { color: 'rgba(255,255,255,0.06)' },
             beginAtZero: true,
+            suggestedMax: walkAxisMax,
             ticks: { callback: v => v + ' mi' },
           },
         },
