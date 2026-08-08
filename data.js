@@ -130,7 +130,7 @@ const calorieData = [
   { date: "2026-08-05", value: 2850, note: "final — well over the 2,400 target, driven mostly by the restaurant dinner" },
   { date: "2026-08-06", value: 2183, note: "final — includes a retroactively-logged concert bratwurst + beer" },
   { date: "2026-08-07", value: 2110, note: "partial — breakfast+shake, lunch, and fig bar/crisps snack so far" },
-  { date: "2026-08-08", value: 650, note: "partial — first meal of the day so far (post-Pilates, pre-weight-training)" }
+  { date: "2026-08-08", value: 1470, note: "partial — pre-workout meal + post-workout Gai bowl so far" }
 ];
 
 const sleepData = [
@@ -550,6 +550,9 @@ const meals = [
   { date: "2026-08-08", time: "10:45", name: "Grilled Jerk Chicken Legs & Curry Coconut Roasted Sweet Potatoes", photo: "food-photos/2026-08-08-lunch-jerk-chicken-front.jpeg",
     description: "Prepared hot-bar meal: grilled jerk chicken leg quarter (~6oz, label gives 260 cal per 4oz serving — see food-photos/2026-08-08-lunch-jerk-chicken-label.jpeg, ingredients led by sea salt) + curry coconut roasted sweet potatoes (~5oz, label gives 210 cal per 4oz serving — see food-photos/2026-08-08-lunch-sweet-potato-label.jpeg). Sold by weight with no scale reading, so portion size is estimated from the photo (food-photos/2026-08-08-lunch-plate.jpeg) as ~1.5x and ~1.25x the labeled 4oz servings respectively; labels give calories only (no protein/carb/fat breakdown), so those macros are estimated using typical values for grilled bone-in chicken leg and oil-roasted sweet potato. First meal of the day — after Pilates, before an 11:40 AM weight training session.",
     calories: 650, protein: 37, carbs: 35, fat: 41, sodium: 990, sodiumNote: "Jerk seasoning (sea salt is the first ingredient) is doing most of the work here — worth noting given the BP meds." },
+  { date: "2026-08-08", time: "13:15", name: "Gai Roasted Chicken Bowl", photo: "food-photos/2026-08-08-dinner-gai-bowl-full.jpeg",
+    description: "Post-weight-training meal from Gai (Fulton St, Manhattan) — the menu's \"Roasted Chicken Bowl\": roasted boneless chicken thighs (~7oz, char-glazed) over ginger rice (~1.25 cups) with cherry tomatoes, corn, cucumber, and lettuce (see food-photos/2026-08-08-dinner-gai-menu.jpeg for the menu listing and food-photos/2026-08-08-dinner-gai-bowl-remainder.jpeg for the meal partway through). Restaurant meal, no nutrition label — portions and macros estimated from the photos and typical values for roasted chicken thigh and seasoned rice; side sauce wasn't visibly used. Time estimated (early afternoon, after the 11:40 AM gym session).",
+    calories: 820, protein: 60, carbs: 78, fat: 29, sodium: 950, sodiumNote: "Restaurant-cooked, no label — rice and the chicken's glaze are the likely main contributors. Estimate, not exact." },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -602,5 +605,5 @@ const proteinData = [
   { date: "2026-08-05", value: 175, note: "final — close to the 180–200g target" },
   { date: "2026-08-06", value: 148, note: "final — just under the 180–200g target" },
   { date: "2026-08-07", value: 132, note: "partial — breakfast+shake, lunch, and fig bar/crisps snack so far" },
-  { date: "2026-08-08", value: 37, note: "partial — first meal of the day so far" }
+  { date: "2026-08-08", value: 97, note: "partial — pre-workout meal + post-workout Gai bowl so far" }
 ];
