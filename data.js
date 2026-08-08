@@ -112,7 +112,8 @@ const weightData = [
   { date: "2026-08-03", value: 203.4, note: "morning fasted" },
   { date: "2026-08-04", value: 203.8, note: "morning fasted" },
   { date: "2026-08-06", value: 204.2, note: "backfilled via Fitbit sync, fasted status unconfirmed" },
-  { date: "2026-08-07", value: 202.6, note: "morning fasted" }
+  { date: "2026-08-07", value: 202.6, note: "morning fasted" },
+  { date: "2026-08-08", value: 203.8, note: "via Fitbit smart scale sync, timing unspecified" }
 ];
 
 const calorieData = [
@@ -148,7 +149,8 @@ const sleepData = [
   { date: "2026-08-04", hours: 7.35, score: 93, bedtime: "22:45", wake: "06:42", deep: 99, rem: 84, light: 257, awake: 36, oxygenVariation: "Low" },
   { date: "2026-08-05", hours: 6.93, score: 86, bedtime: "23:43", wake: "07:10", deep: 77, rem: 81, light: 258, awake: 31, oxygenVariation: "Low", note: "bedtime ~1hr later than usual — got home later than a normal rest day (gym night), pushed the whole night back; deep sleep down to 77min from 99min the night before, likely just the delayed first sleep cycle" },
   { date: "2026-08-06", hours: 5.42, score: 79, bedtime: "00:52", wake: "07:07", deep: 103, rem: 50, light: 171, awake: 50, oxygenVariation: "Low", note: "backfilled — this is the night before the Yoasobi concert (concert itself was Aug 6 evening, that night's sleep is logged under Aug 7). Lowest score of the week (Fair vs the recent string of Good), driven by short total sleep and high awake time (50min), not poor deep sleep (103min was actually solid)" },
-  { date: "2026-08-07", hours: 6.47, score: 89, bedtime: "00:07", wake: "07:02", deep: 101, rem: 85, light: 202, awake: 27, oxygenVariation: "Low", note: "night after the Yoasobi concert (late night out, one beer) — still landed a Good score with the most deep sleep in the past week (101min)" }
+  { date: "2026-08-07", hours: 6.47, score: 89, bedtime: "00:07", wake: "07:02", deep: 101, rem: 85, light: 202, awake: 27, oxygenVariation: "Low", note: "night after the Yoasobi concert (late night out, one beer) — still landed a Good score with the most deep sleep in the past week (101min)" },
+  { date: "2026-08-08", hours: 5.95, score: 76, readiness: 37, note: "Fair score, Moderate readiness (37) — lowest readiness of the week. No bedtime/wake or stage breakdown available from this screenshot." }
 ];
 
 const stepsData = [
@@ -164,7 +166,8 @@ const stepsData = [
   { date: "2026-08-03", value: 7908, distance: 3.85, calories: 2792, floors: 11, zoneMin: 0 },
   { date: "2026-08-04", value: 16370, distance: 7.74, calories: 3545, floors: 20, zoneMin: 40 },
   { date: "2026-08-05", value: 14654, distance: 7.05, calories: 3257, floors: 17, zoneMin: 12 },
-  { date: "2026-08-06", value: 11760, distance: 5.7, calories: 3054, floors: 12, zoneMin: 17, note: "backfilled" }
+  { date: "2026-08-06", value: 11760, distance: 5.7, calories: 3054, floors: 12, zoneMin: 17, note: "backfilled" },
+  { date: "2026-08-08", value: 12830, distance: 6.15, calories: 2798, floors: 19, zoneMin: 92, note: "as of 4:55 PM — day in progress, not final" }
 ];
 
 // Tracked runs. distance/pace/calories are from Strava (usually the full
@@ -257,7 +260,10 @@ const walksData = [
     note: "Fitbit (Versa 4), 12:56 PM — entirely light-intensity zone"
   },
   { date: "2026-08-05", name: "Evening walk (auto-detected)", distance: 0.33, duration: 21, note: "Fitbit auto-detected, 10:15 PM — right after the Japanese restaurant dinner" },
-  { date: "2026-08-06", name: "Lunchtime walk", distance: 2.31, duration: 49, note: "Backfilled, 12:18 PM" }
+  { date: "2026-08-06", name: "Lunchtime walk", distance: 2.31, duration: 49, note: "Backfilled, 12:18 PM" },
+  { date: "2026-08-08", name: "Pre-workout brisk treadmill walk", distance: 0.51, duration: 9, note: "Fitbit, 12:12 PM — warm-up before the Full-Body B gym session" },
+  { date: "2026-08-08", name: "Post-workout brisk treadmill walk", distance: 0.56, duration: 10, note: "Fitbit, 1:51 PM — cool-down after the Full-Body B gym session" },
+  { date: "2026-08-08", name: "Afternoon walk", distance: 0.54, duration: 18, note: "Fitbit auto-detected, 3:59 PM — unrelated to the gym session" }
 ];
 
 // Gym workout sessions. One entry per session; exercises listed in order performed.
@@ -388,6 +394,71 @@ const gymWorkoutsData = [
       }
     ],
     note: "10 min brisk treadmill walk warm-up at the start, 5 min of an ~11 min/mile treadmill run at the end (bookending the strength work below — not separately GPS-tracked, so not logged in walksData/runsData; captured here as session context instead). Logged via the interactive Full-Body A guide (workout_guides/2026-08-03-full-body-a-guide.html) and synced through JSONBin — the first session to go through the guide end-to-end since the credentials were wired up. Start/end time/duration added from Fitbit (guide itself doesn't capture session timing, only exercise/set data). Fitbit auto-detected the whole session as \"Strength training\" 6:08 PM · 1h30m · 460 cal · avg HR 99bpm · Cardio Load 19 · 21 zone min (81% light, 14% moderate, 4% vigorous, 0% peak)."
+  },
+  {
+    date: "2026-08-08",
+    gym: "Lifetime Gym",
+    label: "Full-Body B",
+    startTime: "12:12",
+    endTime: "14:01",
+    duration: 109,           // minutes
+    exercises: [
+      {
+        name: "Seated Shoulder Press",
+        feel: "Just right",
+        sets: [
+          { reps: 12, weight: 15 },
+          { reps: 12, weight: 20 },
+          { reps: 12, weight: 20 }
+        ]
+      },
+      {
+        name: "Seated Cable Row",
+        feel: "Just right",
+        sets: [
+          { reps: 12, weight: 90 },
+          { reps: 12, weight: 100 },
+          { reps: 12, weight: 120 }
+        ]
+      },
+      {
+        name: "Romanian Deadlift",
+        feel: "Just right",
+        sets: [
+          { reps: 12, weight: 95 },
+          { reps: 12, weight: 95 },
+          { reps: 10, weight: 115 }
+        ]
+      },
+      {
+        name: "Rear Delt Fly",
+        feel: "Just right",
+        sets: [
+          { reps: 12, weight: 10 },
+          { reps: 12, weight: 10 },
+          { reps: 12, weight: 15 }
+        ]
+      },
+      {
+        name: "Flat/Machine Chest Press",
+        feel: "",
+        sets: [
+          { reps: 12, weight: 60 },
+          { reps: 12, weight: 70 },
+          { reps: 7, weight: 80, note: "dropped to 7 reps, weight felt heavy" }
+        ]
+      },
+      {
+        name: "Forearm Plank",
+        feel: "Just right",
+        sets: [
+          { duration: 60 },
+          { duration: 60 },
+          { duration: 60 }
+        ]
+      }
+    ],
+    note: "First session logged against the Full-Body B guide (workout_guides/2026-08-03-full-body-b-guide.html), synced through JSONBin. Preceded by a 51-min Pilates class (10:32 AM, 110 cal per Fitbit) earlier the same morning. Bracketed by two Fitbit-detected brisk walks — 10-min warm-up (12:12 PM, 0.51 mi/9 min) and 10-min cool-down (1:51 PM, 0.56 mi/10 min) — used here for start/end time since Fitbit didn't auto-detect a separate \"Strength training\" block this session (guide itself doesn't capture session timing). Actual lifting time between the two walks runs a bit under Bobby's own \"couple hours\" estimate. A separate, unrelated 18-min walk logged later at 3:59 PM (0.54 mi) is filed in walksData, not counted as part of this session."
   }
 ];
 
@@ -576,6 +647,8 @@ const events = [
   { date: "2026-08-04", text: "<strong>Daily stats:</strong> 16,370 steps · 7.74 mi · 20 floors · 3,545 cal burned · 40 zone min · Sleep 7h21m (score 93) · Readiness 67 (High) · RHR 66 bpm · Cardio Load 41 · 1 of 5 exercise days this week" },
   { date: "2026-08-05", text: "<strong>Daily stats:</strong> 14,654 steps · 7.05 mi · 17 floors · 3,257 cal burned · 12 zone min · Sleep 6h56m (score 86) · Readiness 58 (Moderate) · RHR 65 bpm · Cardio Load 17 · 2 of 5 exercise days this week" },
   { date: "2026-08-06", text: "<strong>Daily stats (backfilled):</strong> 11,760 steps · 5.7 mi · 12 floors · 3,054 cal burned · 17 zone min · Sleep 5h25m (score 79) · Readiness 59 (Moderate) · RHR 64 bpm (range 52–112) · Cardio Load 21 · 3 of 5 exercise days this week" },
+  { date: "2026-08-08", text: "Pilates class, 51 min (10:32 AM, 110 cal per Fitbit)" },
+  { date: "2026-08-08", text: "<strong>Daily stats (as of 4:55 PM, day in progress):</strong> 12,830 steps · 6.15 mi · 19 floors · 2,798 cal burned · 92 zone min · Sleep 5h57m (score 76) · Readiness 37 (Moderate) · RHR 66 bpm · Cardio Load 72 · 5 of 5 exercise days this week" },
 ];
 
 // Structured facts that don't fit a time series — just a one-line goals
