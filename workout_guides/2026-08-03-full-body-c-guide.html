@@ -60,6 +60,12 @@ hr { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
 .save-status.err { color: var(--danger); }
 .save-status.info { color: var(--muted); }
 .closing-note { color: var(--muted); font-size: 0.82rem; line-height: 1.5; margin-top: 16px; }
+.session-timer-card { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.session-timer-label { font-size: 0.88rem; color: var(--muted); }
+.session-timer-label.active { color: var(--accent); font-weight: 700; }
+.session-timer-label.done { color: var(--accent-2); font-weight: 700; }
+.start-btn { background: var(--accent-2); color: #0f1115; border: none; border-radius: 10px; padding: 10px 16px; font-size: 0.9rem; font-weight: 700; font-family: inherit; cursor: pointer; white-space: nowrap; }
+.start-btn:disabled { opacity: 0.55; cursor: not-allowed; }
 /* Lock screen (identical to index.html's — kept in sync by hand, 4 files total) */
 body.locked { overflow: hidden; }
 .lock-screen { position: fixed; inset: 0; z-index: 9999; background: var(--bg); display: flex; align-items: center; justify-content: center; padding: 20px; }
@@ -125,6 +131,12 @@ body.locked { overflow: hidden; }
 
 <div class="section-title">Today's Full-Body Focus</div>
 <div class="focus-text">Push and pull repeat Tuesday's pattern — pecs and back width get their third touch of the week. The leg slot expands to two moves today: leg press for quads, then leg curl for hamstrings. If you ran this morning or yesterday, keep both conservative on weight and prioritize form over load.</div>
+
+
+<div class="card session-timer-card">
+  <div class="session-timer-label" id="sessionTimerLabel">Not started — tap when you do your first set</div>
+  <button class="start-btn" id="startBtn" type="button">▶ Start Session</button>
+</div>
 
 <div class="section-title">The Session</div>
 
@@ -261,6 +273,33 @@ body.locked { overflow: hidden; }
   const EXERCISES = [{"name": "Incline Chest Press", "setCount": 3, "isHold": false}, {"name": "Lat Pulldown", "setCount": 3, "isHold": false}, {"name": "Leg Press", "setCount": 3, "isHold": false}, {"name": "Leg Curl", "setCount": 3, "isHold": false}, {"name": "Lateral Raises", "setCount": 3, "isHold": false}, {"name": "Dumbbell Flat Bench Fly", "setCount": 3, "isHold": false}, {"name": "Forearm Plank", "setCount": 3, "isHold": true}];
   const GUIDE_DATE_TODAY = new Date().toISOString().slice(0, 10);
 
+  // Session start/end timestamps — captured explicitly rather than
+  // inferred later from Fitbit's auto-detected walks (which are frequently
+  // off by 30+ min from when lifting actually started/stopped). Start is
+  // Bobby's own tap, End is whenever he hits Save Session.
+  let sessionStartedAt = null;
+  let timerInterval = null;
+  const startBtn = document.getElementById('startBtn');
+  const timerLabel = document.getElementById('sessionTimerLabel');
+
+  function formatElapsed(ms) {
+    const totalSec = Math.max(0, Math.floor(ms / 1000));
+    const m = Math.floor(totalSec / 60);
+    const s = totalSec % 60;
+    return `${m}:${String(s).padStart(2, '0')}`;
+  }
+
+  startBtn.addEventListener('click', () => {
+    sessionStartedAt = new Date();
+    startBtn.disabled = true;
+    startBtn.textContent = 'Started ' + sessionStartedAt.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+    timerLabel.classList.add('active');
+    timerLabel.textContent = 'In progress — 0:00';
+    timerInterval = setInterval(() => {
+      timerLabel.textContent = 'In progress — ' + formatElapsed(Date.now() - sessionStartedAt.getTime());
+    }, 1000);
+  });
+
   // Fuzzy match: does the guide's exercise name and a historical
   // gymWorkoutsData exercise name refer to the same lift, even if the
   // exact wording differs (e.g. "Lat Pulldown" here vs "Lat Pulldown
@@ -371,11 +410,21 @@ body.locked { overflow: hidden; }
       return;
     }
 
+    const sessionEndedAt = new Date();
+    if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
+    if (sessionStartedAt) {
+      timerLabel.classList.remove('active');
+      timerLabel.classList.add('done');
+      timerLabel.textContent = 'Session logged — ' + formatElapsed(sessionEndedAt.getTime() - sessionStartedAt.getTime()) + ' total';
+    }
+
     const entry = {
       type: 'workout',
       date: GUIDE_DATE_TODAY,
       guide: '2026-08-03-full-body-c-guide',
       exercises: exercisesOut,
+      startedAt: sessionStartedAt ? sessionStartedAt.toISOString() : null,
+      endedAt: sessionEndedAt.toISOString(),
       loggedAt: new Date().toISOString(),
     };
 

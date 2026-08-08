@@ -78,6 +78,14 @@
 //                      JSONBin pending-queue pattern as Quick Log (see WORKFLOW.md). Leave "" if not
 //                      set (older sessions logged before this field existed, or sessions logged by
 //                      hand in a Cowork session without asking how each exercise felt).
+//                      startTime/endTime/duration: added 2026-08-08 — the guide pages now have a
+//                      "Start Session" button (tap right before set 1) and capture the save-time as
+//                      the end, so the JSONBin queue entry carries real startedAt/endedAt ISO
+//                      timestamps. When merging a queue entry, prefer those over inferring the
+//                      window from Fitbit's auto-detected walks (which have been off by 30+ min —
+//                      see the Aug 8 Full-Body B session note for an example of the old, fuzzier
+//                      approach). startedAt may be null if Bobby forgot to tap Start; duration in
+//                      that case has to fall back to the old Fitbit-bookend estimate, flagged as such.
 //   events:          { date: "2026-07-26", text: "Whatever happened, in one line. <strong>tags</strong> ok for emphasis." }
 //                    → the Activity feed. Newest-looking-first is automatic (sorted by date,
 //                      same-day entries shown in reverse of the order you added them). Both this
