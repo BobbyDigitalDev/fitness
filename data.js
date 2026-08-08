@@ -129,7 +129,8 @@ const calorieData = [
   { date: "2026-08-04", value: 1945, note: "final — corrected after chicken label" },
   { date: "2026-08-05", value: 2850, note: "final — well over the 2,400 target, driven mostly by the restaurant dinner" },
   { date: "2026-08-06", value: 2183, note: "final — includes a retroactively-logged concert bratwurst + beer" },
-  { date: "2026-08-07", value: 2110, note: "partial — breakfast+shake, lunch, and fig bar/crisps snack so far" }
+  { date: "2026-08-07", value: 2110, note: "partial — breakfast+shake, lunch, and fig bar/crisps snack so far" },
+  { date: "2026-08-08", value: 650, note: "partial — first meal of the day so far (post-Pilates, pre-weight-training)" }
 ];
 
 const sleepData = [
@@ -546,6 +547,9 @@ const meals = [
   { date: "2026-08-07", time: "14:49", name: "Fig Bar & Apple Cinnamon Crisps", photo: "food-photos/2026-08-07-snack-figbar-front.jpeg",
     description: "Nature's Bakery Fig Bar, Strawberry, 1 package (57g, label exact — see food-photos/2026-08-07-snack-figbar-label.jpeg, same product as recent snacks) + That's It Organic Fruit Crunchables Apple + Cinnamon Crisps, 2 pouches (10g each, label exact — see food-photos/2026-08-07-snack-crisps-label.jpeg, same product as the August 5 snack).",
     calories: 280, protein: 3, carbs: 56, fat: 5, sodium: 75 },
+  { date: "2026-08-08", time: "10:45", name: "Grilled Jerk Chicken Legs & Curry Coconut Roasted Sweet Potatoes", photo: "food-photos/2026-08-08-lunch-jerk-chicken-front.jpeg",
+    description: "Prepared hot-bar meal: grilled jerk chicken leg quarter (~6oz, label gives 260 cal per 4oz serving — see food-photos/2026-08-08-lunch-jerk-chicken-label.jpeg, ingredients led by sea salt) + curry coconut roasted sweet potatoes (~5oz, label gives 210 cal per 4oz serving — see food-photos/2026-08-08-lunch-sweet-potato-label.jpeg). Sold by weight with no scale reading, so portion size is estimated from the photo (food-photos/2026-08-08-lunch-plate.jpeg) as ~1.5x and ~1.25x the labeled 4oz servings respectively; labels give calories only (no protein/carb/fat breakdown), so those macros are estimated using typical values for grilled bone-in chicken leg and oil-roasted sweet potato. First meal of the day — after Pilates, before an 11:40 AM weight training session.",
+    calories: 650, protein: 37, carbs: 35, fat: 41, sodium: 990, sodiumNote: "Jerk seasoning (sea salt is the first ingredient) is doing most of the work here — worth noting given the BP meds." },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -597,5 +601,6 @@ const proteinData = [
   { date: "2026-08-04", value: 179, note: "final — corrected after chicken label, just under the 180–200g target" },
   { date: "2026-08-05", value: 175, note: "final — close to the 180–200g target" },
   { date: "2026-08-06", value: 148, note: "final — just under the 180–200g target" },
-  { date: "2026-08-07", value: 132, note: "partial — breakfast+shake, lunch, and fig bar/crisps snack so far" }
+  { date: "2026-08-07", value: 132, note: "partial — breakfast+shake, lunch, and fig bar/crisps snack so far" },
+  { date: "2026-08-08", value: 37, note: "partial — first meal of the day so far" }
 ];
