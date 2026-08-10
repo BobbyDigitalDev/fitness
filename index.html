@@ -708,16 +708,30 @@
   const isNonFasted  = p => (p.note || '').toLowerCase().includes('non-fasted');
   const isPartialDay = p => (p.note || '').toLowerCase().includes('partial');
 
-  // "2026-07-24" → "(Fri) Jul 24 '26"  (used as the day-group header in
-  // the Meals/Activity feeds below) — day-of-week added 2026-08-03,
-  // matching the same "(Fri)" treatment already used on the chart x-axes,
-  // so Bobby can spot day-of-week patterns (e.g. "I always slip on
-  // Mondays") in the feeds too, not just the charts.
+  // day-of-month → ordinal suffix ("10" → "10th", "1" → "1st", "22" → "22nd")
+  function ordinalSuffix(n) {
+    const v = n % 100;
+    if (v >= 11 && v <= 13) return n + 'th';
+    switch (n % 10) {
+      case 1: return n + 'st';
+      case 2: return n + 'nd';
+      case 3: return n + 'rd';
+      default: return n + 'th';
+    }
+  }
+
+  // "2026-07-24" → "Friday - July, 24th, 2026"  (used as the day-group
+  // header in the Meals/Activity/Workouts feeds below) — full weekday
+  // name added 2026-08-03, changed to this fuller "Weekday - Month, Dayth,
+  // Year" format 2026-08-10 per Bobby's request (previous compact "(Fri)
+  // Jul 24 '26" form read as too terse/cryptic once the cards were mostly
+  // collapsed and this became the only thing visible per day).
   function formatLabel(iso) {
     const [y, m, day] = iso.split('-').map(Number);
     const dt = new Date(y, m - 1, day);
-    const dow = dt.toLocaleDateString('en-US', { weekday: 'short' });
-    return `(${dow}) ${dt.toLocaleDateString('en-US', { month: 'short' })} ${day} '${String(y).slice(2)}`;
+    const weekday = dt.toLocaleDateString('en-US', { weekday: 'long' });
+    const month = dt.toLocaleDateString('en-US', { month: 'long' });
+    return `${weekday} - ${month}, ${ordinalSuffix(day)}, ${y}`;
   }
 
   // "2026-07-24" → "(Fri) Jul 24"  (used on chart x-axes)
