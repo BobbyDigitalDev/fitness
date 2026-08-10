@@ -141,7 +141,9 @@ const calorieData = [
   { date: "2026-08-05", value: 2850, note: "final — well over the 2,400 target, driven mostly by the restaurant dinner" },
   { date: "2026-08-06", value: 2183, note: "final — includes a retroactively-logged concert bratwurst + beer" },
   { date: "2026-08-07", value: 2110, note: "partial — breakfast+shake, lunch, and fig bar/crisps snack so far" },
-  { date: "2026-08-08", value: 2210, note: "partial — pre-workout meal, post-workout Gai bowl, and afternoon shake so far" }
+  { date: "2026-08-08", value: 2210, note: "partial — pre-workout meal, post-workout Gai bowl, and afternoon shake so far" },
+  { date: "2026-08-09", value: null, note: "not logged — family day, cemetery visit, off pattern" },
+  { date: "2026-08-10", value: 350, note: "partial — breakfast so far" }
 ];
 
 const sleepData = [
@@ -640,6 +642,9 @@ const meals = [
   { date: "2026-08-08", time: "16:45", name: "Rice Protein, Peanut Butter & Almond Milk Shake", photo: "",
     description: "1 cup almond milk + 3 tbsp crunchy peanut butter (1 more than the usual 2 tbsp) + 3 scoops rice protein + 3 ice cubes, no banana this time. Built from the no-banana base recipe (2 tbsp PB = 645 cal/58g protein/18g carb/24g fat/290mg sodium) plus the extra tbsp of peanut butter, rather than reused whole, since the PB amount differs. No photo shared.",
     calories: 740, protein: 62, carbs: 21, fat: 32, sodium: 365 },
+  { date: "2026-08-10", time: "09:27", name: "Eggs Over-Hard (No Salt) & Sausage Patty", photo: "food-photos/2026-08-10-breakfast.jpeg",
+    description: "2 large eggs, over-hard, no salt + 1 pork sausage patty (~2oz) — breakfast. Same combo as recent breakfasts (Aug 6, Aug 7), macros reused directly.",
+    calories: 350, protein: 21, carbs: 2, fat: 29, sodium: 550, sodiumNote: "Sausage patty is doing nearly all the sodium here, not the eggs (no salt added to those)." },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -696,5 +701,7 @@ const proteinData = [
   { date: "2026-08-05", value: 175, note: "final — close to the 180–200g target" },
   { date: "2026-08-06", value: 148, note: "final — just under the 180–200g target" },
   { date: "2026-08-07", value: 132, note: "partial — breakfast+shake, lunch, and fig bar/crisps snack so far" },
-  { date: "2026-08-08", value: 159, note: "partial — pre-workout meal, post-workout Gai bowl, and afternoon shake so far" }
+  { date: "2026-08-08", value: 159, note: "partial — pre-workout meal, post-workout Gai bowl, and afternoon shake so far" },
+  { date: "2026-08-09", value: null, note: "not logged — family day, cemetery visit, off pattern" },
+  { date: "2026-08-10", value: 21, note: "partial — breakfast so far" }
 ];
