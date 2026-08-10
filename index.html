@@ -822,13 +822,13 @@
       let lastActivityDate = null;
       sortedEvents.forEach(e => {
         if (e.date !== lastActivityDate) {
-          if (lastActivityDate !== null) activityHtml += '</div>';
-          activityHtml += `<div class="meal-day-group"><div class="meal-day-header">${formatLabel(e.date)}</div>`;
+          if (lastActivityDate !== null) activityHtml += '</details>';
+          activityHtml += `<details class="meal-day-group"${isToday(e.date) ? ' open' : ''}><summary class="meal-day-header"><span>${formatLabel(e.date)}</span><span class="meal-chevron">▾</span></summary>`;
           lastActivityDate = e.date;
         }
         activityHtml += `<div class="activity-item"><span>${e.text}</span></div>`;
       });
-      activityHtml += '</div>';
+      activityHtml += '</details>';
       activityEl.innerHTML = activityHtml;
     }
   }
@@ -872,8 +872,8 @@
     let lastDate = null;
     sessions.forEach(s => {
       if (s.date !== lastDate) {
-        if (lastDate !== null) html += '</div>'; // close the previous day's group
-        html += `<div class="meal-day-group"><div class="meal-day-header">${formatLabel(s.date)}</div>`;
+        if (lastDate !== null) html += '</details>'; // close the previous day's group
+        html += `<details class="meal-day-group"${isToday(s.date) ? ' open' : ''}><summary class="meal-day-header"><span>${formatLabel(s.date)}</span><span class="meal-chevron">▾</span></summary>`;
         lastDate = s.date;
       }
       const timeRange = (s.startTime && s.endTime) ? `${formatTime(s.startTime)}–${formatTime(s.endTime)}` : '';
@@ -901,7 +901,7 @@
           ${s.note ? `<div class="workout-note">${s.note}</div>` : ''}
         </div>`;
     });
-    html += '</div>'; // close final .meal-day-group
+    html += '</details>'; // close final .meal-day-group
     workoutsEl.innerHTML = html;
   }
 
