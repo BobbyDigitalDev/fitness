@@ -827,7 +827,7 @@
   function renderWorkouts(month) {
     const inMonth = p => ym(p.date) === month;
     const workoutsEl = document.getElementById('workouts');
-    const sessions = gymWorkoutsData.filter(inMonth).sort((a, b) => b.date.localeCompare(a.date));
+    const sessions = gymWorkoutsData.filter(inMonth).sort((a, b) => a.date.localeCompare(b.date));
     if (!sessions.length) {
       workoutsEl.innerHTML = `<div class="activity-item empty">No gym sessions logged this month.</div>`;
       return;
