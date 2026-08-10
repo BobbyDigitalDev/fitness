@@ -143,7 +143,7 @@ const calorieData = [
   { date: "2026-08-07", value: 2110, note: "partial — breakfast+shake, lunch, and fig bar/crisps snack so far" },
   { date: "2026-08-08", value: 2210, note: "partial — pre-workout meal, post-workout Gai bowl, and afternoon shake so far" },
   { date: "2026-08-09", value: null, note: "not logged — family day, cemetery visit, off pattern" },
-  { date: "2026-08-10", value: 1525, note: "partial — breakfast, morning shake, and lunch so far" }
+  { date: "2026-08-10", value: 2825, note: "partial — breakfast, morning shake, lunch, dinner, and banana chip dessert so far; already ~425 over the 2,400 target, mostly from the dessert" }
 ];
 
 const sleepData = [
@@ -671,6 +671,12 @@ const meals = [
   { date: "2026-08-10", time: "13:43", name: "Tuna Salad, Hard Boiled Eggs & Chobani Yogurt", photo: "food-photos/2026-08-10-lunch-tuna-salad.jpeg",
     description: "Cafe was out of shrimp today, so lunch swapped to 0.31 lb (~141g) mayo-based tuna salad with celery, no label (see food-photos/2026-08-10-lunch-tuna-salad.jpeg) + 2 hard boiled eggs, no label/photo this time — USDA standard estimate + Chobani Greek Yogurt, Blueberry on the Bottom, 1 container (150g, label exact — see food-photos/2026-08-10-lunch-yogurt-label.jpeg). Tuna salad is the biggest uncertainty here: no label, mayo ratio varies a lot by kitchen, estimated from typical cafe-style tuna salad values.",
     calories: 530, protein: 48, carbs: 20, fat: 28, sodium: 745, sodiumNote: "Tuna salad is the main driver (canned tuna + mayo typically run salty), estimated since there's no label — wider-than-usual uncertainty on this one." },
+  { date: "2026-08-10", time: "19:15", name: "Leftover Chicken, Salad & Sweet Potato", photo: "food-photos/2026-08-10-dinner-chicken-salad-plate.jpeg",
+    description: "Dinner — leftover roast chicken (1 thigh + 1 drumstick + a handful of shredded breast, skin-on, simple salt-and-pepper style seasoning, no sauce visible) + the usual salad (mixed greens, radicchio, dried cranberries, almonds, broccoli, cherry tomato, lightly dressed) + half a small roasted sweet potato. No label on any of it — portions and macros estimated from the photo, wider-than-usual uncertainty on the chicken quantity since it's a mixed plate of dark and white meat.",
+    calories: 670, protein: 61, carbs: 35, fat: 30, sodium: 395 },
+  { date: "2026-08-10", time: "19:20", name: "Banana Chips (Dessert)", photo: "food-photos/2026-08-10-dessert-banana-chips-cup.jpeg",
+    description: "Trader Joe's Banana Chips, about 1 cup (see food-photos/2026-08-10-dessert-banana-chips-cup.jpeg) — label gives 210 cal per 40g serving, no cup-to-gram conversion stated (see food-photos/2026-08-10-dessert-banana-chips-label.jpeg). Estimated 1 cup ≈ 3 servings (~120g) based on typical chip density for this product; this is the single biggest source of uncertainty in today's log — could reasonably be anywhere from 2 to 4 servings depending on how packed the cup was. Ingredients: bananas, coconut oil, sugar, natural banana flavor.",
+    calories: 630, protein: 2, carbs: 75, fat: 36, sodium: 0, sodiumNote: "Not a sodium concern (0mg), but worth flagging: ~33g of that 36g fat is saturated (coconut oil), well over half a day's saturated fat in one dessert portion." },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -729,5 +735,5 @@ const proteinData = [
   { date: "2026-08-07", value: 132, note: "partial — breakfast+shake, lunch, and fig bar/crisps snack so far" },
   { date: "2026-08-08", value: 159, note: "partial — pre-workout meal, post-workout Gai bowl, and afternoon shake so far" },
   { date: "2026-08-09", value: null, note: "not logged — family day, cemetery visit, off pattern" },
-  { date: "2026-08-10", value: 127, note: "partial — breakfast, morning shake, and lunch so far" }
+  { date: "2026-08-10", value: 190, note: "partial — breakfast, morning shake, lunch, dinner, and banana chip dessert so far; already past the 180g target" }
 ];
