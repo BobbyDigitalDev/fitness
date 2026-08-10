@@ -252,25 +252,45 @@
   .progress-ring-wrap { position: relative; width: 150px; height: 150px; }
   .progress-caption { text-align: center; font-size: 0.8rem; color: var(--muted); }
   .progress-caption strong { color: var(--text); font-weight: 700; }
-  .meal-item {
+  /* Meal entries — <details>/<summary> for a native collapse/expand
+     disclosure triangle, added 2026-08-10 once the Meals card got long
+     enough that scrolling past every past day's full detail was tedious.
+     Collapsed state shows just the summary line (time · name · quick
+     macros); expanding reveals the photo + full description + sodium
+     note. Defaults: today's entries open, everything else closed — see
+     isToday() and its call site in renderFeeds(). */
+  .meal-item { border-bottom: 1px solid var(--border); }
+  .meal-item:last-child { border-bottom: none; }
+  .meal-item summary {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    padding: 12px 18px;
+    cursor: pointer;
+    list-style: revert;
+  }
+  .meal-item summary::marker { color: var(--accent-2); }
+  .meal-item summary:focus-visible { outline: 2px solid var(--accent-2); outline-offset: -2px; }
+  .meal-summary-time { color: var(--muted); font-size: 0.78rem; flex-shrink: 0; }
+  .meal-summary-name { font-size: 0.9rem; font-weight: 600; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .meal-summary-macros { color: var(--muted); font-size: 0.78rem; flex-shrink: 0; white-space: nowrap; }
+  .meal-body {
     display: flex;
     gap: 12px;
-    padding: 12px 18px;
-    border-bottom: 1px solid var(--border);
+    padding: 0 18px 14px;
     align-items: center;
   }
-  .meal-item:last-child { border-bottom: none; }
-  .meal-item img {
+  .meal-body img {
     width: 56px; height: 56px;
     border-radius: 10px;
     object-fit: cover;
     flex-shrink: 0;
     background: var(--surface-2);
   }
-  .meal-item .meal-main { flex: 1; min-width: 0; }
-  .meal-item .meal-desc { font-size: 0.9rem; font-weight: 600; }
-  .meal-item .meal-meta { color: var(--muted); font-size: 0.78rem; margin-top: 3px; }
-  .meal-item .meal-sodium { color: var(--warn); font-size: 0.76rem; margin-top: 3px; }
+  .meal-body .meal-main { flex: 1; min-width: 0; }
+  .meal-body .meal-desc { font-size: 0.86rem; color: var(--text); line-height: 1.4; }
+  .meal-body .meal-meta { color: var(--muted); font-size: 0.78rem; margin-top: 6px; }
+  .meal-body .meal-sodium { color: var(--warn); font-size: 0.76rem; margin-top: 6px; }
   .day-grouped-list { display: flex; flex-direction: column; gap: 14px; }
   .meal-day-group {
     background: var(--surface);
@@ -718,6 +738,16 @@
     return `${h12}:${String(min).padStart(2, '0')} ${period}`;
   }
 
+  // Is this ISO date today, in the viewer's local time? Used to default
+  // the Meals card's collapsible entries open only for today — added
+  // 2026-08-10 once the page got long enough that scrolling through every
+  // past day's expanded meal detail was tedious. Recomputed fresh each
+  // call rather than cached, since a page left open across midnight should
+  // still get this right.
+  function isToday(iso) {
+    return iso === new Date().toISOString().slice(0, 10);
+  }
+
   // Meals + Activity feeds — both scoped to the same month selector as the
   // charts (added 2026-08-03; previously these two feeds always showed
   // every entry regardless of the dropdown). Within the selected month,
@@ -763,15 +793,23 @@
           html += `<div class="meal-day-group"><div class="meal-day-header"><span>${formatLabel(m.date)}</span><span class="meal-day-totals"${totalsTitle}>${totalsText}</span></div>`;
           lastDate = m.date;
         }
+        const summaryName = m.name || m.description;
         html += `
-          <div class="meal-item">
-            <img src="${m.photo}" alt="${m.description}" loading="lazy" onerror="this.style.display='none'">
-            <div class="meal-main">
-              <div class="meal-desc">${m.description}</div>
-              <div class="meal-meta">${formatTime(m.time)} &nbsp;·&nbsp; ${m.calories} cal &nbsp;·&nbsp; P${m.protein}g / C${m.carbs}g / F${m.fat}g${m.sodium != null ? ` &nbsp;·&nbsp; ${m.sodium}mg sodium` : ''}</div>
-              ${m.sodiumNote ? `<div class="meal-sodium">⚠ ${m.sodiumNote}</div>` : ''}
+          <details class="meal-item"${isToday(m.date) ? ' open' : ''}>
+            <summary>
+              <span class="meal-summary-time">${formatTime(m.time)}</span>
+              <span class="meal-summary-name">${summaryName}</span>
+              <span class="meal-summary-macros">${m.calories} cal · P${m.protein}g</span>
+            </summary>
+            <div class="meal-body">
+              <img src="${m.photo}" alt="${m.description}" loading="lazy" onerror="this.style.display='none'">
+              <div class="meal-main">
+                <div class="meal-desc">${m.description}</div>
+                <div class="meal-meta">${formatTime(m.time)} &nbsp;·&nbsp; ${m.calories} cal &nbsp;·&nbsp; P${m.protein}g / C${m.carbs}g / F${m.fat}g${m.sodium != null ? ` &nbsp;·&nbsp; ${m.sodium}mg sodium` : ''}</div>
+                ${m.sodiumNote ? `<div class="meal-sodium">⚠ ${m.sodiumNote}</div>` : ''}
+              </div>
             </div>
-          </div>`;
+          </details>`;
       });
       html += '</div>'; // close final .meal-day-group
       mealsEl.innerHTML = html;
