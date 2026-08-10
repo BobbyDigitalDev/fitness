@@ -143,7 +143,7 @@ const calorieData = [
   { date: "2026-08-07", value: 2110, note: "partial — breakfast+shake, lunch, and fig bar/crisps snack so far" },
   { date: "2026-08-08", value: 2210, note: "partial — pre-workout meal, post-workout Gai bowl, and afternoon shake so far" },
   { date: "2026-08-09", value: null, note: "not logged — family day, cemetery visit, off pattern" },
-  { date: "2026-08-10", value: 350, note: "partial — breakfast so far" }
+  { date: "2026-08-10", value: 995, note: "partial — breakfast and morning shake so far" }
 ];
 
 const sleepData = [
@@ -645,6 +645,9 @@ const meals = [
   { date: "2026-08-10", time: "09:27", name: "Eggs Over-Hard (No Salt) & Sausage Patty", photo: "food-photos/2026-08-10-breakfast.jpeg",
     description: "2 large eggs, over-hard, no salt + 1 pork sausage patty (~2oz) — breakfast. Same combo as recent breakfasts (Aug 6, Aug 7), macros reused directly.",
     calories: 350, protein: 21, carbs: 2, fat: 29, sodium: 550, sodiumNote: "Sausage patty is doing nearly all the sodium here, not the eggs (no salt added to those)." },
+  { date: "2026-08-10", time: "09:45", name: "Rice Protein, Peanut Butter & Almond Milk Shake", photo: "food-photos/2026-08-10-peanut-butter-label.jpeg",
+    description: "1 cup unsweetened almond milk + 1 cup ice + 6 tsp (2 tbsp) Whole Foods 365 Chunky Peanut Butter (label exact: 190 cal/8g protein/16g fat/7g carb/100mg sodium per 2 tbsp — see food-photos/2026-08-10-peanut-butter-label.jpeg) + 3 scoops rice protein, no banana. Same as the established no-banana base recipe; PB label confirms that recipe's generic peanut butter assumption was already accurate, so macros reused directly. Time estimated — shortly after breakfast, not logged exactly.",
+    calories: 645, protein: 58, carbs: 18, fat: 24, sodium: 290 },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -703,5 +706,5 @@ const proteinData = [
   { date: "2026-08-07", value: 132, note: "partial — breakfast+shake, lunch, and fig bar/crisps snack so far" },
   { date: "2026-08-08", value: 159, note: "partial — pre-workout meal, post-workout Gai bowl, and afternoon shake so far" },
   { date: "2026-08-09", value: null, note: "not logged — family day, cemetery visit, off pattern" },
-  { date: "2026-08-10", value: 21, note: "partial — breakfast so far" }
+  { date: "2026-08-10", value: 79, note: "partial — breakfast and morning shake so far" }
 ];
