@@ -252,57 +252,39 @@
   .progress-ring-wrap { position: relative; width: 150px; height: 150px; }
   .progress-caption { text-align: center; font-size: 0.8rem; color: var(--muted); }
   .progress-caption strong { color: var(--text); font-weight: 700; }
-  /* Meal entries — <details>/<summary> for a collapse/expand disclosure,
-     added 2026-08-10 once the Meals card got long enough that scrolling
-     past every past day's full detail was tedious. Collapsed state shows
-     just the summary line (time · name · quick macros) with the chevron
-     on the far right (matching Cowork's own folder-row pattern, not the
-     browser's native left-side triangle — the native marker is suppressed
-     below and replaced with .meal-chevron); expanding reveals the photo +
-     full description + sodium note. Defaults: today's entries open,
-     everything else closed — see isToday() and its call site in
-     renderFeeds(). */
-  .meal-item { border-bottom: 1px solid var(--border); }
-  .meal-item:last-child { border-bottom: none; }
-  .meal-item summary {
-    display: flex;
-    gap: 10px;
-    align-items: baseline;
-    padding: 12px 18px;
-    cursor: pointer;
-    list-style: none;
-  }
-  .meal-item summary::-webkit-details-marker { display: none; }
-  .meal-item summary::marker { content: ""; }
-  .meal-item summary:focus-visible { outline: 2px solid var(--accent-2); outline-offset: -2px; }
-  .meal-summary-time { color: var(--muted); font-size: 0.78rem; flex-shrink: 0; }
-  .meal-summary-name { font-size: 0.9rem; font-weight: 600; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .meal-summary-macros { color: var(--muted); font-size: 0.78rem; flex-shrink: 0; white-space: nowrap; }
-  .meal-chevron {
-    flex-shrink: 0;
-    color: var(--muted);
-    transition: transform 0.15s ease;
-    transform: rotate(-90deg);
-  }
-  .meal-item[open] > summary .meal-chevron { transform: rotate(0deg); }
-  .meal-body {
+  .meal-item {
     display: flex;
     gap: 12px;
-    padding: 0 18px 14px;
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--border);
     align-items: center;
   }
-  .meal-body img {
+  .meal-item:last-child { border-bottom: none; }
+  .meal-item img {
     width: 56px; height: 56px;
     border-radius: 10px;
     object-fit: cover;
     flex-shrink: 0;
     background: var(--surface-2);
   }
-  .meal-body .meal-main { flex: 1; min-width: 0; }
-  .meal-body .meal-desc { font-size: 0.86rem; color: var(--text); line-height: 1.4; }
-  .meal-body .meal-meta { color: var(--muted); font-size: 0.78rem; margin-top: 6px; }
-  .meal-body .meal-sodium { color: var(--warn); font-size: 0.76rem; margin-top: 6px; }
+  .meal-item .meal-main { flex: 1; min-width: 0; }
+  .meal-item .meal-desc { font-size: 0.9rem; font-weight: 600; }
+  .meal-item .meal-meta { color: var(--muted); font-size: 0.78rem; margin-top: 3px; }
+  .meal-item .meal-sodium { color: var(--warn); font-size: 0.76rem; margin-top: 3px; }
   .day-grouped-list { display: flex; flex-direction: column; gap: 14px; }
+  /* Meals card: each day is a <details>/<summary> disclosure, added
+     2026-08-10 once the card got long enough that scrolling past every
+     past day's full meal list was tedious. Collapsed state shows just the
+     day's header row (date + cal/protein/sodium totals) with the chevron
+     on the far right, to the right of the sodium count (matching Cowork's
+     own folder-row pattern, not the browser's native left-side triangle —
+     the native marker is suppressed below and replaced with
+     .meal-chevron); expanding reveals the full list of that day's meals
+     underneath, each always fully shown (no per-meal collapsing — that
+     was tried first and reverted, see git history, since collapsing at
+     the meal level didn't save enough space to matter). Defaults: today's
+     day group open, every other day closed — see isToday() and its call
+     site in renderFeeds(). */
   .meal-day-group {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -322,7 +304,13 @@
     justify-content: space-between;
     align-items: baseline;
     gap: 12px;
+    cursor: pointer;
+    list-style: none;
   }
+  .meal-day-header::-webkit-details-marker { display: none; }
+  .meal-day-header::marker { content: ""; }
+  .meal-day-header:focus-visible { outline: 2px solid var(--accent-2); outline-offset: -2px; }
+  .meal-day-right { display: flex; align-items: baseline; gap: 10px; flex-shrink: 0; }
   .meal-day-totals {
     font-weight: 600;
     text-transform: none;
@@ -331,6 +319,13 @@
     white-space: nowrap;
     flex-shrink: 0;
   }
+  .meal-chevron {
+    flex-shrink: 0;
+    color: var(--muted);
+    transition: transform 0.15s ease;
+    transform: rotate(-90deg);
+  }
+  .meal-day-group[open] > .meal-day-header .meal-chevron { transform: rotate(0deg); }
   /* Workouts card */
   .workout-session { padding: 14px 18px; border-bottom: 1px solid var(--border); }
   .workout-session:last-child { border-bottom: none; }
@@ -797,33 +792,24 @@
       let lastDate = null;
       sortedMeals.forEach(m => {
         if (m.date !== lastDate) {
-          if (lastDate !== null) html += '</div>'; // close the previous day's group
+          if (lastDate !== null) html += '</details>'; // close the previous day's group
           const t = dailyTotals[m.date];
           const totalsText = `🔥${t.calories.toLocaleString()} cal · 💪P${t.protein}g · 🧂${t.sodium.toLocaleString()}mg${t.hasUnknownSodium ? '*' : ''}`;
           const totalsTitle = t.hasUnknownSodium ? ' title="* some of this day\'s meals don\'t have sodium tracked, so this total is a minimum, not the full day"' : '';
-          html += `<div class="meal-day-group"><div class="meal-day-header"><span>${formatLabel(m.date)}</span><span class="meal-day-totals"${totalsTitle}>${totalsText}</span></div>`;
+          html += `<details class="meal-day-group"${isToday(m.date) ? ' open' : ''}><summary class="meal-day-header"><span>${formatLabel(m.date)}</span><span class="meal-day-right"><span class="meal-day-totals"${totalsTitle}>${totalsText}</span><span class="meal-chevron">▾</span></span></summary>`;
           lastDate = m.date;
         }
-        const summaryName = m.name || m.description;
         html += `
-          <details class="meal-item"${isToday(m.date) ? ' open' : ''}>
-            <summary>
-              <span class="meal-summary-time">${formatTime(m.time)}</span>
-              <span class="meal-summary-name">${summaryName}</span>
-              <span class="meal-summary-macros">${m.calories} cal · P${m.protein}g</span>
-              <span class="meal-chevron">▾</span>
-            </summary>
-            <div class="meal-body">
-              <img src="${m.photo}" alt="${m.description}" loading="lazy" onerror="this.style.display='none'">
-              <div class="meal-main">
-                <div class="meal-desc">${m.description}</div>
-                <div class="meal-meta">${formatTime(m.time)} &nbsp;·&nbsp; ${m.calories} cal &nbsp;·&nbsp; P${m.protein}g / C${m.carbs}g / F${m.fat}g${m.sodium != null ? ` &nbsp;·&nbsp; ${m.sodium}mg sodium` : ''}</div>
-                ${m.sodiumNote ? `<div class="meal-sodium">⚠ ${m.sodiumNote}</div>` : ''}
-              </div>
+          <div class="meal-item">
+            <img src="${m.photo}" alt="${m.description}" loading="lazy" onerror="this.style.display='none'">
+            <div class="meal-main">
+              <div class="meal-desc">${m.description}</div>
+              <div class="meal-meta">${formatTime(m.time)} &nbsp;·&nbsp; ${m.calories} cal &nbsp;·&nbsp; P${m.protein}g / C${m.carbs}g / F${m.fat}g${m.sodium != null ? ` &nbsp;·&nbsp; ${m.sodium}mg sodium` : ''}</div>
+              ${m.sodiumNote ? `<div class="meal-sodium">⚠ ${m.sodiumNote}</div>` : ''}
             </div>
-          </details>`;
+          </div>`;
       });
-      html += '</div>'; // close final .meal-day-group
+      html += '</details>'; // close final .meal-day-group
       mealsEl.innerHTML = html;
     }
 
