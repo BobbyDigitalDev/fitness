@@ -279,7 +279,26 @@ const walksData = [
   { date: "2026-08-08", name: "Pre-workout brisk treadmill walk", distance: 0.51, duration: 9, note: "Fitbit, 12:12 PM — warm-up before the Full-Body B gym session" },
   { date: "2026-08-08", name: "Post-workout brisk treadmill walk", distance: 0.56, duration: 10, note: "Fitbit, 1:51 PM — cool-down after the Full-Body B gym session" },
   { date: "2026-08-08", name: "Afternoon walk", distance: 0.54, duration: 18, note: "Fitbit auto-detected, 3:59 PM — unrelated to the gym session" },
-  { date: "2026-08-09", distance: 4.39, note: "No dedicated tracked walk — this is the day's total Fitbit distance (family day, visiting the cemetery)" }
+  { date: "2026-08-09", distance: 4.39, note: "No dedicated tracked walk — this is the day's total Fitbit distance (family day, visiting the cemetery)" },
+  {
+    date: "2026-08-10",
+    name: "Lunchtime walk",
+    distance: 2.17,
+    duration: 47.38,      // 47:23
+    pace: 21.85,          // 21'51"/mi
+    steps: 4510,
+    calories: 385,
+    avgHR: 99,
+    hrZones: {
+      light: { pct: 95, min: 46 },
+      moderate: { pct: 4, min: 2 },
+      vigorous: { pct: 0, min: 0 },
+      peak: { pct: 0, min: 0 }
+    },
+    cardioLoad: 8,
+    zoneMin: 2,
+    note: "Fitbit (Versa 4), 12:16 PM"
+  }
 ];
 
 // Gym workout sessions. One entry per session; exercises listed in order performed.
