@@ -143,7 +143,7 @@ const calorieData = [
   { date: "2026-08-07", value: 2110, note: "partial — breakfast+shake, lunch, and fig bar/crisps snack so far" },
   { date: "2026-08-08", value: 2210, note: "partial — pre-workout meal, post-workout Gai bowl, and afternoon shake so far" },
   { date: "2026-08-09", value: null, note: "not logged — family day, cemetery visit, off pattern" },
-  { date: "2026-08-10", value: 995, note: "partial — breakfast and morning shake so far" }
+  { date: "2026-08-10", value: 1525, note: "partial — breakfast, morning shake, and lunch so far" }
 ];
 
 const sleepData = [
@@ -649,6 +649,9 @@ const meals = [
   { date: "2026-08-10", time: "09:45", name: "Rice Protein, Peanut Butter & Almond Milk Shake", photo: "food-photos/2026-08-10-peanut-butter-label.jpeg",
     description: "1 cup unsweetened almond milk + 1 cup ice + 6 tsp (2 tbsp) Whole Foods 365 Chunky Peanut Butter (label exact: 190 cal/8g protein/16g fat/7g carb/100mg sodium per 2 tbsp — see food-photos/2026-08-10-peanut-butter-label.jpeg) + 3 scoops rice protein, no banana. Same as the established no-banana base recipe; PB label confirms that recipe's generic peanut butter assumption was already accurate, so macros reused directly. Time estimated — shortly after breakfast, not logged exactly.",
     calories: 645, protein: 58, carbs: 18, fat: 24, sodium: 290 },
+  { date: "2026-08-10", time: "13:43", name: "Tuna Salad, Hard Boiled Eggs & Chobani Yogurt", photo: "food-photos/2026-08-10-lunch-tuna-salad.jpeg",
+    description: "Cafe was out of shrimp today, so lunch swapped to 0.31 lb (~141g) mayo-based tuna salad with celery, no label (see food-photos/2026-08-10-lunch-tuna-salad.jpeg) + 2 hard boiled eggs, no label/photo this time — USDA standard estimate + Chobani Greek Yogurt, Blueberry on the Bottom, 1 container (150g, label exact — see food-photos/2026-08-10-lunch-yogurt-label.jpeg). Tuna salad is the biggest uncertainty here: no label, mayo ratio varies a lot by kitchen, estimated from typical cafe-style tuna salad values.",
+    calories: 530, protein: 48, carbs: 20, fat: 28, sodium: 745, sodiumNote: "Tuna salad is the main driver (canned tuna + mayo typically run salty), estimated since there's no label — wider-than-usual uncertainty on this one." },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -707,5 +710,5 @@ const proteinData = [
   { date: "2026-08-07", value: 132, note: "partial — breakfast+shake, lunch, and fig bar/crisps snack so far" },
   { date: "2026-08-08", value: 159, note: "partial — pre-workout meal, post-workout Gai bowl, and afternoon shake so far" },
   { date: "2026-08-09", value: null, note: "not logged — family day, cemetery visit, off pattern" },
-  { date: "2026-08-10", value: 79, note: "partial — breakfast and morning shake so far" }
+  { date: "2026-08-10", value: 127, note: "partial — breakfast, morning shake, and lunch so far" }
 ];
