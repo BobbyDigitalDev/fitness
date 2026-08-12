@@ -40,6 +40,16 @@
 //                      "fishing day". Richer fields (duration, pace, elevation, hrZones, cardioLoad, name) are
 //                      optional, for when Strava or Fitbit's own walk-detection gives more detail.
 //                      Do NOT put dedicated GPS-tracked runs here — those go in runsData instead (separate chart).
+//                      IMPORTANT (clarified 2026-08-11): the Walks chart sums every walksData entry sharing a
+//                      date, and that sum should always equal the day's total Fitbit distance (stepsData.distance)
+//                      — not just whatever specific walk(s) got auto-detected or GPS-tracked. If a day has a
+//                      named/detailed walk that's smaller than the day's total, add a second entry for that same
+//                      date named "Remainder of day's Fitbit distance" covering the gap (day total minus the
+//                      already-logged walk(s)), so the chart reflects full-day distance traveled. Do NOT subtract
+//                      a same-day run's distance from this remainder (reconfirmed 2026-08-11) — the Walks chart's
+//                      daily total is simply "how far Bobby traveled that day," full stop, independent of what
+//                      the separate Strava/Runs chart shows. See the 2026-07-26 entry (run day) as the example:
+//                      its remainder is the full day-total-minus-walk gap, run distance included, not excluded.
 //   runsData:        { date: "2026-07-26", name: "Prospect Park Loop", distance: 4.48, distanceFitbit: 3.70,
 //                       movingTime: "56:01", elapsedTime: "1:00:03", avgPace: "12:29", fastestSplit: "10:24",
 //                       calories: 793, elevationGain: 200, maxElevation: 163, avgHR: 143,
@@ -123,7 +133,8 @@ const weightData = [
   { date: "2026-08-07", value: 202.6, note: "morning fasted" },
   { date: "2026-08-08", value: 203.8, note: "via Fitbit smart scale sync, timing unspecified" },
   { date: "2026-08-09", value: 203.2, note: "via Fitbit smart scale sync, timing unspecified" },
-  { date: "2026-08-10", value: 204.8, note: "morning fasted" }
+  { date: "2026-08-10", value: 204.8, note: "morning fasted" },
+  { date: "2026-08-11", value: 204.2, note: "via Fitbit smart scale sync, timing unspecified" }
 ];
 
 const calorieData = [
@@ -143,7 +154,9 @@ const calorieData = [
   { date: "2026-08-07", value: 2110, note: "partial — breakfast+shake, lunch, and fig bar/crisps snack so far" },
   { date: "2026-08-08", value: 2210, note: "partial — pre-workout meal, post-workout Gai bowl, and afternoon shake so far" },
   { date: "2026-08-09", value: null, note: "not logged — family day, cemetery visit, off pattern" },
-  { date: "2026-08-10", value: 2825, note: "partial — breakfast, morning shake, lunch, dinner, and banana chip dessert so far; already ~425 over the 2,400 target, mostly from the dessert" }
+  { date: "2026-08-10", value: 2825, note: "final — breakfast, morning shake, lunch, dinner, and banana chip dessert; ~425 over the 2,400 target, mostly from the dessert" },
+  { date: "2026-08-11", value: 2255, note: "partial — breakfast, morning shake, lunch, fig bar snack, and dinner so far" },
+  { date: "2026-08-12", value: 490, note: "partial — breakfast and Sun Chips snack so far" }
 ];
 
 const sleepData = [
@@ -158,13 +171,15 @@ const sleepData = [
   { date: "2026-08-01", hours: 5.7, score: 82, readiness: 68, bedtime: "00:44", wake: "07:05", deep: 97, rem: 65, light: 179, awake: 39 },
   { date: "2026-08-02", hours: 5.4, score: 81, readiness: 67, note: "summary only, no stage breakdown available" },
   { date: "2026-08-03", hours: 6.58, score: 88, bedtime: "23:31", wake: "06:44", deep: 88, rem: 80, light: 227, awake: 38 },
-  { date: "2026-08-04", hours: 7.35, score: 93, bedtime: "22:45", wake: "06:42", deep: 99, rem: 84, light: 257, awake: 36, oxygenVariation: "Low" },
+  { date: "2026-08-04", hours: 7.35, score: 93, readiness: 67, bedtime: "22:45", wake: "06:42", deep: 99, rem: 84, light: 257, awake: 36, oxygenVariation: "Low" },
   { date: "2026-08-05", hours: 6.93, score: 86, bedtime: "23:43", wake: "07:10", deep: 77, rem: 81, light: 258, awake: 31, oxygenVariation: "Low", note: "bedtime ~1hr later than usual — got home later than a normal rest day (gym night), pushed the whole night back; deep sleep down to 77min from 99min the night before, likely just the delayed first sleep cycle" },
   { date: "2026-08-06", hours: 5.42, score: 79, bedtime: "00:52", wake: "07:07", deep: 103, rem: 50, light: 171, awake: 50, oxygenVariation: "Low", note: "backfilled — this is the night before the Yoasobi concert (concert itself was Aug 6 evening, that night's sleep is logged under Aug 7). Lowest score of the week (Fair vs the recent string of Good), driven by short total sleep and high awake time (50min), not poor deep sleep (103min was actually solid)" },
-  { date: "2026-08-07", hours: 6.47, score: 89, bedtime: "00:07", wake: "07:02", deep: 101, rem: 85, light: 202, awake: 27, oxygenVariation: "Low", note: "night after the Yoasobi concert (late night out, one beer) — still landed a Good score with the most deep sleep in the past week (101min)" },
+  { date: "2026-08-07", hours: 6.47, score: 89, readiness: 69, bedtime: "00:07", wake: "07:02", deep: 101, rem: 85, light: 202, awake: 27, oxygenVariation: "Low", note: "night after the Yoasobi concert (late night out, one beer) — still landed a Good score with the most deep sleep in the past week (101min)" },
   { date: "2026-08-08", hours: 5.95, score: 76, readiness: 37, note: "Fair score, Moderate readiness (37) — lowest readiness of the week. No bedtime/wake or stage breakdown available from this screenshot." },
   { date: "2026-08-09", hours: 6.8, score: 85, readiness: 78, note: "Good score, High readiness (78) — rebounded well off Aug 8's low. No bedtime/wake or stage breakdown available from this screenshot." },
-  { date: "2026-08-10", hours: 6.78, score: 87, bedtime: "23:27", wake: "06:52", deep: 109, rem: 80, light: 218, awake: 37, oxygenVariation: "Low", note: "Good score, second night in a row of solid recovery." }
+  { date: "2026-08-10", hours: 6.78, score: 87, readiness: 59, bedtime: "23:27", wake: "06:52", deep: 109, rem: 80, light: 218, awake: 37, oxygenVariation: "Low", note: "Good score, second night in a row of solid recovery." },
+  { date: "2026-08-11", hours: 5.18, score: 72, readiness: 90, bedtime: "23:59", wake: "06:41", deep: 94, rem: 42, light: 175, awake: 90, oxygenVariation: "Low", note: "Fair sleep score — shortest sleep of the week (5h11m) with the most awake time (1h30m), a step down from the last two nights' Good scores. Despite that, Daily Readiness came in at 90 (High) — RHR 61bpm ran below personal range and HRV 57ms ran above personal range, both good-direction outliers that pulled the readiness score up regardless of the rough sleep." },
+  { date: "2026-08-12", hours: 6.4, score: 88, bedtime: "00:03", wake: "07:01", deep: 117, rem: 73, light: 193, awake: 34, oxygenVariation: "Low", note: "Good score, bounced back from Aug 11's Fair night — most deep sleep of the week (1h57m)." }
 ];
 
 const stepsData = [
@@ -178,11 +193,14 @@ const stepsData = [
   { date: "2026-08-01", value: 8136, distance: 3.84, calories: 2986, floors: 17, zoneMin: 0 },
   { date: "2026-08-02", value: 5059, distance: 2.51, calories: 3346, floors: 3, zoneMin: 0 },
   { date: "2026-08-03", value: 7908, distance: 3.85, calories: 2792, floors: 11, zoneMin: 0 },
-  { date: "2026-08-04", value: 16370, distance: 7.74, calories: 3545, floors: 20, zoneMin: 40 },
+  { date: "2026-08-04", value: 16419, distance: 7.76, calories: 3585, floors: 20, zoneMin: 39, note: "corrected 2026-08-11 from 16,370/7.74mi/3,545cal/40 zone min per final Fitbit sync" },
   { date: "2026-08-05", value: 14654, distance: 7.05, calories: 3257, floors: 17, zoneMin: 12 },
   { date: "2026-08-06", value: 11760, distance: 5.7, calories: 3054, floors: 12, zoneMin: 17, note: "backfilled" },
+  { date: "2026-08-07", value: 10845, distance: 5.19, calories: 3053, floors: 12, zoneMin: 56 },
   { date: "2026-08-08", value: 12830, distance: 6.15, calories: 2798, floors: 19, zoneMin: 92, note: "as of 4:55 PM — day in progress, not final" },
-  { date: "2026-08-09", value: 9370, distance: 4.39, calories: 3133, floors: 10, zoneMin: 27 }
+  { date: "2026-08-09", value: 9370, distance: 4.39, calories: 3133, floors: 10, zoneMin: 27 },
+  { date: "2026-08-10", value: 11300, distance: 5.47, calories: 2996, floors: 16, zoneMin: 2 },
+  { date: "2026-08-11", value: 12516, distance: 5.99, calories: 3256, floors: 15, zoneMin: 7 }
 ];
 
 // Tracked runs. distance/pace/calories are from Strava (usually the full
@@ -250,15 +268,21 @@ const walksData = [
     zoneMin: 133,
     note: "Strava start 1:26 PM, Fitbit started 3 min late at 1:29 PM — Strava distance is authoritative. Vigorous HR from Sunset Park hills."
   },
+  { date: "2026-07-26", name: "Remainder of day's Fitbit distance", distance: 6.37, note: "Backfilled 2026-08-11 — fills the gap between the Tacos del Barrio walk (3.92mi) and the day's total Fitbit distance (10.29mi from stepsData). Per Bobby's clarification, this total distance is NOT reduced for the Prospect Park run that also happened this day — the Walks chart's daily total is meant to be the full day's distance traveled, independent of the separate Strava/Runs chart." },
   { date: "2026-07-27", distance: 1.97, duration: 43.55, pace: 22.03, elevation: 26 },
   { date: "2026-07-27", name: "Evening walk (auto-detected)", distance: 0.67, duration: 26, pace: 38.8, elevation: 0, note: "Fitbit auto-detected, 6:04 PM" },
+  { date: "2026-07-27", name: "Remainder of day's Fitbit distance", distance: 2.50, note: "Backfilled 2026-08-11 — fills the gap between the two tracked walks above (2.64mi combined) and the day's total Fitbit distance (5.14mi from stepsData)." },
   { date: "2026-07-29", distance: 1.58, duration: 35, pace: 22.15 },
+  { date: "2026-07-29", name: "Remainder of day's Fitbit distance", distance: 4.12, note: "Backfilled 2026-08-11 — fills the gap between the tracked walk above (1.58mi) and the day's total Fitbit distance (5.7mi from stepsData)." },
   { date: "2026-07-30", distance: 0.74, duration: 17, pace: 22.97 },
+  { date: "2026-07-30", name: "Remainder of day's Fitbit distance", distance: 6.73, note: "Backfilled 2026-08-11 — fills the gap between the tracked walk above (0.74mi) and the day's total Fitbit distance (7.47mi from stepsData)." },
   { date: "2026-07-31", distance: 1.44, duration: 29, pace: 20.14 },
+  { date: "2026-07-31", name: "Remainder of day's Fitbit distance", distance: 3.21, note: "Backfilled 2026-08-11 — fills the gap between the tracked walk above (1.44mi) and the day's total Fitbit distance (4.65mi from stepsData)." },
   { date: "2026-08-01", distance: 3.84, note: "No dedicated tracked walk — this is the day's total Fitbit distance (gym day)" },
   { date: "2026-08-02", distance: 2.51, note: "No dedicated tracked walk — this is the day's total Fitbit distance (fishing day)" },
   { date: "2026-08-03", distance: 3.85, note: "No dedicated tracked walk — this is the day's total Fitbit distance (desk/computer day)" },
   { date: "2026-08-04", name: "Evening walk (auto-detected)", distance: 0.77, duration: 22, note: "Fitbit auto-detected, 7:43 PM — right after the Full-Body A gym session ended (7:38 PM), likely a cooldown walk" },
+  { date: "2026-08-04", name: "Remainder of day's Fitbit distance", distance: 6.99, note: "Backfilled 2026-08-11 — fills the gap between the auto-detected walk above (0.77mi) and the day's total Fitbit distance (7.76mi from stepsData), per Bobby's clarification that the Walks chart should reflect the full day's distance, not just recorded walk segments." },
   {
     date: "2026-08-05",
     name: "Lunchtime walk",
@@ -275,10 +299,15 @@ const walksData = [
     note: "Fitbit (Versa 4), 12:56 PM — entirely light-intensity zone"
   },
   { date: "2026-08-05", name: "Evening walk (auto-detected)", distance: 0.33, duration: 21, note: "Fitbit auto-detected, 10:15 PM — right after the Japanese restaurant dinner" },
+  { date: "2026-08-05", name: "Remainder of day's Fitbit distance", distance: 5.16, note: "Backfilled 2026-08-11 — fills the gap between the two tracked walks above (1.89mi combined) and the day's total Fitbit distance (7.05mi from stepsData)." },
   { date: "2026-08-06", name: "Lunchtime walk", distance: 2.31, duration: 49, note: "Backfilled, 12:18 PM" },
+  { date: "2026-08-06", name: "Remainder of day's Fitbit distance", distance: 3.39, note: "Backfilled 2026-08-11 — fills the gap between the tracked walk above (2.31mi) and the day's total Fitbit distance (5.7mi from stepsData)." },
+  { date: "2026-08-07", name: "Lunchtime walk", distance: 0.97, duration: 32, note: "Fitbit, 12:45 PM" },
+  { date: "2026-08-07", name: "Remainder of day's Fitbit distance", distance: 4.22, note: "Backfilled 2026-08-11 — fills the gap between the tracked walk above (0.97mi) and the day's total Fitbit distance (5.19mi from stepsData)." },
   { date: "2026-08-08", name: "Pre-workout brisk treadmill walk", distance: 0.51, duration: 9, note: "Fitbit, 12:12 PM — warm-up before the Full-Body B gym session" },
   { date: "2026-08-08", name: "Post-workout brisk treadmill walk", distance: 0.56, duration: 10, note: "Fitbit, 1:51 PM — cool-down after the Full-Body B gym session" },
   { date: "2026-08-08", name: "Afternoon walk", distance: 0.54, duration: 18, note: "Fitbit auto-detected, 3:59 PM — unrelated to the gym session" },
+  { date: "2026-08-08", name: "Remainder of day's Fitbit distance (provisional)", distance: 4.54, note: "Backfilled 2026-08-11 against the last known stepsData total (6.15mi), which is itself still flagged partial (\"as of 4:55 PM\") — revisit this remainder once a final Aug 8 Fitbit sync comes in." },
   { date: "2026-08-09", distance: 4.39, note: "No dedicated tracked walk — this is the day's total Fitbit distance (family day, visiting the cemetery)" },
   {
     date: "2026-08-10",
@@ -298,7 +327,10 @@ const walksData = [
     cardioLoad: 8,
     zoneMin: 2,
     note: "Fitbit (Versa 4), 12:16 PM"
-  }
+  },
+  { date: "2026-08-10", name: "Remainder of day's Fitbit distance", distance: 3.30, note: "Backfilled 2026-08-11 — fills the gap between the tracked lunchtime walk above (2.17mi) and the day's total Fitbit distance (5.47mi from stepsData)." },
+  { date: "2026-08-11", name: "Walk", distance: 2.05, duration: 50, note: "Fitbit, 11:54 AM" },
+  { date: "2026-08-11", name: "Remainder of day's Fitbit distance", distance: 3.94, note: "Fills the gap between the tracked walk above (2.05mi) and the day's total Fitbit distance (5.99mi from stepsData)." }
 ];
 
 // Gym workout sessions. One entry per session; exercises listed in order performed.
@@ -677,6 +709,27 @@ const meals = [
   { date: "2026-08-10", time: "19:20", name: "Banana Chips (Dessert)", photo: "food-photos/2026-08-10-dessert-banana-chips-cup.jpeg",
     description: "Trader Joe's Banana Chips, about 1 cup (see food-photos/2026-08-10-dessert-banana-chips-cup.jpeg), from an 8oz (227g) bag (front-of-package net weight — see food-photos/2026-08-10-dessert-banana-chips-front.jpeg). The nutrition label itself gives calories by weight only (210 cal per 40g, 5.5 servings/bag — see food-photos/2026-08-10-dessert-banana-chips-label.jpeg), no cup measure, so the cup-to-gram conversion is cross-checked against two outside sources: MyFoodDiary lists this product at 1/4 cup = 30g (→120g/cup), and a product-review blog independently describes an 8oz bag as ~8 servings of 1/4 cup each (→~2 cups/bag, ~114g/cup). Both land close to the ~120g (3 of our label's 40g servings) used here, so this estimate is reasonably well-supported rather than a bare guess. Ingredients: bananas, coconut oil, sugar, natural banana flavor.",
     calories: 630, protein: 2, carbs: 75, fat: 36, sodium: 0, sodiumNote: "Not a sodium concern (0mg), but worth flagging: ~33g of that 36g fat is saturated (coconut oil), well over half a day's saturated fat in one dessert portion." },
+  { date: "2026-08-11", time: "09:35", name: "Eggs Over-Hard (No Salt) & Sausage Patty", photo: "food-photos/2026-08-11-breakfast.jpeg",
+    description: "2 large eggs, over-hard, no salt + 1 pork sausage patty (~2oz) — breakfast. Same combo as recent breakfasts (Aug 6, 7, 10), macros reused directly.",
+    calories: 350, protein: 21, carbs: 2, fat: 29, sodium: 550, sodiumNote: "Sausage patty is doing nearly all the sodium here, not the eggs (no salt added to those)." },
+  { date: "2026-08-11", time: "09:35", name: "Rice Protein, Peanut Butter & Banana Shake", photo: "food-photos/2026-08-11-shake.jpeg",
+    description: "3 scoops rice protein + 1 cup unsweetened almond milk + 1 cup ice + 6 tsp (2 tbsp) crunchy peanut butter + 1 medium banana + 1 tsp creatine monohydrate. Standard recipe, same as the August 1 post-workout shake — macros reused directly.",
+    calories: 750, protein: 59, carbs: 46, fat: 22, sodium: 291 },
+  { date: "2026-08-11", time: "14:24", name: "Tuna Salad & Hard Boiled Eggs", photo: "food-photos/2026-08-11-lunch.jpeg",
+    description: "0.32 lb (~145g) mayo-based tuna salad with celery, no label (see food-photos/2026-08-11-lunch.jpeg) + 2 hard boiled eggs, no label/photo — same combo as the August 10 lunch minus the yogurt. Macros derived by taking that Aug 10 entry's tuna-salad-plus-eggs total (backing out the Chobani yogurt's known 110 cal/12g protein/15g carb/60mg sodium), then scaling the tuna salad slightly up for the 0.31→0.32 lb difference and adding standard USDA hard-boiled-egg values. Same wider-than-usual uncertainty as before since the tuna salad itself has no label.",
+    calories: 425, protein: 37, carbs: 5, fat: 29, sodium: 700, sodiumNote: "Tuna salad (mayo-based, no label) is the main driver — estimated, not exact." },
+  { date: "2026-08-11", time: "15:30", name: "Nature's Bakery Gluten Free Fig Bar, Blueberry", photo: "food-photos/2026-08-11-snack-figbar-front.jpeg",
+    description: "1 package (57g, label exact — see food-photos/2026-08-11-snack-figbar-label.jpeg) — afternoon snack. Different product from the regular Nature's Bakery Strawberry Fig Bar logged on previous days — this is the Gluten Free Blueberry variant, slightly different macros (higher calories/fat, lower protein/sodium). Label values, exact. Time estimated — not logged.",
+    calories: 210, protein: 2, carbs: 39, fat: 6, sodium: 70 },
+  { date: "2026-08-11", time: "19:30", name: "Grilled Jerk Chicken Legs (Whole Foods)", photo: "food-photos/2026-08-11-dinner-jerk-chicken.jpeg",
+    description: "2 chicken thighs from the Whole Foods hot bar (see food-photos/2026-08-11-dinner-jerk-chicken.jpeg), ~8oz combined, bone-in — dinner. Same product as the August 8 lunch chicken (see food-photos/2026-08-11-dinner-jerk-chicken-label.jpeg — identical shelf label, ingredients led by sea salt, canola oil, Caribbean jerk seasoning). Label gives calories only (260 cal per 4oz serving, exact) — protein/fat/carb estimated from typical values for grilled bone-in/skin-on chicken thigh scaled to match the label's calorie density, same approach as the Aug 8 entry.",
+    calories: 520, protein: 58, carbs: 1, fat: 30, sodium: 800, sodiumNote: "Jerk seasoning (sea salt is the first ingredient) is the main driver — estimated, no sodium figure on the label, and this is a larger ~8oz portion than the Aug 8 serving." },
+  { date: "2026-08-12", time: "09:30", name: "Eggs Over-Hard (No Salt) & Sausage Patty", photo: "",
+    description: "2 large eggs, over-hard, no salt + 1 pork sausage patty (~2oz) — breakfast. Same combo as August 11, macros reused directly. No photo shared this time. Time estimated — not logged.",
+    calories: 350, protein: 21, carbs: 2, fat: 29, sodium: 550, sodiumNote: "Sausage patty is doing nearly all the sodium here, not the eggs (no salt added to those)." },
+  { date: "2026-08-12", time: "14:00", name: "Sun Chips, Garden Salsa", photo: "food-photos/2026-08-12-snack-sunchips-front.jpeg",
+    description: "1 package (1oz/28.3g, label exact — see food-photos/2026-08-12-snack-sunchips-label.jpeg) — an office snack pantry treat. Label values, exact. Time estimated — not logged.",
+    calories: 140, protein: 2, carbs: 18, fat: 6, sodium: 140 },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -694,13 +747,16 @@ const events = [
   { date: "2026-08-02", text: "Fishing day — nutrition not logged (off normal pattern, skipped by request)" },
   { date: "2026-08-02", text: "<strong>Daily stats:</strong> 5,059 steps · 2.51 mi · 3 floors · 3,346 cal burned · 0 zone min · Readiness 67 (High) · RHR 66 bpm (range 54–118) · Cardio Load 62 · 0 of 5 exercise days this week" },
   { date: "2026-08-03", text: "<strong>Daily stats:</strong> 7,908 steps · 3.85 mi · 11 floors · 2,792 cal burned · 0 zone min · Readiness 56 (Moderate) · RHR 66 bpm (range 55–111) · Cardio Load 2 · 0 of 5 exercise days this week" },
-  { date: "2026-08-04", text: "<strong>Daily stats:</strong> 16,370 steps · 7.74 mi · 20 floors · 3,545 cal burned · 40 zone min · Sleep 7h21m (score 93) · Readiness 67 (High) · RHR 66 bpm · Cardio Load 41 · 1 of 5 exercise days this week" },
+  { date: "2026-08-04", text: "<strong>Daily stats:</strong> 16,419 steps · 7.76 mi · 20 floors · 3,585 cal burned · 39 zone min · Sleep 7h21m (score 93) · Readiness 67 (High) · RHR 66 bpm (range 54–153) · Cardio Load 41 · 5 of 5 exercise days this week" },
   { date: "2026-08-05", text: "<strong>Daily stats:</strong> 14,654 steps · 7.05 mi · 17 floors · 3,257 cal burned · 12 zone min · Sleep 6h56m (score 86) · Readiness 58 (Moderate) · RHR 65 bpm · Cardio Load 17 · 2 of 5 exercise days this week" },
   { date: "2026-08-06", text: "<strong>Daily stats (backfilled):</strong> 11,760 steps · 5.7 mi · 12 floors · 3,054 cal burned · 17 zone min · Sleep 5h25m (score 79) · Readiness 59 (Moderate) · RHR 64 bpm (range 52–112) · Cardio Load 21 · 3 of 5 exercise days this week" },
+  { date: "2026-08-07", text: "<strong>Daily stats:</strong> 10,845 steps · 5.19 mi · 12 floors · 3,053 cal burned · 56 zone min · Sleep 6h28m (score 89) · Readiness 69 (High) · RHR 64 bpm (range 52–141) · Cardio Load 39 · 5 of 5 exercise days this week" },
   { date: "2026-08-08", text: "Pilates class, 51 min (10:32 AM, 110 cal per Fitbit)" },
   { date: "2026-08-08", text: "<strong>Daily stats (as of 4:55 PM, day in progress):</strong> 12,830 steps · 6.15 mi · 19 floors · 2,798 cal burned · 92 zone min · Sleep 5h57m (score 76) · Readiness 37 (Moderate) · RHR 66 bpm · Cardio Load 72 · 5 of 5 exercise days this week" },
   { date: "2026-08-09", text: "Family day — visited the cemetery to see his grandmother. Fitness plan intentionally off pattern; nutrition not logged." },
   { date: "2026-08-09", text: "<strong>Daily stats:</strong> 9,370 steps · 4.39 mi · 10 floors · 3,133 cal burned · 27 zone min · Sleep 6h48m (score 85) · Readiness 78 (High) · RHR 64 bpm (range 50–120) · Cardio Load 24 · 0 of 5 exercise days this week" },
+  { date: "2026-08-10", text: "<strong>Daily stats:</strong> 11,300 steps · 5.47 mi · 16 floors · 2,996 cal burned · 2 zone min · Sleep 6h47m (score 87) · Readiness 59 (Moderate) · RHR 63 bpm (range 52–111) · Cardio Load 10 · 1 of 5 exercise days this week" },
+  { date: "2026-08-11", text: "<strong>Daily stats:</strong> 12,516 steps · 5.99 mi · 15 floors · 3,256 cal burned · 7 zone min · Sleep 5h11m (score 72) · Readiness 90 (High) · RHR 61 bpm (range 48–118, below personal range) · HRV 57ms (above personal range) · Cardio Load 18 · 2 of 5 exercise days this week" },
 ];
 
 // Structured facts that don't fit a time series — just a one-line goals
@@ -735,5 +791,7 @@ const proteinData = [
   { date: "2026-08-07", value: 132, note: "partial — breakfast+shake, lunch, and fig bar/crisps snack so far" },
   { date: "2026-08-08", value: 159, note: "partial — pre-workout meal, post-workout Gai bowl, and afternoon shake so far" },
   { date: "2026-08-09", value: null, note: "not logged — family day, cemetery visit, off pattern" },
-  { date: "2026-08-10", value: 190, note: "partial — breakfast, morning shake, lunch, dinner, and banana chip dessert so far; already past the 180g target" }
+  { date: "2026-08-10", value: 190, note: "final — breakfast, morning shake, lunch, dinner, and banana chip dessert; past the 180g target" },
+  { date: "2026-08-11", value: 177, note: "partial — breakfast, morning shake, lunch, fig bar snack, and dinner so far" },
+  { date: "2026-08-12", value: 23, note: "partial — breakfast and Sun Chips snack so far" }
 ];
