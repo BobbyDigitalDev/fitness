@@ -157,7 +157,8 @@ const calorieData = [
   { date: "2026-08-09", value: null, note: "not logged — family day, cemetery visit, off pattern" },
   { date: "2026-08-10", value: 2825, note: "final — breakfast, morning shake, lunch, dinner, and banana chip dessert; ~425 over the 2,400 target, mostly from the dessert" },
   { date: "2026-08-11", value: 2255, note: "partial — breakfast, morning shake, lunch, fig bar snack, and dinner so far" },
-  { date: "2026-08-12", value: 490, note: "partial — breakfast and Sun Chips snack so far" }
+  { date: "2026-08-12", value: 1965, note: "breakfast, lunch + chips, Sun Chips snack, and dinner now logged (lunch/chips/dinner backfilled 2026-08-13) — treating as complete unless Bobby flags another missed meal" },
+  { date: "2026-08-13", value: 2305, note: "partial — breakfast, Sun Chips snack, Little Beet lunch, and afternoon shake so far" }
 ];
 
 const sleepData = [
@@ -728,9 +729,33 @@ const meals = [
   { date: "2026-08-12", time: "09:30", name: "Eggs Over-Hard (No Salt) & Sausage Patty", photo: "",
     description: "2 large eggs, over-hard, no salt + 1 pork sausage patty (~2oz) — breakfast. Same combo as August 11, macros reused directly. No photo shared this time. Time estimated — not logged.",
     calories: 350, protein: 21, carbs: 2, fat: 29, sodium: 550, sodiumNote: "Sausage patty is doing nearly all the sodium here, not the eggs (no salt added to those)." },
+  { date: "2026-08-12", time: "13:27", name: "Shrimp, Quinoa-Barley Mix & Corn Salad", photo: "food-photos/2026-08-12-lunch-shrimp-quinoa.jpeg",
+    description: "Backfilled 2026-08-13 — herb-seasoned shrimp (~6 pieces, ~150g) + a large quinoa/barley grain mix with herbs and an oily dressing (~275g cooked) + a mayo-and-cheese-based Mexican-style corn salad, of which Bobby only ate about 30% of the visible portion since he's lactose intolerant and it had cheese mixed in. No labels (deli/prepared food) — all three components estimated from the photo and typical values for similar dishes; the grain-mix portion size and the corn salad's cheese content are the biggest sources of uncertainty.",
+    calories: 575, protein: 48, carbs: 74, fat: 17, sodium: 850, sodiumNote: "Spread across all three components — shrimp seasoning, the grain mix's dressing, and the corn salad; no single dominant source, and this is a wider-than-usual estimate given the lack of any label." },
+  { date: "2026-08-12", time: "13:41", name: "Community Snacks Sour Cream & Onion Kettle Chips", photo: "food-photos/2026-08-12-lunch-chips-front.jpeg",
+    description: "Backfilled 2026-08-13 — 1 package (2oz/56g, label exact — see food-photos/2026-08-12-lunch-chips-label.jpeg), eaten alongside the lunch above. Label values, exact.",
+    calories: 300, protein: 3, carbs: 33, fat: 18, sodium: 350 },
   { date: "2026-08-12", time: "14:00", name: "Sun Chips, Garden Salsa", photo: "food-photos/2026-08-12-snack-sunchips-front.jpeg",
     description: "1 package (1oz/28.3g, label exact — see food-photos/2026-08-12-snack-sunchips-label.jpeg) — an office snack pantry treat. Label values, exact. Time estimated — not logged.",
     calories: 140, protein: 2, carbs: 18, fat: 6, sodium: 140 },
+  { date: "2026-08-12", time: "19:27", name: "Curry-Cumin-Paprika Beef Patties & Spring Mix Salad", photo: "food-photos/2026-08-12-dinner-beef-patties-salad.jpeg",
+    description: "Backfilled 2026-08-13 — 2 homemade curry, cumin, and paprika-spiced ground beef patties (~4oz cooked combined) + a spring mix salad (spinach, frisée, cucumber, cherry tomato) topped with Trader Joe's Trail Mix (almonds, pistachios, pecans, dried cranberries, ~1/4 cup) and a light oil dressing. No labels on the homemade patties — both components estimated from the photo and typical values for 85/15 ground beef and the TJ's trail mix product; wider-than-usual uncertainty on the patty portion and dressing amount.",
+    calories: 600, protein: 32, carbs: 17, fat: 46, sodium: 450, sodiumNote: "Mostly from the homemade patties' seasoning — estimated, no label to confirm." },
+  { date: "2026-08-13", time: "09:36", name: "Eggs Over-Hard (No Salt) & Sausage Patty", photo: "food-photos/2026-08-13-breakfast.jpeg",
+    description: "2 large eggs, over-hard, no salt + 1 pork sausage patty (~2oz) — breakfast. Same combo as recent breakfasts, macros reused directly.",
+    calories: 350, protein: 21, carbs: 2, fat: 29, sodium: 550, sodiumNote: "Sausage patty is doing nearly all the sodium here, not the eggs (no salt added to those)." },
+  { date: "2026-08-13", time: "09:36", name: "Chobani Blueberry Greek Yogurt", photo: "food-photos/2026-08-13-yogurt-lid.jpeg",
+    description: "Chobani Greek Yogurt, Blueberry on the Bottom, 1 container (150g, label exact — see food-photos/2026-08-13-yogurt-label.jpeg) — same product logged before, macros reused directly.",
+    calories: 110, protein: 12, carbs: 15, fat: 0, sodium: 60 },
+  { date: "2026-08-13", time: "11:06", name: "Sun Chips, Garden Salsa", photo: "food-photos/2026-08-13-snack-sunchips-front.jpeg",
+    description: "1 package (1oz/28.3g, label exact — see food-photos/2026-08-13-snack-sunchips-label.jpeg) — same product as the Aug 12 snack, macros reused directly.",
+    calories: 140, protein: 2, carbs: 18, fat: 6, sodium: 140 },
+  { date: "2026-08-13", time: "11:55", name: "The Little Beet Bowl: Quinoa, Sweet Potatoes, Broccoli, BBQ Chicken & Chimichurri", photo: "food-photos/2026-08-13-lunch-little-beet.jpeg",
+    description: "Quinoa + roasted sweet potatoes + charred broccoli + BBQ pulled chicken + chimichurri sauce, from The Little Beet — lunch. Macros built from The Little Beet's official published Fall 2025 nutrition PDF (thelittlebeet.com/nutrition), summing their per-component figures for Quinoa (295 cal), Sweet Potatoes (210 cal), Charred Broccoli (50 cal), and Chimichurri (130 cal). One substitution: their current published list doesn't have a \"BBQ pulled chicken\" item by that exact name, so the protein figure uses their \"Roasted Chicken\" (270 cal, 38g protein) as the closest listed analog — the actual dish may run a bit different if it's a seasonal/location variant not on the current list.",
+    calories: 955, protein: 57, carbs: 107, fat: 36, sodium: 1993, sodiumNote: "High — the Roasted Chicken component alone is listed at 926mg, plus broccoli, sweet potatoes, and chimichurri all add more; this is the single highest-sodium meal logged so far, worth watching given the BP meds." },
+  { date: "2026-08-13", time: "14:55", name: "Rice Protein, Peanut Butter & Banana Shake", photo: "",
+    description: "3 scoops rice protein + 1 cup unsweetened almond milk + 1 cup ice + 6 tsp (2 tbsp) peanut butter + 1 medium banana + 1 tsp creatine monohydrate — same recipe as the Aug 11 shake, macros reused directly. No photo shared.",
+    calories: 750, protein: 59, carbs: 46, fat: 22, sodium: 291 },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -794,5 +819,6 @@ const proteinData = [
   { date: "2026-08-09", value: null, note: "not logged — family day, cemetery visit, off pattern" },
   { date: "2026-08-10", value: 190, note: "final — breakfast, morning shake, lunch, dinner, and banana chip dessert; past the 180g target" },
   { date: "2026-08-11", value: 177, note: "partial — breakfast, morning shake, lunch, fig bar snack, and dinner so far" },
-  { date: "2026-08-12", value: 23, note: "partial — breakfast and Sun Chips snack so far" }
+  { date: "2026-08-12", value: 106, note: "breakfast, lunch + chips, Sun Chips snack, and dinner now logged (lunch/chips/dinner backfilled 2026-08-13) — treating as complete unless Bobby flags another missed meal" },
+  { date: "2026-08-13", value: 151, note: "partial — breakfast, Sun Chips snack, Little Beet lunch, and afternoon shake so far" }
 ];
