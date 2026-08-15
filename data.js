@@ -73,21 +73,29 @@
 //                      estimate rather than omitting it — a missing time sorts before all others on
 //                      that day and throws the grouping off, which is worse than an approximate time.
 //   gymWorkoutsData: { date: "2026-08-01", gym: "Gym", label: "Day 1", startTime: "08:35", endTime: "09:34",
-//                       duration: 59, exercises: [ { name: "Machine Chest Press", equipment: "", feel: "",
-//                       sets: [ { reps: 12, weight: 60, note: "" }, ... ], note: "" } ], note: "" }
+//                       duration: 59, exercises: [ { name: "Machine Chest Press", equipment: "",
+//                       sets: [ { reps: 12, weight: 60, feel: "" }, ... ], note: "" } ], note: "" }
 //                    → one entry per gym session, feeds the full-width Workouts card (added
 //                      2026-08-03). exercises[].sets[] entries use either reps+weight (weighted/
 //                      bodyweight sets) or duration (seconds, for planks/holds) — never both.
-//                      Per-set note (e.g. "bare bar") and per-exercise note both display inline;
-//                      the top-level session note is for whole-session context (e.g. a Fitbit
-//                      auto-detect discrepancy). Scoped to the month-selector dropdown like the
-//                      Meals/Activity feeds.
-//                      exercises[].feel: added 2026-08-04, one of "Easy" / "Just right" / "Hard" /
-//                      "Too much" — captured per exercise (not per session) via the interactive
-//                      HTML workout guides in workout_guides/, which log directly through the same
-//                      JSONBin pending-queue pattern as Quick Log (see WORKFLOW.md). Leave "" if not
-//                      set (older sessions logged before this field existed, or sessions logged by
-//                      hand in a Cowork session without asking how each exercise felt).
+//                      Per-exercise note and the top-level session note both display inline; the
+//                      session note is for whole-session context (e.g. a Fitbit auto-detect
+//                      discrepancy), the exercise note is for exercise-specific context (see below).
+//                      Scoped to the month-selector dropdown like the Meals/Activity feeds.
+//                      exercises[].sets[].feel: one of "Easy" / "Just right" / "Hard" / "Too much" —
+//                      captured per SET (moved here from per-exercise 2026-08-15, so a session that
+//                      starts easy and falls apart by set 3 shows exactly where) via a dropdown next
+//                      to each set's reps/weight or duration in the interactive HTML workout guides
+//                      in workout_guides/, which log directly through the same JSONBin pending-queue
+//                      pattern as Quick Log (see WORKFLOW.md). Leave null if not set (older sessions
+//                      logged before the per-set version existed carry a single exercises[].feel
+//                      instead — don't silently migrate old entries, just note the schema predates
+//                      the split if it comes up).
+//                      exercises[].note: doubles as a free-text "modifications" box in the guide UI
+//                      (added 2026-08-15) — e.g. "did push-ups on my knees, varied hand angle, used
+//                      the dumbbells as handles to keep my wrist straight" for the old snowboarding
+//                      wrist injury. Same field also used for any other exercise-specific context a
+//                      Cowork session adds by hand.
 //                      startTime/endTime/duration: added 2026-08-08 — the guide pages now have a
 //                      "Start Session" button (tap right before set 1) and capture the save-time as
 //                      the end, so the JSONBin queue entry carries real startedAt/endedAt ISO
@@ -528,6 +536,76 @@ const gymWorkoutsData = [
       }
     ],
     note: "First session logged against the Full-Body B guide (workout_guides/2026-08-03-full-body-b-guide.html), synced through JSONBin. Preceded by a 51-min Pilates class (10:32 AM, 110 cal per Fitbit) earlier the same morning. Bracketed by two Fitbit-detected brisk walks — 10-min warm-up (12:12 PM, 0.51 mi/9 min) and 10-min cool-down (1:51 PM, 0.56 mi/10 min) — used here for start/end time since Fitbit didn't auto-detect a separate \"Strength training\" block this session (guide itself doesn't capture session timing). Actual lifting time between the two walks runs a bit under Bobby's own \"couple hours\" estimate. A separate, unrelated 18-min walk logged later at 3:59 PM (0.54 mi) is filed in walksData, not counted as part of this session."
+  },
+  {
+    date: "2026-08-15",
+    gym: "Home",
+    label: "Home A",
+    startTime: "10:37",
+    endTime: "11:12",
+    duration: 35,           // minutes
+    exercises: [
+      {
+        name: "Dumbbell Floor Press",
+        feel: "Easy",
+        sets: [
+          { reps: 15, weight: 15 },
+          { reps: 20, weight: 15 },
+          { reps: 20, weight: 15 }
+        ],
+        note: "Hit the top of the 15-20 rep range on 2 of 3 sets already, rated Easy — per the guide's own progression note, ready to add a 4th set next session."
+      },
+      {
+        name: "Bent-Over Two-Arm Row",
+        feel: "Just right",
+        sets: [
+          { reps: 20, weight: 15 },
+          { reps: 20, weight: 15 },
+          { reps: 20, weight: 15 }
+        ],
+        note: "Topped out all 3 sets at 20 reps, rated Just right — also close to ready for a 4th set."
+      },
+      {
+        name: "Goblet Squat",
+        feel: "Hard",
+        sets: [
+          { reps: 15, weight: 15 },
+          { reps: 15, weight: null },
+          { reps: 15, weight: null }
+        ],
+        note: "Bottom of the 15-20 rep range and rated Hard. Weight field was only filled in on set 1 in the guide app — left as null for sets 2-3 exactly as logged rather than assumed, though the same single 15lb dumbbell is the only option for this move so it's a safe bet all 3 sets used it."
+      },
+      {
+        name: "Dumbbell Lateral Raise",
+        feel: "Hard",
+        sets: [
+          { reps: 10, weight: 15 },
+          { reps: 10, weight: 15 },
+          { reps: 10, weight: 15 }
+        ],
+        note: "Missed the 15-20 rep target by a wide margin (10/10/10) and still rated Hard — isolation laterals fatigue much faster than presses/rows at 15lb. Worth lowering this exercise's rep target rather than expecting him to grind up to 15-20."
+      },
+      {
+        name: "Push-Up",
+        feel: "Hard",
+        sets: [
+          { reps: 10, weight: null },
+          { reps: 10, weight: null },
+          { reps: 10, weight: null }
+        ],
+        note: "Modified for an old snowboarding wrist injury — done on knees, varied hand angle, and used the dumbbells as handles to keep the wrist straight instead of bending back."
+      },
+      {
+        name: "Forearm Plank",
+        feel: "Just right",
+        sets: [
+          { duration: 60 },
+          { duration: 45 },
+          { duration: 45 }
+        ]
+      }
+    ],
+    note: "First session logged against the new Home A guide (workout_guides/2026-08-13-home-a-guide.html), Bobby's first home dumbbell workout, synced through JSONBin. This entry predates the 2026-08-15 per-set-feel/notes schema split (see the top-of-file schema comment) — feel is exercise-level here, not per-set, since the guide only had the old end-of-exercise picker at the time this was logged. A near-empty accidental save (14:38 EDT, one field filled in) landed in the JSONBin queue about 34 minutes before this real entry (15:12 EDT) — discarded rather than merged, since it wasn't a real second session."
   }
 ];
 

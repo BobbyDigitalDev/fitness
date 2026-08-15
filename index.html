@@ -882,17 +882,30 @@
   // month-scoped, day-grouped-box treatment as Meals/Activity above. Each
   // exercise's sets render as reps×weight (or duration for holds/planks),
   // with a per-set note in parentheses when present (e.g. "bare bar").
+  // Feel emoji, keyed the same for both the per-set inline tag (formatSet)
+  // and the exercise-level Feel column (formatFeel, old-schema sessions
+  // only — see note below).
+  const FEEL_EMOJI = { "Easy": "💪", "Just right": "🎯", "Hard": "😓", "Too much": "⚠️" };
+
   function formatSet(s) {
     let base;
     if (s.duration != null) base = `${s.duration}s`;
     else if (s.weight != null) base = `${s.reps}×${s.weight}lb`;
     else base = `${s.reps} reps`;
+    // sets[].feel: added 2026-08-15 — shown inline per set so a session
+    // that starts easy and falls apart by set 3 is visible at a glance,
+    // instead of one rating for the whole exercise.
+    if (s.feel) base += ` ${FEEL_EMOJI[s.feel] || s.feel}`;
     return s.note ? `${base} (${s.note})` : base;
   }
 
-  // Per-exercise feel rating, logged via the interactive workout guides
-  // (workout_guides/*.html) — added 2026-08-04. Blank for older sessions
-  // or anything logged by hand without asking how each exercise felt.
+  // Per-exercise feel rating — the ORIGINAL shape (one feel per exercise,
+  // added 2026-08-04), replaced 2026-08-15 by the per-set version above.
+  // Sessions logged before 2026-08-15 (Aug 1/4/8 gym, Aug 15 Home A) still
+  // carry exercises[].feel and have nothing in sets[].feel, so this stays
+  // in place purely for backward compatibility — formatFeel returns '' for
+  // anything logged after the split, since that data now lives inline in
+  // formatSet instead.
   const FEEL_DISPLAY = {
     "Easy": "💪 Easy",
     "Just right": "🎯 Just right",
@@ -900,7 +913,7 @@
     "Too much": "⚠️ Too much",
   };
   function formatFeel(feel) {
-    return FEEL_DISPLAY[feel] || (feel || '—');
+    return feel ? (FEEL_DISPLAY[feel] || feel) : '';
   }
 
   function renderWorkouts(month) {
