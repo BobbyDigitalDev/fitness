@@ -171,7 +171,7 @@ const calorieData = [
   { date: "2026-08-14", value: 2265, note: "final — fast-food breakfast box (pre-flight), cereal/coconut milk/trail mix, ribeye salad dinner, and popcorn snack; flight day down to Cape Coral" },
   { date: "2026-08-15", value: 1540, note: "final — cereal+banana breakfast and BBQ ribs lunch, confirmed that's all he ate that day; ~860 cal under the 2,400 target" },
   { date: "2026-08-16", value: 2530, note: "final — cereal+banana, Chobani yogurt, ribeye+salad dinner, 2 mini cherry pies, and a post-dinner trail mix handful; final full day in Cape Coral" },
-  { date: "2026-08-17", value: 1172, note: "partial — ribeye, omelette + spring mix, and a mini cherry pie so far; day still in progress" }
+  { date: "2026-08-17", value: 1422, note: "partial — ribeye/omelette/cherry pie brunch, and a Chobani yogurt + trail mix snack so far; day still in progress" }
 ];
 
 const sleepData = [
@@ -664,7 +664,7 @@ const meals = [
   { date: "2026-07-31", time: "13:00", description: "Lunch — Shrimp + Hard Boiled Eggs (0.3 lbs cooked shrimp ~136g + 2 hard boiled eggs)",
     calories: 290, protein: 46, sodium: 274, note: "time estimated — not logged" },
   { date: "2026-07-31", time: "15:00", description: "Snack — Chobani Blueberry Yogurt (nonfat, 1 container)",
-    calories: 110, protein: 12, sodium: 60, note: "time estimated — not logged" },
+    calories: 110, protein: 12, sodium: 55, note: "time estimated — not logged" },
   { date: "2026-07-31", time: "16:30", description: "Snack — Honey BBQ Kettle Chips + La Croix (Community Snacks, 1 bag 2 oz + seltzer)",
     calories: 290, protein: 3, sodium: 290, note: "time estimated — not logged" },
   {
@@ -728,7 +728,7 @@ const meals = [
     calories: 645, protein: 58, carbs: 18, fat: 24, sodium: 290 },
   { date: "2026-08-04", time: "10:56", name: "Chobani Blueberry Greek Yogurt", photo: "food-photos/2026-08-04-chobani-blueberry-greek-yogurt.jpeg",
     description: "Chobani Greek Yogurt, Blueberry on the Bottom, 1 container (150g) — breakfast. Label values, exact.",
-    calories: 110, protein: 12, carbs: 15, fat: 0, sodium: 60 },
+    calories: 110, protein: 12, carbs: 15, fat: 0, sodium: 55 },
   { date: "2026-08-04", time: "10:56", name: "Banana", photo: "food-photos/2026-08-04-banana.jpeg",
     description: "1 medium banana, eaten alongside the yogurt above — breakfast. USDA standard estimate (no label to read from).",
     calories: 105, protein: 1, carbs: 27, fat: 0, sodium: 1, note: "outside the usual noon-start eating window — a one-off, not flagged unless it becomes a pattern" },
@@ -800,7 +800,7 @@ const meals = [
     calories: 645, protein: 58, carbs: 18, fat: 24, sodium: 290 },
   { date: "2026-08-10", time: "13:43", name: "Tuna Salad, Hard Boiled Eggs & Chobani Yogurt", photo: "food-photos/2026-08-10-lunch-tuna-salad.jpeg",
     description: "Cafe was out of shrimp today, so lunch swapped to 0.31 lb (~141g) mayo-based tuna salad with celery, no label (see food-photos/2026-08-10-lunch-tuna-salad.jpeg) + 2 hard boiled eggs, no label/photo this time — USDA standard estimate + Chobani Greek Yogurt, Blueberry on the Bottom, 1 container (150g, label exact — see food-photos/2026-08-10-lunch-yogurt-label.jpeg). Tuna salad is the biggest uncertainty here: no label, mayo ratio varies a lot by kitchen, estimated from typical cafe-style tuna salad values.",
-    calories: 530, protein: 48, carbs: 20, fat: 28, sodium: 745, sodiumNote: "Tuna salad is the main driver (canned tuna + mayo typically run salty), estimated since there's no label — wider-than-usual uncertainty on this one." },
+    calories: 530, protein: 48, carbs: 20, fat: 28, sodium: 740, sodiumNote: "Tuna salad is the main driver (canned tuna + mayo typically run salty), estimated since there's no label — wider-than-usual uncertainty on this one." },
   { date: "2026-08-10", time: "19:15", name: "Leftover Chicken, Salad & Sweet Potato", photo: "food-photos/2026-08-10-dinner-chicken-salad-plate.jpeg",
     description: "Dinner — leftover roast chicken (1 thigh + 1 drumstick + a handful of shredded breast, skin-on, simple salt-and-pepper style seasoning, no sauce visible) + the usual salad (mixed greens, radicchio, dried cranberries, almonds, broccoli, cherry tomato, lightly dressed) + half a small roasted sweet potato. No label on any of it — portions and macros estimated from the photo, wider-than-usual uncertainty on the chicken quantity since it's a mixed plate of dark and white meat.",
     calories: 670, protein: 61, carbs: 35, fat: 30, sodium: 395 },
@@ -842,7 +842,7 @@ const meals = [
     calories: 350, protein: 21, carbs: 2, fat: 29, sodium: 550, sodiumNote: "Sausage patty is doing nearly all the sodium here, not the eggs (no salt added to those)." },
   { date: "2026-08-13", time: "09:36", name: "Chobani Blueberry Greek Yogurt", photo: "food-photos/2026-08-13-yogurt-lid.jpeg",
     description: "Chobani Greek Yogurt, Blueberry on the Bottom, 1 container (150g, label exact — see food-photos/2026-08-13-yogurt-label.jpeg) — same product logged before, macros reused directly.",
-    calories: 110, protein: 12, carbs: 15, fat: 0, sodium: 60 },
+    calories: 110, protein: 12, carbs: 15, fat: 0, sodium: 55 },
   { date: "2026-08-13", time: "11:06", name: "Sun Chips, Garden Salsa", photo: "food-photos/2026-08-13-snack-sunchips-front.jpeg",
     description: "1 package (1oz/28.3g, label exact — see food-photos/2026-08-13-snack-sunchips-label.jpeg) — same product as the Aug 12 snack, macros reused directly.",
     calories: 140, protein: 2, carbs: 18, fat: 6, sodium: 140 },
@@ -875,7 +875,7 @@ const meals = [
     calories: 490, protein: 7, carbs: 95, fat: 10, sodium: 370 },
   { date: "2026-08-16", time: "12:50", name: "Chobani Blueberry Greek Yogurt", photo: "food-photos/2026-08-16-snack-yogurt-front.jpeg",
     description: "Chobani Greek Yogurt, Blueberry on the Bottom, 1 container (150g, label exact — see food-photos/2026-08-16-snack-yogurt-nutrition.jpeg) — a separate snack, not eaten alongside the cereal earlier despite the close timing. Same product logged before, macros reused directly.",
-    calories: 110, protein: 12, carbs: 15, fat: 0, sodium: 60 },
+    calories: 110, protein: 12, carbs: 15, fat: 0, sodium: 55 },
   { date: "2026-08-16", time: "20:24", name: "Grilled Ribeye Steak & Spring Mix Salad", photo: "food-photos/2026-08-16-dinner-ribeye-plated.jpeg",
     description: "1.5 ribeye steaks grilled in the backyard (salt, pepper, garlic powder), sliced over spring mix — dinner, final night in Cape Coral. Two steaks of different size photographed pre-grill (one full, one half-sized) next to a $20 bill for scale (see food-photos/2026-08-16-dinner-ribeye-raw.jpeg); portion estimated from that comparison since no raw/cooked weight was given — wider-than-usual uncertainty on the exact ounces. No dressing mentioned on the greens, assumed none like the Aug 14 salad.",
     calories: 1090, protein: 100, carbs: 2, fat: 72, sodium: 310 },
@@ -888,6 +888,9 @@ const meals = [
   { date: "2026-08-17", time: "10:55", name: "Ribeye Steak, Spinach-Herb Omelette & Cherry Snack Pie", photo: "food-photos/2026-08-17-brunch-ribeye-omelette.jpeg",
     description: "One ribeye steak — Bobby said \"same size as yesterday,\" scaled down from the Aug 16 dinner's 1.5-steak total (that entry's ribeye alone was ~1075 cal/100g protein for 1.5 steaks, so 1 steak ≈ two-thirds of that) — lightly seasoned with salt, pepper, and garlic powder, alongside a 2-egg omelette folded with ~2 handfuls of Earthbound Farm Organic Spring Mix (see food-photos/2026-08-17-spring-mix-package.jpeg), followed immediately by one Entenmann's mini cherry snack pie (label exact — see food-photos/2026-08-17-cherrypie-nutrition.jpeg). Logged as one entry since Bobby described it as a single continuous sitting. Ribeye and omelette portions estimated from the photo/description; pie is exact from the label.",
     calories: 1172, protein: 82, carbs: 36, fat: 77, sodium: 700 },
+  { date: "2026-08-17", time: "12:45", name: "Chobani Blueberry Greek Yogurt & Trail Mix", photo: "food-photos/2026-08-17-snack-yogurt-trailmix-bowl.jpeg",
+    description: "Chobani Greek Yogurt, Blueberry on the Bottom, 1 container (150g, label exact — see food-photos/2026-08-17-snack-yogurt-nutrition.jpeg), topped with ~1/4 cup of the same Power Up Mega Omega trail mix (cranberries, mango, almonds, walnuts, pumpkin seeds all visible, matching the product) — quantity not stated, estimated from the photo at roughly one label serving. Note: this label reads Sodium 55mg exactly (prior Chobani entries in this log used 60mg — close enough to be a rounding difference, using the exact value read here going forward).",
+    calories: 250, protein: 15, carbs: 31, fat: 8, sodium: 55 },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -961,5 +964,5 @@ const proteinData = [
   { date: "2026-08-14", value: 75, note: "final — fast-food breakfast, cereal/coconut milk/trail mix, ribeye salad, and popcorn" },
   { date: "2026-08-15", value: 65, note: "final — cereal+banana breakfast and BBQ ribs lunch, confirmed that's all he ate that day" },
   { date: "2026-08-16", value: 132, note: "final — cereal+banana, Chobani yogurt, ribeye+salad dinner, cherry pies, and a post-dinner trail mix handful" },
-  { date: "2026-08-17", value: 82, note: "partial — ribeye, omelette + spring mix, and a mini cherry pie so far" }
+  { date: "2026-08-17", value: 97, note: "partial — ribeye/omelette/cherry pie brunch, and a Chobani yogurt + trail mix snack so far" }
 ];
