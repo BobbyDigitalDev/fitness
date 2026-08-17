@@ -143,7 +143,8 @@ const weightData = [
   { date: "2026-08-09", value: 203.2, note: "via Fitbit smart scale sync, timing unspecified" },
   { date: "2026-08-10", value: 204.8, note: "morning fasted" },
   { date: "2026-08-11", value: 204.2, note: "via Fitbit smart scale sync, timing unspecified" },
-  { date: "2026-08-12", value: 202.2, note: "morning fasted" }
+  { date: "2026-08-12", value: 202.2, note: "morning fasted" },
+  { date: "2026-08-13", value: 202.8, note: "via Fitbit smart scale sync, timing unspecified" }
 ];
 
 const calorieData = [
@@ -166,7 +167,10 @@ const calorieData = [
   { date: "2026-08-10", value: 2825, note: "final — breakfast, morning shake, lunch, dinner, and banana chip dessert; ~425 over the 2,400 target, mostly from the dessert" },
   { date: "2026-08-11", value: 2255, note: "partial — breakfast, morning shake, lunch, fig bar snack, and dinner so far" },
   { date: "2026-08-12", value: 1965, note: "breakfast, lunch + chips, Sun Chips snack, and dinner now logged (lunch/chips/dinner backfilled 2026-08-13) — treating as complete unless Bobby flags another missed meal" },
-  { date: "2026-08-13", value: 2305, note: "partial — breakfast, Sun Chips snack, Little Beet lunch, and afternoon shake so far" }
+  { date: "2026-08-13", value: 2305, note: "partial — breakfast, Sun Chips snack, Little Beet lunch, and afternoon shake so far" },
+  { date: "2026-08-14", value: 2265, note: "final — fast-food breakfast box (pre-flight), cereal/coconut milk/trail mix, ribeye salad dinner, and popcorn snack; flight day down to Cape Coral" },
+  { date: "2026-08-15", value: 1540, note: "final — cereal+banana breakfast and BBQ ribs lunch, confirmed that's all he ate that day; ~860 cal under the 2,400 target" },
+  { date: "2026-08-16", value: 2530, note: "partial — cereal+banana, Chobani yogurt, ribeye+salad dinner, 2 mini cherry pies, and a post-dinner trail mix handful logged so far; final day in Cape Coral, day still in progress" }
 ];
 
 const sleepData = [
@@ -189,7 +193,10 @@ const sleepData = [
   { date: "2026-08-09", hours: 6.8, score: 85, readiness: 78, note: "Good score, High readiness (78) — rebounded well off Aug 8's low. No bedtime/wake or stage breakdown available from this screenshot." },
   { date: "2026-08-10", hours: 6.78, score: 87, readiness: 59, bedtime: "23:27", wake: "06:52", deep: 109, rem: 80, light: 218, awake: 37, oxygenVariation: "Low", note: "Good score, second night in a row of solid recovery." },
   { date: "2026-08-11", hours: 5.18, score: 72, readiness: 90, bedtime: "23:59", wake: "06:41", deep: 94, rem: 42, light: 175, awake: 90, oxygenVariation: "Low", note: "Fair sleep score — shortest sleep of the week (5h11m) with the most awake time (1h30m), a step down from the last two nights' Good scores. Despite that, Daily Readiness came in at 90 (High) — RHR 61bpm ran below personal range and HRV 57ms ran above personal range, both good-direction outliers that pulled the readiness score up regardless of the rough sleep." },
-  { date: "2026-08-12", hours: 6.4, score: 88, bedtime: "00:03", wake: "07:01", deep: 117, rem: 73, light: 193, awake: 34, oxygenVariation: "Low", note: "Good score, bounced back from Aug 11's Fair night — most deep sleep of the week (1h57m)." }
+  { date: "2026-08-12", hours: 6.4, score: 88, readiness: 99, bedtime: "00:03", wake: "07:01", deep: 117, rem: 73, light: 193, awake: 34, oxygenVariation: "Low", note: "Good score, bounced back from Aug 11's Fair night — most deep sleep of the week (1h57m). Daily Readiness came in at 99 (High), the week's best — RHR 59bpm ran below personal range and HRV 61ms ran above personal range, same good-direction pattern as Aug 11." },
+  { date: "2026-08-13", hours: 6.72, score: 83, readiness: 60, note: "Good score, down a bit from Aug 12's 88 but still solid. Readiness dropped to 60 (Moderate) from Aug 12's week-best 99 — all 5 health metrics (RHR, HRV, breathing rate, SpO2, skin temp) came back in personal range this time, no outliers pulling the score either direction. No bedtime/wake or stage breakdown available from this screenshot." },
+  { date: "2026-08-14", hours: 4.38, score: 76, readiness: 58, note: "Shortest sleep logged all week by a wide margin (4h23m vs. 5h11m the next-shortest) — Fair score, explained by an unusually early wake-up for the flight down to Cape Coral, not a sign of poor sleep quality otherwise. Readiness still landed Moderate (58) rather than dropping further, and all 5 health metrics stayed in personal range despite the short night. No bedtime/wake or stage breakdown available from this screenshot." },
+  { date: "2026-08-15", hours: 7.43, score: 92, readiness: 58, note: "Best sleep score of the stretch (7h26m, score 92), first full night in Cape Coral — but readiness still only came in Moderate (58), same as the short-sleep night before it. All 5 health metrics stayed in personal range, so there's no single flagged outlier explaining the gap between a great sleep score and a middling readiness score. No bedtime/wake or stage breakdown available from this screenshot." }
 ];
 
 const stepsData = [
@@ -210,7 +217,11 @@ const stepsData = [
   { date: "2026-08-08", value: 12830, distance: 6.15, calories: 2798, floors: 19, zoneMin: 92, note: "as of 4:55 PM — day in progress, not final" },
   { date: "2026-08-09", value: 9370, distance: 4.39, calories: 3133, floors: 10, zoneMin: 27 },
   { date: "2026-08-10", value: 11300, distance: 5.47, calories: 2996, floors: 16, zoneMin: 2 },
-  { date: "2026-08-11", value: 12516, distance: 5.99, calories: 3256, floors: 15, zoneMin: 7 }
+  { date: "2026-08-11", value: 12516, distance: 5.99, calories: 3256, floors: 15, zoneMin: 7 },
+  { date: "2026-08-12", value: 10642, distance: 5.23, calories: 3488, floors: 10, zoneMin: 16 },
+  { date: "2026-08-13", value: 10497, distance: 5.07, calories: 3137, floors: 12, zoneMin: 28 },
+  { date: "2026-08-14", value: 9487, distance: 4.62, calories: 3223, floors: 5, zoneMin: 7 },
+  { date: "2026-08-15", value: 11482, distance: 5.21, calories: 3404, floors: 0, zoneMin: 62 }
 ];
 
 // Tracked runs. distance/pace/calories are from Strava (usually the full
@@ -340,7 +351,13 @@ const walksData = [
   },
   { date: "2026-08-10", name: "Remainder of day's Fitbit distance", distance: 3.30, note: "Backfilled 2026-08-11 — fills the gap between the tracked lunchtime walk above (2.17mi) and the day's total Fitbit distance (5.47mi from stepsData)." },
   { date: "2026-08-11", name: "Walk", distance: 2.05, duration: 50, note: "Fitbit, 11:54 AM" },
-  { date: "2026-08-11", name: "Remainder of day's Fitbit distance", distance: 3.94, note: "Fills the gap between the tracked walk above (2.05mi) and the day's total Fitbit distance (5.99mi from stepsData)." }
+  { date: "2026-08-11", name: "Remainder of day's Fitbit distance", distance: 3.94, note: "Fills the gap between the tracked walk above (2.05mi) and the day's total Fitbit distance (5.99mi from stepsData)." },
+  { date: "2026-08-12", distance: 5.23, note: "No dedicated tracked walk — this is the day's total Fitbit distance" },
+  { date: "2026-08-13", name: "Walk", distance: 0.88, duration: 19, note: "Fitbit, 12:23 PM" },
+  { date: "2026-08-13", name: "Remainder of day's Fitbit distance", distance: 4.19, note: "Fills the gap between the tracked walk above (0.88mi) and the day's total Fitbit distance (5.07mi from stepsData)." },
+  { date: "2026-08-14", distance: 4.62, note: "No dedicated tracked walk — this is the day's total Fitbit distance" },
+  { date: "2026-08-15", name: "Walk", distance: 0.52, duration: 29, note: "Fitbit, 3:43 PM" },
+  { date: "2026-08-15", name: "Remainder of day's Fitbit distance", distance: 4.69, note: "Fills the gap between the tracked walk above (0.52mi) and the day's total Fitbit distance (5.21mi from stepsData)." }
 ];
 
 // Gym workout sessions. One entry per session; exercises listed in order performed.
@@ -834,6 +851,39 @@ const meals = [
   { date: "2026-08-13", time: "14:55", name: "Rice Protein, Peanut Butter & Banana Shake", photo: "",
     description: "3 scoops rice protein + 1 cup unsweetened almond milk + 1 cup ice + 6 tsp (2 tbsp) peanut butter + 1 medium banana + 1 tsp creatine monohydrate — same recipe as the Aug 11 shake, macros reused directly. No photo shared.",
     calories: 750, protein: 59, carbs: 46, fat: 22, sodium: 291 },
+  { date: "2026-08-14", time: "07:07", name: "Fast Food Breakfast: Eggs, Sausage, Biscuit & Waffle-Cut Hash Browns", photo: "food-photos/2026-08-14-breakfast-fastfood.jpeg",
+    description: "2 eggs over hard + 1 sausage patty + half a buttermilk biscuit (ate half, called it out as too dry) + all the waffle-cut hash browns — grabbed on the way to the airport for the flight down to Cape Coral. Restaurant not specified; estimated from the photo against typical fast-food-breakfast values, no menu/label to confirm — wider-than-usual uncertainty here.",
+    calories: 900, protein: 27, carbs: 65, fat: 59, sodium: 1400, sodiumNote: "Estimated — no menu/label available; platters like this typically run high from the sausage and biscuit." },
+  { date: "2026-08-14", time: "15:55", name: "Honey Bunches of Oats w/ Almonds, Coconut Milk & Trail Mix", photo: "food-photos/2026-08-14-snack-cereal-bowl.jpeg",
+    description: "~2 cups Honey Bunches of Oats with Almonds + ~1 cup So Delicious unsweetened coconut milk + ~3 handfuls (~3/4 cup) Power Up Mega Omega trail mix. Bobby called this his \"breakfast\" despite the 3:55pm time — pre-flight morning was a quick fast-food stop instead, this was the first sit-down meal. Confirmed coconut milk (matches the photographed carton) — \"almond milk\" in conversation was a slip of habit. Cereal and trail mix from label values; milk and exact portions estimated from stated amounts.",
+    calories: 805, protein: 15, carbs: 116, fat: 34, sodium: 370 },
+  { date: "2026-08-14", time: "18:15", name: "Ribeye Steak & Spring Mix Salad with Trail Mix", photo: "food-photos/2026-08-14-dinner-ribeye-salad.jpeg",
+    description: "~4oz sliced ribeye (salt, pepper, garlic powder) over spring mix, no dressing, topped with ~2 tbsp Power Up Mega Omega trail mix (same product as the earlier snack). Ribeye and greens portions estimated from the photo; trail mix garnish scaled down from its 1/4-cup label serving.",
+    calories: 410, protein: 30, carbs: 9, fat: 28, sodium: 210 },
+  { date: "2026-08-14", time: "19:39", name: "Popcorn, Salt & Garlic Powder", photo: "food-photos/2026-08-14-snack-popcorn.jpeg",
+    description: "~3 cups popped popcorn, lightly seasoned with salt and garlic powder — homemade, no packaging/label available. Estimated from the photo; the bananas in the same shot were only there for size reference, not eaten.",
+    calories: 150, protein: 3, carbs: 24, fat: 6, sodium: 200 },
+  { date: "2026-08-15", time: "09:38", name: "Honey Bunches of Oats w/ Almonds, Coconut Milk & Banana", photo: "food-photos/2026-08-15-breakfast-cereal-banana.jpeg",
+    description: "Same cereal + coconut milk as the day before (~2 cups cereal, ~1 cup milk) with a medium banana cut up inside — breakfast, first full morning in Cape Coral. Cereal/milk from label values; banana and exact portions estimated.",
+    calories: 490, protein: 7, carbs: 95, fat: 10, sodium: 370 },
+  { date: "2026-08-15", time: "14:44", name: "BBQ Half Rack of Ribs", photo: "food-photos/2026-08-15-lunch-bbq-ribs.jpeg",
+    description: "Half rack (~6 ribs) with BBQ sauce, from a roadside BBQ restaurant near Cape Coral — lunch. No menu/label available; estimated from typical half-rack BBQ nutrition figures (ribs run fatty, sauce adds sugar and sodium) — wider-than-usual uncertainty since the specific restaurant wasn't identified.",
+    calories: 1050, protein: 58, carbs: 35, fat: 70, sodium: 1800, sodiumNote: "Estimated — BBQ sauce and rib rub both typically run high; treat as a rough figure." },
+  { date: "2026-08-16", time: "12:02", name: "Honey Bunches of Oats w/ Almonds, Coconut Milk & Banana", photo: "food-photos/2026-08-16-breakfast-cereal-banana.jpeg",
+    description: "Same breakfast as the day before — ~2 cups cereal, ~1 cup coconut milk, banana cut up inside. Final day in Cape Coral.",
+    calories: 490, protein: 7, carbs: 95, fat: 10, sodium: 370 },
+  { date: "2026-08-16", time: "12:50", name: "Chobani Blueberry Greek Yogurt", photo: "food-photos/2026-08-16-snack-yogurt-front.jpeg",
+    description: "Chobani Greek Yogurt, Blueberry on the Bottom, 1 container (150g, label exact — see food-photos/2026-08-16-snack-yogurt-nutrition.jpeg) — a separate snack, not eaten alongside the cereal earlier despite the close timing. Same product logged before, macros reused directly.",
+    calories: 110, protein: 12, carbs: 15, fat: 0, sodium: 60 },
+  { date: "2026-08-16", time: "20:24", name: "Grilled Ribeye Steak & Spring Mix Salad", photo: "food-photos/2026-08-16-dinner-ribeye-plated.jpeg",
+    description: "1.5 ribeye steaks grilled in the backyard (salt, pepper, garlic powder), sliced over spring mix — dinner, final night in Cape Coral. Two steaks of different size photographed pre-grill (one full, one half-sized) next to a $20 bill for scale (see food-photos/2026-08-16-dinner-ribeye-raw.jpeg); portion estimated from that comparison since no raw/cooked weight was given — wider-than-usual uncertainty on the exact ounces. No dressing mentioned on the greens, assumed none like the Aug 14 salad.",
+    calories: 1090, protein: 100, carbs: 2, fat: 72, sodium: 310 },
+  { date: "2026-08-16", time: "20:38", name: "Entenmann's Mini Cherry Snack Pies (2)", photo: "food-photos/2026-08-16-dessert-cherrypie-front.jpeg",
+    description: "2 mini cherry snack pies (label exact, 1 pie = 57g — see food-photos/2026-08-16-dessert-cherrypie-nutrition.jpeg) — dessert after dinner.",
+    calories: 420, protein: 4, carbs: 64, fat: 18, sodium: 480 },
+  { date: "2026-08-16", time: "21:00", name: "Power Up Mega Omega Trail Mix", photo: "food-photos/2026-08-14-snack-trailmix-front.jpeg",
+    description: "3 handfuls (~3/4 cup, same portion and product as the Aug 14 snack) of Power Up Mega Omega trail mix, after dinner — exact time not given, estimated shortly after the cherry pies. Label values (140 cal per 1/4 cup), scaled to 3 servings.",
+    calories: 420, protein: 9, carbs: 48, fat: 24, sodium: 0 },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -861,6 +911,11 @@ const events = [
   { date: "2026-08-09", text: "<strong>Daily stats:</strong> 9,370 steps · 4.39 mi · 10 floors · 3,133 cal burned · 27 zone min · Sleep 6h48m (score 85) · Readiness 78 (High) · RHR 64 bpm (range 50–120) · Cardio Load 24 · 0 of 5 exercise days this week" },
   { date: "2026-08-10", text: "<strong>Daily stats:</strong> 11,300 steps · 5.47 mi · 16 floors · 2,996 cal burned · 2 zone min · Sleep 6h47m (score 87) · Readiness 59 (Moderate) · RHR 63 bpm (range 52–111) · Cardio Load 10 · 1 of 5 exercise days this week" },
   { date: "2026-08-11", text: "<strong>Daily stats:</strong> 12,516 steps · 5.99 mi · 15 floors · 3,256 cal burned · 7 zone min · Sleep 5h11m (score 72) · Readiness 90 (High) · RHR 61 bpm (range 48–118, below personal range) · HRV 57ms (above personal range) · Cardio Load 18 · 2 of 5 exercise days this week" },
+  { date: "2026-08-12", text: "<strong>Daily stats:</strong> 10,642 steps · 5.23 mi · 10 floors · 3,488 cal burned · 16 zone min · Sleep 6h24m (score 88) · Readiness 99 (High) · RHR 59 bpm (range 46–108, below personal range) · HRV 61ms (above personal range) · Cardio Load 29 · 4 of 5 exercise days this week" },
+  { date: "2026-08-13", text: "<strong>Daily stats:</strong> 10,497 steps · 5.07 mi · 12 floors · 3,137 cal burned · 28 zone min · Sleep 6h43m (score 83) · Readiness 60 (Moderate) · RHR 61 bpm (range 54–126) · Cardio Load 23 · 4 of 5 exercise days this week" },
+  { date: "2026-08-14", text: "Flew down to Cape Coral, FL — unusually early wake-up for the flight, which explains the short 4h23m sleep this morning." },
+  { date: "2026-08-14", text: "<strong>Daily stats:</strong> 9,487 steps · 4.62 mi · 5 floors · 3,223 cal burned · 7 zone min · Sleep 4h23m (score 76) · Readiness 58 (Moderate) · RHR 62 bpm (range 53–113) · Cardio Load 12 · 4 of 5 exercise days this week" },
+  { date: "2026-08-15", text: "<strong>Daily stats:</strong> 11,482 steps · 5.21 mi · 0 floors · 3,404 cal burned · 62 zone min · Sleep 7h26m (score 92) · Readiness 58 (Moderate) · RHR 63 bpm (range 53–132) · Cardio Load 49 · 4 of 5 exercise days this week" },
 ];
 
 // Structured facts that don't fit a time series — just a one-line goals
@@ -898,5 +953,8 @@ const proteinData = [
   { date: "2026-08-10", value: 190, note: "final — breakfast, morning shake, lunch, dinner, and banana chip dessert; past the 180g target" },
   { date: "2026-08-11", value: 177, note: "partial — breakfast, morning shake, lunch, fig bar snack, and dinner so far" },
   { date: "2026-08-12", value: 106, note: "breakfast, lunch + chips, Sun Chips snack, and dinner now logged (lunch/chips/dinner backfilled 2026-08-13) — treating as complete unless Bobby flags another missed meal" },
-  { date: "2026-08-13", value: 151, note: "partial — breakfast, Sun Chips snack, Little Beet lunch, and afternoon shake so far" }
+  { date: "2026-08-13", value: 151, note: "partial — breakfast, Sun Chips snack, Little Beet lunch, and afternoon shake so far" },
+  { date: "2026-08-14", value: 75, note: "final — fast-food breakfast, cereal/coconut milk/trail mix, ribeye salad, and popcorn" },
+  { date: "2026-08-15", value: 65, note: "final — cereal+banana breakfast and BBQ ribs lunch, confirmed that's all he ate that day" },
+  { date: "2026-08-16", value: 132, note: "partial — cereal+banana, Chobani yogurt, ribeye+salad dinner, cherry pies, and a post-dinner trail mix handful so far" }
 ];
