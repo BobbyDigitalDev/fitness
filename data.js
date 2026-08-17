@@ -170,7 +170,8 @@ const calorieData = [
   { date: "2026-08-13", value: 2305, note: "partial — breakfast, Sun Chips snack, Little Beet lunch, and afternoon shake so far" },
   { date: "2026-08-14", value: 2265, note: "final — fast-food breakfast box (pre-flight), cereal/coconut milk/trail mix, ribeye salad dinner, and popcorn snack; flight day down to Cape Coral" },
   { date: "2026-08-15", value: 1540, note: "final — cereal+banana breakfast and BBQ ribs lunch, confirmed that's all he ate that day; ~860 cal under the 2,400 target" },
-  { date: "2026-08-16", value: 2530, note: "partial — cereal+banana, Chobani yogurt, ribeye+salad dinner, 2 mini cherry pies, and a post-dinner trail mix handful logged so far; final day in Cape Coral, day still in progress" }
+  { date: "2026-08-16", value: 2530, note: "final — cereal+banana, Chobani yogurt, ribeye+salad dinner, 2 mini cherry pies, and a post-dinner trail mix handful; final full day in Cape Coral" },
+  { date: "2026-08-17", value: 1172, note: "partial — ribeye, omelette + spring mix, and a mini cherry pie so far; day still in progress" }
 ];
 
 const sleepData = [
@@ -884,6 +885,9 @@ const meals = [
   { date: "2026-08-16", time: "21:00", name: "Power Up Mega Omega Trail Mix", photo: "food-photos/2026-08-14-snack-trailmix-front.jpeg",
     description: "3 handfuls (~3/4 cup, same portion and product as the Aug 14 snack) of Power Up Mega Omega trail mix, after dinner — exact time not given, estimated shortly after the cherry pies. Label values (140 cal per 1/4 cup), scaled to 3 servings.",
     calories: 420, protein: 9, carbs: 48, fat: 24, sodium: 0 },
+  { date: "2026-08-17", time: "10:55", name: "Ribeye Steak, Spinach-Herb Omelette & Cherry Snack Pie", photo: "food-photos/2026-08-17-brunch-ribeye-omelette.jpeg",
+    description: "One ribeye steak — Bobby said \"same size as yesterday,\" scaled down from the Aug 16 dinner's 1.5-steak total (that entry's ribeye alone was ~1075 cal/100g protein for 1.5 steaks, so 1 steak ≈ two-thirds of that) — lightly seasoned with salt, pepper, and garlic powder, alongside a 2-egg omelette folded with ~2 handfuls of Earthbound Farm Organic Spring Mix (see food-photos/2026-08-17-spring-mix-package.jpeg), followed immediately by one Entenmann's mini cherry snack pie (label exact — see food-photos/2026-08-17-cherrypie-nutrition.jpeg). Logged as one entry since Bobby described it as a single continuous sitting. Ribeye and omelette portions estimated from the photo/description; pie is exact from the label.",
+    calories: 1172, protein: 82, carbs: 36, fat: 77, sodium: 700 },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -956,5 +960,6 @@ const proteinData = [
   { date: "2026-08-13", value: 151, note: "partial — breakfast, Sun Chips snack, Little Beet lunch, and afternoon shake so far" },
   { date: "2026-08-14", value: 75, note: "final — fast-food breakfast, cereal/coconut milk/trail mix, ribeye salad, and popcorn" },
   { date: "2026-08-15", value: 65, note: "final — cereal+banana breakfast and BBQ ribs lunch, confirmed that's all he ate that day" },
-  { date: "2026-08-16", value: 132, note: "partial — cereal+banana, Chobani yogurt, ribeye+salad dinner, cherry pies, and a post-dinner trail mix handful so far" }
+  { date: "2026-08-16", value: 132, note: "final — cereal+banana, Chobani yogurt, ribeye+salad dinner, cherry pies, and a post-dinner trail mix handful" },
+  { date: "2026-08-17", value: 82, note: "partial — ribeye, omelette + spring mix, and a mini cherry pie so far" }
 ];
