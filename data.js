@@ -197,7 +197,8 @@ const sleepData = [
   { date: "2026-08-12", hours: 6.4, score: 88, readiness: 99, bedtime: "00:03", wake: "07:01", deep: 117, rem: 73, light: 193, awake: 34, oxygenVariation: "Low", note: "Good score, bounced back from Aug 11's Fair night — most deep sleep of the week (1h57m). Daily Readiness came in at 99 (High), the week's best — RHR 59bpm ran below personal range and HRV 61ms ran above personal range, same good-direction pattern as Aug 11." },
   { date: "2026-08-13", hours: 6.72, score: 83, readiness: 60, note: "Good score, down a bit from Aug 12's 88 but still solid. Readiness dropped to 60 (Moderate) from Aug 12's week-best 99 — all 5 health metrics (RHR, HRV, breathing rate, SpO2, skin temp) came back in personal range this time, no outliers pulling the score either direction. No bedtime/wake or stage breakdown available from this screenshot." },
   { date: "2026-08-14", hours: 4.38, score: 76, readiness: 58, note: "Shortest sleep logged all week by a wide margin (4h23m vs. 5h11m the next-shortest) — Fair score, explained by an unusually early wake-up for the flight down to Cape Coral, not a sign of poor sleep quality otherwise. Readiness still landed Moderate (58) rather than dropping further, and all 5 health metrics stayed in personal range despite the short night. No bedtime/wake or stage breakdown available from this screenshot." },
-  { date: "2026-08-15", hours: 7.43, score: 92, readiness: 58, note: "Best sleep score of the stretch (7h26m, score 92), first full night in Cape Coral — but readiness still only came in Moderate (58), same as the short-sleep night before it. All 5 health metrics stayed in personal range, so there's no single flagged outlier explaining the gap between a great sleep score and a middling readiness score. No bedtime/wake or stage breakdown available from this screenshot." }
+  { date: "2026-08-15", hours: 7.43, score: 92, readiness: 58, note: "Best sleep score of the stretch (7h26m, score 92), first full night in Cape Coral — but readiness still only came in Moderate (58), same as the short-sleep night before it. All 5 health metrics stayed in personal range, so there's no single flagged outlier explaining the gap between a great sleep score and a middling readiness score. No bedtime/wake or stage breakdown available from this screenshot." },
+  { date: "2026-08-16", hours: 6.83, score: 86, readiness: 67, note: "Good score and High readiness, bounced back further from the readiness dip earlier in the week. All 5 health metrics in personal range. This was also a high-activity day — 158 zone min and a cardio load of 121 (both well above the rest of the week), driven by 34 strenuous minutes mowing the lawn that evening (Fitbit auto-detected it as an 'Outdoor Bike Ride,' but Bobby confirmed it was yard work). No bedtime/wake or stage breakdown available from this screenshot." }
 ];
 
 const stepsData = [
@@ -222,7 +223,8 @@ const stepsData = [
   { date: "2026-08-12", value: 10642, distance: 5.23, calories: 3488, floors: 10, zoneMin: 16 },
   { date: "2026-08-13", value: 10497, distance: 5.07, calories: 3137, floors: 12, zoneMin: 28 },
   { date: "2026-08-14", value: 9487, distance: 4.62, calories: 3223, floors: 5, zoneMin: 7 },
-  { date: "2026-08-15", value: 11482, distance: 5.21, calories: 3404, floors: 0, zoneMin: 62 }
+  { date: "2026-08-15", value: 11482, distance: 5.21, calories: 3404, floors: 0, zoneMin: 62 },
+  { date: "2026-08-16", value: 12547, distance: 5.94, calories: 3825, floors: 0, zoneMin: 158 }
 ];
 
 // Tracked runs. distance/pace/calories are from Strava (usually the full
@@ -358,7 +360,9 @@ const walksData = [
   { date: "2026-08-13", name: "Remainder of day's Fitbit distance", distance: 4.19, note: "Fills the gap between the tracked walk above (0.88mi) and the day's total Fitbit distance (5.07mi from stepsData)." },
   { date: "2026-08-14", distance: 4.62, note: "No dedicated tracked walk — this is the day's total Fitbit distance" },
   { date: "2026-08-15", name: "Walk", distance: 0.52, duration: 29, note: "Fitbit, 3:43 PM" },
-  { date: "2026-08-15", name: "Remainder of day's Fitbit distance", distance: 4.69, note: "Fills the gap between the tracked walk above (0.52mi) and the day's total Fitbit distance (5.21mi from stepsData)." }
+  { date: "2026-08-15", name: "Remainder of day's Fitbit distance", distance: 4.69, note: "Fills the gap between the tracked walk above (0.52mi) and the day's total Fitbit distance (5.21mi from stepsData)." },
+  { date: "2026-08-16", name: "Mowed the lawn", distance: 1.22, duration: 34, note: "Fitbit auto-detected this 34-min, 1.22mi effort at 6:36 PM as an 'Outdoor Bike Ride' — Bobby confirmed he actually mowed the lawn (strenuous), not biked. Distance/duration kept as Fitbit measured them; only the activity label was wrong." },
+  { date: "2026-08-16", name: "Remainder of day's Fitbit distance", distance: 4.72, note: "Fills the gap between the lawn-mowing effort above (1.22mi) and the day's total Fitbit distance (5.94mi from stepsData)." }
 ];
 
 // Gym workout sessions. One entry per session; exercises listed in order performed.
@@ -923,6 +927,8 @@ const events = [
   { date: "2026-08-14", text: "Flew down to Cape Coral, FL — unusually early wake-up for the flight, which explains the short 4h23m sleep this morning." },
   { date: "2026-08-14", text: "<strong>Daily stats:</strong> 9,487 steps · 4.62 mi · 5 floors · 3,223 cal burned · 7 zone min · Sleep 4h23m (score 76) · Readiness 58 (Moderate) · RHR 62 bpm (range 53–113) · Cardio Load 12 · 4 of 5 exercise days this week" },
   { date: "2026-08-15", text: "<strong>Daily stats:</strong> 11,482 steps · 5.21 mi · 0 floors · 3,404 cal burned · 62 zone min · Sleep 7h26m (score 92) · Readiness 58 (Moderate) · RHR 63 bpm (range 53–132) · Cardio Load 49 · 4 of 5 exercise days this week" },
+  { date: "2026-08-16", text: "Mowed the lawn, 34 min (6:36 PM, 1.22 mi per Fitbit) — strenuous; Fitbit auto-detected it as an 'Outdoor Bike Ride' but Bobby confirmed it was yard work, not biking. First exercise day of the new Fitbit week (resets Sunday)." },
+  { date: "2026-08-16", text: "<strong>Daily stats:</strong> 12,547 steps · 5.94 mi · 0 floors · 3,825 cal burned · 158 zone min · Sleep 6h50m (score 86) · Readiness 67 (High) · RHR 63 bpm (range 51–141) · Cardio Load 121 · 1 of 5 exercise days this week" },
 ];
 
 // Structured facts that don't fit a time series — just a one-line goals
