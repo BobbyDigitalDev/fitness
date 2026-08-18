@@ -632,6 +632,71 @@ const gymWorkoutsData = [
       }
     ],
     note: "First session logged against the new Home A guide (workout_guides/2026-08-13-home-a-guide.html), Bobby's first home dumbbell workout, synced through JSONBin. This entry predates the 2026-08-15 per-set-feel/notes schema split (see the top-of-file schema comment) — feel is exercise-level here, not per-set, since the guide only had the old end-of-exercise picker at the time this was logged. A near-empty accidental save (14:38 EDT, one field filled in) landed in the JSONBin queue about 34 minutes before this real entry (15:12 EDT) — discarded rather than merged, since it wasn't a real second session."
+  },
+  {
+    date: "2026-08-18",
+    gym: "Home",
+    label: "Home B",
+    startTime: "14:28",
+    endTime: "15:24",
+    duration: 56,           // minutes — Fitbit-detected "Strength training" block, 2:28-3:24 PM, spans both attempts (see note)
+    exercises: [
+      {
+        name: "Standing Dumbbell Overhead Press",
+        note: "",
+        sets: [
+          { reps: 15, weight: 15, feel: null },
+          { reps: 15, weight: 15, feel: null },
+          { reps: 15, weight: 15, feel: null }
+        ]
+      },
+      {
+        name: "Renegade Row",
+        note: "",
+        sets: [
+          { reps: 15, weight: 15, feel: null },
+          { reps: 15, weight: 15, feel: null },
+          { reps: 20, weight: 15, feel: null }
+        ]
+      },
+      {
+        name: "Dumbbell Romanian Deadlift",
+        note: "",
+        sets: [
+          { reps: 15, weight: 15, feel: null },
+          { reps: 15, weight: 15, feel: null },
+          { reps: 15, weight: 15, feel: null }
+        ]
+      },
+      {
+        name: "Dumbbell Rear Delt Fly",
+        note: "",
+        sets: [
+          { reps: 10, weight: 15, feel: null },
+          { reps: 10, weight: 15, feel: null },
+          { reps: 15, weight: 15, feel: null }
+        ]
+      },
+      {
+        name: "Push-Up",
+        note: "Modified for an old snowboarding wrist injury — done on knees, varied hand angle, used the dumbbells as handles to keep the wrist straight. Tough set overall.",
+        sets: [
+          { reps: 10, weight: null, feel: "Hard" },
+          { reps: 10, weight: null, feel: "Hard" },
+          { reps: 12, weight: null, feel: "Hard" }
+        ]
+      },
+      {
+        name: "Side Plank",
+        note: "I got mixed up and did regular planks. I'll stick with regular planks this time around.",
+        sets: [
+          { duration: 60, feel: "Just right" },
+          { duration: 45, feel: "Just right" },
+          { duration: 61, feel: "Hard" }
+        ]
+      }
+    ],
+    note: "Session against the Home B guide (workout_guides/2026-08-13-home-b-guide.html) got interrupted mid-workout — Bobby's mobile browser back button wiped an in-progress attempt on the second-to-last exercise. Confirmed via the JSONBin pending queue that nothing from that first attempt was ever saved: the app only writes to JSONBin when Save Session is tapped, no autosave, so the lost data is genuinely unrecoverable. He restarted the guide fresh and, in that second session, actually logged Push-Up and Side Plank for real (synced through JSONBin, saved 2026-08-18T19:22:06Z / 3:22 PM EDT). Reps/weight for the other four exercises (Overhead Press, Renegade Row, Romanian Deadlift, Rear Delt Fly) came from Bobby's memory of the original attempt, added by hand rather than through the app — no feel rating given for those sets, so left null rather than guessed. Start/end time and duration above are from Fitbit's own 'Strength training' auto-detect (2:28-3:24 PM, 55m51s), which ran as one continuous block covering both attempts since Bobby never stopped moving between them — more reliable here than the app's own timestamps, which only reflect the second attempt. Fitbit also logged: Cardio Load 36, 56 zone min, 418 cal burned, avg HR 117 bpm (84% Moderate, 8% Vigorous, 7% Light)."
   }
 ];
 
