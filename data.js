@@ -705,7 +705,8 @@ const measurementData = [
   // "bicep" field since Bobby's are notably asymmetric (0.5" difference) —
   // update the schema comment near the top of this file if this becomes
   // the standing convention for future entries too.
-  { date: "2026-08-05", neck: 13.75, shoulders: 44.75, chest: 42, waist: 40, hips: null, bicepL: 12.5, bicepR: 12, thigh: null, calf: null, note: "flexed bicep measurements; left 0.5\" bigger than right. Waist corrected same day — first pass was taken above the navel (39.75\"), retaken at the navel per protocol (40\")" }
+  { date: "2026-08-05", neck: 13.75, shoulders: 44.75, chest: 42, waist: 40, hips: null, bicepL: 12.5, bicepR: 12, thigh: null, calf: null, note: "flexed bicep measurements; left 0.5\" bigger than right. Waist corrected same day — first pass was taken above the navel (39.75\"), retaken at the navel per protocol (40\")" },
+  { date: "2026-08-18", neck: 14.5, shoulders: null, chest: 42, waist: 40, hips: null, bicepL: 12.5, bicepR: 12.25, thigh: 21, calf: null, note: "Second measurement pass, ~2 weeks after the Aug 5 baseline. Chest (42\", at the nipples) and waist (40\", at the navel) unchanged. Flexed biceps: left steady at 12.5\", right up slightly from 12\" to 12.25\" (asymmetry narrowing a bit). First thigh reading logged — 21\" for both left and right, upper thigh. Neck jumped from 13.75\" to 14.5\"; Bobby measured this one specifically at the Adam's apple, and the Aug 5 entry didn't record a landmark, so this is flagged as a likely different reference point rather than a real 0.75\" change — worth using the same Adam's-apple landmark going forward for a clean comparison. Shoulders/hips not measured this round." }
 ];
 
 // Photographed meals — one entry per photo, added automatically per the
