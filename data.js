@@ -153,8 +153,8 @@ const calorieData = [
   { date: "2026-07-26", value: 2335, note: "final — ~1,836 cal net deficit (burned 4,171, consumed ~2,335)" },
   { date: "2026-07-27", value: 2845, burned: 3011, note: "final — first day hitting 180g+ protein target (~199g). Burned corrected 2026-08-03 from 2,825 to 3,011 per final Fitbit sync." },
   { date: "2026-07-29", value: 2722, note: "final — ~322 over 2,400 target; protein 194g ✅" },
-  { date: "2026-07-30", value: 2818 },
-  { date: "2026-07-31", value: 2675, note: "final" },
+  { date: "2026-07-30", value: 2818, note: "final — meals[] entries for this day sum to only 2,478 (checked 2026-08-18); the meals list was backfilled from memory on 2026-08-03, well after the fact, and this total predates that system entirely (likely from Bobby's own tracking at the time). Gap of ~340 cal is presumably a forgotten item from that far back — leaving the original total as authoritative rather than fabricating a meal to force a match." },
+  { date: "2026-07-31", value: 2675, note: "final — meals[] entries for this day sum to only 2,385 (checked 2026-08-18); same root cause as Jul 30 — the meals list here is a 2026-08-03 memory reconstruction (see the 'time estimated — not logged' notes on those entries) and undercounts by ~290 cal. Not something Fitbit data can resolve since it doesn't track food; left as a known, unreconciled gap." },
   { date: "2026-08-01", value: 1935, note: "final" },
   { date: "2026-08-02", value: null, note: "not logged — fishing day, off pattern" },
   { date: "2026-08-03", value: 2435, note: "final — ~35 cal over the 2,400 target" },
@@ -275,6 +275,8 @@ const runsData = [
 
 // Tracked walks. distance/pace/calories from Strava; HR data from Fitbit.
 const walksData = [
+  { date: "2026-07-24", distance: 7.37, note: "Backfilled 2026-08-18 — no dedicated tracked walk on file; this is the day's total Fitbit distance from stepsData. Predates the named-activity-plus-remainder convention (started 2026-08-11) and no source screenshot exists to break it down further, so left as a single unattributed entry." },
+  { date: "2026-07-25", distance: 5.19, note: "Backfilled 2026-08-18 — same situation as Jul 24: no dedicated tracked walk on file, this is the day's total Fitbit distance from stepsData." },
   {
     date: "2026-07-26",
     name: "Tacos del Barrio → Doughnut Plant (Sunset Park)",
@@ -706,7 +708,7 @@ const measurementData = [
   // update the schema comment near the top of this file if this becomes
   // the standing convention for future entries too.
   { date: "2026-08-05", neck: 13.75, shoulders: 44.75, chest: 42, waist: 40, hips: null, bicepL: 12.5, bicepR: 12, thigh: null, calf: null, note: "flexed bicep measurements; left 0.5\" bigger than right. Waist corrected same day — first pass was taken above the navel (39.75\"), retaken at the navel per protocol (40\")" },
-  { date: "2026-08-18", neck: 14.5, shoulders: null, chest: 42, waist: 40, hips: null, bicepL: 12.5, bicepR: 12.25, thigh: 21, calf: null, note: "Second measurement pass, ~2 weeks after the Aug 5 baseline. Chest (42\", at the nipples) and waist (40\", at the navel) unchanged. Flexed biceps: left steady at 12.5\", right up slightly from 12\" to 12.25\" (asymmetry narrowing a bit). First thigh reading logged — 21\" for both left and right, upper thigh. Neck jumped from 13.75\" to 14.5\"; Bobby measured this one specifically at the Adam's apple, and the Aug 5 entry didn't record a landmark, so this is flagged as a likely different reference point rather than a real 0.75\" change — worth using the same Adam's-apple landmark going forward for a clean comparison. Shoulders/hips not measured this round." }
+  { date: "2026-08-18", neck: 14.5, shoulders: null, chest: 42, waist: 40, hips: null, bicepL: 12.5, bicepR: 12.25, thigh: 21, calf: null, note: "Second measurement pass, ~2 weeks after the Aug 5 baseline. Chest (42\", at the nipples) and waist (40\", at the navel) unchanged. Flexed biceps: left steady at 12.5\", right up slightly from 12\" to 12.25\" (asymmetry narrowing a bit). First thigh reading logged — 21\" for both left and right, upper thigh. Neck jumped from 13.75\" to 14.5\"; checked against the protocol in profile/measurements.md, which specifies \"just below the Adam's apple\" — Bobby measured this one directly at the Adam's apple instead, a different landmark, so this is very likely a measurement-location difference rather than a real 0.75\" change. Worth remeasuring at the correct spot (just below) next time for a clean comparison. Shoulders/hips not measured this round." },
 ];
 
 // Photographed meals — one entry per photo, added automatically per the
@@ -717,24 +719,19 @@ const measurementData = [
 const meals = [
   // July 30 — all times as logged
   { date: "2026-07-30", time: "08:00", description: "Breakfast (8:00 AM) — 2 eggs + sausage patty",
-    photo: "food-photos/2026-07-30-breakfast.jpeg",
-    calories: 335, protein: 21, carbs: 2, fat: 27, sodium: null },
+    calories: 335, protein: 21, carbs: 2, fat: 27, sodium: null, note: "no photo — predates the photo-logging convention; the referenced 'food-photos/2026-07-30-breakfast.jpeg' never existed in the repo (checked 2026-08-18), removed rather than left as a dead link" },
   { date: "2026-07-30", time: "13:00", description: "Lunch (1:00 PM) — 0.24 lbs shrimp + 2 hard boiled eggs",
-    photo: "food-photos/2026-07-30-lunch.jpeg",
-    calories: 255, protein: 37, carbs: 1, fat: 11, sodium: null },
+    calories: 255, protein: 37, carbs: 1, fat: 11, sodium: null, note: "no photo — see breakfast entry same day" },
   { date: "2026-07-30", time: "20:30", description: "Dinner (8:30 PM) — Air fryer salmon (~5.5 oz) + dinner salad (mixed greens, avocado, cucumber, TJ's Nut Mix, sesame seeds) + TJ's Green Onion Pancake",
-    photo: "food-photos/2026-07-30-dinner.jpeg",
-    calories: 1157, protein: 64, carbs: 65, fat: 71, sodium: null },
+    calories: 1157, protein: 64, carbs: 65, fat: 71, sodium: null, note: "no photo — see breakfast entry same day" },
   { date: "2026-07-30", time: "21:30", description: "Protein Shake (9:30 PM) — 3 scoops rice protein + banana + 2 tbsp PB + 4 oz almond milk",
-    photo: "food-photos/2026-07-30-shake.jpeg",
-    calories: 731, protein: 56, carbs: 45, fat: 36, sodium: null },
+    calories: 731, protein: 56, carbs: 45, fat: 36, sodium: null, note: "no photo — see breakfast entry same day" },
   // July 31 — only Breakfast had a logged time; the rest are estimated
   // (2026-08-03) based on the usual meal-timing pattern, since the
   // original entries didn't capture one. Correct these if you remember
   // the actual times.
   { date: "2026-07-31", time: "11:00", description: "Breakfast (11:00 AM) — 2 eggs overhard + sausage patty",
-    photo: "food-photos/2026-07-31-breakfast.jpeg",
-    calories: 335, protein: 21, carbs: 2, fat: 27, sodium: null },
+    calories: 335, protein: 21, carbs: 2, fat: 27, sodium: null, note: "no photo — the referenced 'food-photos/2026-07-31-breakfast.jpeg' never existed in the repo (checked 2026-08-18), removed rather than left as a dead link" },
   { date: "2026-07-31", time: "13:00", description: "Lunch — Shrimp + Hard Boiled Eggs (0.3 lbs cooked shrimp ~136g + 2 hard boiled eggs)",
     calories: 290, protein: 46, sodium: 274, note: "time estimated — not logged" },
   { date: "2026-07-31", time: "15:00", description: "Snack — Chobani Blueberry Yogurt (nonfat, 1 container)",
@@ -1035,8 +1032,8 @@ const proteinData = [
   { date: "2026-07-27", value: 199 },
   { date: "2026-07-28", value: null, note: "incomplete - party day" },
   { date: "2026-07-29", value: 194 },
-  { date: "2026-07-30", value: 192 },
-  { date: "2026-07-31", value: 184, note: "final" },
+  { date: "2026-07-30", value: 192, note: "final — meals[] sums to only 178g protein (checked 2026-08-18); same gap as calorieData, see that entry's note." },
+  { date: "2026-07-31", value: 184, note: "final — meals[] sums to only 181g protein (checked 2026-08-18); same gap as calorieData, see that entry's note." },
   { date: "2026-08-01", value: 152, note: "final" },
   { date: "2026-08-02", value: null, note: "not logged — fishing day, off pattern" },
   { date: "2026-08-03", value: 193, note: "final — right in the 180–200g target range" },
