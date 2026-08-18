@@ -171,7 +171,8 @@ const calorieData = [
   { date: "2026-08-14", value: 2265, note: "final — fast-food breakfast box (pre-flight), cereal/coconut milk/trail mix, ribeye salad dinner, and popcorn snack; flight day down to Cape Coral" },
   { date: "2026-08-15", value: 1540, note: "final — cereal+banana breakfast and BBQ ribs lunch, confirmed that's all he ate that day; ~860 cal under the 2,400 target" },
   { date: "2026-08-16", value: 2530, note: "final — cereal+banana, Chobani yogurt, ribeye+salad dinner, 2 mini cherry pies, and a post-dinner trail mix handful; final full day in Cape Coral" },
-  { date: "2026-08-17", value: 1422, note: "partial — ribeye/omelette/cherry pie brunch, and a Chobani yogurt + trail mix snack so far; day still in progress" }
+  { date: "2026-08-17", value: 4112, note: "final — brunch, a Chobani yogurt + trail mix snack, a full cup of trail mix, a cereal+banana snack, and a cheat-day Outback dinner (Rockhampton Ribeye & Gold Coast Coconut Shrimp)" },
+  { date: "2026-08-18", value: 490, note: "partial — cereal+banana breakfast so far; day still in progress" }
 ];
 
 const sleepData = [
@@ -198,7 +199,8 @@ const sleepData = [
   { date: "2026-08-13", hours: 6.72, score: 83, readiness: 60, note: "Good score, down a bit from Aug 12's 88 but still solid. Readiness dropped to 60 (Moderate) from Aug 12's week-best 99 — all 5 health metrics (RHR, HRV, breathing rate, SpO2, skin temp) came back in personal range this time, no outliers pulling the score either direction. No bedtime/wake or stage breakdown available from this screenshot." },
   { date: "2026-08-14", hours: 4.38, score: 76, readiness: 58, note: "Shortest sleep logged all week by a wide margin (4h23m vs. 5h11m the next-shortest) — Fair score, explained by an unusually early wake-up for the flight down to Cape Coral, not a sign of poor sleep quality otherwise. Readiness still landed Moderate (58) rather than dropping further, and all 5 health metrics stayed in personal range despite the short night. No bedtime/wake or stage breakdown available from this screenshot." },
   { date: "2026-08-15", hours: 7.43, score: 92, readiness: 58, note: "Best sleep score of the stretch (7h26m, score 92), first full night in Cape Coral — but readiness still only came in Moderate (58), same as the short-sleep night before it. All 5 health metrics stayed in personal range, so there's no single flagged outlier explaining the gap between a great sleep score and a middling readiness score. No bedtime/wake or stage breakdown available from this screenshot." },
-  { date: "2026-08-16", hours: 6.83, score: 86, readiness: 67, note: "Good score and High readiness, bounced back further from the readiness dip earlier in the week. All 5 health metrics in personal range. This was also a high-activity day — 158 zone min and a cardio load of 121 (both well above the rest of the week), driven by 34 strenuous minutes mowing the lawn that evening (Fitbit auto-detected it as an 'Outdoor Bike Ride,' but Bobby confirmed it was yard work). No bedtime/wake or stage breakdown available from this screenshot." }
+  { date: "2026-08-16", hours: 6.83, score: 86, readiness: 67, note: "Good score and High readiness, bounced back further from the readiness dip earlier in the week. All 5 health metrics in personal range. This was also a high-activity day — 158 zone min and a cardio load of 121 (both well above the rest of the week), driven by 34 strenuous minutes mowing the lawn that evening (Fitbit auto-detected it as an 'Outdoor Bike Ride,' but Bobby confirmed it was yard work). No bedtime/wake or stage breakdown available from this screenshot." },
+  { date: "2026-08-17", hours: 6.02, score: 87, readiness: 45, note: "Good sleep score (6h01m, score 87) but Readiness dropped to 45 (Moderate), lowest of the week — all 5 health metrics still in personal range (RHR 65 bpm resting, range 56-143), so no single flagged outlier explains the dip; likely reflects the much lower activity day (6,092 steps, 3 mi, 45 zone min — a fraction of the prior few days) plus the cheat-day Outback dinner. No bedtime/wake or stage breakdown available from this screenshot." }
 ];
 
 const stepsData = [
@@ -224,7 +226,8 @@ const stepsData = [
   { date: "2026-08-13", value: 10497, distance: 5.07, calories: 3137, floors: 12, zoneMin: 28 },
   { date: "2026-08-14", value: 9487, distance: 4.62, calories: 3223, floors: 5, zoneMin: 7 },
   { date: "2026-08-15", value: 11482, distance: 5.21, calories: 3404, floors: 0, zoneMin: 62 },
-  { date: "2026-08-16", value: 12547, distance: 5.94, calories: 3825, floors: 0, zoneMin: 158 }
+  { date: "2026-08-16", value: 12547, distance: 5.94, calories: 3825, floors: 0, zoneMin: 158 },
+  { date: "2026-08-17", value: 6092, distance: 3, calories: 2962, floors: 2, zoneMin: 45 }
 ];
 
 // Tracked runs. distance/pace/calories are from Strava (usually the full
@@ -362,7 +365,8 @@ const walksData = [
   { date: "2026-08-15", name: "Walk", distance: 0.52, duration: 29, note: "Fitbit, 3:43 PM" },
   { date: "2026-08-15", name: "Remainder of day's Fitbit distance", distance: 4.69, note: "Fills the gap between the tracked walk above (0.52mi) and the day's total Fitbit distance (5.21mi from stepsData)." },
   { date: "2026-08-16", name: "Mowed the lawn", distance: 1.22, duration: 34, note: "Fitbit auto-detected this 34-min, 1.22mi effort at 6:36 PM as an 'Outdoor Bike Ride' — Bobby confirmed he actually mowed the lawn (strenuous), not biked. Distance/duration kept as Fitbit measured them; only the activity label was wrong." },
-  { date: "2026-08-16", name: "Remainder of day's Fitbit distance", distance: 4.72, note: "Fills the gap between the lawn-mowing effort above (1.22mi) and the day's total Fitbit distance (5.94mi from stepsData)." }
+  { date: "2026-08-16", name: "Remainder of day's Fitbit distance", distance: 4.72, note: "Fills the gap between the lawn-mowing effort above (1.22mi) and the day's total Fitbit distance (5.94mi from stepsData)." },
+  { date: "2026-08-17", distance: 3, note: "No dedicated tracked activity — this is the day's total Fitbit distance. Lowest-activity day of the stretch." }
 ];
 
 // Gym workout sessions. One entry per session; exercises listed in order performed.
@@ -895,6 +899,18 @@ const meals = [
   { date: "2026-08-17", time: "12:45", name: "Chobani Blueberry Greek Yogurt & Trail Mix", photo: "food-photos/2026-08-17-snack-yogurt-trailmix-bowl.jpeg",
     description: "Chobani Greek Yogurt, Blueberry on the Bottom, 1 container (150g, label exact — see food-photos/2026-08-17-snack-yogurt-nutrition.jpeg), topped with ~1/4 cup of the same Power Up Mega Omega trail mix (cranberries, mango, almonds, walnuts, pumpkin seeds all visible, matching the product) — quantity not stated, estimated from the photo at roughly one label serving. Note: this label reads Sodium 55mg exactly (prior Chobani entries in this log used 60mg — close enough to be a rounding difference, using the exact value read here going forward).",
     calories: 250, protein: 15, carbs: 31, fat: 8, sodium: 55 },
+  { date: "2026-08-17", time: "14:03", name: "Power Up Mega Omega Trail Mix", photo: "food-photos/2026-08-17-snack-trailmix-cup.jpeg",
+    description: "1 full cup of the same Power Up Mega Omega trail mix (dried cranberries, dried apricots, walnuts, almonds, pumpkin seeds) — a separate snack from the 1/4 cup already had with yogurt at 12:45, roughly 1.25 hours earlier. Label values (140 cal per 1/4 cup), scaled to 4 servings.",
+    calories: 560, protein: 12, carbs: 64, fat: 32, sodium: 0 },
+  { date: "2026-08-17", time: "16:00", name: "Honey Bunches of Oats w/ Almonds, Coconut Milk & Banana", photo: "food-photos/2026-08-17-snack-cereal-banana.jpeg",
+    description: "Same recurring cereal snack as the last two days — ~2 cups cereal, ~1 cup coconut milk, banana cut up inside. Macros reused directly from the Aug 15/16 entries for the same combo.",
+    calories: 490, protein: 7, carbs: 95, fat: 10, sodium: 370 },
+  { date: "2026-08-17", time: "20:58", name: "Outback Steakhouse: Rockhampton Ribeye & Gold Coast Coconut Shrimp", photo: "food-photos/2026-08-17-dinner-outback-ribeye-shrimp.jpeg",
+    description: "Bobby's cheat day dinner — 13oz Rockhampton Ribeye with Gold Coast Coconut Shrimp (creole marmalade), house mash, and steamed broccoli. No receipt/exact menu nutrition available for this specific combo, so estimated from Outback's published nutrition PDF: 13oz ribeye interpolated between their listed 12oz (900 cal/72g fat/58g protein) and 15oz (1110 cal/88g fat/73g protein) steaks; ~4 coconut shrimp scaled down from the full Gold Coast Coconut Shrimp appetizer (520 cal/31g protein for a full order); mash and broccoli sides from Outback's standard side values. Wider-than-usual uncertainty since it's a restaurant estimate, not a label.",
+    calories: 1640, protein: 90, carbs: 70, fat: 110, sodium: 1810, sodiumNote: "Estimated from Outback's published component nutrition — steakhouse meals like this typically run high sodium (butter, seasoning, marmalade sauce); treat as a rough figure." },
+  { date: "2026-08-18", time: "09:29", name: "Honey Bunches of Oats w/ Almonds, Coconut Milk & Banana", photo: "food-photos/2026-08-18-breakfast-cereal-banana.jpeg",
+    description: "Same recurring breakfast — ~2 cups cereal, ~1 cup coconut milk, banana cut up inside. Macros reused directly from the Aug 15/16/17 entries for the same combo.",
+    calories: 490, protein: 7, carbs: 95, fat: 10, sodium: 370 },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -929,6 +945,7 @@ const events = [
   { date: "2026-08-15", text: "<strong>Daily stats:</strong> 11,482 steps · 5.21 mi · 0 floors · 3,404 cal burned · 62 zone min · Sleep 7h26m (score 92) · Readiness 58 (Moderate) · RHR 63 bpm (range 53–132) · Cardio Load 49 · 4 of 5 exercise days this week" },
   { date: "2026-08-16", text: "Mowed the lawn, 34 min (6:36 PM, 1.22 mi per Fitbit) — strenuous; Fitbit auto-detected it as an 'Outdoor Bike Ride' but Bobby confirmed it was yard work, not biking. First exercise day of the new Fitbit week (resets Sunday)." },
   { date: "2026-08-16", text: "<strong>Daily stats:</strong> 12,547 steps · 5.94 mi · 0 floors · 3,825 cal burned · 158 zone min · Sleep 6h50m (score 86) · Readiness 67 (High) · RHR 63 bpm (range 51–141) · Cardio Load 121 · 1 of 5 exercise days this week" },
+  { date: "2026-08-17", text: "<strong>Daily stats:</strong> 6,092 steps · 3 mi · 2 floors · 2,962 cal burned · 45 zone min · Sleep 6h01m (score 87) · Readiness 45 (Moderate) · RHR 65 bpm (range 56–143) · Cardio Load 35 · 1 of 5 exercise days this week — also a cheat-day dinner at Outback Steakhouse." },
 ];
 
 // Structured facts that don't fit a time series — just a one-line goals
@@ -970,5 +987,6 @@ const proteinData = [
   { date: "2026-08-14", value: 75, note: "final — fast-food breakfast, cereal/coconut milk/trail mix, ribeye salad, and popcorn" },
   { date: "2026-08-15", value: 65, note: "final — cereal+banana breakfast and BBQ ribs lunch, confirmed that's all he ate that day" },
   { date: "2026-08-16", value: 132, note: "final — cereal+banana, Chobani yogurt, ribeye+salad dinner, cherry pies, and a post-dinner trail mix handful" },
-  { date: "2026-08-17", value: 97, note: "partial — ribeye/omelette/cherry pie brunch, and a Chobani yogurt + trail mix snack so far" }
+  { date: "2026-08-17", value: 206, note: "final — brunch, a Chobani yogurt + trail mix snack, a full cup of trail mix, a cereal+banana snack, and a cheat-day Outback dinner" },
+  { date: "2026-08-18", value: 7, note: "partial — cereal+banana breakfast so far" }
 ];
