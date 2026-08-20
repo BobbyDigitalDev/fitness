@@ -172,7 +172,8 @@ const calorieData = [
   { date: "2026-08-15", value: 1540, note: "final — cereal+banana breakfast and BBQ ribs lunch, confirmed that's all he ate that day; ~860 cal under the 2,400 target" },
   { date: "2026-08-16", value: 2530, note: "final — cereal+banana, Chobani yogurt, ribeye+salad dinner, 2 mini cherry pies, and a post-dinner trail mix handful; final full day in Cape Coral" },
   { date: "2026-08-17", value: 4112, note: "final — brunch, a Chobani yogurt + trail mix snack, a full cup of trail mix, a cereal+banana snack, and a cheat-day Outback dinner (Rockhampton Ribeye & Gold Coast Coconut Shrimp)" },
-  { date: "2026-08-18", value: 490, note: "partial — cereal+banana breakfast so far; day still in progress" }
+  { date: "2026-08-18", value: 2230, note: "final — cereal+banana breakfast, an Epsa Orangeade, a beef & lamb shawarma wrap with fries, and a small baklava slice" },
+  { date: "2026-08-19", value: 2345, note: "cereal+banana breakfast, a Chobani blueberry yogurt, a grilled ribeye lunch, an Entenmann's mini cherry pie, a half-ribeye dinner with a large dressed spring mix salad, and stovetop popcorn (olive oil) before bed" }
 ];
 
 const sleepData = [
@@ -201,7 +202,8 @@ const sleepData = [
   { date: "2026-08-15", hours: 7.43, score: 92, readiness: 58, note: "Best sleep score of the stretch (7h26m, score 92), first full night in Cape Coral — but readiness still only came in Moderate (58), same as the short-sleep night before it. All 5 health metrics stayed in personal range, so there's no single flagged outlier explaining the gap between a great sleep score and a middling readiness score. No bedtime/wake or stage breakdown available from this screenshot." },
   { date: "2026-08-16", hours: 6.83, score: 86, readiness: 67, note: "Good score and High readiness, bounced back further from the readiness dip earlier in the week. All 5 health metrics in personal range. This was also a high-activity day — 158 zone min and a cardio load of 121 (both well above the rest of the week), driven by 34 strenuous minutes mowing the lawn that evening (Fitbit auto-detected it as an 'Outdoor Bike Ride,' but Bobby confirmed it was yard work). No bedtime/wake or stage breakdown available from this screenshot." },
   { date: "2026-08-17", hours: 6.02, score: 87, readiness: 45, note: "Good sleep score (6h01m, score 87) but Readiness dropped to 45 (Moderate), lowest of the week — all 5 health metrics still in personal range (RHR 65 bpm resting, range 56-143), so no single flagged outlier explains the dip; likely reflects the much lower activity day (6,092 steps, 3 mi, 45 zone min — a fraction of the prior few days) plus the cheat-day Outback dinner. No bedtime/wake or stage breakdown available from this screenshot." },
-  { date: "2026-08-18", hours: 7.45, score: 91, readiness: 43, note: "Best sleep score of the recent stretch (7h27m, score 91) but Readiness dropped further to 43 (Moderate), even lower than Aug 17's 45. All 5 health metrics still in personal range (RHR 67 bpm resting, range 56-135), so nothing's individually flagged — most likely explanation is residual training stress from that day's 55-min Home B strength session (Cardio Load 57, the week's highest), which can suppress next-day readiness even after a great night's sleep. Another instance of the sleep-score-vs-readiness gap seen earlier this week. No bedtime/wake or stage breakdown available from this screenshot." }
+  { date: "2026-08-18", hours: 7.45, score: 91, readiness: 43, note: "Best sleep score of the recent stretch (7h27m, score 91) but Readiness dropped further to 43 (Moderate), even lower than Aug 17's 45. All 5 health metrics still in personal range (RHR 67 bpm resting, range 56-135), so nothing's individually flagged — most likely explanation is residual training stress from that day's 55-min Home B strength session (Cardio Load 57, the week's highest), which can suppress next-day readiness even after a great night's sleep. Another instance of the sleep-score-vs-readiness gap seen earlier this week. No bedtime/wake or stage breakdown available from this screenshot." },
+  { date: "2026-08-19", hours: 7.32, score: 90, readiness: 52, note: "Excellent sleep score (7h19m, score 90; 12:49 AM-9:09 AM — Awake 1h, REM 1h37m, Light 3h38m, Deep 2h4m), but Readiness only 52 (Moderate) — the same sleep-score-vs-readiness gap seen all week. All 5 health metrics in personal range (RHR 68 bpm resting, range 54-108). Cardio Load dropped to just 1 (a genuine rest day, no workout), so this dip isn't training-driven like Aug 18's — more likely a lingering pattern from the string of late/inconsistent nights this week rather than any single flagged cause." }
 ];
 
 const stepsData = [
@@ -229,7 +231,8 @@ const stepsData = [
   { date: "2026-08-15", value: 11482, distance: 5.21, calories: 3404, floors: 0, zoneMin: 62 },
   { date: "2026-08-16", value: 12547, distance: 5.94, calories: 3825, floors: 0, zoneMin: 158 },
   { date: "2026-08-17", value: 6092, distance: 3, calories: 2962, floors: 2, zoneMin: 45 },
-  { date: "2026-08-18", value: 5366, distance: 2.51, calories: 3154, floors: 0, zoneMin: 75 }
+  { date: "2026-08-18", value: 5366, distance: 2.51, calories: 3154, floors: 0, zoneMin: 75 },
+  { date: "2026-08-19", value: 5158, distance: 2.56, calories: 2779, floors: 0, zoneMin: 1 }
 ];
 
 // Tracked runs. distance/pace/calories are from Strava (usually the full
@@ -371,7 +374,8 @@ const walksData = [
   { date: "2026-08-16", name: "Mowed the lawn", distance: 1.22, duration: 34, note: "Fitbit auto-detected this 34-min, 1.22mi effort at 6:36 PM as an 'Outdoor Bike Ride' — Bobby confirmed he actually mowed the lawn (strenuous), not biked. Distance/duration kept as Fitbit measured them; only the activity label was wrong." },
   { date: "2026-08-16", name: "Remainder of day's Fitbit distance", distance: 4.72, note: "Fills the gap between the lawn-mowing effort above (1.22mi) and the day's total Fitbit distance (5.94mi from stepsData)." },
   { date: "2026-08-17", distance: 3, note: "No dedicated tracked activity — this is the day's total Fitbit distance. Lowest-activity day of the stretch." },
-  { date: "2026-08-18", distance: 2.51, note: "No dedicated tracked walk — day's total Fitbit distance. The 55-min Home B strength session (2:28-3:24 PM) is logged separately in gymWorkoutsData; indoor strength training doesn't register a distance component here." }
+  { date: "2026-08-18", distance: 2.51, note: "No dedicated tracked walk — day's total Fitbit distance. The 55-min Home B strength session (2:28-3:24 PM) is logged separately in gymWorkoutsData; indoor strength training doesn't register a distance component here." },
+  { date: "2026-08-19", distance: 2.56, note: "No dedicated tracked walk — day's total Fitbit distance. Rest day (Cardio Load 1, no workout)." }
 ];
 
 // Gym workout sessions. One entry per session; exercises listed in order performed.
@@ -977,6 +981,33 @@ const meals = [
   { date: "2026-08-18", time: "09:29", name: "Honey Bunches of Oats w/ Almonds, Coconut Milk & Banana", photo: "food-photos/2026-08-18-breakfast-cereal-banana.jpeg",
     description: "Same recurring breakfast — ~2 cups cereal, ~1 cup coconut milk, banana cut up inside. Macros reused directly from the Aug 15/16/17 entries for the same combo.",
     calories: 490, protein: 7, carbs: 95, fat: 10, sodium: 370 },
+  { date: "2026-08-18", time: "18:22", name: "Epsa Orangeade", photo: "food-photos/2026-08-18-dinner-epsa-orangeade.jpeg",
+    description: "Epsa Orangeade, carbonated, 1 bottle (232ml) — label exact, sourced from the manufacturer's published nutrition (Epsa's site lists 47 kcal/100ml, 11.8g sugar/100ml, 0g fat/protein, 0.01g salt/100ml).",
+    calories: 110, protein: 0, carbs: 28, fat: 0, sodium: 10 },
+  { date: "2026-08-18", time: "18:25", name: "Beef & Lamb Shawarma Wrap with Fries", photo: "food-photos/2026-08-18-dinner-shawarma-fries.jpeg",
+    description: "Pita wrap with beef and lamb shawarma, white/tzatziki-style sauce, and fries stuffed inside, plus a generous side of seasoned fries on the tray. Restaurant meal, no receipt/menu nutrition available — estimated from typical gyro-wrap-plus-fries combo figures. Wider-than-usual uncertainty since portion sizes (meat, both servings of fries) are eyeballed from the photo.",
+    calories: 1350, protein: 55, carbs: 120, fat: 65, sodium: 2100, sodiumNote: "Estimated — gyro meat seasoning, tzatziki, and a double portion of fries all add up; treat as a rough figure, likely in the right neighborhood but not exact." },
+  { date: "2026-08-18", time: "18:46", name: "Baklava (small slice)", photo: "food-photos/2026-08-18-dessert-baklava.jpeg",
+    description: "One small slice of baklava (phyllo, nuts, honey syrup) — restaurant/bakery dessert, no label. Estimated from typical baklava-slice nutrition, scaled down slightly for the smaller portion Bobby described.",
+    calories: 280, protein: 3, carbs: 30, fat: 16, sodium: 120, sodiumNote: "Estimated — no label available for this item." },
+  { date: "2026-08-19", time: "11:35", name: "Honey Bunches of Oats w/ Almonds, Coconut Milk & Banana", photo: "food-photos/2026-08-19-breakfast-cereal-banana.jpeg",
+    description: "Same recurring breakfast — ~2 cups cereal, ~1 cup coconut milk, banana cut up inside. Macros reused directly from the Aug 15-18 entries for the same combo.",
+    calories: 490, protein: 7, carbs: 95, fat: 10, sodium: 370 },
+  { date: "2026-08-19", time: "11:43", name: "Chobani Blueberry Greek Yogurt", photo: "food-photos/2026-08-19-snack-yogurt-front.jpeg",
+    description: "Chobani Greek Yogurt, Blueberry on the Bottom, 1 container (150g, label exact — see food-photos/2026-08-19-snack-yogurt-nutrition.jpeg). Same product logged before, macros reused directly.",
+    calories: 110, protein: 12, carbs: 15, fat: 0, sodium: 55 },
+  { date: "2026-08-19", time: "13:35", name: "Grilled Ribeye Steak", photo: "food-photos/2026-08-19-lunch-ribeye.jpeg",
+    description: "One ribeye steak, lightly seasoned with salt, pepper, and garlic powder, grilled on the backyard BBQ — a $20 bill in the photo for scale, sizing it as a single moderate ribeye. Macros carried over from the same single-steak estimate used for the Aug 16/17 ribeye entries (~717 cal / 67g protein per steak, derived from that day's 1.5-steak total), since the seasoning and roughly comparable size match.",
+    calories: 720, protein: 65, carbs: 0, fat: 55, sodium: 380, sodiumNote: "Estimated — light dry seasoning only (no sauce), so this should run lower than the Outback/BBQ-sauce meals; treat as a rough figure." },
+  { date: "2026-08-19", time: "13:47", name: "Entenmann's Mini Snack Pie (Cherry)", photo: "food-photos/2026-08-19-snack-entenmanns-cherry-pie.jpeg",
+    description: "Entenmann's Mini Snack Pies, Cherry Pie, single 2oz (57g) package = 1 serving, label exact. Calorie field on the photographed label was partly cropped/obscured (read as \"40\"), but the fat/carb/protein figures on the label only sum to ~217 cal minimum, so the true value is almost certainly 240 (Entenmann's published figure for this product) — logged as 240.",
+    calories: 240, protein: 2, carbs: 32, fat: 9, sodium: 240 },
+  { date: "2026-08-19", time: "20:40", name: "Half Ribeye Steak & Spring Mix Salad", photo: "food-photos/2026-08-19-dinner-ribeye-salad.jpeg",
+    description: "Half a ribeye steak, sliced, seasoned lightly (garlic powder, pepper — salt grinder skipped per the day's discussion), over a large helping of spring mix (spinach, arugula, chard, red leaf) with a light drizzle of olive oil and red wine vinaigrette. Steak portion estimated as half of the day's established single-steak baseline (~717 cal/67g protein whole); salad estimated for a generously-sized dressed portion, larger than the plain no-dressing side salads logged earlier this week.",
+    calories: 570, protein: 35, carbs: 5, fat: 49, sodium: 240, sodiumNote: "Estimated — light seasoning, no added salt grinder tonight, plus a light oil/vinaigrette drizzle; likely on the lower end for the day." },
+  { date: "2026-08-19", time: "22:05", name: "Stovetop Popcorn (Olive Oil)",
+    description: "2 tbsp unpopped kernels popped in 1 tbsp olive oil on the stovetop, yielding about 3 cups popped (less than the typical expansion ratio — noted for next time). No photo; no salt or other seasoning mentioned.",
+    calories: 215, protein: 3, carbs: 20, fat: 14, sodium: 0, sodiumNote: "No salt/seasoning reported — treat as unsalted." },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -1013,6 +1044,7 @@ const events = [
   { date: "2026-08-16", text: "<strong>Daily stats:</strong> 12,547 steps · 5.94 mi · 0 floors · 3,825 cal burned · 158 zone min · Sleep 6h50m (score 86) · Readiness 67 (High) · RHR 63 bpm (range 51–141) · Cardio Load 121 · 1 of 5 exercise days this week" },
   { date: "2026-08-17", text: "<strong>Daily stats:</strong> 6,092 steps · 3 mi · 2 floors · 2,962 cal burned · 45 zone min · Sleep 6h01m (score 87) · Readiness 45 (Moderate) · RHR 65 bpm (range 56–143) · Cardio Load 35 · 1 of 5 exercise days this week — also a cheat-day dinner at Outback Steakhouse." },
   { date: "2026-08-18", text: "<strong>Daily stats:</strong> 5,366 steps · 2.51 mi · 0 floors · 3,154 cal burned · 75 zone min · Sleep 7h27m (score 91) · Readiness 43 (Moderate) · RHR 67 bpm (range 56–135) · Cardio Load 57 · 2 of 5 exercise days this week. Strength training (Home B) logged 2:28–3:24 PM, 418 cal per Fitbit — matches the workout already in gymWorkoutsData." },
+  { date: "2026-08-19", text: "<strong>Daily stats:</strong> 5,158 steps · 2.56 mi · 0 floors · 2,779 cal burned · 1 zone min · Sleep 7h19m (score 90) · Readiness 52 (Moderate) · RHR 68 bpm (range 54–108) · Cardio Load 1 · 2 of 5 exercise days this week. Rest day — no workout." },
 ];
 
 // Structured facts that don't fit a time series — just a one-line goals
@@ -1055,5 +1087,6 @@ const proteinData = [
   { date: "2026-08-15", value: 65, note: "final — cereal+banana breakfast and BBQ ribs lunch, confirmed that's all he ate that day" },
   { date: "2026-08-16", value: 132, note: "final — cereal+banana, Chobani yogurt, ribeye+salad dinner, cherry pies, and a post-dinner trail mix handful" },
   { date: "2026-08-17", value: 206, note: "final — brunch, a Chobani yogurt + trail mix snack, a full cup of trail mix, a cereal+banana snack, and a cheat-day Outback dinner" },
-  { date: "2026-08-18", value: 7, note: "partial — cereal+banana breakfast so far" }
+  { date: "2026-08-18", value: 65, note: "final — cereal+banana breakfast, an Epsa Orangeade, a beef & lamb shawarma wrap with fries, and a small baklava slice" },
+  { date: "2026-08-19", value: 124, note: "cereal+banana breakfast, a Chobani blueberry yogurt, a grilled ribeye lunch, an Entenmann's mini cherry pie, a half-ribeye dinner with a large dressed spring mix salad, and stovetop popcorn (olive oil) before bed" }
 ];
