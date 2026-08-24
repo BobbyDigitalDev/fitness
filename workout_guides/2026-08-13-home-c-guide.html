@@ -225,15 +225,15 @@ body.locked { overflow: hidden; }
     </div>
   </div>
 
-  <div class="card exercise-card" data-exercise-idx="5" data-exercise-name="Forearm Plank">
-    <img src="images/plank.jpg" alt="Forearm Plank" />
+  <div class="card exercise-card" data-exercise-idx="5" data-exercise-name="Dumbbell Russian Twist">
+    
     <div class="exercise-body">
-      <div class="exercise-name">6. Forearm Plank</div>
-      <div class="exercise-target">CORE</div>
-      <div class="exercise-cue">Forearms on the floor with elbows under your shoulders, legs extended behind you, balanced on your toes. Hold a straight line from shoulders to hips to ankles by bracing your core and squeezing your glutes — no sagging hips, no piked-up butt. Breathe steadily throughout instead of holding your breath. Rest 30-45 sec between sets.</div>
+      <div class="exercise-name">6. Dumbbell Russian Twist</div>
+      <div class="exercise-target">CORE · ROTATION</div>
+      <div class="exercise-cue">Sit on the floor with your knees bent, feet flat (or lifted slightly off the floor for more challenge), leaning back to about a 45° torso angle. Hold one dumbbell with both hands at your chest, then rotate your torso to tap the dumbbell on the floor beside one hip, then rotate to the other side — that's one rep each way. Keep your chest up and move from your torso, not just your arms. Rest 45-60 sec before your next set.</div>
       <table class="sets-table">
-        <thead><tr><th>Set</th><th>Duration</th><th>Feel</th></tr></thead>
-        <tbody><tr><td>Set 1</td><td><input type="number" class="ql-duration" data-ex="5" data-set="0" placeholder="45" /> sec</td><td><select class="ql-feel" data-ex="5" data-set="0"><option value="">—</option><option value="Easy">💪 Easy</option><option value="Just right">🎯 Just right</option><option value="Hard">😓 Hard</option><option value="Too much">⚠️ Too much</option></select></td></tr><tr><td>Set 2</td><td><input type="number" class="ql-duration" data-ex="5" data-set="1" placeholder="45" /> sec</td><td><select class="ql-feel" data-ex="5" data-set="1"><option value="">—</option><option value="Easy">💪 Easy</option><option value="Just right">🎯 Just right</option><option value="Hard">😓 Hard</option><option value="Too much">⚠️ Too much</option></select></td></tr><tr><td>Set 3</td><td><input type="number" class="ql-duration" data-ex="5" data-set="2" placeholder="45" /> sec</td><td><select class="ql-feel" data-ex="5" data-set="2"><option value="">—</option><option value="Easy">💪 Easy</option><option value="Just right">🎯 Just right</option><option value="Hard">😓 Hard</option><option value="Too much">⚠️ Too much</option></select></td></tr></tbody>
+        <thead><tr><th>Set</th><th>Reps</th><th>Weight (lb)</th><th>Feel</th></tr></thead>
+        <tbody><tr><td>Set 1</td><td><input type="number" class="ql-reps" data-ex="5" data-set="0" placeholder="12-15 per side" /></td><td><span class="ql-weight-slot" data-ex="5" data-set="0" data-exname="Dumbbell Russian Twist"></span></td><td><select class="ql-feel" data-ex="5" data-set="0"><option value="">—</option><option value="Easy">💪 Easy</option><option value="Just right">🎯 Just right</option><option value="Hard">😓 Hard</option><option value="Too much">⚠️ Too much</option></select></td></tr><tr><td>Set 2</td><td><input type="number" class="ql-reps" data-ex="5" data-set="1" placeholder="12-15 per side" /></td><td><span class="ql-weight-slot" data-ex="5" data-set="1" data-exname="Dumbbell Russian Twist"></span></td><td><select class="ql-feel" data-ex="5" data-set="1"><option value="">—</option><option value="Easy">💪 Easy</option><option value="Just right">🎯 Just right</option><option value="Hard">😓 Hard</option><option value="Too much">⚠️ Too much</option></select></td></tr><tr><td>Set 3</td><td><input type="number" class="ql-reps" data-ex="5" data-set="2" placeholder="12-15 per side" /></td><td><span class="ql-weight-slot" data-ex="5" data-set="2" data-exname="Dumbbell Russian Twist"></span></td><td><select class="ql-feel" data-ex="5" data-set="2"><option value="">—</option><option value="Easy">💪 Easy</option><option value="Just right">🎯 Just right</option><option value="Hard">😓 Hard</option><option value="Too much">⚠️ Too much</option></select></td></tr></tbody>
       </table>
       <div class="exercise-notes">
         <label for="notes-5">Notes / modifications</label>
@@ -253,7 +253,7 @@ body.locked { overflow: hidden; }
 <script src="../quicklog-config.js"></script>
 <script src="../data.js"></script>
 <script>
-  const EXERCISES = [{"name": "Push-Up", "setCount": 3, "isHold": false}, {"name": "One-Arm Dumbbell Row (Kickstand Stance)", "setCount": 3, "isHold": false}, {"name": "Dumbbell Reverse Lunge", "setCount": 3, "isHold": false}, {"name": "Dumbbell Bicep Curl", "setCount": 3, "isHold": false}, {"name": "Dumbbell Overhead Tricep Extension", "setCount": 3, "isHold": false}, {"name": "Forearm Plank", "setCount": 3, "isHold": true}];
+  const EXERCISES = [{"name": "Push-Up", "setCount": 3, "isHold": false}, {"name": "One-Arm Dumbbell Row (Kickstand Stance)", "setCount": 3, "isHold": false}, {"name": "Dumbbell Reverse Lunge", "setCount": 3, "isHold": false}, {"name": "Dumbbell Bicep Curl", "setCount": 3, "isHold": false}, {"name": "Dumbbell Overhead Tricep Extension", "setCount": 3, "isHold": false}, {"name": "Dumbbell Russian Twist", "setCount": 3, "isHold": false}];
   const GUIDE_DATE_TODAY = new Date().toISOString().slice(0, 10);
 
   // Session start/end timestamps — captured explicitly rather than

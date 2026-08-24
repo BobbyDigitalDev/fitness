@@ -242,15 +242,15 @@ body.locked { overflow: hidden; }
     </div>
   </div>
 
-  <div class="card exercise-card" data-exercise-idx="6" data-exercise-name="Forearm Plank">
-    <img src="images/plank.jpg" alt="Forearm Plank" />
+  <div class="card exercise-card" data-exercise-idx="6" data-exercise-name="Plank Shoulder Taps">
+    
     <div class="exercise-body">
-      <div class="exercise-name">7. Forearm Plank</div>
-      <div class="exercise-target">CORE</div>
-      <div class="exercise-cue">Straight line from shoulder to hip to ankle — no sagging hips, no piked butt. Rest 30-45 sec between sets.</div>
+      <div class="exercise-name">7. Plank Shoulder Taps</div>
+      <div class="exercise-target">CORE · ANTI-ROTATION</div>
+      <div class="exercise-cue">Start in a high plank on your hands, feet a bit wider than usual for stability, core braced. Without letting your hips rock side to side, lift one hand and tap the opposite shoulder, then place it back down and repeat with the other hand. Move slow and controlled — if your hips are swaying, widen your feet further or slow the tempo down. Rest 45-60 sec before your next set.</div>
       <table class="sets-table">
-        <thead><tr><th>Set</th><th>Duration</th><th>Feel</th></tr></thead>
-        <tbody><tr><td>Set 1</td><td><input type="number" class="ql-duration" data-ex="6" data-set="0" placeholder="45" /> sec</td><td><select class="ql-feel" data-ex="6" data-set="0"><option value="">—</option><option value="Easy">💪 Easy</option><option value="Just right">🎯 Just right</option><option value="Hard">😓 Hard</option><option value="Too much">⚠️ Too much</option></select></td></tr><tr><td>Set 2</td><td><input type="number" class="ql-duration" data-ex="6" data-set="1" placeholder="45" /> sec</td><td><select class="ql-feel" data-ex="6" data-set="1"><option value="">—</option><option value="Easy">💪 Easy</option><option value="Just right">🎯 Just right</option><option value="Hard">😓 Hard</option><option value="Too much">⚠️ Too much</option></select></td></tr><tr><td>Set 3</td><td><input type="number" class="ql-duration" data-ex="6" data-set="2" placeholder="45" /> sec</td><td><select class="ql-feel" data-ex="6" data-set="2"><option value="">—</option><option value="Easy">💪 Easy</option><option value="Just right">🎯 Just right</option><option value="Hard">😓 Hard</option><option value="Too much">⚠️ Too much</option></select></td></tr></tbody>
+        <thead><tr><th>Set</th><th>Reps</th><th>Weight (lb)</th><th>Feel</th></tr></thead>
+        <tbody><tr><td>Set 1</td><td><input type="number" class="ql-reps" data-ex="6" data-set="0" placeholder="10-12 per side" /></td><td><span class="ql-weight-slot" data-ex="6" data-set="0" data-exname="Plank Shoulder Taps"></span></td><td><select class="ql-feel" data-ex="6" data-set="0"><option value="">—</option><option value="Easy">💪 Easy</option><option value="Just right">🎯 Just right</option><option value="Hard">😓 Hard</option><option value="Too much">⚠️ Too much</option></select></td></tr><tr><td>Set 2</td><td><input type="number" class="ql-reps" data-ex="6" data-set="1" placeholder="10-12 per side" /></td><td><span class="ql-weight-slot" data-ex="6" data-set="1" data-exname="Plank Shoulder Taps"></span></td><td><select class="ql-feel" data-ex="6" data-set="1"><option value="">—</option><option value="Easy">💪 Easy</option><option value="Just right">🎯 Just right</option><option value="Hard">😓 Hard</option><option value="Too much">⚠️ Too much</option></select></td></tr><tr><td>Set 3</td><td><input type="number" class="ql-reps" data-ex="6" data-set="2" placeholder="10-12 per side" /></td><td><span class="ql-weight-slot" data-ex="6" data-set="2" data-exname="Plank Shoulder Taps"></span></td><td><select class="ql-feel" data-ex="6" data-set="2"><option value="">—</option><option value="Easy">💪 Easy</option><option value="Just right">🎯 Just right</option><option value="Hard">😓 Hard</option><option value="Too much">⚠️ Too much</option></select></td></tr></tbody>
       </table>
       <div class="exercise-notes">
         <label for="notes-6">Notes / modifications</label>
@@ -270,7 +270,7 @@ body.locked { overflow: hidden; }
 <script src="../quicklog-config.js"></script>
 <script src="../data.js"></script>
 <script>
-  const EXERCISES = [{"name": "Incline Chest Press", "setCount": 3, "isHold": false}, {"name": "Lat Pulldown", "setCount": 3, "isHold": false}, {"name": "Leg Press", "setCount": 3, "isHold": false}, {"name": "Leg Curl", "setCount": 3, "isHold": false}, {"name": "Lateral Raises", "setCount": 3, "isHold": false}, {"name": "Dumbbell Flat Bench Fly", "setCount": 3, "isHold": false}, {"name": "Forearm Plank", "setCount": 3, "isHold": true}];
+  const EXERCISES = [{"name": "Incline Chest Press", "setCount": 3, "isHold": false}, {"name": "Lat Pulldown", "setCount": 3, "isHold": false}, {"name": "Leg Press", "setCount": 3, "isHold": false}, {"name": "Leg Curl", "setCount": 3, "isHold": false}, {"name": "Lateral Raises", "setCount": 3, "isHold": false}, {"name": "Dumbbell Flat Bench Fly", "setCount": 3, "isHold": false}, {"name": "Plank Shoulder Taps", "setCount": 3, "isHold": false}];
   const GUIDE_DATE_TODAY = new Date().toISOString().slice(0, 10);
 
   // Session start/end timestamps — captured explicitly rather than
