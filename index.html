@@ -525,7 +525,7 @@
   </div>
 
   <div class="card">
-    <h2><span class="dot danger"></span> Strava Runs — Distance (mi)</h2>
+    <h2><span class="dot danger"></span> Runs <span class="dot blue"></span> Walks — Tracked Workouts (mi)</h2>
     <div class="chart-wrap"><canvas id="runsChart"></canvas></div>
   </div>
 
@@ -1663,18 +1663,29 @@
     if (walksChartInst) { walksChartInst.data = walksConfig.data; walksChartInst.options = walksConfig.options; walksChartInst.update(); }
     else walksChartInst = new Chart(document.getElementById('walksChart'), { ...walksConfig, plugins: [barValueLabels(v => v.toFixed(2) + ' mi')] });
 
-    // ── 7. Strava Runs — distance bar chart ──────────────────
-    // Separate from the Distance Traversed box above: this is only
-    // dedicated, GPS-tracked runs (runsData), each with its own
-    // pace/elevation/HR detail available in the tooltip.
-    const runsSorted = runsData.filter(inMonth).sort((a, b) => a.date.localeCompare(b.date));
+    // ── 7. Runs & Walks — tracked-workout bar chart ───────────
+    // Separate from the Distance Traversed box above, which is the day's
+    // TOTAL ground covered (walksData, every day, gap-filled) — this box is
+    // specific tracked SESSIONS only: dedicated GPS runs (runsData) plus
+    // dedicated named walks from walksData (e.g. a tracked lunchtime walk),
+    // one bar per session, not one bar per calendar day. Excludes the
+    // generic "Remainder of day's Fitbit distance" filler entries and
+    // non-walk/run activities (e.g. "Mowed the lawn") since those aren't a
+    // run or a walk. 2026-08-24: extended from runs-only to include walks
+    // per Bobby's clarification — Distance Traversed stays untouched.
+    const trackedRuns = runsData.filter(inMonth).map(r => ({ ...r, type: 'run' }));
+    const trackedWalks = walksData
+      .filter(inMonth)
+      .filter(w => w.name && !w.name.startsWith("Remainder of day's Fitbit distance") && w.name !== 'Mowed the lawn')
+      .map(w => ({ ...w, type: 'walk' }));
+    const runsSorted = [...trackedRuns, ...trackedWalks].sort((a, b) => a.date.localeCompare(b.date));
     const runsConfig = {
       type: 'bar',
       data: {
         labels: runsSorted.map(r => fmtDate(r.date)),
         datasets: [{
           data: runsSorted.map(r => r.distance),
-          backgroundColor: C.danger,
+          backgroundColor: runsSorted.map(r => r.type === 'run' ? C.danger : C.blue),
           borderRadius: 6,
           maxBarThickness: 44,
         }],
@@ -1690,9 +1701,13 @@
                 const r = runsSorted[ctx.dataIndex];
                 const parts = [`${r.distance.toFixed(2)} mi`];
                 if (r.name) parts.unshift(r.name);
-                if (r.avgPace) parts.push(`pace ${r.avgPace}/mi`);
-                if (r.calories) parts.push(`${r.calories} cal`);
-                if (r.elevationGain != null) parts.push(`+${r.elevationGain} ft elev`);
+                if (r.type === 'run') {
+                  if (r.avgPace) parts.push(`pace ${r.avgPace}/mi`);
+                  if (r.calories) parts.push(`${r.calories} cal`);
+                  if (r.elevationGain != null) parts.push(`+${r.elevationGain} ft elev`);
+                } else {
+                  if (r.duration) parts.push(`${r.duration} min`);
+                }
                 return parts.join(' · ');
               },
             },

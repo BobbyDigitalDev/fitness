@@ -145,7 +145,8 @@ const weightData = [
   { date: "2026-08-11", value: 204.2, note: "via Fitbit smart scale sync, timing unspecified" },
   { date: "2026-08-12", value: 202.2, note: "morning fasted" },
   { date: "2026-08-13", value: 202.8, note: "via Fitbit smart scale sync, timing unspecified" },
-  { date: "2026-08-24", value: 203, note: "via Fitbit smart scale sync, timing unspecified — first weigh-in logged since Aug 13, back in NYC" }
+  { date: "2026-08-24", value: 203, note: "via Fitbit smart scale sync, timing unspecified — first weigh-in logged since Aug 13, back in NYC" },
+  { date: "2026-08-25", value: 202.2, note: "via Fitbit smart scale sync, morning weigh-in — down 0.8 lb from yesterday" }
 ];
 
 const calorieData = [
@@ -179,7 +180,9 @@ const calorieData = [
   { date: "2026-08-21", value: 3170, note: "final — ribeye steak + spring mix omelette breakfast, a cereal/coconut milk/banana bowl, and a cheat-day dinner (whole 12\" no-cheese Domino's Meatzza + a 20oz Coke) logged retroactively 2026-08-24; ~770 cal over the 2,400 target, driven almost entirely by the pizza dinner" },
   { date: "2026-08-22", value: 2369, note: "final — company fishing/grilling day, logged retroactively 2026-08-24 from Bobby's recollection and a grocery purchase photo: 3 Sweet Italian sausage links, a thick-cut ribeye (~1/3 eaten) and salad in the day, a separate thinner ribeye (~half eaten) and a 4th beer at night, 4 Modelo Negra total. No breakfast, confirmed. Sodium is a rough built-up estimate, not label-exact." },
   { date: "2026-08-23", value: 2565, note: "final — travel/flight-home day, logged retroactively 2026-08-24: 2 bowls of cereal+coconut milk with dried strawberries, plantain chips + Biscoff cookies on the JetBlue flight, and a large Chinese takeout dinner (house special fried rice + boneless ribs, no sauce) once home. Dinner portions are a rough visual estimate (no receipt/menu); sodium is very high (~4,445mg total) driven almost entirely by the takeout." },
-  { date: "2026-08-24", value: 350, note: "partial — back on the regular meal schedule with the usual eggs-over-hard-and-sausage-patty breakfast; day still in progress" }
+  { date: "2026-08-24", value: 2239, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast, a tuna salad and hard boiled egg lunch, a Chobani Blueberry Greek Yogurt after-walk snack, a ribeye + sweet potato dinner, and a stovetop popcorn snack so far; day likely complete but not explicitly confirmed" },
+  { date: "2026-08-25", value: 2025, note: "partial — takeout eggs-over-easy and sausage patty breakfast, a Chobani strawberry Greek yogurt snack, a tuna salad and hard boiled egg lunch, a Sun Chips snack, a Whole Foods Sonoma Chicken Salad Wrap after-workout dinner, a whole container of coconut water, and a bakery coffee caramel cookie for dessert so far; day likely complete but not explicitly confirmed" },
+  { date: "2026-08-26", value: 350, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast (takeout) so far; day still in progress" }
 ];
 
 const sleepData = [
@@ -214,7 +217,8 @@ const sleepData = [
   { date: "2026-08-21", hours: 8.17, note: "Backfilled 2026-08-24 — sleep duration only (8h10m), no sleep score shown. Daily Readiness read 'No score' again. 3 of 5 health metrics in personal range (SpO2, RHR, skin temp variation); breathing rate and HRV had some data unavailable. RHR 68 bpm resting, range 52-124. Cardio Load jumped to 20 (vs 3 the day before), still 2 of 5 exercise days last week." },
   { date: "2026-08-22", hours: 5.88, note: "Backfilled 2026-08-24 — sleep duration only (5h53m, shortest of this backfilled stretch), no sleep score shown. Daily Readiness read 'No score' again. 3 of 5 health metrics in personal range (SpO2, RHR, skin temp variation); breathing rate and HRV had some data unavailable. RHR 69 bpm resting, range 47-114. Cardio Load jumped further to 47, still 2 of 5 exercise days last week — highest-activity day of the stretch (12,810 steps, 6.36mi)." },
   { date: "2026-08-23", hours: 6.03, note: "Backfilled 2026-08-24 — sleep duration only (6h02m), no sleep score shown. Daily Readiness read 'No score' again. 3 of 5 health metrics in personal range (SpO2, RHR, skin temp variation); breathing rate and HRV had some data unavailable. RHR 68 bpm resting, range 56-114. Cardio Load 7. New Fitbit week (resets Sunday) — 1 of 5 exercise days so far, from a 24-min tracked walk. Flew home to NYC this day." },
-  { date: "2026-08-24", hours: 7.18, bedtime: "23:30", wake: "07:02", awake: 3, note: "First full night back in NYC. 7h11m asleep (11:30 PM-7:02 AM), 3 min awake, 18 min restless — no sleep score or readiness shown in this view." }
+  { date: "2026-08-24", hours: 7.18, bedtime: "23:30", wake: "07:02", awake: 3, note: "First full night back in NYC. 7h11m asleep (11:30 PM-7:02 AM), 3 min awake, 18 min restless — no sleep score or readiness shown in this view." },
+  { date: "2026-08-25", hours: 7.08, score: 93, bedtime: "22:59", wake: "06:42", awake: 37, note: "Excellent sleep score (93). 7h05m asleep (10:59 PM-6:42 AM) — Awake 37 min, REM 1h35m, Light 3h53m, Deep 1h37m. Best sleep score logged in weeks." }
 ];
 
 const stepsData = [
@@ -395,7 +399,8 @@ const walksData = [
   { date: "2026-08-21", distance: 3.43, note: "Backfilled 2026-08-24 — no dedicated tracked walk on file, this is the day's total Fitbit distance." },
   { date: "2026-08-22", distance: 6.36, note: "Backfilled 2026-08-24 — no dedicated tracked walk on file, this is the day's total Fitbit distance." },
   { date: "2026-08-23", name: "Walk", distance: 0.46, duration: 24, note: "Backfilled 2026-08-24 — Fitbit, 4:11 PM" },
-  { date: "2026-08-23", name: "Remainder of day's Fitbit distance", distance: 3.55, note: "Backfilled 2026-08-24 — fills the gap between the tracked walk above (0.46mi) and the day's total Fitbit distance (4.01mi from stepsData). Flight-home day to NYC." }
+  { date: "2026-08-23", name: "Remainder of day's Fitbit distance", distance: 3.55, note: "Backfilled 2026-08-24 — fills the gap between the tracked walk above (0.46mi) and the day's total Fitbit distance (4.01mi from stepsData). Flight-home day to NYC." },
+  { date: "2026-08-24", name: "Walk", distance: 1.83, duration: 37, note: "Fitbit (Versa 4), 12:14 PM — 36:53, avg pace 20'07\"/mi, avg HR 93 bpm (100% Light zone, 38 min), Cardio Load 2, 3,760 steps, 304 cal." }
 ];
 
 // Gym workout sessions. One entry per session; exercises listed in order performed.
@@ -1064,6 +1069,42 @@ const meals = [
   { date: "2026-08-24", time: "09:21", name: "Eggs Over-Hard (No Salt) & Sausage Patty", photo: "food-photos/2026-08-24-breakfast-eggs-sausage.jpeg",
     description: "Back on the regular meal schedule — 2 large eggs, over-hard, no salt added + 1 breakfast sausage patty (~2oz). Same recurring combo logged many times in July/early August (Aug 3, 5, 6, 7, 10, 11, 12, 13), macros reused directly.",
     calories: 350, protein: 21, carbs: 2, fat: 29, sodium: 550, sodiumNote: "Sausage patty is doing nearly all the sodium here, not the eggs (no salt added to those)." },
+  { date: "2026-08-24", time: "11:58", name: "Tuna Salad & Hard Boiled Eggs", photo: "food-photos/2026-08-24-lunch-tuna-salad-eggs.jpeg",
+    description: "0.37 lb mayo-based tuna salad with celery, no label, weighed exact this time (see food-photos/2026-08-24-lunch-tuna-salad-eggs.jpeg) + 2 whole hard boiled eggs — same recurring combo as the Aug 10/11 lunches. Macros derived by taking the Aug 11 entry's per-lb tuna salad rate (isolated by backing standard hard-boiled-egg values out of that day's total) and scaling up for the larger 0.37lb portion, then adding standard USDA 2-egg values back in. Same wider-than-usual uncertainty as before since the tuna salad itself has no label.",
+    calories: 467, protein: 41, carbs: 6, fat: 32, sodium: 790, sodiumNote: "Tuna salad (mayo-based, no label) is the main driver — estimated, not exact." },
+  { date: "2026-08-24", time: "13:43", name: "Chobani Blueberry Greek Yogurt", photo: "food-photos/2026-08-24-snack-yogurt-front.jpeg",
+    description: "Post-walk snack — Chobani Greek Yogurt, Blueberry on the Bottom, 1 container (150g, label exact). Same product logged before, macros reused directly.",
+    calories: 110, protein: 12, carbs: 15, fat: 0, sodium: 55 },
+  { date: "2026-08-24", time: "18:57", name: "Ribeye Steak & Thinly Sliced Sweet Potato", photo: "food-photos/2026-08-24-dinner-ribeye-sweet-potato.jpeg",
+    description: "One ribeye steak, cut into pieces on the plate, plus a side of thinly sliced sweet potato — a $20 bill in the photo for scale. Steak macros reused from the recurring single-steak baseline (~717-720 cal/65-67g protein) used throughout this log for lightly seasoned backyard ribeyes; no sauce/marinade mentioned, though the sear has a glossy look. Sweet potato portion estimated at ~180g from the photo (no label), using standard baked/no-salt sweet potato macros scaled to that weight.",
+    calories: 882, protein: 68, carbs: 38, fat: 55, sodium: 445, sodiumNote: "Estimated — light steak seasoning (no confirmed sauce) plus unsalted sweet potato; likely on the lower end unless salt was added off-camera." },
+  { date: "2026-08-24", time: "19:35", name: "Stovetop Popcorn (Olive Oil, Pink Salt)", photo: "food-photos/2026-08-24-snack-popcorn.jpeg",
+    description: "4 tbsp unpopped kernels popped in 2 tbsp olive oil on the stovetop, a couple cracks of pink rock salt from a grinder — exactly double the Aug 19 stovetop popcorn batch (2 tbsp kernels + 1 tbsp olive oil = 215 cal), so macros are that baseline doubled.",
+    calories: 430, protein: 6, carbs: 40, fat: 28, sodium: 150, sodiumNote: "Rough estimate — a couple cracks from a salt grinder is a light hand, not a measured amount." },
+  { date: "2026-08-25", time: "08:52", name: "Eggs Over-Easy & Sausage Patty (Takeout)", photo: "food-photos/2026-08-25-breakfast-eggs-sausage-takeout.jpeg",
+    description: "2 eggs over-easy + 1 sausage patty, takeout in a styrofoam clamshell (not homemade). Macros based on the recurring eggs+sausage-patty baseline used earlier this week (350 cal/21g protein), but sodium bumped up since this is deli/takeout-style cooking (likely butter/oil and salt) rather than Bobby's usual 'no salt added' home version.",
+    calories: 370, protein: 21, carbs: 2, fat: 30, sodium: 650, sodiumNote: "Estimated — takeout prep typically uses more salt/butter than the homemade version this baseline is drawn from." },
+  { date: "2026-08-25", time: "10:58", name: "Chobani Greek Yogurt, Strawberry on the Bottom", photo: "food-photos/2026-08-25-snack-yogurt-front.jpeg",
+    description: "Protein snack — Chobani Greek Yogurt, Strawberry on the Bottom, 1 container (150g), label exact.",
+    calories: 110, protein: 11, carbs: 15, fat: 0, sodium: 55 },
+  { date: "2026-08-25", time: "11:45", name: "Tuna Salad & Hard Boiled Eggs", photo: "food-photos/2026-08-25-lunch-tuna-salad-eggs.jpeg",
+    description: "0.32 lb mayo-based tuna salad with celery, no label, weighed exact — same recurring combo as Aug 24 (that day was 0.37lb). Tuna-salad-only per-lb rate isolated from the Aug 24 entry (subtracting standard 2-egg USDA values from that day's total), then scaled down for this smaller 0.32lb portion and standard 2-egg values added back in.",
+    calories: 425, protein: 37, carbs: 5, fat: 29, sodium: 700, sodiumNote: "Tuna salad (mayo-based, no label) is the main driver — estimated, not exact." },
+  { date: "2026-08-25", time: "14:44", name: "Sun Chips, Garden Salsa", photo: "food-photos/2026-08-25-snack-sunchips-front.jpeg",
+    description: "1 package (1oz, label exact — see food-photos/2026-08-25-snack-sunchips-label.jpeg) — same product logged before, macros reused directly.",
+    calories: 140, protein: 2, carbs: 18, fat: 6, sodium: 140 },
+  { date: "2026-08-25", time: "19:41", name: "Whole Foods Sonoma Chicken Salad Wrap", photo: "food-photos/2026-08-25-dinner-chicken-wrap-front.jpeg",
+    description: "After-workout dinner — Whole Foods Sonoma Chicken Salad Wrap, 12.5oz (354g), 1 package/1 serving, label exact (see food-photos/2026-08-25-dinner-chicken-wrap-label.jpeg). Chicken salad (grapes, celery, pecans) in a spinach tortilla with lettuce and cabbage.",
+    calories: 650, protein: 39, carbs: 59, fat: 28, sodium: 1100, sodiumNote: "Label exact — high, 48% of daily value in one wrap." },
+  { date: "2026-08-25", time: "19:42", name: "365 Organic Coconut Water (Whole Container)", photo: "food-photos/2026-08-25-dinner-coconut-water-front.jpeg",
+    description: "Whole 33.8fl oz (1L) container, drank entirely — label lists 8fl oz servings at 45 cal each, about 4 servings per container (see food-photos/2026-08-25-dinner-coconut-water-label.jpeg). Macros are that per-serving value x4, label exact.",
+    calories: 180, protein: 0, carbs: 44, fat: 0, sodium: 200 },
+  { date: "2026-08-25", time: "20:00", name: "Bakery Coffee Caramel Cookie", photo: "food-photos/2026-08-25-dessert-cookie-eaten.jpeg",
+    description: "Dessert treat — bakery Coffee Caramel Cookie (butter, milk chocolate chunks, toffee, coffee extract), 1 cookie, shelf tag lists 150 cal per 1 ea serving size (label exact — see food-photos/2026-08-25-dessert-cookie-label.jpeg). Tag only listed calories, no full nutrition panel, so protein/carb/fat/sodium are estimated from a typical butter-cookie macro split for a treat this size.",
+    calories: 150, protein: 2, carbs: 20, fat: 7, sodium: 100, sodiumNote: "Estimated — shelf tag only listed calories, no sodium figure available." },
+  { date: "2026-08-26", time: "09:24", name: "Eggs Over-Hard (No Salt) & Sausage Patty", photo: "food-photos/2026-08-26-breakfast-eggs-sausage.jpeg",
+    description: "2 large eggs, over-hard, no salt + 1 pork sausage patty — the usual breakfast Bobby has most mornings. Macros reused directly from that recurring combo (takeout container, but same food and prep as the homemade version).",
+    calories: 350, protein: 21, carbs: 2, fat: 29, sodium: 550, sodiumNote: "Sausage patty is doing nearly all the sodium here, not the eggs (no salt added to those)." },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -1106,6 +1147,7 @@ const events = [
   { date: "2026-08-22", text: "<strong>Daily stats (backfilled 2026-08-24):</strong> 12,810 steps · 6.36 mi · 0 floors · 3,818 cal burned · 17 zone min · Sleep 5h53m (no score shown) · Readiness: no score · RHR 69 bpm (range 47–114) · Cardio Load 47 · 2 of 5 exercise days last week. Highest-activity day of the stretch." },
   { date: "2026-08-23", text: "Flew home to NYC, wrapping up the Cape Coral trip." },
   { date: "2026-08-23", text: "<strong>Daily stats (backfilled 2026-08-24):</strong> 8,405 steps · 4.01 mi · 8 floors · 2,799 cal burned · 4 zone min · Sleep 6h02m (no score shown) · Readiness: no score · RHR 68 bpm (range 56–114) · Cardio Load 7 · new Fitbit week, 1 of 5 exercise days so far. Walk: 4:11 PM · 0.46 mi · 24 min." },
+  { date: "2026-08-25", text: "Pilates class, actual session ~6:30-7:30 PM (60 min per Bobby). Fitbit (Versa 4) tracking window was offset — started 6:39 PM, stopped 7:44 PM (1hr5min logged), since Bobby started it ~9 min late and forgot to stop it until ~14 min after class ended. Watch stats for that offset window: Cardio Load 23, 41 zone min (1 vigorous, 38 moderate, 27 light — sums to 66 min, 1 min rounding vs. the 65 total, likely Fitbit's own rounding), 1,087 steps, 369 cal, avg HR 107 bpm. Treat duration as ~60 min (Bobby's account); the calorie/HR/zone figures are directionally solid but run slightly high since the tracked window included a few extra minutes before/after the actual class." },
 ];
 
 // Structured facts that don't fit a time series — just a one-line goals
@@ -1154,5 +1196,7 @@ const proteinData = [
   { date: "2026-08-21", value: 140, note: "final — ribeye steak + spring mix omelette breakfast, a cereal/coconut milk/banana bowl, and a cheat-day dinner (whole 12\" no-cheese Domino's Meatzza + a 20oz Coke) logged retroactively 2026-08-24" },
   { date: "2026-08-22", value: 120, note: "final — company fishing/grilling day, logged retroactively 2026-08-24: 3 sausage links, thick-cut ribeye (~1/3) and salad in the day, a separate thinner ribeye (~half) at night. No breakfast, confirmed." },
   { date: "2026-08-23", value: 111, note: "final — travel/flight-home day, logged retroactively 2026-08-24: cereal x2 with dried strawberries, JetBlue snacks (plantain chips + Biscoff), and a large Chinese takeout dinner (fried rice + boneless ribs)." },
-  { date: "2026-08-24", value: 21, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast so far; day still in progress" }
+  { date: "2026-08-24", value: 148, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast, a tuna salad and hard boiled egg lunch, a Chobani Blueberry Greek Yogurt after-walk snack, a ribeye + sweet potato dinner, and a stovetop popcorn snack so far; day likely complete but not explicitly confirmed" },
+  { date: "2026-08-25", value: 112, note: "partial — takeout eggs-over-easy and sausage patty breakfast, a Chobani strawberry Greek yogurt snack, a tuna salad and hard boiled egg lunch, a Sun Chips snack, a Whole Foods Sonoma Chicken Salad Wrap after-workout dinner, a whole container of coconut water, and a bakery coffee caramel cookie for dessert so far; day likely complete but not explicitly confirmed" },
+  { date: "2026-08-26", value: 21, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast (takeout) so far; day still in progress" }
 ];
