@@ -153,7 +153,8 @@ const weightData = [
   { date: "2026-08-13", value: 202.8, note: "via Fitbit smart scale sync, timing unspecified" },
   { date: "2026-08-24", value: 203, note: "via Fitbit smart scale sync, timing unspecified — first weigh-in logged since Aug 13, back in NYC" },
   { date: "2026-08-25", value: 202.2, note: "via Fitbit smart scale sync, morning weigh-in — down 0.8 lb from yesterday" },
-  { date: "2026-08-26", value: 200.6, note: "via Fitbit smart scale sync, morning weigh-in — down 1.6 lb from yesterday, lowest reading logged since Aug 12" }
+  { date: "2026-08-26", value: 200.6, note: "via Fitbit smart scale sync, morning weigh-in — down 1.6 lb from yesterday, lowest reading logged since Aug 12" },
+  { date: "2026-08-27", value: 199.8, note: "via Fitbit app (Weight Trends screen), timing/fasted status unspecified — down 0.8 lb from yesterday, first sub-200 reading and the lowest value on file since tracking started Jul 23 (previous low: 201.8 on Jul 27). 4th straight down day (203 → 202.2 → 200.6 → 199.8, -3.2 lb over 4 days)." }
 ];
 
 const calorieData = [
@@ -225,8 +226,9 @@ const sleepData = [
   { date: "2026-08-22", hours: 5.88, note: "Backfilled 2026-08-24 — sleep duration only (5h53m, shortest of this backfilled stretch), no sleep score shown. Daily Readiness read 'No score' again. 3 of 5 health metrics in personal range (SpO2, RHR, skin temp variation); breathing rate and HRV had some data unavailable. RHR 69 bpm resting, range 47-114. Cardio Load jumped further to 47, still 2 of 5 exercise days last week — highest-activity day of the stretch (12,810 steps, 6.36mi)." },
   { date: "2026-08-23", hours: 6.03, note: "Backfilled 2026-08-24 — sleep duration only (6h02m), no sleep score shown. Daily Readiness read 'No score' again. 3 of 5 health metrics in personal range (SpO2, RHR, skin temp variation); breathing rate and HRV had some data unavailable. RHR 68 bpm resting, range 56-114. Cardio Load 7. New Fitbit week (resets Sunday) — 1 of 5 exercise days so far, from a 24-min tracked walk. Flew home to NYC this day." },
   { date: "2026-08-24", hours: 7.18, bedtime: "23:30", wake: "07:02", awake: 3, note: "First full night back in NYC. 7h11m asleep (11:30 PM-7:02 AM), 3 min awake, 18 min restless — no sleep score or readiness shown in this view." },
-  { date: "2026-08-25", hours: 7.08, score: 93, bedtime: "22:59", wake: "06:42", awake: 37, note: "Excellent sleep score (93). 7h05m asleep (10:59 PM-6:42 AM) — Awake 37 min, REM 1h35m, Light 3h53m, Deep 1h37m. Best sleep score logged in weeks." },
-  { date: "2026-08-26", hours: 5.87, score: 85, bedtime: "00:41", wake: "07:07", awake: 34, note: "Good sleep score (85), but a late bedtime (12:41 AM) cut duration to just 5h52m — Awake 34 min, REM 1h06m, Light 3h13m, Deep 1h32m. Shortest sleep since the Aug 22 backfilled night." }
+  { date: "2026-08-25", hours: 7.08, score: 93, readiness: 97, bedtime: "22:59", wake: "06:42", awake: 37, note: "Excellent sleep score (93). 7h05m asleep (10:59 PM-6:42 AM) — Awake 37 min, REM 1h35m, Light 3h53m, Deep 1h37m. Best sleep score logged in weeks. Daily Readiness 97 (High), the week's best — all 5 health metrics (RHR, HRV, breathing rate, SpO2, skin temp) in personal range; resting HR 64 bpm, HR range 47-127 bpm for the day." },
+  { date: "2026-08-26", hours: 5.87, score: 85, readiness: 69, bedtime: "00:41", wake: "07:07", deep: 92, rem: 66, light: 193, awake: 34, oxygenVariation: "Low", note: "Good sleep score (85), but a late bedtime (12:41 AM) cut duration to just 5h52m — Awake 34 min, REM 1h06m, Light 3h13m, Deep 1h32m. Shortest sleep since the Aug 22 backfilled night. Daily Readiness 69 (High) — all 5 health metrics (RHR, HRV, breathing rate, SpO2, skin temp) in personal range; resting HR 62 bpm, HR range 49-163 bpm for the day." },
+  { date: "2026-08-27", hours: 6.67, score: 84, bedtime: "23:54", wake: "07:20", deep: 98, rem: 84, light: 217, awake: 46, note: "Good sleep score (84), close to Aug 26's 85. 6h40m asleep (11:54 PM-7:20 AM) — Awake 46 min (highest of the week), REM 1h24m, Light 3h37m, Deep 1h38m (best deep-sleep total logged this stretch). No readiness or health-metrics screen captured for this one." }
 ];
 
 const stepsData = [
@@ -259,7 +261,10 @@ const stepsData = [
   { date: "2026-08-20", value: 4803, distance: 2.39, calories: 2698, floors: 0, zoneMin: 5, note: "backfilled 2026-08-24" },
   { date: "2026-08-21", value: 7012, distance: 3.43, calories: 3068, floors: 1, zoneMin: 16, note: "backfilled 2026-08-24" },
   { date: "2026-08-22", value: 12810, distance: 6.36, calories: 3818, floors: 0, zoneMin: 17, note: "backfilled 2026-08-24" },
-  { date: "2026-08-23", value: 8405, distance: 4.01, calories: 2799, floors: 8, zoneMin: 4, note: "backfilled 2026-08-24 — flew home to NYC" }
+  { date: "2026-08-23", value: 8405, distance: 4.01, calories: 2799, floors: 8, zoneMin: 4, note: "backfilled 2026-08-24 — flew home to NYC" },
+  { date: "2026-08-24", value: 10361, distance: 5.04, calories: 2835, floors: 11, zoneMin: 0, note: "final EOD numbers via Fitbit app — Cardio Load 3, 4 of 5 exercise days this week (from the 36-min tracked walk, see walksData). Only 1 of 5 health metrics in personal range: blood oxygen read 93% (below personal range), RHR and skin temp variation in range, breathing rate and HRV unavailable. Heart rate 51-122 bpm, 66 bpm resting. First full day back in NYC." },
+  { date: "2026-08-25", value: 9105, distance: 4.28, calories: 3069, floors: 17, zoneMin: 56, note: "final EOD numbers via Fitbit app — Cardio Load 39, 4 of 5 exercise days this week (Pilates, 6:39 PM, 369 cal, 1h05m — see events/gymWorkoutsData). 5 of 5 health metrics in personal range (BR, SpO2, RHR, HRV, skin temp variation). Heart rate 47-127 bpm, 64 bpm resting." },
+  { date: "2026-08-26", value: 13169, distance: 6.36, calories: 3641, floors: 15, zoneMin: 156, note: "final EOD numbers via Fitbit app, viewed 2026-08-27 — 4 of 5 exercise days this week, Cardio Load 105." }
 ];
 
 // Tracked runs. distance/pace/calories are from Strava (usually the full
@@ -447,6 +452,8 @@ const walksData = [
   { date: "2026-08-23", name: "Walk", distance: 0.46, duration: 24, note: "Backfilled 2026-08-24 — Fitbit, 4:11 PM" },
   { date: "2026-08-23", name: "Remainder of day's Fitbit distance", distance: 3.55, note: "Backfilled 2026-08-24 — fills the gap between the tracked walk above (0.46mi) and the day's total Fitbit distance (4.01mi from stepsData). Flight-home day to NYC." },
   { date: "2026-08-24", name: "Walk", distance: 1.83, duration: 37, note: "Fitbit (Versa 4), 12:14 PM — 36:53, avg pace 20'07\"/mi, avg HR 93 bpm (100% Light zone, 38 min), Cardio Load 2, 3,760 steps, 304 cal." },
+  { date: "2026-08-24", name: "Remainder of day's Fitbit distance", distance: 3.21, note: "Fills the gap between the tracked walk above (1.83mi) and the day's total Fitbit distance (5.04mi from stepsData, final EOD numbers)." },
+  { date: "2026-08-25", distance: 4.28, note: "No dedicated tracked walk on file — this is the day's total Fitbit distance (final EOD numbers). Includes the Pilates class (6:39 PM, 369 cal, 1h05m — logged separately in gymWorkoutsData/events), which doesn't register a distance component here." },
   {
     date: "2026-08-26",
     name: "Lifetime Gym (Battery Park) → Gai Chicken & Rice (Fulton St)",
@@ -463,7 +470,8 @@ const walksData = [
     cardioLoad: 12,
     zoneMin: 28,
     note: "Fitbit (Versa 4), 7:33-8:04 PM — walk from Lifetime Gym Battery Park to Gai Chicken & Rice on Fulton St for dinner, right after the treadmill cool-down (see runsData)."
-  }
+  },
+  { date: "2026-08-26", name: "Remainder of day's Fitbit distance", distance: 5.58, note: "Fills the gap between the tracked walk above (0.78mi) and the day's total Fitbit distance (6.36mi from stepsData, final EOD numbers). Per the standing rule, this is NOT reduced for the two treadmill runs also logged this day (see runsData) — the Walks chart's daily total is the full day's distance traveled, independent of the Runs chart." }
 ];
 
 // Gym workout sessions. One entry per session; exercises listed in order performed.
