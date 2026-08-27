@@ -33,7 +33,8 @@ hr { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
 }
 .exercise-body { }
 .exercise-name { font-size: 1.05rem; font-weight: 700; }
-.exercise-target { color: var(--orange); font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 2px; margin-bottom: 8px; }
+.exercise-target { color: var(--orange); font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 2px; margin-bottom: 2px; }
+.exercise-muscles { color: var(--muted); font-size: 0.85rem; font-style: italic; margin-bottom: 8px; }
 .exercise-cue { font-size: 0.88rem; color: var(--muted); line-height: 1.5; margin-bottom: 12px; }
 .sets-table { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
 .sets-table th { text-align: left; color: var(--muted); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0 6px 6px 0; border-bottom: 1px solid var(--border); }
@@ -49,7 +50,7 @@ hr { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
   width: 100%; background: var(--surface-2); color: var(--text); border: 1px solid var(--border);
   border-radius: 8px; padding: 8px 10px; font-size: 0.88rem; font-family: inherit; line-height: 1.4; resize: vertical;
 }
-.save-bar { position: sticky; bottom: 0; background: var(--bg); padding: 14px 0 6px; margin-top: 10px; }
+.save-bar { background: var(--bg); padding: 14px 0 6px; margin-top: 10px; }
 .save-btn {
   width: 100%; background: var(--accent); color: #0f1115; border: none; border-radius: 10px;
   padding: 14px; font-size: 1rem; font-weight: 700; font-family: inherit; cursor: pointer;
@@ -127,7 +128,7 @@ body.locked { overflow: hidden; }
 <h1>Home C</h1>
 <div class="subtitle">Arms &amp; Legs Emphasis · Home — 2x15lb Dumbbells · ~35–45 min</div>
 
-<div class="safety-box"><b>Before you start — warm-up (5–10 min):</b> 5 min light cardio in place (marching, jumping jacks, or a brisk walk if you've got room) &rarr; arm circles, 15–20 reps each direction &rarr; one light warm-up set of exercise #1 with an easy pace before your working sets.<br><br>Several moves here have you lying, kneeling, or bending forward: move between positions calmly rather than popping up fast — Nifedipine can cause dizziness on standing. Hydrate before, during, and after.<br><br><b>Why the reps run higher than your gym guides:</b> two fixed 15lb dumbbells can't progress by adding weight the way the gym's stack does. Progression here comes from reps (working toward the top of each range, then adding a 4th set once you're there), slower tempo (2-3 sec lowering phase), and short rest (60-75 sec between sets) instead. Back to the regular Life Time program whenever you're back at the gym.</div>
+<div class="safety-box"><b>Before anything else:</b> start your Fitbit workout tracking now, before you do your warm-up — it's easy to forget once you're moving, and starting late throws off the session's cardio load, zone minutes, and calorie numbers.<br><br><b>Warm-up (5–10 min):</b> 5 min light cardio in place (marching, jumping jacks, or a brisk walk if you've got room) &rarr; arm circles, 15–20 reps each direction &rarr; one light warm-up set of exercise #1 with an easy pace before your working sets.<br><br>Several moves here have you lying, kneeling, or bending forward: move between positions calmly rather than popping up fast — Nifedipine can cause dizziness on standing. Hydrate before, during, and after.<br><br><b>Why the reps run higher than your gym guides:</b> two fixed 15lb dumbbells can't progress by adding weight the way the gym's stack does. Progression here comes from reps (working toward the top of each range, then adding a 4th set once you're there), slower tempo (2-3 sec lowering phase), and short rest (60-75 sec between sets) instead. Back to the regular Life Time program whenever you're back at the gym.</div>
 
 <div class="section-title">Today's Full-Body Focus</div>
 <div class="focus-text">Push and pull repeat in bodyweight/unilateral form today, then the back half of the session goes straight after arms — biceps and triceps get dedicated isolation slots they don't get at the gym (where the schedule's built around bigger compound lifts), which fits the arm-size goal directly. Reverse lunges keep the leg pattern in every session without repeating the goblet squat three days running.</div>
@@ -145,6 +146,7 @@ body.locked { overflow: hidden; }
     <div class="exercise-body">
       <div class="exercise-name">1. Push-Up</div>
       <div class="exercise-target">PUSH · CHEST</div>
+      <div class="exercise-muscles">Chest, with shoulders and triceps assisting.</div>
       <div class="exercise-cue">Hands on the floor slightly wider than your shoulders, straight line from head to heels, core braced. Lower your chest toward the floor with elbows at roughly 45° to your torso, then press back to full extension. If your hips start to sag or pike before the set's done, drop to your knees for the rest of the reps rather than losing the straight line. Rest 60-75 sec before your next set.</div>
       <table class="sets-table">
         <thead><tr><th>Set</th><th>Reps</th><th>Weight (lb)</th><th>Feel</th></tr></thead>
@@ -162,6 +164,7 @@ body.locked { overflow: hidden; }
     <div class="exercise-body">
       <div class="exercise-name">2. One-Arm Dumbbell Row (Kickstand Stance)</div>
       <div class="exercise-target">PULL · BACK</div>
+      <div class="exercise-muscles">Lats and mid-back.</div>
       <div class="exercise-cue">Split stance (one foot forward, one back), hinge forward from the hips, free hand braced on your front thigh for support, dumbbell hanging from the working arm. Row the dumbbell up to your hip, driving your elbow back and squeezing at the top, then lower under control. Keep your torso still — the movement should come from your arm and shoulder blade, not from twisting — then switch arms and legs. Rest 60-75 sec before your next set.</div>
       <table class="sets-table">
         <thead><tr><th>Set</th><th>Reps</th><th>Weight (lb)</th><th>Feel</th></tr></thead>
@@ -179,6 +182,7 @@ body.locked { overflow: hidden; }
     <div class="exercise-body">
       <div class="exercise-name">3. Dumbbell Reverse Lunge</div>
       <div class="exercise-target">LEG · UNILATERAL</div>
+      <div class="exercise-muscles">Quads and glutes, one leg at a time.</div>
       <div class="exercise-cue">Stand tall with a dumbbell in each hand at your sides. Step one leg back and lower until both knees are bent to about 90°, back knee hovering just above the floor, front knee tracking over your foot. Drive through your front heel to return to standing, then alternate legs. Keep your torso upright rather than leaning forward over your front knee. Rest 60-75 sec before your next set.</div>
       <table class="sets-table">
         <thead><tr><th>Set</th><th>Reps</th><th>Weight (lb)</th><th>Feel</th></tr></thead>
@@ -196,6 +200,7 @@ body.locked { overflow: hidden; }
     <div class="exercise-body">
       <div class="exercise-name">4. Dumbbell Bicep Curl</div>
       <div class="exercise-target">ARMS · BICEP</div>
+      <div class="exercise-muscles">Biceps, front of the upper arm.</div>
       <div class="exercise-cue">Stand with a dumbbell in each hand, elbows pinned at your sides. Curl both dumbbells up toward your shoulders without swinging your torso or flaring your elbows forward, squeeze at the top, then lower slowly (2-3 seconds) rather than dropping the weight. Keep the movement isolated to your elbows. Rest 45-60 sec before your next set.</div>
       <table class="sets-table">
         <thead><tr><th>Set</th><th>Reps</th><th>Weight (lb)</th><th>Feel</th></tr></thead>
@@ -213,6 +218,7 @@ body.locked { overflow: hidden; }
     <div class="exercise-body">
       <div class="exercise-name">5. Dumbbell Overhead Tricep Extension</div>
       <div class="exercise-target">ARMS · TRICEP</div>
+      <div class="exercise-muscles">Triceps, back of the upper arm.</div>
       <div class="exercise-cue">Hold one dumbbell with both hands, arms extended straight overhead. Keeping your upper arms still and close to your ears, lower the dumbbell behind your head by bending only at the elbows, then press back to full extension. If your elbows flare out wide or your lower back arches, shorten the range slightly until you can keep them tucked. Rest 45-60 sec before your next set.</div>
       <table class="sets-table">
         <thead><tr><th>Set</th><th>Reps</th><th>Weight (lb)</th><th>Feel</th></tr></thead>
@@ -230,6 +236,7 @@ body.locked { overflow: hidden; }
     <div class="exercise-body">
       <div class="exercise-name">6. Dumbbell Russian Twist</div>
       <div class="exercise-target">CORE · ROTATION</div>
+      <div class="exercise-muscles">Obliques — rotational core strength.</div>
       <div class="exercise-cue">Sit on the floor with your knees bent, feet flat (or lifted slightly off the floor for more challenge), leaning back to about a 45° torso angle. Hold one dumbbell with both hands at your chest, then rotate your torso to tap the dumbbell on the floor beside one hip, then rotate to the other side — that's one rep each way. Keep your chest up and move from your torso, not just your arms. Rest 45-60 sec before your next set.</div>
       <table class="sets-table">
         <thead><tr><th>Set</th><th>Reps</th><th>Weight (lb)</th><th>Feel</th></tr></thead>

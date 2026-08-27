@@ -33,7 +33,8 @@ hr { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
 }
 .exercise-body { }
 .exercise-name { font-size: 1.05rem; font-weight: 700; }
-.exercise-target { color: var(--orange); font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 2px; margin-bottom: 8px; }
+.exercise-target { color: var(--orange); font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 2px; margin-bottom: 2px; }
+.exercise-muscles { color: var(--muted); font-size: 0.85rem; font-style: italic; margin-bottom: 8px; }
 .exercise-cue { font-size: 0.88rem; color: var(--muted); line-height: 1.5; margin-bottom: 12px; }
 .sets-table { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
 .sets-table th { text-align: left; color: var(--muted); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0 6px 6px 0; border-bottom: 1px solid var(--border); }
@@ -49,7 +50,7 @@ hr { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
   width: 100%; background: var(--surface-2); color: var(--text); border: 1px solid var(--border);
   border-radius: 8px; padding: 8px 10px; font-size: 0.88rem; font-family: inherit; line-height: 1.4; resize: vertical;
 }
-.save-bar { position: sticky; bottom: 0; background: var(--bg); padding: 14px 0 6px; margin-top: 10px; }
+.save-bar { background: var(--bg); padding: 14px 0 6px; margin-top: 10px; }
 .save-btn {
   width: 100%; background: var(--accent); color: #0f1115; border: none; border-radius: 10px;
   padding: 14px; font-size: 1rem; font-weight: 700; font-family: inherit; cursor: pointer;
@@ -127,7 +128,7 @@ body.locked { overflow: hidden; }
 <h1>Full-Body B</h1>
 <div class="subtitle">Thursday · Shoulders &amp; Posterior Chain Emphasis · Life Time Battery Park · ~45–60 min</div>
 
-<div class="safety-box"><b>Before you start — warm-up (5–10 min):</b> 5 min light cardio (brisk walk, bike, or rower, easy pace) &rarr; arm circles and band pull-aparts, 15–20 reps each &rarr; one light warm-up set of exercise #1 (light plates, 12–15 easy reps) before loading real weight.<br><br>Several moves here have you lying, seated, or bending forward: move between positions calmly rather than popping up fast — Nifedipine can cause dizziness on standing. Hydrate before, during, and after.</div>
+<div class="safety-box"><b>Before anything else:</b> start your Fitbit workout tracking now, before you do your warm-up — it's easy to forget once you're moving, and starting late throws off the session's cardio load, zone minutes, and calorie numbers.<br><br><b>Warm-up (5–10 min):</b> 5 min light cardio (brisk walk, bike, or rower, easy pace) &rarr; arm circles and band pull-aparts, 15–20 reps each &rarr; one light warm-up set of exercise #1 (light plates, 12–15 easy reps) before loading real weight.<br><br>Several moves here have you lying, seated, or bending forward: move between positions calmly rather than popping up fast — Nifedipine can cause dizziness on standing. Hydrate before, during, and after.</div>
 
 <div class="section-title">Today's Full-Body Focus</div>
 <div class="focus-text">Today's push is overhead instead of flat/incline — it hits front and side delt directly. The pull moves to horizontal rowing for back thickness, and the leg pattern flips to hamstring/glute-dominant with the Romanian deadlift. Isolation work targets the rear delt — the head that finishes the “3D” shoulder look from behind.</div>
@@ -145,6 +146,7 @@ body.locked { overflow: hidden; }
     <div class="exercise-body">
       <div class="exercise-name">1. Seated Shoulder Press</div>
       <div class="exercise-target">PUSH · FRONT + SIDE DELT</div>
+      <div class="exercise-muscles">Front and side deltoids.</div>
       <div class="exercise-cue">Press straight overhead, ribs down (don't arch the lower back to finish the rep). Rest 90 sec before your next set.</div>
       <table class="sets-table">
         <thead><tr><th>Set</th><th>Reps</th><th>Weight (lb)</th><th>Feel</th></tr></thead>
@@ -162,6 +164,7 @@ body.locked { overflow: hidden; }
     <div class="exercise-body">
       <div class="exercise-name">2. Seated Cable Row</div>
       <div class="exercise-target">PULL · BACK THICKNESS</div>
+      <div class="exercise-muscles">Mid-back — the muscles between the shoulder blades.</div>
       <div class="exercise-cue">Sit tall, drive elbows back past the ribs, squeeze the shoulder blades together at the finish. Rest 90 sec before your next set.</div>
       <table class="sets-table">
         <thead><tr><th>Set</th><th>Reps</th><th>Weight (lb)</th><th>Feel</th></tr></thead>
@@ -179,6 +182,7 @@ body.locked { overflow: hidden; }
     <div class="exercise-body">
       <div class="exercise-name">3. Romanian Deadlift</div>
       <div class="exercise-target">LEG · HAMSTRING/GLUTE</div>
+      <div class="exercise-muscles">Hamstrings and glutes, back of the thigh and butt.</div>
       <div class="exercise-cue">Soft knee bend, hinge at the hips, bar stays close to the legs. Stretch to roughly mid-shin, not the floor. Rest 90 sec before your next set.</div>
       <table class="sets-table">
         <thead><tr><th>Set</th><th>Reps</th><th>Weight (lb)</th><th>Feel</th></tr></thead>
@@ -196,6 +200,7 @@ body.locked { overflow: hidden; }
     <div class="exercise-body">
       <div class="exercise-name">4. Rear Delt Fly</div>
       <div class="exercise-target">SHOULDER ISOLATION · REAR DELT</div>
+      <div class="exercise-muscles">Rear deltoid — back of the shoulder.</div>
       <div class="exercise-cue">Reverse pec-deck or cable if available, otherwise bent-over dumbbell fly. Don't skip this one. Rest 45-60 sec before your next set.</div>
       <table class="sets-table">
         <thead><tr><th>Set</th><th>Reps</th><th>Weight (lb)</th><th>Feel</th></tr></thead>
@@ -213,6 +218,7 @@ body.locked { overflow: hidden; }
     <div class="exercise-body">
       <div class="exercise-name">5. Flat/Machine Chest Press</div>
       <div class="exercise-target">PEC ACCESSORY · MID PEC</div>
+      <div class="exercise-muscles">Mid chest.</div>
       <div class="exercise-cue">Push for one more rep than last time if the top set still leaves 2 in the tank with good form. Rest 60-90 sec before your next set.</div>
       <table class="sets-table">
         <thead><tr><th>Set</th><th>Reps</th><th>Weight (lb)</th><th>Feel</th></tr></thead>
@@ -230,6 +236,7 @@ body.locked { overflow: hidden; }
     <div class="exercise-body">
       <div class="exercise-name">6. Cable Pallof Press</div>
       <div class="exercise-target">CORE · ANTI-ROTATION</div>
+      <div class="exercise-muscles">Deep core/obliques — resisting a twisting force.</div>
       <div class="exercise-cue">Stand perpendicular to a low or chest-height cable, feet hip-width, holding the handle at your chest with both hands. Press the handle straight out until your arms are extended, resisting the pull trying to rotate your torso toward the machine, then return to your chest under control. Complete all reps on one side before switching — keep your hips and shoulders square the whole time, don't let the cable twist you. Rest 45-60 sec before your next set.</div>
       <table class="sets-table">
         <thead><tr><th>Set</th><th>Reps</th><th>Weight (lb)</th><th>Feel</th></tr></thead>

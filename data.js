@@ -5,6 +5,12 @@
 // - stepsData + walksData → Fitbit EOD stats or walk reports
 // - sleepData → sleep screenshots
 // - gymWorkoutsData → gym session logs (exercises, sets, weights) → Workouts card in index.html
+//   STANDING CONVENTION (set 2026-08-26, per Bobby): if a JSONBin/app-logged workout session
+//   conflicts with Fitbit's auto-detected activity data for the same day (e.g. Fitbit shows a
+//   low Cardio Load / "rest day" but a real session was logged through the guide app), the
+//   JSONBin/app-logged entry wins. Fitbit auto-detect is supplemental, not authoritative, for
+//   workouts — it's known to miss sessions entirely. Correct any Fitbit-derived "rest day" /
+//   "no workout" language elsewhere (sleepData/walksData/events notes) rather than leaving it stale.
 // - meals array → Meals card in index.html
 // - events array → Activity card in index.html
 // Always keep data.js and index.html static sections in sync.
@@ -146,7 +152,8 @@ const weightData = [
   { date: "2026-08-12", value: 202.2, note: "morning fasted" },
   { date: "2026-08-13", value: 202.8, note: "via Fitbit smart scale sync, timing unspecified" },
   { date: "2026-08-24", value: 203, note: "via Fitbit smart scale sync, timing unspecified — first weigh-in logged since Aug 13, back in NYC" },
-  { date: "2026-08-25", value: 202.2, note: "via Fitbit smart scale sync, morning weigh-in — down 0.8 lb from yesterday" }
+  { date: "2026-08-25", value: 202.2, note: "via Fitbit smart scale sync, morning weigh-in — down 0.8 lb from yesterday" },
+  { date: "2026-08-26", value: 200.6, note: "via Fitbit smart scale sync, morning weigh-in — down 1.6 lb from yesterday, lowest reading logged since Aug 12" }
 ];
 
 const calorieData = [
@@ -182,7 +189,7 @@ const calorieData = [
   { date: "2026-08-23", value: 2565, note: "final — travel/flight-home day, logged retroactively 2026-08-24: 2 bowls of cereal+coconut milk with dried strawberries, plantain chips + Biscoff cookies on the JetBlue flight, and a large Chinese takeout dinner (house special fried rice + boneless ribs, no sauce) once home. Dinner portions are a rough visual estimate (no receipt/menu); sodium is very high (~4,445mg total) driven almost entirely by the takeout." },
   { date: "2026-08-24", value: 2239, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast, a tuna salad and hard boiled egg lunch, a Chobani Blueberry Greek Yogurt after-walk snack, a ribeye + sweet potato dinner, and a stovetop popcorn snack so far; day likely complete but not explicitly confirmed" },
   { date: "2026-08-25", value: 2025, note: "partial — takeout eggs-over-easy and sausage patty breakfast, a Chobani strawberry Greek yogurt snack, a tuna salad and hard boiled egg lunch, a Sun Chips snack, a Whole Foods Sonoma Chicken Salad Wrap after-workout dinner, a whole container of coconut water, and a bakery coffee caramel cookie for dessert so far; day likely complete but not explicitly confirmed" },
-  { date: "2026-08-26", value: 350, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast (takeout) so far; day still in progress" }
+  { date: "2026-08-26", value: 1954, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast (takeout), a tuna salad and hard boiled egg lunch, a Chobani blueberry Greek yogurt, a Sun Chips snack, a Chobani strawberry Greek yogurt, and an after-gym Gai Chicken & Rice dinner so far; day likely complete but not explicitly confirmed" }
 ];
 
 const sleepData = [
@@ -213,12 +220,13 @@ const sleepData = [
   { date: "2026-08-17", hours: 6.02, score: 87, readiness: 45, note: "Good sleep score (6h01m, score 87) but Readiness dropped to 45 (Moderate), lowest of the week — all 5 health metrics still in personal range (RHR 65 bpm resting, range 56-143), so no single flagged outlier explains the dip; likely reflects the much lower activity day (6,092 steps, 3 mi, 45 zone min — a fraction of the prior few days) plus the cheat-day Outback dinner. No bedtime/wake or stage breakdown available from this screenshot." },
   { date: "2026-08-18", hours: 7.45, score: 91, readiness: 43, note: "Best sleep score of the recent stretch (7h27m, score 91) but Readiness dropped further to 43 (Moderate), even lower than Aug 17's 45. All 5 health metrics still in personal range (RHR 67 bpm resting, range 56-135), so nothing's individually flagged — most likely explanation is residual training stress from that day's 55-min Home B strength session (Cardio Load 57, the week's highest), which can suppress next-day readiness even after a great night's sleep. Another instance of the sleep-score-vs-readiness gap seen earlier this week. No bedtime/wake or stage breakdown available from this screenshot." },
   { date: "2026-08-19", hours: 7.32, score: 90, readiness: 52, note: "Excellent sleep score (7h19m, score 90; 12:49 AM-9:09 AM — Awake 1h, REM 1h37m, Light 3h38m, Deep 2h4m), but Readiness only 52 (Moderate) — the same sleep-score-vs-readiness gap seen all week. All 5 health metrics in personal range (RHR 68 bpm resting, range 54-108). Cardio Load dropped to just 1 (a genuine rest day, no workout), so this dip isn't training-driven like Aug 18's — more likely a lingering pattern from the string of late/inconsistent nights this week rather than any single flagged cause." },
-  { date: "2026-08-20", hours: 7.08, note: "Backfilled 2026-08-24 — sleep duration only (7h05m), no sleep score shown. Daily Readiness read 'No score' this day rather than a number. 4 of 5 health metrics in personal range (SpO2, RHR, HRV, skin temp variation); breathing rate had some data unavailable. RHR 68 bpm resting, range 49-115. Cardio Load 3, 2 of 5 exercise days last week — bacon-burger dinner day at Dad's, no workout." },
+  { date: "2026-08-20", hours: 7.08, note: "Backfilled 2026-08-24 — sleep duration only (7h05m), no sleep score shown. Daily Readiness read 'No score' this day rather than a number. 4 of 5 health metrics in personal range (SpO2, RHR, HRV, skin temp variation); breathing rate had some data unavailable. RHR 68 bpm resting, range 49-115. Cardio Load 3, 2 of 5 exercise days last week — bacon-burger dinner day at Dad's. Fitbit's Cardio Load reads low here, but Bobby did do a Home C dumbbell session this day (11:25 AM-12:20 PM, logged via the guide app and confirmed 2026-08-26) — Fitbit just missed auto-detecting it. See gymWorkoutsData for the real session." },
   { date: "2026-08-21", hours: 8.17, note: "Backfilled 2026-08-24 — sleep duration only (8h10m), no sleep score shown. Daily Readiness read 'No score' again. 3 of 5 health metrics in personal range (SpO2, RHR, skin temp variation); breathing rate and HRV had some data unavailable. RHR 68 bpm resting, range 52-124. Cardio Load jumped to 20 (vs 3 the day before), still 2 of 5 exercise days last week." },
   { date: "2026-08-22", hours: 5.88, note: "Backfilled 2026-08-24 — sleep duration only (5h53m, shortest of this backfilled stretch), no sleep score shown. Daily Readiness read 'No score' again. 3 of 5 health metrics in personal range (SpO2, RHR, skin temp variation); breathing rate and HRV had some data unavailable. RHR 69 bpm resting, range 47-114. Cardio Load jumped further to 47, still 2 of 5 exercise days last week — highest-activity day of the stretch (12,810 steps, 6.36mi)." },
   { date: "2026-08-23", hours: 6.03, note: "Backfilled 2026-08-24 — sleep duration only (6h02m), no sleep score shown. Daily Readiness read 'No score' again. 3 of 5 health metrics in personal range (SpO2, RHR, skin temp variation); breathing rate and HRV had some data unavailable. RHR 68 bpm resting, range 56-114. Cardio Load 7. New Fitbit week (resets Sunday) — 1 of 5 exercise days so far, from a 24-min tracked walk. Flew home to NYC this day." },
   { date: "2026-08-24", hours: 7.18, bedtime: "23:30", wake: "07:02", awake: 3, note: "First full night back in NYC. 7h11m asleep (11:30 PM-7:02 AM), 3 min awake, 18 min restless — no sleep score or readiness shown in this view." },
-  { date: "2026-08-25", hours: 7.08, score: 93, bedtime: "22:59", wake: "06:42", awake: 37, note: "Excellent sleep score (93). 7h05m asleep (10:59 PM-6:42 AM) — Awake 37 min, REM 1h35m, Light 3h53m, Deep 1h37m. Best sleep score logged in weeks." }
+  { date: "2026-08-25", hours: 7.08, score: 93, bedtime: "22:59", wake: "06:42", awake: 37, note: "Excellent sleep score (93). 7h05m asleep (10:59 PM-6:42 AM) — Awake 37 min, REM 1h35m, Light 3h53m, Deep 1h37m. Best sleep score logged in weeks." },
+  { date: "2026-08-26", hours: 5.87, score: 85, bedtime: "00:41", wake: "07:07", awake: 34, note: "Good sleep score (85), but a late bedtime (12:41 AM) cut duration to just 5h52m — Awake 34 min, REM 1h06m, Light 3h13m, Deep 1h32m. Shortest sleep since the Aug 22 backfilled night." }
 ];
 
 const stepsData = [
@@ -395,7 +403,7 @@ const walksData = [
   { date: "2026-08-17", distance: 3, note: "No dedicated tracked activity — this is the day's total Fitbit distance. Lowest-activity day of the stretch." },
   { date: "2026-08-18", distance: 2.51, note: "No dedicated tracked walk — day's total Fitbit distance. The 55-min Home B strength session (2:28-3:24 PM) is logged separately in gymWorkoutsData; indoor strength training doesn't register a distance component here." },
   { date: "2026-08-19", distance: 2.56, note: "No dedicated tracked walk — day's total Fitbit distance. Rest day (Cardio Load 1, no workout)." },
-  { date: "2026-08-20", distance: 2.39, note: "Backfilled 2026-08-24 — no dedicated tracked walk on file, this is the day's total Fitbit distance. Rest day (Cardio Load 3, no workout, bacon-burger dinner at Dad's)." },
+  { date: "2026-08-20", distance: 2.39, note: "Backfilled 2026-08-24 — no dedicated tracked walk on file, this is the day's total Fitbit distance. Bacon-burger dinner at Dad's. Fitbit read this as a low-activity/rest day (Cardio Load 3), but Bobby did do a Home C dumbbell session (11:25 AM-12:20 PM) that Fitbit failed to auto-detect — see gymWorkoutsData." },
   { date: "2026-08-21", distance: 3.43, note: "Backfilled 2026-08-24 — no dedicated tracked walk on file, this is the day's total Fitbit distance." },
   { date: "2026-08-22", distance: 6.36, note: "Backfilled 2026-08-24 — no dedicated tracked walk on file, this is the day's total Fitbit distance." },
   { date: "2026-08-23", name: "Walk", distance: 0.46, duration: 24, note: "Backfilled 2026-08-24 — Fitbit, 4:11 PM" },
@@ -731,6 +739,145 @@ const gymWorkoutsData = [
       }
     ],
     note: "Session against the Home B guide (workout_guides/2026-08-13-home-b-guide.html) got interrupted mid-workout — Bobby's mobile browser back button wiped an in-progress attempt on the second-to-last exercise. Confirmed via the JSONBin pending queue that nothing from that first attempt was ever saved: the app only writes to JSONBin when Save Session is tapped, no autosave, so the lost data is genuinely unrecoverable. He restarted the guide fresh and, in that second session, actually logged Push-Up and Side Plank for real (synced through JSONBin, saved 2026-08-18T19:22:06Z / 3:22 PM EDT). Reps/weight for the other four exercises (Overhead Press, Renegade Row, Romanian Deadlift, Rear Delt Fly) came from Bobby's memory of the original attempt, added by hand rather than through the app — no feel rating given for those sets, so left null rather than guessed. Start/end time and duration above are from Fitbit's own 'Strength training' auto-detect (2:28-3:24 PM, 55m51s), which ran as one continuous block covering both attempts since Bobby never stopped moving between them — more reliable here than the app's own timestamps, which only reflect the second attempt. Fitbit also logged: Cardio Load 36, 56 zone min, 418 cal burned, avg HR 117 bpm (84% Moderate, 8% Vigorous, 7% Light)."
+  },
+  {
+    date: "2026-08-20",
+    gym: "Home",
+    label: "Home C",
+    startTime: "11:25",
+    endTime: "12:20",
+    duration: 55,           // minutes — from the app's own startedAt/endedAt via JSONBin
+    exercises: [
+      {
+        name: "Push-Up",
+        note: "Done on knees to take pressure off the right wrist (2018 snowboarding injury, same modification as other push-up sets in this log).",
+        sets: [
+          { reps: 10, weight: null, feel: "Just right" },
+          { reps: 10, weight: null, feel: "Just right" },
+          { reps: 10, weight: null, feel: "Hard" }
+        ]
+      },
+      {
+        name: "One-Arm Dumbbell Row (Kickstand Stance)",
+        note: "",
+        sets: [
+          { reps: 20, weight: 15, feel: null },
+          { reps: 20, weight: 15, feel: null },
+          { reps: 20, weight: 15, feel: null }
+        ]
+      },
+      {
+        name: "Dumbbell Reverse Lunge",
+        note: "2x 15lb dumbbells, one per hand — 30lb logged as the combined total, not per-dumbbell.",
+        sets: [
+          { reps: 10, weight: 30, feel: "Just right" },
+          { reps: 10, weight: 30, feel: null },
+          { reps: 10, weight: 30, feel: null }
+        ]
+      },
+      {
+        name: "Dumbbell Bicep Curl",
+        note: "Rotating-grip variation — palms faced behind him at the bottom, rotating 180° through the curl so palms faced behind him again at the top (not a standard fixed-grip curl).",
+        sets: [
+          { reps: 20, weight: 15, feel: null },
+          { reps: 20, weight: 15, feel: null },
+          { reps: 20, weight: 15, feel: null }
+        ]
+      },
+      {
+        name: "Dumbbell Overhead Tricep Extension",
+        note: "",
+        sets: [
+          { reps: 20, weight: 15, feel: null },
+          { reps: 20, weight: 15, feel: null },
+          { reps: 20, weight: 15, feel: null }
+        ]
+      },
+      {
+        name: "Forearm Plank",
+        note: "",
+        sets: [
+          { duration: 60, feel: null },
+          { duration: 60, feel: null },
+          { duration: 60, feel: null }
+        ]
+      }
+    ],
+    note: "Session against the Home C guide (workout_guides/2026-08-13-home-c-guide.html), synced through JSONBin — startedAt 2026-08-20T15:25:03Z, endedAt 2026-08-20T16:20:21Z (11:25 AM-12:20 PM EDT, ~55 min). This directly contradicts the Aug 20 Fitbit backfill elsewhere in this log (stepsData/events say Cardio Load 3, 5 zone min, 'Rest day — no workout') — confirmed with Bobby 2026-08-26 that the workout did happen; Fitbit simply failed to auto-detect the session. Per Bobby: JSONBin (the app's own logged sessions) is the source of truth for workouts, Fitbit is supplemental. The stepsData/events 'rest day' language is stale and should be read in that light."
+  },
+  {
+    date: "2026-08-26",
+    gym: "Lifetime Gym",
+    label: "Full-Body C",
+    startTime: "18:09",
+    endTime: "19:15",
+    duration: 66,           // minutes — from the app's own startedAt/endedAt via JSONBin
+    exercises: [
+      {
+        name: "Incline Chest Press",
+        note: "",
+        sets: [
+          { reps: 15, weight: 20, feel: "Just right" },
+          { reps: 15, weight: 20, feel: "Just right" },
+          { reps: 15, weight: 20, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Lat Pulldown",
+        note: "",
+        sets: [
+          { reps: 15, weight: 100, feel: "Just right" },
+          { reps: 15, weight: 100, feel: "Just right" },
+          { reps: 15, weight: 110, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Leg Press",
+        note: "",
+        sets: [
+          { reps: 12, weight: 140, feel: "Just right" },
+          { reps: 12, weight: 160, feel: "Just right" },
+          { reps: 12, weight: 180, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Leg Extension (substituted for Leg Curl)",
+        note: "Leg Curl machine was out of service at the gym — substituted Leg Extension for this session only.",
+        sets: [
+          { reps: 12, weight: 60, feel: "Just right" },
+          { reps: 12, weight: 60, feel: "Just right" },
+          { reps: 12, weight: 70, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Lateral Raises",
+        note: "Last set was noticeably tougher — first 10 reps fine, last 5 took real work.",
+        sets: [
+          { reps: 10, weight: 15, feel: "Just right" },
+          { reps: 12, weight: 15, feel: "Just right" },
+          { reps: 15, weight: 15, feel: "Hard" }
+        ]
+      },
+      {
+        name: "Dumbbell Flat Bench Fly",
+        note: "Tried 2 variations this session: weights pressed together, pumped straight up/down from center of sternum; and a wide-arc 'tree hug' motion. Bobby wants the guide's pec/back accessory slot restructured around these two variants going forward (see WORKFLOW.md follow-up).",
+        sets: [
+          { reps: 15, weight: 20, feel: "Just right" },
+          { reps: 15, weight: 20, feel: "Just right" },
+          { reps: 15, weight: 20, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Plank Shoulder Taps",
+        note: "Guide bug flagged: this exercise showed a weight input, but planks don't use weight. Logged manually as 60 sec x 3 sets per Bobby's report; guide needs to switch this to a duration/hold field like the other plank variations.",
+        sets: [
+          { duration: 60, feel: null },
+          { duration: 60, feel: null },
+          { duration: 60, feel: null }
+        ]
+      }
+    ],
+    note: "Session against the Full-Body C guide (workout_guides/2026-08-03-full-body-c-guide.html) at Lifetime Gym, synced through JSONBin — startedAt 2026-08-26T22:08:55Z, endedAt 2026-08-26T23:14:54Z (6:09-7:15 PM EDT, ~66 min). First gym session against Full-Body C. Went straight to Gai Chicken & Rice for dinner afterward."
   }
 ];
 
@@ -1105,6 +1252,21 @@ const meals = [
   { date: "2026-08-26", time: "09:24", name: "Eggs Over-Hard (No Salt) & Sausage Patty", photo: "food-photos/2026-08-26-breakfast-eggs-sausage.jpeg",
     description: "2 large eggs, over-hard, no salt + 1 pork sausage patty — the usual breakfast Bobby has most mornings. Macros reused directly from that recurring combo (takeout container, but same food and prep as the homemade version).",
     calories: 350, protein: 21, carbs: 2, fat: 29, sodium: 550, sodiumNote: "Sausage patty is doing nearly all the sodium here, not the eggs (no salt added to those)." },
+  { date: "2026-08-26", time: "11:55", name: "Tuna Salad & Hard Boiled Eggs", photo: "food-photos/2026-08-26-lunch-tuna-salad-eggs.jpeg",
+    description: "0.42 lb mayo-based tuna salad with celery, no label, weighed exact + 2 whole hard boiled eggs — same recurring combo as Aug 24/25. Tuna-salad-only per-lb rate reused from the established Aug 24 baseline, scaled up for this larger 0.42lb portion, with standard 2-egg values added back in.",
+    calories: 509, protein: 45, carbs: 7, fat: 35, sodium: 880, sodiumNote: "Tuna salad (mayo-based, no label) is the main driver — estimated, not exact." },
+  { date: "2026-08-26", time: "11:55", name: "Chobani Blueberry Greek Yogurt", photo: "food-photos/2026-08-26-lunch-yogurt-front.jpeg",
+    description: "Chobani Greek Yogurt, Blueberry on the Bottom, 1 container (150g, label exact — see food-photos/2026-08-26-lunch-yogurt-nutrition.jpeg). Same product logged before, macros reused directly.",
+    calories: 110, protein: 12, carbs: 15, fat: 0, sodium: 55 },
+  { date: "2026-08-26", time: "14:02", name: "Sun Chips, Garden Salsa", photo: "food-photos/2026-08-26-snack-sunchips-front.jpeg",
+    description: "1 package (1oz, label exact — see food-photos/2026-08-26-snack-sunchips-label.jpeg) — same product logged before, macros reused directly.",
+    calories: 140, protein: 2, carbs: 18, fat: 6, sodium: 140 },
+  { date: "2026-08-26", time: "14:02", name: "Chobani Strawberry Greek Yogurt", photo: "food-photos/2026-08-26-snack-yogurt-front.jpeg",
+    description: "Chobani Greek Yogurt, Strawberry on the Bottom, 1 container (150g, label exact — see food-photos/2026-08-26-snack-yogurt-nutrition.jpeg). Same product logged before, macros reused directly.",
+    calories: 110, protein: 11, carbs: 15, fat: 0, sodium: 55 },
+  { date: "2026-08-26", time: "19:55", name: "Gai Chicken & Rice: Grilled Chicken Bowl", photo: "food-photos/2026-08-26-dinner-gai-chicken-rice.jpeg",
+    description: "After-gym dinner at Gai Chicken & Rice (NYC Thai chain, Bangkok-style chicken and rice) — grilled/glazed boneless chicken thigh over white rice, with a side salad of lettuce, corn, cherry tomatoes, and cucumber. No receipt/menu nutrition published by the restaurant, so fully estimated: chicken portion assumed ~6oz cooked with a soy-based marinade/glaze (visible char), rice ~1 cup, salad components in modest amounts.",
+    calories: 735, protein: 46, carbs: 66, fat: 28, sodium: 715, sodiumNote: "Estimated — no restaurant nutrition data available; soy-based marinades on grilled chicken like this typically run high in sodium, so treat this as a floor, not a ceiling." },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -1142,7 +1304,7 @@ const events = [
   { date: "2026-08-17", text: "<strong>Daily stats:</strong> 6,092 steps · 3 mi · 2 floors · 2,962 cal burned · 45 zone min · Sleep 6h01m (score 87) · Readiness 45 (Moderate) · RHR 65 bpm (range 56–143) · Cardio Load 35 · 1 of 5 exercise days this week — also a cheat-day dinner at Outback Steakhouse." },
   { date: "2026-08-18", text: "<strong>Daily stats:</strong> 5,366 steps · 2.51 mi · 0 floors · 3,154 cal burned · 75 zone min · Sleep 7h27m (score 91) · Readiness 43 (Moderate) · RHR 67 bpm (range 56–135) · Cardio Load 57 · 2 of 5 exercise days this week. Strength training (Home B) logged 2:28–3:24 PM, 418 cal per Fitbit — matches the workout already in gymWorkoutsData." },
   { date: "2026-08-19", text: "<strong>Daily stats:</strong> 5,158 steps · 2.56 mi · 0 floors · 2,779 cal burned · 1 zone min · Sleep 7h19m (score 90) · Readiness 52 (Moderate) · RHR 68 bpm (range 54–108) · Cardio Load 1 · 2 of 5 exercise days this week. Rest day — no workout." },
-  { date: "2026-08-20", text: "<strong>Daily stats (backfilled 2026-08-24):</strong> 4,803 steps · 2.39 mi · 0 floors · 2,698 cal burned · 5 zone min · Sleep 7h05m (no score shown) · Readiness: no score · RHR 68 bpm (range 49–115) · Cardio Load 3 · 2 of 5 exercise days last week. Rest day — no workout; bacon-burger dinner at Dad's." },
+  { date: "2026-08-20", text: "<strong>Daily stats (backfilled 2026-08-24):</strong> 4,803 steps · 2.39 mi · 0 floors · 2,698 cal burned · 5 zone min · Sleep 7h05m (no score shown) · Readiness: no score · RHR 68 bpm (range 49–115) · Cardio Load 3 · 2 of 5 exercise days last week. Bacon-burger dinner at Dad's. Correction (2026-08-26): Fitbit's numbers above reflect a missed auto-detect, not an actual rest day — Bobby did a Home C dumbbell session 11:25 AM-12:20 PM this day, logged through the guide app (source of truth for workouts) and pulled from JSONBin after the fact. See gymWorkoutsData for the full session." },
   { date: "2026-08-21", text: "<strong>Daily stats (backfilled 2026-08-24):</strong> 7,012 steps · 3.43 mi · 1 floor · 3,068 cal burned · 16 zone min · Sleep 8h10m (no score shown) · Readiness: no score · RHR 68 bpm (range 52–124) · Cardio Load 20 · 2 of 5 exercise days last week." },
   { date: "2026-08-22", text: "<strong>Daily stats (backfilled 2026-08-24):</strong> 12,810 steps · 6.36 mi · 0 floors · 3,818 cal burned · 17 zone min · Sleep 5h53m (no score shown) · Readiness: no score · RHR 69 bpm (range 47–114) · Cardio Load 47 · 2 of 5 exercise days last week. Highest-activity day of the stretch." },
   { date: "2026-08-23", text: "Flew home to NYC, wrapping up the Cape Coral trip." },
@@ -1198,5 +1360,5 @@ const proteinData = [
   { date: "2026-08-23", value: 111, note: "final — travel/flight-home day, logged retroactively 2026-08-24: cereal x2 with dried strawberries, JetBlue snacks (plantain chips + Biscoff), and a large Chinese takeout dinner (fried rice + boneless ribs)." },
   { date: "2026-08-24", value: 148, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast, a tuna salad and hard boiled egg lunch, a Chobani Blueberry Greek Yogurt after-walk snack, a ribeye + sweet potato dinner, and a stovetop popcorn snack so far; day likely complete but not explicitly confirmed" },
   { date: "2026-08-25", value: 112, note: "partial — takeout eggs-over-easy and sausage patty breakfast, a Chobani strawberry Greek yogurt snack, a tuna salad and hard boiled egg lunch, a Sun Chips snack, a Whole Foods Sonoma Chicken Salad Wrap after-workout dinner, a whole container of coconut water, and a bakery coffee caramel cookie for dessert so far; day likely complete but not explicitly confirmed" },
-  { date: "2026-08-26", value: 21, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast (takeout) so far; day still in progress" }
+  { date: "2026-08-26", value: 137, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast (takeout), a tuna salad and hard boiled egg lunch, a Chobani blueberry Greek yogurt, a Sun Chips snack, a Chobani strawberry Greek yogurt, and an after-gym Gai Chicken & Rice dinner so far; day likely complete but not explicitly confirmed" }
 ];
