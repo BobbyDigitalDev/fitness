@@ -302,6 +302,44 @@ const runsData = [
     zoneMin: 100,
     laps: ["14:21/mi", "11:47/mi", "13:43/mi", "17:00/mi (0.74 mi)"],
     note: "Fitbit started 8 min late at 11:06 AM, missed first 0.78 mi. Strava captured full run from 10:58 AM."
+  },
+  {
+    date: "2026-08-26",
+    name: "Treadmill Warm-Up (Lifetime Gym)",
+    distance: 0.74,          // mi, Fitbit (indoor treadmill, no Strava/GPS track)
+    movingTime: "9:37",
+    elapsedTime: "9:37",
+    avgPace: "13:00",        // per mi
+    calories: 125,
+    avgHR: 136,               // bpm
+    hrZones: {
+      peak: { min: 4, pct: 36 },
+      vigorous: { min: 4, pct: 36 },
+      moderate: { min: 1, pct: 9 },
+      light: { min: 2, pct: 18 }
+    },
+    cardioLoad: 18,
+    zoneMin: 15,
+    note: "Warm-up on the treadmill before tonight's Full-Body C session at Lifetime, 5:58-6:08 PM — 1,394 steps. Fitbit-only (indoor, no Strava/GPS track). Immediately followed by the Full-Body C gym session (see gymWorkoutsData, started 6:09 PM)."
+  },
+  {
+    date: "2026-08-26",
+    name: "Treadmill Cool-Down (Lifetime Gym)",
+    distance: 0.77,          // mi, Fitbit (indoor treadmill, no Strava/GPS track)
+    movingTime: "10:17",
+    elapsedTime: "10:17",
+    avgPace: "13:19",        // per mi
+    calories: 141,
+    avgHR: 146,               // bpm
+    hrZones: {
+      peak: { min: 5, pct: 45 },
+      vigorous: { min: 4, pct: 36 },
+      moderate: { min: 2, pct: 18 },
+      light: { min: 0, pct: 0 }
+    },
+    cardioLoad: 23,
+    zoneMin: 18,
+    note: "Second treadmill run tonight, right after the Full-Body C session — 7:17-7:27 PM, 1,460 steps. Fitbit-only (indoor, no Strava/GPS track). Higher-intensity than the pre-workout warm-up (45% peak zone vs. 0%) despite being after a full lifting session."
   }
 ];
 
@@ -408,7 +446,24 @@ const walksData = [
   { date: "2026-08-22", distance: 6.36, note: "Backfilled 2026-08-24 — no dedicated tracked walk on file, this is the day's total Fitbit distance." },
   { date: "2026-08-23", name: "Walk", distance: 0.46, duration: 24, note: "Backfilled 2026-08-24 — Fitbit, 4:11 PM" },
   { date: "2026-08-23", name: "Remainder of day's Fitbit distance", distance: 3.55, note: "Backfilled 2026-08-24 — fills the gap between the tracked walk above (0.46mi) and the day's total Fitbit distance (4.01mi from stepsData). Flight-home day to NYC." },
-  { date: "2026-08-24", name: "Walk", distance: 1.83, duration: 37, note: "Fitbit (Versa 4), 12:14 PM — 36:53, avg pace 20'07\"/mi, avg HR 93 bpm (100% Light zone, 38 min), Cardio Load 2, 3,760 steps, 304 cal." }
+  { date: "2026-08-24", name: "Walk", distance: 1.83, duration: 37, note: "Fitbit (Versa 4), 12:14 PM — 36:53, avg pace 20'07\"/mi, avg HR 93 bpm (100% Light zone, 38 min), Cardio Load 2, 3,760 steps, 304 cal." },
+  {
+    date: "2026-08-26",
+    name: "Lifetime Gym (Battery Park) → Gai Chicken & Rice (Fulton St)",
+    distance: 0.78,
+    duration: 30.57,           // minutes (30:34)
+    avgPace: 39.05,             // min/mi (39'03")
+    steps: 1638,
+    calories: 236,
+    avgHR: 110,                 // bpm
+    hrZones: {
+      moderate: { min: 29, pct: 90 },
+      light: { min: 3, pct: 9 }
+    },
+    cardioLoad: 12,
+    zoneMin: 28,
+    note: "Fitbit (Versa 4), 7:33-8:04 PM — walk from Lifetime Gym Battery Park to Gai Chicken & Rice on Fulton St for dinner, right after the treadmill cool-down (see runsData)."
+  }
 ];
 
 // Gym workout sessions. One entry per session; exercises listed in order performed.
@@ -877,7 +932,7 @@ const gymWorkoutsData = [
         ]
       }
     ],
-    note: "Session against the Full-Body C guide (workout_guides/2026-08-03-full-body-c-guide.html) at Lifetime Gym, synced through JSONBin — startedAt 2026-08-26T22:08:55Z, endedAt 2026-08-26T23:14:54Z (6:09-7:15 PM EDT, ~66 min). First gym session against Full-Body C. Went straight to Gai Chicken & Rice for dinner afterward."
+    note: "Session against the Full-Body C guide (workout_guides/2026-08-03-full-body-c-guide.html) at Lifetime Gym, synced through JSONBin — startedAt 2026-08-26T22:08:55Z, endedAt 2026-08-26T23:14:54Z (6:09-7:15 PM EDT, ~66 min). First gym session against Full-Body C. Went straight to Gai Chicken & Rice for dinner afterward. Supplemental Fitbit \"Strength training\" auto-log: started late again (6:22 PM vs. the actual 6:09 PM start, missing roughly the first 13 min), ran 6:22-7:14 PM (52 min 28 sec logged). Cardio Load 16, 24 zone min (0 peak, 0 vigorous, 25 min/47% moderate, 28 min/52% light), 266 cal, avg HR 105 bpm. Per the JSONBin-over-Fitbit convention above, the JSONBin session (66 min, 6:09-7:15 PM) is the authoritative record — Fitbit's shorter window is a partial capture, not a correction."
   }
 ];
 
