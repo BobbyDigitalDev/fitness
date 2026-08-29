@@ -154,7 +154,9 @@ const weightData = [
   { date: "2026-08-24", value: 203, note: "via Fitbit smart scale sync, timing unspecified — first weigh-in logged since Aug 13, back in NYC" },
   { date: "2026-08-25", value: 202.2, note: "via Fitbit smart scale sync, morning weigh-in — down 0.8 lb from yesterday" },
   { date: "2026-08-26", value: 200.6, note: "via Fitbit smart scale sync, morning weigh-in — down 1.6 lb from yesterday, lowest reading logged since Aug 12" },
-  { date: "2026-08-27", value: 199.8, note: "via Fitbit app (Weight Trends screen), timing/fasted status unspecified — down 0.8 lb from yesterday, first sub-200 reading and the lowest value on file since tracking started Jul 23 (previous low: 201.8 on Jul 27). 4th straight down day (203 → 202.2 → 200.6 → 199.8, -3.2 lb over 4 days)." }
+  { date: "2026-08-27", value: 199.8, note: "via Fitbit app (Weight Trends screen), timing/fasted status unspecified — down 0.8 lb from yesterday, first sub-200 reading and the lowest value on file since tracking started Jul 23 (previous low: 201.8 on Jul 27). 4th straight down day (203 → 202.2 → 200.6 → 199.8, -3.2 lb over 4 days)." },
+  { date: "2026-08-28", value: 202.2, note: "via Fitbit app (Weight Trends screen), timing/fasted status unspecified — up 2.4 lb from yesterday's 199.8 low, back to the same value as Aug 25/26 combined average. Confirms the read given at the time: the 199.8 reading was likely a partial water-weight flush layered on top of real progress, not a stable new baseline — this bounce-back is the expected correction." },
+  { date: "2026-08-29", value: 201, note: "via Fitbit app (Weight Trends screen), fasted morning weigh-in — down 1.2 lb from yesterday's 202.2. This week's daily average sits at 201.4 lb, and the 30-day trend line (Weight Trend) is still sloping down despite the day-to-day bounce between the 199.8 low and the 202.2 high." }
 ];
 
 const calorieData = [
@@ -191,7 +193,9 @@ const calorieData = [
   { date: "2026-08-24", value: 2239, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast, a tuna salad and hard boiled egg lunch, a Chobani Blueberry Greek Yogurt after-walk snack, a ribeye + sweet potato dinner, and a stovetop popcorn snack so far; day likely complete but not explicitly confirmed" },
   { date: "2026-08-25", value: 2025, note: "partial — takeout eggs-over-easy and sausage patty breakfast, a Chobani strawberry Greek yogurt snack, a tuna salad and hard boiled egg lunch, a Sun Chips snack, a Whole Foods Sonoma Chicken Salad Wrap after-workout dinner, a whole container of coconut water, and a bakery coffee caramel cookie for dessert so far; day likely complete but not explicitly confirmed" },
   { date: "2026-08-26", value: 1954, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast (takeout), a tuna salad and hard boiled egg lunch, a Chobani blueberry Greek yogurt, a Sun Chips snack, a Chobani strawberry Greek yogurt, and an after-gym Gai Chicken & Rice dinner so far; day likely complete but not explicitly confirmed" },
-  { date: "2026-08-27", value: 2623, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast, a Sun Chips snack, a Chobani strawberry Greek yogurt, a tuna salad and hard boiled egg lunch, a Berry Yogurt Parfait with Granola, a second Sun Chips + Nature's Bakery Blueberry Fig Bar before leaving work, a pork cutlet/romaine/steamed sweet potato dinner, and a PB banana almond milk shake (no protein powder) for dessert so far; day likely complete but not explicitly confirmed" }
+  { date: "2026-08-27", value: 2623, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast, a Sun Chips snack, a Chobani strawberry Greek yogurt, a tuna salad and hard boiled egg lunch, a Berry Yogurt Parfait with Granola, a second Sun Chips + Nature's Bakery Blueberry Fig Bar before leaving work, a pork cutlet/romaine/steamed sweet potato dinner, and a PB banana almond milk shake (no protein powder) for dessert so far; day likely complete but not explicitly confirmed" },
+  { date: "2026-08-28", value: 1860, note: "partial — breakfast + ginger beef wrap lunch + Chobani yogurt + Sun Chips + after-gym Gai Roasted Chicken Bowl dinner so far" },
+  { date: "2026-08-29", value: 914, note: "partial — post-Pilates Whole Foods jerk chicken + a 2-cookie treat so far" }
 ];
 
 const sleepData = [
@@ -229,7 +233,9 @@ const sleepData = [
   { date: "2026-08-24", hours: 7.18, bedtime: "23:30", wake: "07:02", awake: 3, note: "First full night back in NYC. 7h11m asleep (11:30 PM-7:02 AM), 3 min awake, 18 min restless — no sleep score or readiness shown in this view." },
   { date: "2026-08-25", hours: 7.08, score: 93, readiness: 97, bedtime: "22:59", wake: "06:42", awake: 37, note: "Excellent sleep score (93). 7h05m asleep (10:59 PM-6:42 AM) — Awake 37 min, REM 1h35m, Light 3h53m, Deep 1h37m. Best sleep score logged in weeks. Daily Readiness 97 (High), the week's best — all 5 health metrics (RHR, HRV, breathing rate, SpO2, skin temp) in personal range; resting HR 64 bpm, HR range 47-127 bpm for the day." },
   { date: "2026-08-26", hours: 5.87, score: 85, readiness: 69, bedtime: "00:41", wake: "07:07", deep: 92, rem: 66, light: 193, awake: 34, oxygenVariation: "Low", note: "Good sleep score (85), but a late bedtime (12:41 AM) cut duration to just 5h52m — Awake 34 min, REM 1h06m, Light 3h13m, Deep 1h32m. Shortest sleep since the Aug 22 backfilled night. Daily Readiness 69 (High) — all 5 health metrics (RHR, HRV, breathing rate, SpO2, skin temp) in personal range; resting HR 62 bpm, HR range 49-163 bpm for the day." },
-  { date: "2026-08-27", hours: 6.67, score: 84, bedtime: "23:54", wake: "07:20", deep: 98, rem: 84, light: 217, awake: 46, note: "Good sleep score (84), close to Aug 26's 85. 6h40m asleep (11:54 PM-7:20 AM) — Awake 46 min (highest of the week), REM 1h24m, Light 3h37m, Deep 1h38m (best deep-sleep total logged this stretch). No readiness or health-metrics screen captured for this one." }
+  { date: "2026-08-27", hours: 6.67, score: 84, readiness: 59, bedtime: "23:54", wake: "07:20", deep: 98, rem: 84, light: 217, awake: 46, note: "Good sleep score (84), close to Aug 26's 85. 6h40m asleep (11:54 PM-7:20 AM) — Awake 46 min (highest of the week), REM 1h24m, Light 3h37m, Deep 1h38m (best deep-sleep total logged this stretch). Daily Readiness 59 (Moderate) — all 5 health metrics (RHR, HRV, breathing rate, SpO2, skin temp) in personal range; resting HR 61 bpm, HR range 49-115 bpm for the day." },
+  { date: "2026-08-28", hours: 5.67, score: 81, readiness: 80, bedtime: "00:23", wake: "07:03", deep: 88, rem: 60, light: 191, awake: 59, note: "Good score (81), but bedtime crept later again (12:23 AM) — 4th night in a row past midnight or close to it (Aug 25 10:59 PM, Aug 26 12:41 AM, Aug 27 11:54 PM, tonight 12:23 AM), cutting duration to 5h40m. Awake time (59 min) also the highest of the stretch. Bobby flagged this himself — bedtime is still the sticking point, not sleep quality once he's actually down. Daily Readiness came in at 80 (High) despite the shorter night — all 5 health metrics (BR, SpO2, RHR, HRV, skin temp variation) in personal range; resting HR 60 bpm, HR range 48-141 bpm for the day." },
+  { date: "2026-08-29", hours: 6.22, score: 85, bedtime: "01:59", wake: "09:10", deep: 80, rem: 62, light: 231, awake: 57, note: "Best sleep score of the stretch (85, 'Good'), but bedtime kept sliding — 5th night in a row later than the one before (Aug 25 10:59 PM, Aug 26 12:41 AM, Aug 27 11:54 PM, Aug 28 12:23 AM, tonight 1:59 AM). The later bedtime pushed wake time out too (9:10 AM, latest of the stretch), which is why duration (6h13m) still landed higher than Aug 27/28 despite the later start — sleeping in covered for it. Readiness/health-metrics screen not sent for this one." }
 ];
 
 const stepsData = [
@@ -265,7 +271,9 @@ const stepsData = [
   { date: "2026-08-23", value: 8405, distance: 4.01, calories: 2799, floors: 8, zoneMin: 4, note: "backfilled 2026-08-24 — flew home to NYC" },
   { date: "2026-08-24", value: 10361, distance: 5.04, calories: 2835, floors: 11, zoneMin: 0, note: "final EOD numbers via Fitbit app — Cardio Load 3, 4 of 5 exercise days this week (from the 36-min tracked walk, see walksData). Only 1 of 5 health metrics in personal range: blood oxygen read 93% (below personal range), RHR and skin temp variation in range, breathing rate and HRV unavailable. Heart rate 51-122 bpm, 66 bpm resting. First full day back in NYC." },
   { date: "2026-08-25", value: 9105, distance: 4.28, calories: 3069, floors: 17, zoneMin: 56, note: "final EOD numbers via Fitbit app — Cardio Load 39, 4 of 5 exercise days this week (Pilates, 6:39 PM, 369 cal, 1h05m — see events/gymWorkoutsData). 5 of 5 health metrics in personal range (BR, SpO2, RHR, HRV, skin temp variation). Heart rate 47-127 bpm, 64 bpm resting." },
-  { date: "2026-08-26", value: 13169, distance: 6.36, calories: 3641, floors: 15, zoneMin: 156, note: "final EOD numbers via Fitbit app, viewed 2026-08-27 — 4 of 5 exercise days this week, Cardio Load 105." }
+  { date: "2026-08-26", value: 13169, distance: 6.36, calories: 3641, floors: 15, zoneMin: 156, note: "final EOD numbers via Fitbit app, viewed 2026-08-27 — 4 of 5 exercise days this week, Cardio Load 105." },
+  { date: "2026-08-27", value: 8294, distance: 4.04, calories: 2860, floors: 13, zoneMin: 1, note: "final EOD numbers via Fitbit app, viewed 2026-08-28 — 5 of 5 exercise days this week (full week streak), Cardio Load 1, Daily Readiness 59 (Moderate). Confirms the day's calorie intake (2,623 logged) was a ~237 cal deficit against this burn number." },
+  { date: "2026-08-28", value: 14067, distance: 6.6, calories: 3387, floors: 12, zoneMin: 26, note: "final EOD numbers via Fitbit app, viewed 2026-08-29 — 7 of 5 exercise days this week (goal exceeded), Cardio Load 40, Daily Readiness 80 (High). Includes the Full-Body A gym session (see gymWorkoutsData) and a tracked evening walk (see walksData). 5 of 5 health metrics in personal range (BR, SpO2, RHR, HRV, skin temp variation); resting HR 60 bpm, HR range 48-141 bpm for the day." }
 ];
 
 // Tracked runs. distance/pace/calories are from Strava (usually the full
@@ -472,7 +480,23 @@ const walksData = [
     zoneMin: 28,
     note: "Fitbit (Versa 4), 7:33-8:04 PM — walk from Lifetime Gym Battery Park to Gai Chicken & Rice on Fulton St for dinner, right after the treadmill cool-down (see runsData)."
   },
-  { date: "2026-08-26", name: "Remainder of day's Fitbit distance", distance: 5.58, note: "Fills the gap between the tracked walk above (0.78mi) and the day's total Fitbit distance (6.36mi from stepsData, final EOD numbers). Per the standing rule, this is NOT reduced for the two treadmill runs also logged this day (see runsData) — the Walks chart's daily total is the full day's distance traveled, independent of the Runs chart." }
+  { date: "2026-08-26", name: "Remainder of day's Fitbit distance", distance: 5.58, note: "Fills the gap between the tracked walk above (0.78mi) and the day's total Fitbit distance (6.36mi from stepsData, final EOD numbers). Per the standing rule, this is NOT reduced for the two treadmill runs also logged this day (see runsData) — the Walks chart's daily total is the full day's distance traveled, independent of the Runs chart." },
+  { date: "2026-08-27", name: "Walk", distance: 0.6, duration: 21, note: "Fitbit, 6:00 PM." },
+  { date: "2026-08-27", name: "Remainder of day's Fitbit distance", distance: 3.44, note: "Fills the gap between the tracked walk above (0.6mi) and the day's total Fitbit distance (4.04mi from stepsData, final EOD numbers)." },
+  {
+    date: "2026-08-28",
+    name: "Likely Lifetime Gym (Battery Park) → Gai Chicken & Rice (Fulton St)",
+    distance: 0.69,
+    duration: 27.88,           // minutes (27:53)
+    avgPace: 40.38,             // min/mi (40'23")
+    steps: 1441,
+    calories: 158,
+    avgHR: 98,                  // bpm
+    cardioLoad: 5,
+    zoneMin: 10,
+    note: "Fitbit (Versa 4), 7:43-8:11 PM. Timing and distance closely match the Aug 26 gym-to-dinner walk (7:33-8:04 PM, 0.78mi) and the Full-Body A session ended at 7:35 PM this day — very likely the same Lifetime Gym → Gai Chicken & Rice route, but not explicitly confirmed like Aug 26 was, so the name is qualified as \"Likely.\""
+  },
+  { date: "2026-08-28", name: "Remainder of day's Fitbit distance", distance: 5.91, note: "Fills the gap between the tracked walk above (0.69mi) and the day's total Fitbit distance (6.6mi from stepsData, final EOD numbers)." }
 ];
 
 // Gym workout sessions. One entry per session; exercises listed in order performed.
@@ -942,6 +966,78 @@ const gymWorkoutsData = [
       }
     ],
     note: "Session against the Full-Body C guide (workout_guides/2026-08-03-full-body-c-guide.html) at Lifetime Gym, synced through JSONBin — startedAt 2026-08-26T22:08:55Z, endedAt 2026-08-26T23:14:54Z (6:09-7:15 PM EDT, ~66 min). First gym session against Full-Body C. Went straight to Gai Chicken & Rice for dinner afterward. Supplemental Fitbit \"Strength training\" auto-log: started late again (6:22 PM vs. the actual 6:09 PM start, missing roughly the first 13 min), ran 6:22-7:14 PM (52 min 28 sec logged). Cardio Load 16, 24 zone min (0 peak, 0 vigorous, 25 min/47% moderate, 28 min/52% light), 266 cal, avg HR 105 bpm. Per the JSONBin-over-Fitbit convention above, the JSONBin session (66 min, 6:09-7:15 PM) is the authoritative record — Fitbit's shorter window is a partial capture, not a correction."
+  },
+  {
+    date: "2026-08-28",
+    gym: "Lifetime Gym",
+    label: "Full-Body A",
+    startTime: "18:38",
+    endTime: "19:35",
+    duration: 56,           // minutes — from the app's own startedAt/endedAt via JSONBin
+    exercises: [
+      {
+        name: "Incline Chest Press",
+        note: "",
+        sets: [
+          { reps: 12, weight: 20, feel: "Just right" },
+          { reps: 12, weight: 20, feel: "Just right" },
+          { reps: 12, weight: 25, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Lat Pulldown",
+        note: "My left lat was cramping a little at the 7th rep.",
+        sets: [
+          { reps: 12, weight: 100, feel: "Just right" },
+          { reps: 12, weight: 100, feel: "Just right" },
+          { reps: 12, weight: 110, feel: null }
+        ]
+      },
+      {
+        name: "Leg Press",
+        note: "",
+        sets: [
+          { reps: 15, weight: 140, feel: "Just right" },
+          { reps: 15, weight: 160, feel: "Just right" },
+          { reps: 15, weight: 180, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Lateral Raises",
+        note: "",
+        sets: [
+          { reps: 12, weight: 10, feel: "Just right" },
+          { reps: 12, weight: 15, feel: "Just right" },
+          { reps: 12, weight: 15, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Dumbbell Fly — Close Pump",
+        note: "Let's add another rep here for the next work out",
+        sets: [
+          { reps: 15, weight: 20, feel: "Just right" },
+          { reps: 15, weight: 25, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Dumbbell Fly — Wide Arc",
+        note: "",
+        sets: [
+          { reps: 15, weight: 20, feel: "Just right" },
+          { reps: 15, weight: 20, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Forearm Plank",
+        note: "I skipped this. Had to get going.",
+        sets: [
+          { duration: null, feel: null },
+          { duration: null, feel: null },
+          { duration: null, feel: null }
+        ]
+      }
+    ],
+    note: "Session against the Full-Body A guide (workout_guides/2026-08-03-full-body-a-guide.html) at Lifetime Gym, synced through JSONBin — startedAt 2026-08-28T22:38:48Z, endedAt 2026-08-28T23:35:17Z (6:38-7:35 PM EDT, ~56 min). Lat Pulldown: left lat cramped slightly around rep 7 on the second working set. Dumbbell Fly — Close Pump: Bobby wants to add a rep next time this exercise comes up. Forearm Plank skipped entirely — had to leave. Went to Gai Chicken & Rice for dinner afterward (roasted chicken over rice bowl, logged separately). Supplemental Fitbit \"Strength training\" auto-log: started close to on-time this round (6:43 PM vs. the actual 6:38 PM start, only ~5 min late), ran 6:43-7:41 PM (57 min 54 sec logged). Cardio Load 5, 2 zone min (0% peak, 0% vigorous, 1%/1 min moderate, 98%/58 min light), 229 cal, avg HR 93 bpm — notably lower intensity than the Aug 26 session's Fitbit read (16 Cardio Load, 24 zone min, 266 cal, 105 bpm avg), consistent with skipping the plank work this time. Per the JSONBin-over-Fitbit convention above, the JSONBin session (56 min, 6:38-7:35 PM) is the authoritative record."
   }
 ];
 
@@ -1358,6 +1454,27 @@ const meals = [
   { date: "2026-08-27", time: "19:37", name: "Peanut Butter Banana Almond Milk Shake (No Protein Powder)", photo: "food-photos/2026-08-27-dessert-pb-banana-shake.jpeg",
     description: "Dessert — unsweetened almond milk + 1 banana + 3 tbsp peanut butter, blended, no rice protein powder this time (out of it). Estimated per-ingredient from the recipe's usual components, isolated from the many rice-protein-shake entries logged since Aug 1: standard 1 cup unsweetened almond milk (~35 cal), 1 medium banana (~105 cal), and 3 tbsp peanut butter (~94 cal/tbsp, matching the marginal per-tbsp rate derived from the Aug 1 vs. Aug 8 shake comparison). Notably lower protein than the usual protein-powder shake (14g vs. the typical ~58g) since the protein powder is what normally drives that number.",
     calories: 420, protein: 14, carbs: 37, fat: 27, sodium: 385, sodiumNote: "Peanut butter is the main driver — estimated, not exact (brand/salt content not confirmed from photo)." },
+  { date: "2026-08-28", time: "09:31", name: "Eggs Over-Hard (No Salt) & Sausage Patty", photo: "food-photos/2026-08-28-breakfast-eggs-sausage.jpeg",
+    description: "Usual breakfast — 2 eggs over hard, no salt, with a sausage patty. Same recurring combo as every morning, reusing the established baseline macros.",
+    calories: 350, protein: 21, carbs: 2, fat: 29, sodium: 550 },
+  { date: "2026-08-28", time: "12:50", name: "Ginger Beef Wrap (Office Cafe)", photo: "food-photos/2026-08-28-lunch-ginger-beef-wrap.jpeg",
+    description: "Office cafe menu item — whole wheat tortilla wrap with marinated flank steak, green onions, tamari, sesame oil, cabbage, carrots, jalapeno, ginger, garlic (menu card: 'Contains Wheat, Soy, Sesame'; food-safety label on the case read 'Contains Wheat, Egg, Soy'). No nutrition panel provided, only a menu description and price (half $4.50 / full $6.50) — macros below are estimated from the ingredient list assuming the 'full' size shown cut into two halves in the photo. Treat as a rough estimate, not label-exact.",
+    calories: 440, protein: 33, carbs: 40, fat: 17, sodium: 900, sodiumNote: "Estimated — no nutrition label, tamari marinade is the main sodium driver. Let me know if this was actually the 'half' size and I'll scale it down." },
+  { date: "2026-08-28", time: "12:50", name: "Chobani Greek Yogurt Strawberry", photo: "food-photos/2026-08-28-lunch-yogurt-nutrition.jpeg",
+    description: "Label-exact from the container's nutrition panel — same product logged before.",
+    calories: 110, protein: 11, carbs: 15, fat: 0, sodium: 55 },
+  { date: "2026-08-28", time: "12:50", name: "Sun Chips Garden Salsa (1 oz)", photo: "food-photos/2026-08-28-lunch-wrap-and-yogurt.jpeg",
+    description: "Same recurring snack, reusing the established baseline macros.",
+    calories: 140, protein: 2, carbs: 18, fat: 6, sodium: 140 },
+  { date: "2026-08-28", time: "20:00", name: "Gai Roasted Chicken Bowl", photo: "food-photos/2026-08-28-dinner-gai-chicken-rice.jpeg",
+    description: "After-gym dinner at Gai Chicken & Rice — roasted chicken over white rice with a side salad (lettuce, corn, cherry tomatoes, cucumber) and a citrus dipping sauce. Same specific menu item as the Aug 8 entry ('Gai Roasted Chicken Bowl'), so macros are reused directly from that established baseline rather than re-estimated from scratch.",
+    calories: 820, protein: 60, carbs: 78, fat: 29, sodium: 950, sodiumNote: "Restaurant-cooked, no label — reused from the Aug 8 estimate for the same menu item." },
+  { date: "2026-08-29", time: "11:31", name: "Grilled Jerk Chicken Legs (Whole Foods)", photo: "food-photos/2026-08-29-lunch-jerk-chicken-box.jpeg",
+    description: "Post-Pilates meal — 0.59 lb (9.44 oz) of Whole Foods hot bar Grilled Jerk Chicken Legs (labeled 'legs' but actually thighs, per Bobby). Deli case label confirms 260 cal per 4oz serving (see food-photos/2026-08-29-lunch-jerk-chicken-label.jpeg), which lines up almost exactly with the per-oz calorie rate already established from the Aug 11 entry of the same exact product (520 cal/8oz portion). Protein/carb/fat/sodium scaled from that Aug 11 per-oz rate rather than re-estimated from scratch, since it's the identical Whole Foods item.",
+    calories: 614, protein: 68, carbs: 1, fat: 35, sodium: 945, sodiumNote: "Jerk seasoning (sea salt is the first ingredient) is the main sodium driver — estimated, scaled from the Aug 11 per-oz rate for this same product." },
+  { date: "2026-08-29", time: "11:49", name: "Coffee Caramel Cookie (Whole Foods, x2)", photo: "food-photos/2026-08-29-treat-cookie-front.jpeg",
+    description: "Treat — 2 Whole Foods bakery Coffee Caramel Cookies (butter, cane/brown sugar, milk chocolate chunks, toffee, coffee extract, egg; contains milk/eggs/wheat/soy). Sold by weight (0.18 lb for the pair, see food-photos/2026-08-29-treat-cookie-scale.jpeg), but the shelf label gives calories per-cookie ('150 cal, per 1 ea serving size' — food-photos/2026-08-29-treat-cookie-label.jpeg), so calories are label-exact (2 x 150). No full nutrition panel (protein/carb/fat/sodium) on the label — those are estimated from a typical butter-and-sugar bakery cookie of this size and composition.",
+    calories: 300, protein: 4, carbs: 36, fat: 16, sodium: 180, sodiumNote: "No nutrition panel — estimated from typical ingredients (butter, salt, baking soda)." },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -1401,6 +1518,7 @@ const events = [
   { date: "2026-08-23", text: "Flew home to NYC, wrapping up the Cape Coral trip." },
   { date: "2026-08-23", text: "<strong>Daily stats (backfilled 2026-08-24):</strong> 8,405 steps · 4.01 mi · 8 floors · 2,799 cal burned · 4 zone min · Sleep 6h02m (no score shown) · Readiness: no score · RHR 68 bpm (range 56–114) · Cardio Load 7 · new Fitbit week, 1 of 5 exercise days so far. Walk: 4:11 PM · 0.46 mi · 24 min." },
   { date: "2026-08-25", text: "Pilates class, actual session ~6:30-7:30 PM (60 min per Bobby). Fitbit (Versa 4) tracking window was offset — started 6:39 PM, stopped 7:44 PM (1hr5min logged), since Bobby started it ~9 min late and forgot to stop it until ~14 min after class ended. Watch stats for that offset window: Cardio Load 23, 41 zone min (1 vigorous, 38 moderate, 27 light — sums to 66 min, 1 min rounding vs. the 65 total, likely Fitbit's own rounding), 1,087 steps, 369 cal, avg HR 107 bpm. Treat duration as ~60 min (Bobby's account); the calorie/HR/zone figures are directionally solid but run slightly high since the tracked window included a few extra minutes before/after the actual class." },
+  { date: "2026-08-29", text: "Pilates class, 10:30-11:20 AM (~50 min per Bobby). No Fitbit auto-detect screenshot sent for this one yet." },
 ];
 
 // Structured facts that don't fit a time series — just a one-line goals
@@ -1452,5 +1570,7 @@ const proteinData = [
   { date: "2026-08-24", value: 148, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast, a tuna salad and hard boiled egg lunch, a Chobani Blueberry Greek Yogurt after-walk snack, a ribeye + sweet potato dinner, and a stovetop popcorn snack so far; day likely complete but not explicitly confirmed" },
   { date: "2026-08-25", value: 112, note: "partial — takeout eggs-over-easy and sausage patty breakfast, a Chobani strawberry Greek yogurt snack, a tuna salad and hard boiled egg lunch, a Sun Chips snack, a Whole Foods Sonoma Chicken Salad Wrap after-workout dinner, a whole container of coconut water, and a bakery coffee caramel cookie for dessert so far; day likely complete but not explicitly confirmed" },
   { date: "2026-08-26", value: 137, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast (takeout), a tuna salad and hard boiled egg lunch, a Chobani blueberry Greek yogurt, a Sun Chips snack, a Chobani strawberry Greek yogurt, and an after-gym Gai Chicken & Rice dinner so far; day likely complete but not explicitly confirmed" },
-  { date: "2026-08-27", value: 149, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast, a Sun Chips snack, a Chobani strawberry Greek yogurt, a tuna salad and hard boiled egg lunch, a Berry Yogurt Parfait with Granola, a second Sun Chips + Nature's Bakery Blueberry Fig Bar before leaving work, a pork cutlet/romaine/steamed sweet potato dinner, and a PB banana almond milk shake (no protein powder) for dessert so far; day likely complete but not explicitly confirmed" }
+  { date: "2026-08-27", value: 149, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast, a Sun Chips snack, a Chobani strawberry Greek yogurt, a tuna salad and hard boiled egg lunch, a Berry Yogurt Parfait with Granola, a second Sun Chips + Nature's Bakery Blueberry Fig Bar before leaving work, a pork cutlet/romaine/steamed sweet potato dinner, and a PB banana almond milk shake (no protein powder) for dessert so far; day likely complete but not explicitly confirmed" },
+  { date: "2026-08-28", value: 127, note: "partial — breakfast + ginger beef wrap lunch + Chobani yogurt + Sun Chips + after-gym Gai Roasted Chicken Bowl dinner so far" },
+  { date: "2026-08-29", value: 72, note: "partial — post-Pilates Whole Foods jerk chicken + a 2-cookie treat so far" }
 ];
