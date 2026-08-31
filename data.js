@@ -1055,6 +1055,71 @@ const gymWorkoutsData = [
       }
     ],
     note: "Session against the Full-Body A guide (workout_guides/2026-08-03-full-body-a-guide.html) at Lifetime Gym, synced through JSONBin — startedAt 2026-08-28T22:38:48Z, endedAt 2026-08-28T23:35:17Z (6:38-7:35 PM EDT, ~56 min). Lat Pulldown: left lat cramped slightly around rep 7 on the second working set. Dumbbell Fly — Close Pump: Bobby wants to add a rep next time this exercise comes up. Forearm Plank skipped entirely — had to leave. Went to Gai Chicken & Rice for dinner afterward (roasted chicken over rice bowl, logged separately). Supplemental Fitbit \"Strength training\" auto-log: started close to on-time this round (6:43 PM vs. the actual 6:38 PM start, only ~5 min late), ran 6:43-7:41 PM (57 min 54 sec logged). Cardio Load 5, 2 zone min (0% peak, 0% vigorous, 1%/1 min moderate, 98%/58 min light), 229 cal, avg HR 93 bpm — notably lower intensity than the Aug 26 session's Fitbit read (16 Cardio Load, 24 zone min, 266 cal, 105 bpm avg), consistent with skipping the plank work this time. Per the JSONBin-over-Fitbit convention above, the JSONBin session (56 min, 6:38-7:35 PM) is the authoritative record."
+  },
+  {
+    date: "2026-08-31",
+    gym: "Lifetime Gym",
+    label: "Full-Body B",
+    startTime: "16:27",
+    endTime: "17:49",
+    duration: 82,           // minutes — from the app's own startedAt/endedAt via JSONBin
+    exercises: [
+      {
+        name: "Seated Shoulder Press",
+        note: "Instead of an \"other\" field; let's just have all the weights in a list from 10lbs to 200lbs in 5lbs increments. Much cleaner.",
+        sets: [
+          { reps: 15, weight: 30, feel: "Just right" },
+          { reps: 15, weight: 30, feel: "Just right" },
+          { reps: 15, weight: 40, feel: "Hard" }
+        ]
+      },
+      {
+        name: "Seated Cable Row",
+        note: "",
+        sets: [
+          { reps: 15, weight: 90, feel: "Just right" },
+          { reps: 15, weight: 100, feel: "Just right" },
+          { reps: 10, weight: 110, feel: "Hard" }
+        ]
+      },
+      {
+        name: "Romanian Deadlift",
+        note: "",
+        sets: [
+          { reps: 12, weight: 94, feel: "Just right" },
+          { reps: 12, weight: 94, feel: "Just right" },
+          { reps: 12, weight: 94, feel: null }
+        ]
+      },
+      {
+        name: "Rear Delt Fly",
+        note: "I'm still not sure my form is ok on this. Let's find better ways to illustrate it.",
+        sets: [
+          { reps: 15, weight: 15, feel: "Just right" },
+          { reps: 15, weight: 15, feel: "Just right" },
+          { reps: 20, weight: 20, feel: null }
+        ]
+      },
+      {
+        name: "Flat/Machine Chest Press",
+        note: "",
+        sets: [
+          { reps: 12, weight: 70, feel: "Just right" },
+          { reps: 12, weight: 70, feel: "Just right" },
+          { reps: 12, weight: 80, feel: "Hard" }
+        ]
+      },
+      {
+        name: "Half-Kneeling DB Anti-Rotation Press",
+        note: "I like this exercise. Let's think of more exercises that challenge my core and stability",
+        sets: [
+          { reps: 15, weight: 15, feel: "Just right" },
+          { reps: 15, weight: 20, feel: "Just right" },
+          { reps: 15, weight: 20, feel: "Just right" }
+        ]
+      }
+    ],
+    note: "Session against the Full-Body B guide (workout_guides/2026-08-03-full-body-b-guide.html) at Lifetime Gym, synced through JSONBin — startedAt 2026-08-31T20:27:30.749Z, endedAt 2026-08-31T21:49:28.013Z (4:27-5:49 PM EDT, ~82 min). First run of the Half-Kneeling DB Anti-Rotation Press swap (replaced Cable Pallof Press earlier today since Lifetime has no cable/functional-trainer equipment) — Bobby liked it and wants more core/stability exercise options. No Forearm Plank in this session; it's not part of the current Full-Body B guide (only Full-Body A's guide includes it), unchanged from the Aug 8 version of this guide. Bracketed by two pre-workout walks (3:43 PM, 4:17 PM) and a post-workout treadmill run (5:51 PM) — see walksData/runsData; timing lines up cleanly with this session's actual 4:27-5:49 PM window. vs. the last Full-Body B session (Aug 8): Seated Cable Row and Romanian Deadlift both landed slightly lower on the final set (110 lb/Hard vs. 120 lb/Just right; 94 lb flat vs. building to 115 lb) — worth keeping an eye on but not necessarily meaningful from one session. Rear Delt Fly and Flat/Machine Chest Press both improved (15 reps @ up to 20 lb vs. 12 reps @ up to 15 lb; a full 12 reps @ 80 lb this time vs. dropping to 7 reps @ 80 lb \"felt heavy\" on Aug 8). Seated Shoulder Press jumped from a 20 lb top set (Aug 8) to a 40 lb top set at 15 reps (Hard) — a large jump in three weeks; worth double-checking with Bobby that 40 was the intended weight and not a mis-tap, especially given his own note above about wanting a cleaner weight-selection list instead of the current 'other' field. No supplemental Fitbit \"Strength training\" auto-log screenshot sent for this one yet."
   }
 ];
 
