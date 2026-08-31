@@ -359,15 +359,6 @@ const runsData = [
     zoneMin: 18,
     note: "Second treadmill run tonight, right after the Full-Body C session — 7:17-7:27 PM, 1,460 steps. Fitbit-only (indoor, no Strava/GPS track). Higher-intensity than the pre-workout warm-up (45% peak zone vs. 0%) despite being after a full lifting session."
   },
-  {
-    date: "2026-08-31",
-    name: "Treadmill Run (Lifetime Gym, post-workout)",
-    distance: 1.59,
-    movingTime: "29:00",
-    elapsedTime: "29:00",
-    avgPace: "18:14",        // per mi, computed (29:00 / 1.59mi) — not printed on the Exercise list screen
-    note: "Fitbit, 5:51 PM — treadmill run after today's Full-Body B session, per Bobby ('before and after workout runs', bracketing the lifting session along with the two pre-workout walks logged in walksData). Only distance/duration were visible on the Exercise list screen this time — no calories, avg HR, or zone-minute breakdown like the Aug 26 treadmill runs had. Fitbit-only (indoor, no Strava/GPS track)."
-  }
 ];
 
 // Tracked walks. distance/pace/calories from Strava; HR data from Fitbit.
@@ -513,7 +504,41 @@ const walksData = [
   { date: "2026-08-30", name: "Walk", distance: 0.33, duration: 21, note: "Fitbit, 8:16 PM. ~63.6 min/mi pace, notably slower than the usual walk pace logged — likely a leisurely walk rather than an exercise-paced one." },
   { date: "2026-08-30", name: "Remainder of day's Fitbit distance", distance: 1.88, note: "Fills the gap between the tracked walk above (0.33mi) and the day's total Fitbit distance (2.21mi from stepsData, final EOD numbers)." },
   { date: "2026-08-31", name: "Walk to Lifetime Gym (pre-workout)", distance: 0.65, duration: 27, note: "Fitbit, 3:43 PM — walking to the gym before today's Full-Body B session, per Bobby." },
-  { date: "2026-08-31", name: "Walk (pre-workout, Lifetime Gym)", distance: 0.55, duration: 10, note: "Fitbit, 4:17 PM — short walk shortly after arriving, likely getting settled before the session started. No day-total Fitbit distance yet (day in progress) — no remainder entry until EOD numbers come in." }
+  {
+    date: "2026-08-31",
+    name: "Treadmill Warm-Up Walk (Lifetime Gym, pre-workout)",
+    distance: 0.55,
+    movingTime: "10:08",
+    avgPace: "18:35",        // per mi
+    calories: 89,
+    avgHR: 96,               // bpm
+    hrZones: {
+      peak: { min: 0, pct: 0 },
+      vigorous: { min: 0, pct: 0 },
+      moderate: { min: 0, pct: 0 },
+      light: { min: 11, pct: 100 }
+    },
+    cardioLoad: 1,
+    note: "Fitbit (Versa 4), 4:17 PM — warm-up treadmill walk before today's Full-Body B session, per Bobby. 1,126 steps, entirely in the Light HR zone."
+  },
+  {
+    date: "2026-08-31",
+    name: "Treadmill Incline Walk (Lifetime Gym, post-workout)",
+    distance: 1.59,
+    movingTime: "29:46",
+    avgPace: "18:46",        // per mi
+    calories: 346,
+    avgHR: 132,              // bpm
+    hrZones: {
+      peak: { min: 0, pct: 0 },
+      vigorous: { min: 23, pct: 74 },
+      moderate: { min: 8, pct: 25 },
+      light: { min: 0, pct: 0 }
+    },
+    cardioLoad: 40,
+    zoneMin: 52,
+    note: "Fitbit (Versa 4), 5:51 PM — closing incline walk after today's Full-Body B session, per Bobby's own description. Fitbit auto-labeled this activity \"Treadmill run,\" but it was walking (incline-driven HR, not running pace) — 18'46\"/mi average pace confirms it, so logged here in Walks rather than Runs despite Fitbit's label. 3,274 steps, mostly Vigorous zone (74%) from the incline grade rather than speed. No day-total Fitbit distance yet for 2026-08-31 (day in progress) — no remainder entry across the day's 3 walksData entries until EOD numbers come in."
+  }
 ];
 
 // Gym workout sessions. One entry per session; exercises listed in order performed.
@@ -1119,7 +1144,7 @@ const gymWorkoutsData = [
         ]
       }
     ],
-    note: "Session against the Full-Body B guide (workout_guides/2026-08-03-full-body-b-guide.html) at Lifetime Gym, synced through JSONBin — startedAt 2026-08-31T20:27:30.749Z, endedAt 2026-08-31T21:49:28.013Z (4:27-5:49 PM EDT, ~82 min). First run of the Half-Kneeling DB Anti-Rotation Press swap (replaced Cable Pallof Press earlier today since Lifetime has no cable/functional-trainer equipment) — Bobby liked it and wants more core/stability exercise options. No Forearm Plank in this session; it's not part of the current Full-Body B guide (only Full-Body A's guide includes it), unchanged from the Aug 8 version of this guide. Bracketed by two pre-workout walks (3:43 PM, 4:17 PM) and a post-workout treadmill run (5:51 PM) — see walksData/runsData; timing lines up cleanly with this session's actual 4:27-5:49 PM window. vs. the last Full-Body B session (Aug 8): Seated Cable Row and Romanian Deadlift both landed slightly lower on the final set (110 lb/Hard vs. 120 lb/Just right; 94 lb flat vs. building to 115 lb) — worth keeping an eye on but not necessarily meaningful from one session. Rear Delt Fly and Flat/Machine Chest Press both improved (15 reps @ up to 20 lb vs. 12 reps @ up to 15 lb; a full 12 reps @ 80 lb this time vs. dropping to 7 reps @ 80 lb \"felt heavy\" on Aug 8). Seated Shoulder Press jumped from a 20 lb top set (Aug 8) to a 40 lb top set at 15 reps (Hard) — a large jump in three weeks; worth double-checking with Bobby that 40 was the intended weight and not a mis-tap, especially given his own note above about wanting a cleaner weight-selection list instead of the current 'other' field. No supplemental Fitbit \"Strength training\" auto-log screenshot sent for this one yet."
+    note: "Session against the Full-Body B guide (workout_guides/2026-08-03-full-body-b-guide.html) at Lifetime Gym, synced through JSONBin — startedAt 2026-08-31T20:27:30.749Z, endedAt 2026-08-31T21:49:28.013Z (4:27-5:49 PM EDT, ~82 min). First run of the Half-Kneeling DB Anti-Rotation Press swap (replaced Cable Pallof Press earlier today since Lifetime has no cable/functional-trainer equipment) — Bobby liked it and wants more core/stability exercise options. No Forearm Plank in this session; it's not part of the current Full-Body B guide (only Full-Body A's guide includes it), unchanged from the Aug 8 version of this guide. Bracketed by a walk to the gym (3:43 PM), a treadmill warm-up walk (4:17 PM), and a closing treadmill incline walk (5:51 PM, Fitbit auto-labeled it \"Treadmill run\" but Bobby confirmed it was an incline walk) — all three in walksData; timing lines up cleanly with this session's actual 4:27-5:49 PM window. vs. the last Full-Body B session (Aug 8): Seated Cable Row and Romanian Deadlift both landed slightly lower on the final set (110 lb/Hard vs. 120 lb/Just right; 94 lb flat vs. building to 115 lb) — worth keeping an eye on but not necessarily meaningful from one session. Rear Delt Fly and Flat/Machine Chest Press both improved (15 reps @ up to 20 lb vs. 12 reps @ up to 15 lb; a full 12 reps @ 80 lb this time vs. dropping to 7 reps @ 80 lb \"felt heavy\" on Aug 8). Seated Shoulder Press jumped from a 20 lb top set (Aug 8) to a 40 lb top set at 15 reps (Hard) — a large jump in three weeks; worth double-checking with Bobby that 40 was the intended weight and not a mis-tap, especially given his own note above about wanting a cleaner weight-selection list instead of the current 'other' field. No supplemental Fitbit \"Strength training\" auto-log screenshot sent for this one yet."
   }
 ];
 
