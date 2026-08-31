@@ -358,6 +358,15 @@ const runsData = [
     cardioLoad: 23,
     zoneMin: 18,
     note: "Second treadmill run tonight, right after the Full-Body C session — 7:17-7:27 PM, 1,460 steps. Fitbit-only (indoor, no Strava/GPS track). Higher-intensity than the pre-workout warm-up (45% peak zone vs. 0%) despite being after a full lifting session."
+  },
+  {
+    date: "2026-08-31",
+    name: "Treadmill Run (Lifetime Gym, post-workout)",
+    distance: 1.59,
+    movingTime: "29:00",
+    elapsedTime: "29:00",
+    avgPace: "18:14",        // per mi, computed (29:00 / 1.59mi) — not printed on the Exercise list screen
+    note: "Fitbit, 5:51 PM — treadmill run after today's Full-Body B session, per Bobby ('before and after workout runs', bracketing the lifting session along with the two pre-workout walks logged in walksData). Only distance/duration were visible on the Exercise list screen this time — no calories, avg HR, or zone-minute breakdown like the Aug 26 treadmill runs had. Fitbit-only (indoor, no Strava/GPS track)."
   }
 ];
 
@@ -502,7 +511,9 @@ const walksData = [
   },
   { date: "2026-08-28", name: "Remainder of day's Fitbit distance", distance: 5.91, note: "Fills the gap between the tracked walk above (0.69mi) and the day's total Fitbit distance (6.6mi from stepsData, final EOD numbers)." },
   { date: "2026-08-30", name: "Walk", distance: 0.33, duration: 21, note: "Fitbit, 8:16 PM. ~63.6 min/mi pace, notably slower than the usual walk pace logged — likely a leisurely walk rather than an exercise-paced one." },
-  { date: "2026-08-30", name: "Remainder of day's Fitbit distance", distance: 1.88, note: "Fills the gap between the tracked walk above (0.33mi) and the day's total Fitbit distance (2.21mi from stepsData, final EOD numbers)." }
+  { date: "2026-08-30", name: "Remainder of day's Fitbit distance", distance: 1.88, note: "Fills the gap between the tracked walk above (0.33mi) and the day's total Fitbit distance (2.21mi from stepsData, final EOD numbers)." },
+  { date: "2026-08-31", name: "Walk to Lifetime Gym (pre-workout)", distance: 0.65, duration: 27, note: "Fitbit, 3:43 PM — walking to the gym before today's Full-Body B session, per Bobby." },
+  { date: "2026-08-31", name: "Walk (pre-workout, Lifetime Gym)", distance: 0.55, duration: 10, note: "Fitbit, 4:17 PM — short walk shortly after arriving, likely getting settled before the session started. No day-total Fitbit distance yet (day in progress) — no remainder entry until EOD numbers come in." }
 ];
 
 // Gym workout sessions. One entry per session; exercises listed in order performed.
