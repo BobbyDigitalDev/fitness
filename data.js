@@ -195,7 +195,8 @@ const calorieData = [
   { date: "2026-08-26", value: 1954, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast (takeout), a tuna salad and hard boiled egg lunch, a Chobani blueberry Greek yogurt, a Sun Chips snack, a Chobani strawberry Greek yogurt, and an after-gym Gai Chicken & Rice dinner so far; day likely complete but not explicitly confirmed" },
   { date: "2026-08-27", value: 2623, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast, a Sun Chips snack, a Chobani strawberry Greek yogurt, a tuna salad and hard boiled egg lunch, a Berry Yogurt Parfait with Granola, a second Sun Chips + Nature's Bakery Blueberry Fig Bar before leaving work, a pork cutlet/romaine/steamed sweet potato dinner, and a PB banana almond milk shake (no protein powder) for dessert so far; day likely complete but not explicitly confirmed" },
   { date: "2026-08-28", value: 1860, note: "partial — breakfast + ginger beef wrap lunch + Chobani yogurt + Sun Chips + after-gym Gai Roasted Chicken Bowl dinner so far" },
-  { date: "2026-08-29", value: 914, note: "partial — post-Pilates Whole Foods jerk chicken + a 2-cookie treat so far" }
+  { date: "2026-08-29", value: 914, note: "partial — post-Pilates Whole Foods jerk chicken + a 2-cookie treat so far" },
+  { date: "2026-08-31", value: 575, note: "partial — Whole Foods jerk chicken thigh + a full bottle of coconut water sipped through the Full-Body B workout so far" }
 ];
 
 const sleepData = [
@@ -1475,6 +1476,12 @@ const meals = [
   { date: "2026-08-29", time: "11:49", name: "Coffee Caramel Cookie (Whole Foods, x2)", photo: "food-photos/2026-08-29-treat-cookie-front.jpeg",
     description: "Treat — 2 Whole Foods bakery Coffee Caramel Cookies (butter, cane/brown sugar, milk chocolate chunks, toffee, coffee extract, egg; contains milk/eggs/wheat/soy). Sold by weight (0.18 lb for the pair, see food-photos/2026-08-29-treat-cookie-scale.jpeg), but the shelf label gives calories per-cookie ('150 cal, per 1 ea serving size' — food-photos/2026-08-29-treat-cookie-label.jpeg), so calories are label-exact (2 x 150). No full nutrition panel (protein/carb/fat/sodium) on the label — those are estimated from a typical butter-and-sugar bakery cookie of this size and composition.",
     calories: 300, protein: 4, carbs: 36, fat: 16, sodium: 180, sodiumNote: "No nutrition panel — estimated from typical ingredients (butter, salt, baking soda)." },
+  { date: "2026-08-31", time: "15:23", name: "Grilled Jerk Chicken Legs (Whole Foods)", photo: "food-photos/2026-08-31-grilled-jerk-chicken-thigh.jpeg",
+    description: "Whole Foods hot bar Grilled Jerk Chicken, 0.37 lb (5.92 oz) per the scale, labeled 'legs' but visibly thighs (same mislabeling as the Aug 11 and Aug 29 entries of this product). Deli case label confirms 260 cal per 4oz serving; macros scaled from the established per-oz rate for this exact item (65 cal / 7.25g protein / 3.75g fat / ~100mg sodium per oz, most recently reconfirmed by the Aug 29 entry) rather than re-estimated from scratch.",
+    calories: 385, protein: 43, carbs: 1, fat: 22, sodium: 590, sodiumNote: "Jerk seasoning (sea salt is the first ingredient) is the main driver — same estimate basis as the Aug 11/29 entries of this product." },
+  { date: "2026-08-31", time: "15:23", name: "365 Organic Coconut Water (Whole Foods, full 1L bottle)", photo: "food-photos/2026-08-31-coconut-water-365-organic.jpeg",
+    description: "Whole Foods 365 Organic Coconut Water, full 33.8 fl oz (1L) bottle, sipped through the Full-Body B workout per Bobby. Label-exact, scaled from the printed per-8oz-serving panel ('about 4 servings per container') to the full 1L using the precise 33.8/8 ratio (4.225x) rather than the label's rounded '4 servings'. Naturally sodium-light and a strong potassium source (~2,365mg for the full bottle, 10% DV per 8oz serving) — worth noting since potassium supports blood pressure management, unlike most of today's sodium load.",
+    calories: 190, protein: 0, carbs: 46, fat: 0, sodium: 210 },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -1572,5 +1579,6 @@ const proteinData = [
   { date: "2026-08-26", value: 137, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast (takeout), a tuna salad and hard boiled egg lunch, a Chobani blueberry Greek yogurt, a Sun Chips snack, a Chobani strawberry Greek yogurt, and an after-gym Gai Chicken & Rice dinner so far; day likely complete but not explicitly confirmed" },
   { date: "2026-08-27", value: 149, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast, a Sun Chips snack, a Chobani strawberry Greek yogurt, a tuna salad and hard boiled egg lunch, a Berry Yogurt Parfait with Granola, a second Sun Chips + Nature's Bakery Blueberry Fig Bar before leaving work, a pork cutlet/romaine/steamed sweet potato dinner, and a PB banana almond milk shake (no protein powder) for dessert so far; day likely complete but not explicitly confirmed" },
   { date: "2026-08-28", value: 127, note: "partial — breakfast + ginger beef wrap lunch + Chobani yogurt + Sun Chips + after-gym Gai Roasted Chicken Bowl dinner so far" },
-  { date: "2026-08-29", value: 72, note: "partial — post-Pilates Whole Foods jerk chicken + a 2-cookie treat so far" }
+  { date: "2026-08-29", value: 72, note: "partial — post-Pilates Whole Foods jerk chicken + a 2-cookie treat so far" },
+  { date: "2026-08-31", value: 43, note: "partial — Whole Foods jerk chicken thigh + a full bottle of coconut water sipped through the Full-Body B workout so far" }
 ];
