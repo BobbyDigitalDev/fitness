@@ -198,7 +198,7 @@ const calorieData = [
   { date: "2026-08-28", value: 1860, note: "partial — breakfast + ginger beef wrap lunch + Chobani yogurt + Sun Chips + after-gym Gai Roasted Chicken Bowl dinner so far" },
   { date: "2026-08-29", value: 914, note: "partial — post-Pilates Whole Foods jerk chicken + a 2-cookie treat so far" },
   { date: "2026-08-31", value: 1460, note: "partial — Whole Foods jerk chicken thigh, a full bottle of coconut water sipped through the Full-Body B workout, an after-gym Gai Roasted Chicken Bowl dinner, and half a Canada Dry ginger ale; day likely complete but not explicitly confirmed" },
-  { date: "2026-09-01", value: 1216, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast, a Chobani strawberry Greek yogurt, a SunChips Garden Salsa snack, and a tuna salad/crackers/Chobani blueberry yogurt lunch so far" }
+  { date: "2026-09-01", value: 1276, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast, a Chobani strawberry Greek yogurt, a SunChips Garden Salsa snack, and a tuna salad/crackers (3 packs)/Chobani blueberry yogurt lunch so far" }
 ];
 
 const sleepData = [
@@ -1605,8 +1605,8 @@ const meals = [
     description: "SunChips Garden Salsa Flavored, 1 package (1oz/28g) — label exact. Before-lunch snack, same recurring product as prior Sun Chips snacks.",
     calories: 140, protein: 2, carbs: 18, fat: 6, sodium: 140 },
   { date: "2026-09-01", time: "11:58", name: "Tuna Salad, Zesta Crackers & Chobani Blueberry Yogurt", photo: "food-photos/2026-09-01-lunch-tuna-salad-crackers-yogurt-3.jpeg",
-    description: "0.46 lb (~208.6g) mayo-based tuna salad with celery, no label — tuna-salad-only per-oz rate reused from the established Aug 24-27 baseline. Plus 2 Zesta Unsalted Tops Saltine Crackers snack packs (4 crackers, no Nutrition Facts panel visible, estimated from typical published values) and 1 Chobani Greek Yogurt, Blueberry on the Bottom (150g, label exact).",
-    calories: 616, protein: 51, carbs: 44, fat: 31, sodium: 1053, sodiumNote: "Tuna salad is the main driver (mayo-based, estimated, no label) — combined with breakfast/snacks this pushes the day's sodium total past the 1,500mg BP-focused guidance well before dinner." },
+    description: "0.46 lb (~208.6g) mayo-based tuna salad with celery, no label — tuna-salad-only per-oz rate reused from the established Aug 24-27 baseline. Plus 3 Zesta Unsalted Tops Saltine Crackers snack packs (6 crackers, corrected from 2 packs — no Nutrition Facts panel visible, estimated from typical published values) and 1 Chobani Greek Yogurt, Blueberry on the Bottom (150g, label exact).",
+    calories: 676, protein: 52, carbs: 54, fat: 33, sodium: 1138, sodiumNote: "Tuna salad is the main driver (mayo-based, estimated, no label) — combined with breakfast/snacks this pushes the day's sodium total past the 1,500mg BP-focused guidance well before dinner." },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -1708,5 +1708,5 @@ const proteinData = [
   { date: "2026-08-28", value: 127, note: "partial — breakfast + ginger beef wrap lunch + Chobani yogurt + Sun Chips + after-gym Gai Roasted Chicken Bowl dinner so far" },
   { date: "2026-08-29", value: 72, note: "partial — post-Pilates Whole Foods jerk chicken + a 2-cookie treat so far" },
   { date: "2026-08-31", value: 103, note: "partial — Whole Foods jerk chicken thigh, a full bottle of coconut water sipped through the Full-Body B workout, an after-gym Gai Roasted Chicken Bowl dinner, and half a Canada Dry ginger ale; day likely complete but not explicitly confirmed" },
-  { date: "2026-09-01", value: 85, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast, a Chobani strawberry Greek yogurt, a SunChips Garden Salsa snack, and a tuna salad/crackers/Chobani blueberry yogurt lunch so far" }
+  { date: "2026-09-01", value: 86, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast, a Chobani strawberry Greek yogurt, a SunChips Garden Salsa snack, and a tuna salad/crackers (3 packs)/Chobani blueberry yogurt lunch so far" }
 ];
