@@ -197,7 +197,8 @@ const calorieData = [
   { date: "2026-08-27", value: 2623, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast, a Sun Chips snack, a Chobani strawberry Greek yogurt, a tuna salad and hard boiled egg lunch, a Berry Yogurt Parfait with Granola, a second Sun Chips + Nature's Bakery Blueberry Fig Bar before leaving work, a pork cutlet/romaine/steamed sweet potato dinner, and a PB banana almond milk shake (no protein powder) for dessert so far; day likely complete but not explicitly confirmed" },
   { date: "2026-08-28", value: 1860, note: "partial — breakfast + ginger beef wrap lunch + Chobani yogurt + Sun Chips + after-gym Gai Roasted Chicken Bowl dinner so far" },
   { date: "2026-08-29", value: 914, note: "partial — post-Pilates Whole Foods jerk chicken + a 2-cookie treat so far" },
-  { date: "2026-08-31", value: 575, note: "partial — Whole Foods jerk chicken thigh + a full bottle of coconut water sipped through the Full-Body B workout so far" }
+  { date: "2026-08-31", value: 1460, note: "partial — Whole Foods jerk chicken thigh, a full bottle of coconut water sipped through the Full-Body B workout, an after-gym Gai Roasted Chicken Bowl dinner, and half a Canada Dry ginger ale; day likely complete but not explicitly confirmed" },
+  { date: "2026-09-01", value: 350, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast so far" }
 ];
 
 const sleepData = [
@@ -1588,6 +1589,15 @@ const meals = [
   { date: "2026-08-31", time: "15:23", name: "365 Organic Coconut Water (Whole Foods, full 1L bottle)", photo: "food-photos/2026-08-31-coconut-water-365-organic.jpeg",
     description: "Whole Foods 365 Organic Coconut Water, full 33.8 fl oz (1L) bottle, sipped through the Full-Body B workout per Bobby. Label-exact, scaled from the printed per-8oz-serving panel ('about 4 servings per container') to the full 1L using the precise 33.8/8 ratio (4.225x) rather than the label's rounded '4 servings'. Naturally sodium-light and a strong potassium source (~2,365mg for the full bottle, 10% DV per 8oz serving) — worth noting since potassium supports blood pressure management, unlike most of today's sodium load.",
     calories: 190, protein: 0, carbs: 46, fat: 0, sodium: 210 },
+  { date: "2026-08-31", time: "19:03", name: "Gai Roasted Chicken Bowl", photo: "food-photos/2026-08-31-gai-roasted-chicken-bowl.jpeg",
+    description: "After-gym dinner at Gai Chicken & Rice — roasted boneless chicken thighs over ginger rice with cherry tomatoes, corn, cucumber, and lettuce. Same specific menu item as the Aug 8/Aug 28 entries ('Gai Roasted Chicken Bowl'), so macros are reused directly from that established baseline. This time a side sauce cup was included and appears opened (unlike Aug 8, where the sauce wasn't visibly used) — if it was eaten, actual calories/sodium likely run a bit higher than shown; not added in since it's unconfirmed.",
+    calories: 820, protein: 60, carbs: 78, fat: 29, sodium: 950, sodiumNote: "Restaurant-cooked, no label — rice and the chicken's glaze are the likely main contributors. Possible additional sodium from an opened sauce cup, not included in this estimate." },
+  { date: "2026-08-31", time: "19:29", name: "Canada Dry Ginger Ale (half can)", photo: "food-photos/2026-08-31-canada-dry-ginger-ale-1.jpeg",
+    description: "Canada Dry Ginger Ale, caffeine free, half of a 12 fl oz can, had with dinner. Label-exact, halved from the full-can nutrition panel (130 cal / 0g fat / 50mg sodium / 33g carb, all sugar / 0g protein).",
+    calories: 65, protein: 0, carbs: 17, fat: 0, sodium: 25 },
+  { date: "2026-09-01", time: "09:35", name: "Eggs Over-Hard (No Salt) & Sausage Patty", photo: "food-photos/2026-09-01-eggs-over-hard-sausage-patty.jpeg",
+    description: "Usual breakfast — 2 eggs over hard, no salt, with a sausage patty. Same recurring combo as every morning, reusing the established baseline macros.",
+    calories: 350, protein: 21, carbs: 2, fat: 29, sodium: 550, sodiumNote: "Sausage patty is doing nearly all the sodium here, not the eggs (no salt added to those)." },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -1688,5 +1698,6 @@ const proteinData = [
   { date: "2026-08-27", value: 149, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast, a Sun Chips snack, a Chobani strawberry Greek yogurt, a tuna salad and hard boiled egg lunch, a Berry Yogurt Parfait with Granola, a second Sun Chips + Nature's Bakery Blueberry Fig Bar before leaving work, a pork cutlet/romaine/steamed sweet potato dinner, and a PB banana almond milk shake (no protein powder) for dessert so far; day likely complete but not explicitly confirmed" },
   { date: "2026-08-28", value: 127, note: "partial — breakfast + ginger beef wrap lunch + Chobani yogurt + Sun Chips + after-gym Gai Roasted Chicken Bowl dinner so far" },
   { date: "2026-08-29", value: 72, note: "partial — post-Pilates Whole Foods jerk chicken + a 2-cookie treat so far" },
-  { date: "2026-08-31", value: 43, note: "partial — Whole Foods jerk chicken thigh + a full bottle of coconut water sipped through the Full-Body B workout so far" }
+  { date: "2026-08-31", value: 103, note: "partial — Whole Foods jerk chicken thigh, a full bottle of coconut water sipped through the Full-Body B workout, an after-gym Gai Roasted Chicken Bowl dinner, and half a Canada Dry ginger ale; day likely complete but not explicitly confirmed" },
+  { date: "2026-09-01", value: 21, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast so far" }
 ];
