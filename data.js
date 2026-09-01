@@ -198,7 +198,7 @@ const calorieData = [
   { date: "2026-08-28", value: 1860, note: "partial — breakfast + ginger beef wrap lunch + Chobani yogurt + Sun Chips + after-gym Gai Roasted Chicken Bowl dinner so far" },
   { date: "2026-08-29", value: 914, note: "partial — post-Pilates Whole Foods jerk chicken + a 2-cookie treat so far" },
   { date: "2026-08-31", value: 1460, note: "partial — Whole Foods jerk chicken thigh, a full bottle of coconut water sipped through the Full-Body B workout, an after-gym Gai Roasted Chicken Bowl dinner, and half a Canada Dry ginger ale; day likely complete but not explicitly confirmed" },
-  { date: "2026-09-01", value: 350, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast so far" }
+  { date: "2026-09-01", value: 460, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast + a Chobani strawberry Greek yogurt so far" }
 ];
 
 const sleepData = [
@@ -1598,6 +1598,9 @@ const meals = [
   { date: "2026-09-01", time: "09:35", name: "Eggs Over-Hard (No Salt) & Sausage Patty", photo: "food-photos/2026-09-01-eggs-over-hard-sausage-patty.jpeg",
     description: "Usual breakfast — 2 eggs over hard, no salt, with a sausage patty. Same recurring combo as every morning, reusing the established baseline macros.",
     calories: 350, protein: 21, carbs: 2, fat: 29, sodium: 550, sodiumNote: "Sausage patty is doing nearly all the sodium here, not the eggs (no salt added to those)." },
+  { date: "2026-09-01", time: "09:52", name: "Chobani Greek Yogurt, Strawberry on the Bottom", photo: "food-photos/2026-09-01-chobani-strawberry-yogurt-1.jpeg",
+    description: "Chobani Greek Yogurt, Strawberry on the Bottom, 1 container (150g) — label exact.",
+    calories: 110, protein: 11, carbs: 15, fat: 0, sodium: 55 },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -1699,5 +1702,5 @@ const proteinData = [
   { date: "2026-08-28", value: 127, note: "partial — breakfast + ginger beef wrap lunch + Chobani yogurt + Sun Chips + after-gym Gai Roasted Chicken Bowl dinner so far" },
   { date: "2026-08-29", value: 72, note: "partial — post-Pilates Whole Foods jerk chicken + a 2-cookie treat so far" },
   { date: "2026-08-31", value: 103, note: "partial — Whole Foods jerk chicken thigh, a full bottle of coconut water sipped through the Full-Body B workout, an after-gym Gai Roasted Chicken Bowl dinner, and half a Canada Dry ginger ale; day likely complete but not explicitly confirmed" },
-  { date: "2026-09-01", value: 21, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast so far" }
+  { date: "2026-09-01", value: 32, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast + a Chobani strawberry Greek yogurt so far" }
 ];
