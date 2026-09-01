@@ -198,7 +198,7 @@ const calorieData = [
   { date: "2026-08-28", value: 1860, note: "partial — breakfast + ginger beef wrap lunch + Chobani yogurt + Sun Chips + after-gym Gai Roasted Chicken Bowl dinner so far" },
   { date: "2026-08-29", value: 914, note: "partial — post-Pilates Whole Foods jerk chicken + a 2-cookie treat so far" },
   { date: "2026-08-31", value: 1460, note: "partial — Whole Foods jerk chicken thigh, a full bottle of coconut water sipped through the Full-Body B workout, an after-gym Gai Roasted Chicken Bowl dinner, and half a Canada Dry ginger ale; day likely complete but not explicitly confirmed" },
-  { date: "2026-09-01", value: 460, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast + a Chobani strawberry Greek yogurt so far" }
+  { date: "2026-09-01", value: 600, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast, a Chobani strawberry Greek yogurt, and a SunChips Garden Salsa snack so far" }
 ];
 
 const sleepData = [
@@ -1601,6 +1601,9 @@ const meals = [
   { date: "2026-09-01", time: "09:52", name: "Chobani Greek Yogurt, Strawberry on the Bottom", photo: "food-photos/2026-09-01-chobani-strawberry-yogurt-1.jpeg",
     description: "Chobani Greek Yogurt, Strawberry on the Bottom, 1 container (150g) — label exact.",
     calories: 110, protein: 11, carbs: 15, fat: 0, sodium: 55 },
+  { date: "2026-09-01", time: "11:20", name: "SunChips Garden Salsa", photo: "food-photos/2026-09-01-sunchips-garden-salsa-1.jpeg",
+    description: "SunChips Garden Salsa Flavored, 1 package (1oz/28g) — label exact. Before-lunch snack, same recurring product as prior Sun Chips snacks.",
+    calories: 140, protein: 2, carbs: 18, fat: 6, sodium: 140 },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -1702,5 +1705,5 @@ const proteinData = [
   { date: "2026-08-28", value: 127, note: "partial — breakfast + ginger beef wrap lunch + Chobani yogurt + Sun Chips + after-gym Gai Roasted Chicken Bowl dinner so far" },
   { date: "2026-08-29", value: 72, note: "partial — post-Pilates Whole Foods jerk chicken + a 2-cookie treat so far" },
   { date: "2026-08-31", value: 103, note: "partial — Whole Foods jerk chicken thigh, a full bottle of coconut water sipped through the Full-Body B workout, an after-gym Gai Roasted Chicken Bowl dinner, and half a Canada Dry ginger ale; day likely complete but not explicitly confirmed" },
-  { date: "2026-09-01", value: 32, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast + a Chobani strawberry Greek yogurt so far" }
+  { date: "2026-09-01", value: 34, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast, a Chobani strawberry Greek yogurt, and a SunChips Garden Salsa snack so far" }
 ];
