@@ -157,7 +157,8 @@ const weightData = [
   { date: "2026-08-27", value: 199.8, note: "via Fitbit app (Weight Trends screen), timing/fasted status unspecified — down 0.8 lb from yesterday, first sub-200 reading and the lowest value on file since tracking started Jul 23 (previous low: 201.8 on Jul 27). 4th straight down day (203 → 202.2 → 200.6 → 199.8, -3.2 lb over 4 days)." },
   { date: "2026-08-28", value: 202.2, note: "via Fitbit app (Weight Trends screen), timing/fasted status unspecified — up 2.4 lb from yesterday's 199.8 low, back to the same value as Aug 25/26 combined average. Confirms the read given at the time: the 199.8 reading was likely a partial water-weight flush layered on top of real progress, not a stable new baseline — this bounce-back is the expected correction." },
   { date: "2026-08-29", value: 201, note: "via Fitbit app (Weight Trends screen), fasted morning weigh-in — down 1.2 lb from yesterday's 202.2. This week's daily average sits at 201.4 lb, and the 30-day trend line (Weight Trend) is still sloping down despite the day-to-day bounce between the 199.8 low and the 202.2 high." },
-  { date: "2026-08-30", value: 201.2, note: "via Fitbit 'You' tab daily summary (not the Weight Trends screen), fasted status not specified — screenshot sent 2026-08-31 for the prior day. Essentially flat vs. Aug 29's 201." }
+  { date: "2026-08-30", value: 201.2, note: "via Fitbit 'You' tab daily summary (not the Weight Trends screen), fasted status not specified — screenshot sent 2026-08-31 for the prior day. Essentially flat vs. Aug 29's 201." },
+  { date: "2026-08-31", value: 201.6, note: "via Fitbit 'You' tab daily summary, fasted status not specified — screenshot sent 2026-09-01 for the prior day. Up 0.4 lb from Aug 30's 201.2, within normal day-to-day noise." }
 ];
 
 const calorieData = [
@@ -239,7 +240,8 @@ const sleepData = [
   { date: "2026-08-27", hours: 6.67, score: 84, readiness: 59, bedtime: "23:54", wake: "07:20", deep: 98, rem: 84, light: 217, awake: 46, note: "Good sleep score (84), close to Aug 26's 85. 6h40m asleep (11:54 PM-7:20 AM) — Awake 46 min (highest of the week), REM 1h24m, Light 3h37m, Deep 1h38m (best deep-sleep total logged this stretch). Daily Readiness 59 (Moderate) — all 5 health metrics (RHR, HRV, breathing rate, SpO2, skin temp) in personal range; resting HR 61 bpm, HR range 49-115 bpm for the day." },
   { date: "2026-08-28", hours: 5.67, score: 81, readiness: 80, bedtime: "00:23", wake: "07:03", deep: 88, rem: 60, light: 191, awake: 59, note: "Good score (81), but bedtime crept later again (12:23 AM) — 4th night in a row past midnight or close to it (Aug 25 10:59 PM, Aug 26 12:41 AM, Aug 27 11:54 PM, tonight 12:23 AM), cutting duration to 5h40m. Awake time (59 min) also the highest of the stretch. Bobby flagged this himself — bedtime is still the sticking point, not sleep quality once he's actually down. Daily Readiness came in at 80 (High) despite the shorter night — all 5 health metrics (BR, SpO2, RHR, HRV, skin temp variation) in personal range; resting HR 60 bpm, HR range 48-141 bpm for the day." },
   { date: "2026-08-29", hours: 6.22, score: 85, bedtime: "01:59", wake: "09:10", deep: 80, rem: 62, light: 231, awake: 57, note: "Best sleep score of the stretch (85, 'Good'), but bedtime kept sliding — 5th night in a row later than the one before (Aug 25 10:59 PM, Aug 26 12:41 AM, Aug 27 11:54 PM, Aug 28 12:23 AM, tonight 1:59 AM). The later bedtime pushed wake time out too (9:10 AM, latest of the stretch), which is why duration (6h13m) still landed higher than Aug 27/28 despite the later start — sleeping in covered for it. Readiness/health-metrics screen not sent for this one." },
-  { date: "2026-08-30", hours: 9.32, score: 93, readiness: 69, note: "Best sleep score of the stretch (93) and by far the longest duration (9h19m) — a real rebound after several nights of late bedtimes. Screenshot only showed duration/score/readiness, no bedtime, wake time, sleep-stage breakdown, or oxygen variation this time." }
+  { date: "2026-08-30", hours: 9.32, score: 93, readiness: 69, note: "Best sleep score of the stretch (93) and by far the longest duration (9h19m) — a real rebound after several nights of late bedtimes. Screenshot only showed duration/score/readiness, no bedtime, wake time, sleep-stage breakdown, or oxygen variation this time." },
+  { date: "2026-08-31", hours: 8.3, score: 89, readiness: 56, note: "8h18m, Good score (89), but Daily Readiness dropped to 56 (Moderate) despite the solid sleep — Cardio Load 95 from the Full-Body B gym session likely the driver. Resting HR 63 bpm, HR range 53-140 bpm for the day. Screenshot only showed duration/score/readiness, no bedtime, wake time, sleep-stage breakdown, or oxygen variation this time." }
 ];
 
 const stepsData = [
@@ -278,7 +280,8 @@ const stepsData = [
   { date: "2026-08-26", value: 13169, distance: 6.36, calories: 3641, floors: 15, zoneMin: 156, note: "final EOD numbers via Fitbit app, viewed 2026-08-27 — 4 of 5 exercise days this week, Cardio Load 105." },
   { date: "2026-08-27", value: 8294, distance: 4.04, calories: 2860, floors: 13, zoneMin: 1, note: "final EOD numbers via Fitbit app, viewed 2026-08-28 — 5 of 5 exercise days this week (full week streak), Cardio Load 1, Daily Readiness 59 (Moderate). Confirms the day's calorie intake (2,623 logged) was a ~237 cal deficit against this burn number." },
   { date: "2026-08-28", value: 14067, distance: 6.6, calories: 3387, floors: 12, zoneMin: 26, note: "final EOD numbers via Fitbit app, viewed 2026-08-29 — 7 of 5 exercise days this week (goal exceeded), Cardio Load 40, Daily Readiness 80 (High). Includes the Full-Body A gym session (see gymWorkoutsData) and a tracked evening walk (see walksData). 5 of 5 health metrics in personal range (BR, SpO2, RHR, HRV, skin temp variation); resting HR 60 bpm, HR range 48-141 bpm for the day." },
-  { date: "2026-08-30", value: 4576, distance: 2.21, calories: 2447, floors: 11, zoneMin: 8, note: "final EOD numbers via Fitbit app, viewed 2026-08-31 (new Fitbit week, day 1) — Cardio Load 6, 2 of 5 exercise days this week, Daily Readiness 69 (High). Low-key day, no gym session or meals logged. 5 of 5 health metrics in personal range (BR, SpO2, RHR, HRV, skin temp variation); resting HR 60 bpm, HR range 48-124 bpm for the day." }
+  { date: "2026-08-30", value: 4576, distance: 2.21, calories: 2447, floors: 11, zoneMin: 8, note: "final EOD numbers via Fitbit app, viewed 2026-08-31 (new Fitbit week, day 1) — Cardio Load 6, 2 of 5 exercise days this week, Daily Readiness 69 (High). Low-key day, no gym session or meals logged. 5 of 5 health metrics in personal range (BR, SpO2, RHR, HRV, skin temp variation); resting HR 60 bpm, HR range 48-124 bpm for the day." },
+  { date: "2026-08-31", value: 14567, distance: 6.97, calories: 3508, floors: 15, zoneMin: 131, note: "final EOD numbers via Fitbit app, viewed 2026-09-01 — Cardio Load 95, 2 of 5 exercise days this week, Daily Readiness 56 (Moderate). Includes the Full-Body B gym session (see gymWorkoutsData) and the pre/post-workout treadmill + gym-to-dinner walks (see walksData). 5 of 5 health metrics in personal range (BR, SpO2, RHR, HRV, skin temp variation); resting HR 63 bpm, HR range 53-140 bpm for the day." }
 ];
 
 // Tracked runs. distance/pace/calories are from Strava (usually the full
@@ -539,7 +542,9 @@ const walksData = [
     cardioLoad: 40,
     zoneMin: 52,
     note: "Fitbit (Versa 4), 5:51 PM — closing incline walk after today's Full-Body B session, per Bobby's own description. Fitbit auto-labeled this activity \"Treadmill run,\" but it was walking (incline-driven HR, not running pace) — 18'46\"/mi average pace confirms it, so logged here in Walks rather than Runs despite Fitbit's label. 3,274 steps, mostly Vigorous zone (74%) from the incline grade rather than speed. No day-total Fitbit distance yet for 2026-08-31 (day in progress) — no remainder entry across the day's 3 walksData entries until EOD numbers come in."
-  }
+  },
+  { date: "2026-08-31", name: "Lifetime Gym (Battery Park) → Gai Chicken & Rice (Fulton St)", distance: 0.73, duration: 28, note: "Fitbit, 6:35 PM · 0.73 mi · 28 min — walk from Lifetime Gym Battery Park to Gai Chicken & Rice on Fulton St for dinner, right after the post-workout treadmill incline walk. Same route pattern as the Aug 26 (0.78mi) and Aug 28 (\"Likely\", 0.73mi) gym-to-dinner walks; timing lines up with the Gai Roasted Chicken Bowl dinner logged at 7:03 PM." },
+  { date: "2026-08-31", name: "Remainder of day's Fitbit distance", distance: 3.45, note: "Fills the gap between the day's 4 tracked walksData entries (0.65 + 0.55 + 1.59 + 0.73 = 3.52mi) and the day's total Fitbit distance (6.97mi from stepsData)." }
 ];
 
 // Gym workout sessions. One entry per session; exercises listed in order performed.
@@ -1653,6 +1658,8 @@ const events = [
   { date: "2026-08-29", text: "Pilates class, 10:30-11:20 AM (~50 min per Bobby). No Fitbit auto-detect screenshot sent for this one yet." },
   { date: "2026-08-30", text: "Walk: 8:16 PM · 0.33 mi · 21 min · pace ~63.6 min/mi" },
   { date: "2026-08-30", text: "<strong>Daily stats (backfilled 2026-08-31):</strong> 4,576 steps · 2.21 mi · 11 floors · 2,447 cal burned · 8 zone min · Sleep 9h19m (score 93) · Readiness 69 (High) · RHR 60 bpm (range 48–124) · Cardio Load 6 · 2 of 5 exercise days this week. No gym session or meals logged this day." },
+  { date: "2026-08-31", text: "Walk: 6:35 PM · 0.73 mi · 28 min · pace ~38.4 min/mi (Lifetime Gym → Gai Chicken & Rice, post-workout)" },
+  { date: "2026-08-31", text: "<strong>Daily stats (backfilled 2026-09-01):</strong> 14,567 steps · 6.97 mi · 15 floors · 3,508 cal burned · 131 zone min · Sleep 8h18m (score 89) · Readiness 56 (Moderate) · RHR 63 bpm (range 53–140) · Cardio Load 95 · 2 of 5 exercise days this week. Full-Body B gym session (see gymWorkoutsData)." },
 ];
 
 // Structured facts that don't fit a time series — just a one-line goals
