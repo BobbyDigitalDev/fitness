@@ -199,7 +199,7 @@ const calorieData = [
   { date: "2026-08-28", value: 1860, note: "partial — breakfast + ginger beef wrap lunch + Chobani yogurt + Sun Chips + after-gym Gai Roasted Chicken Bowl dinner so far" },
   { date: "2026-08-29", value: 914, note: "partial — post-Pilates Whole Foods jerk chicken + a 2-cookie treat so far" },
   { date: "2026-08-31", value: 1460, note: "partial — Whole Foods jerk chicken thigh, a full bottle of coconut water sipped through the Full-Body B workout, an after-gym Gai Roasted Chicken Bowl dinner, and half a Canada Dry ginger ale; day likely complete but not explicitly confirmed" },
-  { date: "2026-09-01", value: 1356, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast, a Chobani strawberry Greek yogurt, a SunChips Garden Salsa snack, a tuna salad/crackers (3 packs)/Chobani blueberry yogurt lunch, and a That's It Apple + Cinnamon Crisps treat so far" }
+  { date: "2026-09-01", value: 2165, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a Chobani strawberry Greek yogurt, a SunChips Garden Salsa snack, a tuna salad/crackers (3 packs)/Chobani blueberry yogurt lunch, a That's It Apple + Cinnamon Crisps treat, and a late ribeye/romaine/sweet potato dinner" }
 ];
 
 const sleepData = [
@@ -1615,6 +1615,9 @@ const meals = [
   { date: "2026-09-01", time: "15:33", name: "That's It Organic Fruit Crunchables, Apple + Cinnamon Crisps", photo: "food-photos/2026-09-01-thats-it-apple-cinnamon-crisps.jpeg",
     description: "2 pouches (10g each), label exact — same product as prior snacks (Aug 5/7). Panel clearly photographed this time: 40 cal/9g carb/2g fiber/7g sugar/0g added sugar/0g protein/0mg sodium per pouch.",
     calories: 80, protein: 0, carbs: 18, fat: 0, sodium: 0 },
+  { date: "2026-09-01", time: "22:47", name: "Ribeye Steak, Romaine & Sweet Potato", photo: "food-photos/2026-09-01-dinner-ribeye-romaine-sweet-potato-1.jpeg",
+    description: "One ribeye steak, lightly seasoned — macros reused from the recurring single-steak baseline established throughout this log. Plus 2 thin sweet potato rounds (~90g, no added salt, scaled from the Aug 24 sweet potato rate) and a few raw romaine leaves, no dressing. Late dinner.",
+    calories: 809, protein: 69, carbs: 21, fat: 55, sodium: 420 },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -1718,5 +1721,5 @@ const proteinData = [
   { date: "2026-08-28", value: 127, note: "partial — breakfast + ginger beef wrap lunch + Chobani yogurt + Sun Chips + after-gym Gai Roasted Chicken Bowl dinner so far" },
   { date: "2026-08-29", value: 72, note: "partial — post-Pilates Whole Foods jerk chicken + a 2-cookie treat so far" },
   { date: "2026-08-31", value: 103, note: "partial — Whole Foods jerk chicken thigh, a full bottle of coconut water sipped through the Full-Body B workout, an after-gym Gai Roasted Chicken Bowl dinner, and half a Canada Dry ginger ale; day likely complete but not explicitly confirmed" },
-  { date: "2026-09-01", value: 86, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast, a Chobani strawberry Greek yogurt, a SunChips Garden Salsa snack, a tuna salad/crackers (3 packs)/Chobani blueberry yogurt lunch, and a That's It Apple + Cinnamon Crisps treat so far" }
+  { date: "2026-09-01", value: 155, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a Chobani strawberry Greek yogurt, a SunChips Garden Salsa snack, a tuna salad/crackers (3 packs)/Chobani blueberry yogurt lunch, a That's It Apple + Cinnamon Crisps treat, and a late ribeye/romaine/sweet potato dinner" }
 ];
