@@ -31,7 +31,7 @@ h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; text-align: c
 .exercise-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; margin-bottom: 14px; }
 .exercise-name { font-size: 1.05rem; font-weight: 700; margin-bottom: 2px; }
 .exercise-meta { color: var(--muted); font-size: 0.8rem; margin-bottom: 12px; }
-.chart-wrap { position: relative; height: 200px; margin-bottom: 14px; }
+.chart-wrap { position: relative; height: 220px; margin-bottom: 14px; }
 .session-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
 .session-table th { text-align: left; color: var(--muted); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0 8px 6px 0; border-bottom: 1px solid var(--border); }
 .session-table td { padding: 8px 8px 8px 0; vertical-align: top; border-bottom: 1px solid var(--border); }
@@ -101,7 +101,7 @@ body.locked { overflow: hidden; }
   <a class="guide-link" href="2026-08-03-full-body-a-guide.html">📝 Open Guide</a>
 </div>
 <h1>Full-Body A — Progress</h1>
-<div class="subtitle">How each exercise is trending across every logged session</div>
+<div class="subtitle">Weight and reps trends across every logged session</div>
 
 <div id="summaryCard"></div>
 <div id="exerciseCards"></div>
@@ -140,6 +140,20 @@ body.locked { overflow: hidden; }
     const div = document.createElement('div');
     div.textContent = str;
     return div.innerHTML;
+  }
+
+  // Tight, data-driven axis range instead of Chart.js's default padding
+  // (which on a 2-point flat series like "110, 110" was stretching the
+  // axis out to 104–116 — visually implying more headroom/noise than the
+  // data has). flatPad is how much room to give a series that's flat or
+  // has just one point; otherwise pad by 20% of the observed range.
+  function computeAxisRange(vals, flatPad) {
+    const nonNull = vals.filter(v => v != null);
+    if (!nonNull.length) return { min: 0, max: flatPad * 2 };
+    const lo = Math.min(...nonNull), hi = Math.max(...nonNull);
+    if (lo === hi) return { min: Math.max(0, lo - flatPad), max: hi + flatPad };
+    const pad = Math.max(flatPad * 0.4, (hi - lo) * 0.25);
+    return { min: Math.max(0, Math.floor(lo - pad)), max: Math.ceil(hi + pad) };
   }
 
   const sessions = gymWorkoutsData
@@ -219,37 +233,98 @@ body.locked { overflow: hidden; }
       cardsEl.appendChild(card);
 
       const labels = g.entries.map(e => fmtDate(e.date));
-      const data = g.entries.map(e => {
-        const vals = e.sets.map(s => g.isHold ? s.duration : s.weight).filter(v => v != null);
-        return vals.length ? Math.max(...vals) : null;
+
+      // Top-set metric (heaviest weight, or longest hold) per session —
+      // the working-max convention used across the site (findLastWeight()
+      // in the guides uses the same idea per fixed set index).
+      const weightSeries = g.entries.map(e => {
+        const withVal = e.sets.filter(s => (g.isHold ? s.duration : s.weight) != null);
+        return withVal.length ? Math.max(...withVal.map(s => g.isHold ? s.duration : s.weight)) : null;
       });
+
+      // Reps performed AT that top-set weight (last matching set if there's
+      // a tie, since ramping sessions usually put the heaviest at the end).
+      // This is what actually surfaces a session like "110lb both times,
+      // but 15 reps dropped to 12" — a real regression a weight-only chart
+      // hides completely since the weight line alone looks flat.
+      const repsSeries = g.isHold ? null : g.entries.map(e => {
+        const withWeight = e.sets.filter(s => s.weight != null);
+        if (!withWeight.length) return null;
+        const topWeight = Math.max(...withWeight.map(s => s.weight));
+        const matches = e.sets.filter(s => s.weight === topWeight && s.reps != null);
+        return matches.length ? matches[matches.length - 1].reps : null;
+      });
+
+      const datasets = [{
+        label: g.isHold ? 'Top hold' : 'Top-set weight',
+        data: weightSeries,
+        borderColor: C.blue,
+        backgroundColor: C.blue,
+        pointBackgroundColor: C.blue,
+        pointRadius: 4,
+        pointHoverRadius: 6,
+        tension: 0.25,
+        spanGaps: true,
+        yAxisID: 'yWeight',
+      }];
+      if (!g.isHold) {
+        datasets.push({
+          label: 'Reps at top set',
+          data: repsSeries,
+          borderColor: C.green,
+          backgroundColor: C.green,
+          pointBackgroundColor: C.green,
+          pointRadius: 4,
+          pointHoverRadius: 6,
+          tension: 0.25,
+          spanGaps: true,
+          borderDash: [5, 3],
+          yAxisID: 'yReps',
+        });
+      }
+
+      const weightRange = computeAxisRange(weightSeries, 10);
+      const scales = {
+        x: { grid: { display: false } },
+        yWeight: {
+          position: 'left',
+          grid: { color: 'rgba(255,255,255,0.06)' },
+          min: weightRange.min,
+          max: weightRange.max,
+          ticks: { callback: v => v + ' ' + metricLabel },
+        },
+      };
+      if (!g.isHold) {
+        const repsRange = computeAxisRange(repsSeries, 3);
+        scales.yReps = {
+          position: 'right',
+          grid: { display: false },
+          min: repsRange.min,
+          max: repsRange.max,
+          ticks: { callback: v => v + ' reps' },
+        };
+      }
 
       new Chart(document.getElementById(canvasId), {
         type: 'line',
-        data: {
-          labels,
-          datasets: [{
-            data,
-            borderColor: C.blue,
-            backgroundColor: C.blue,
-            pointBackgroundColor: C.blue,
-            pointRadius: 4,
-            pointHoverRadius: 6,
-            tension: 0.25,
-            spanGaps: true,
-          }],
-        },
+        data: { labels, datasets },
         options: {
           responsive: true,
           maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
           plugins: {
-            legend: { display: false },
-            tooltip: { callbacks: { label: ctx => ctx.parsed.y == null ? 'Skipped' : `${ctx.parsed.y} ${metricLabel} (top set)` } },
+            legend: { display: !g.isHold, position: 'top', align: 'end', labels: { boxWidth: 12, font: { size: 11 } } },
+            tooltip: {
+              callbacks: {
+                label: ctx => {
+                  if (ctx.parsed.y == null) return ctx.dataset.label + ': skipped';
+                  const unit = ctx.dataset.yAxisID === 'yReps' ? ' reps' : ' ' + metricLabel;
+                  return ctx.dataset.label + ': ' + ctx.parsed.y + unit;
+                },
+              },
+            },
           },
-          scales: {
-            x: { grid: { display: false } },
-            y: { grid: { color: 'rgba(255,255,255,0.06)' }, ticks: { callback: v => v + ' ' + metricLabel } },
-          },
+          scales,
         },
       });
     });
