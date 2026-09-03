@@ -17,8 +17,10 @@ body {
   line-height: 1.5; padding: 16px; max-width: 720px; margin: 0 auto;
 }
 a { color: var(--accent-2); }
-.back-link { display: inline-block; color: var(--muted); font-size: 0.85rem; margin-bottom: 14px; text-decoration: none; }
+.back-link { display: inline-block; color: var(--muted); font-size: 0.85rem; margin-bottom: 14px; text-decoration: none; margin-right: 14px; }
 .back-link:hover { color: var(--text); }
+.progress-link { display: inline-block; color: var(--accent-2); font-size: 0.85rem; margin-bottom: 14px; text-decoration: none; }
+.progress-link:hover { text-decoration: underline; }
 h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; text-align: center; }
 .subtitle { color: var(--muted); font-size: 0.9rem; text-align: center; margin-top: 6px; margin-bottom: 18px; }
 hr { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
@@ -316,31 +318,24 @@ body.locked { overflow: hidden; }
     return null;
   }
 
-  // Builds either a dropdown (anchored on last time's weight, ±10/±5 lb,
-  // plus a custom-entry escape valve) or a plain number input (no history
-  // yet — nothing to anchor on, so don't fabricate a fake "recommended"
-  // weight out of thin air).
+  // Fixed 10–200 lb list in 5 lb increments, every set, every exercise —
+  // replaced the old "last time ±10/±5 plus Other…" dropdown 2026-09-03
+  // per Bobby's request (he'd floated this back on Aug 31 too: "just have
+  // all the weights in a list... much cleaner"). No custom-entry escape
+  // valve anymore, so the range has to cover real usage — 200 lb ceiling
+  // checked against Leg Press's actual logged max (180 lb) with headroom
+  // to grow. If last time's weight is known, that option is preselected
+  // and marked so the dropdown still opens anchored on it.
   function buildWeightControl(slot) {
     const exName = slot.dataset.exname;
     const setIdx = Number(slot.dataset.set);
     const last = findLastWeight(exName, setIdx);
-    if (last == null) {
-      slot.innerHTML = `<input type="number" class="ql-weight" data-ex="${slot.dataset.ex}" data-set="${setIdx}" placeholder="starting weight" />`;
-      return;
-    }
-    const options = [last - 10, last - 5, last, last + 5, last + 10].filter(v => v > 0);
-    const selectHtml = options.map(v =>
+    const options = [];
+    for (let w = 10; w <= 200; w += 5) options.push(w);
+    const selectHtml = `<option value="">— select —</option>` + options.map(v =>
       `<option value="${v}"${v === last ? ' selected' : ''}>${v} lb${v === last ? ' (last time)' : ''}</option>`
-    ).join('') + `<option value="__other__">Other…</option>`;
-    slot.innerHTML = `
-      <select class="ql-weight-select" data-ex="${slot.dataset.ex}" data-set="${setIdx}">${selectHtml}</select>
-      <input type="number" class="ql-weight-other" data-ex="${slot.dataset.ex}" data-set="${setIdx}" placeholder="lb" style="display:none; margin-top:4px;" />
-    `;
-    const sel = slot.querySelector('.ql-weight-select');
-    const other = slot.querySelector('.ql-weight-other');
-    sel.addEventListener('change', () => {
-      other.style.display = sel.value === '__other__' ? 'block' : 'none';
-    });
+    ).join('');
+    slot.innerHTML = `<select class="ql-weight-select" data-ex="${slot.dataset.ex}" data-set="${setIdx}">${selectHtml}</select>`;
   }
 
   document.querySelectorAll('.ql-weight-slot').forEach(buildWeightControl);
@@ -358,15 +353,7 @@ body.locked { overflow: hidden; }
   function getWeightValue(exIdx, setIdx) {
     const card = document.querySelector(`[data-exercise-idx="${exIdx}"]`);
     const select = card.querySelector(`.ql-weight-select[data-set="${setIdx}"]`);
-    if (select) {
-      if (select.value === '__other__') {
-        const other = card.querySelector(`.ql-weight-other[data-set="${setIdx}"]`);
-        return other.value === '' ? null : Number(other.value);
-      }
-      return Number(select.value);
-    }
-    const plain = card.querySelector(`.ql-weight[data-set="${setIdx}"]`);
-    return plain && plain.value !== '' ? Number(plain.value) : null;
+    return select && select.value !== '' ? Number(select.value) : null;
   }
 
   document.getElementById('saveBtn').addEventListener('click', async () => {
