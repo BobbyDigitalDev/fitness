@@ -203,7 +203,7 @@ const calorieData = [
   { date: "2026-08-31", value: 1460, note: "partial — Whole Foods jerk chicken thigh, a full bottle of coconut water sipped through the Full-Body B workout, an after-gym Gai Roasted Chicken Bowl dinner, and half a Canada Dry ginger ale; day likely complete but not explicitly confirmed" },
   { date: "2026-09-01", value: 2380, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a Chobani strawberry Greek yogurt, a SunChips Garden Salsa snack, a tuna salad/crackers (3 packs)/Chobani blueberry yogurt lunch, a That's It Apple + Cinnamon Crisps treat, a late ribeye/romaine/sweet potato dinner, and a before-bed stovetop popcorn snack" },
   { date: "2026-09-02", value: 2750, note: "partial — Los Tacos No. 1 lunch (2 adobada + 1 carne asada), eggs-over-hard-and-sausage-patty breakfast (later than usual, ~2:35 PM), a SunChips Garden Salsa snack, an afternoon gummy bears/fruit crisps/Chobani yogurt snack, and an after-gym Gai Roasted Chicken Bowl dinner; day likely complete but not explicitly confirmed" },
-  { date: "2026-09-03", value: 1682, note: "partial — grab-and-go PB&J sandwich + Chobani strawberry yogurt for breakfast (usual office cafe breakfast unavailable, kitchen closed), a tuna salad + 2 hard boiled eggs lunch, and a rice protein/PB/banana shake so far" }
+  { date: "2026-09-03", value: 1835, note: "partial — grab-and-go PB&J sandwich + Chobani strawberry yogurt for breakfast (usual office cafe breakfast unavailable, kitchen closed), a tuna salad + 2 hard boiled eggs lunch, a rice protein/PB/banana shake, and a reduced-sodium popcorn snack so far" }
 ];
 
 const sleepData = [
@@ -1727,6 +1727,9 @@ const meals = [
   { date: "2026-09-03", time: "12:33", name: "Rice Protein, Peanut Butter & Banana Shake", photo: "food-photos/2026-09-03-shake-pb-banana-rice-protein.jpeg",
     description: "Ice + unsweetened almond milk + 6 tsp (2 tbsp) chunky peanut butter + 1 banana + 3 scoops rice protein powder. Standard recipe, macros reused directly from the August 1 post-workout shake baseline (same as the Aug 6 shake).",
     calories: 750, protein: 59, carbs: 46, fat: 22, sodium: 291 },
+  { date: "2026-09-03", time: "15:50", name: "365 Organic Reduced Fat & Sodium Popcorn", photo: "food-photos/2026-09-03-snack-popcorn-front-bag.jpeg",
+    description: "4 small (~8oz) paper coffee cups of popcorn — treated as ~4 label servings-by-volume (label serving is 3 2/3 cups/28g = 140 cal, an 8oz cup being ~1 US measuring cup). Label exact per-serving values (see food-photos/2026-09-03-snack-popcorn-nutrition-label.jpeg) scaled 4/3.667x: 140→153 cal, 6g→6.5g fat, 85mg→93mg sodium, 18g→20g carb (3g→3g fiber, 0g sugar), 3g→3g protein.",
+    calories: 153, protein: 3, carbs: 20, fat: 7, sodium: 93, sodiumNote: "Reduced-sodium variety — 55% less than Whole Foods' regular organic salted popcorn per the label." },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -1834,5 +1837,5 @@ const proteinData = [
   { date: "2026-08-31", value: 103, note: "partial — Whole Foods jerk chicken thigh, a full bottle of coconut water sipped through the Full-Body B workout, an after-gym Gai Roasted Chicken Bowl dinner, and half a Canada Dry ginger ale; day likely complete but not explicitly confirmed" },
   { date: "2026-09-01", value: 158, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a Chobani strawberry Greek yogurt, a SunChips Garden Salsa snack, a tuna salad/crackers (3 packs)/Chobani blueberry yogurt lunch, a That's It Apple + Cinnamon Crisps treat, a late ribeye/romaine/sweet potato dinner, and a before-bed stovetop popcorn snack" },
   { date: "2026-09-02", value: 152, note: "partial — Los Tacos No. 1 lunch (2 adobada + 1 carne asada), eggs-over-hard-and-sausage-patty breakfast (later than usual, ~2:35 PM), a SunChips Garden Salsa snack, an afternoon gummy bears/fruit crisps/Chobani yogurt snack, and an after-gym Gai Roasted Chicken Bowl dinner; day likely complete but not explicitly confirmed" },
-  { date: "2026-09-03", value: 122, note: "partial — grab-and-go PB&J sandwich + Chobani strawberry yogurt for breakfast (usual office cafe breakfast unavailable, kitchen closed), a tuna salad + 2 hard boiled eggs lunch, and a rice protein/PB/banana shake so far" }
+  { date: "2026-09-03", value: 125, note: "partial — grab-and-go PB&J sandwich + Chobani strawberry yogurt for breakfast (usual office cafe breakfast unavailable, kitchen closed), a tuna salad + 2 hard boiled eggs lunch, a rice protein/PB/banana shake, and a reduced-sodium popcorn snack so far" }
 ];
