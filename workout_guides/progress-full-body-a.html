@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full-Body A — Progress</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root {
+  --bg: #0f1115; --surface: #191c23; --surface-2: #21252e; --border: #2b303b;
+  --text: #e8eaf0; --muted: #9aa1b0; --accent: #4ade80; --accent-2: #60a5fa;
+  --warn: #fbbf24; --orange: #fb923c; --danger: #f87171; --radius: 14px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5; padding: 16px; max-width: 720px; margin: 0 auto;
+}
+a { color: var(--accent-2); }
+.back-link { display: inline-block; color: var(--muted); font-size: 0.85rem; margin-bottom: 14px; text-decoration: none; margin-right: 14px; }
+.back-link:hover { color: var(--text); }
+.guide-link { display: inline-block; color: var(--accent-2); font-size: 0.85rem; margin-bottom: 14px; text-decoration: none; }
+h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; text-align: center; }
+.subtitle { color: var(--muted); font-size: 0.9rem; text-align: center; margin-top: 6px; margin-bottom: 18px; }
+.section-note { color: var(--muted); font-size: 0.8rem; margin: -8px 4px 18px; text-align: center; }
+.summary-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; margin-bottom: 18px; }
+.summary-row { display: flex; justify-content: space-between; font-size: 0.88rem; padding: 7px 0; border-bottom: 1px solid var(--border); }
+.summary-row:last-child { border-bottom: none; }
+.summary-row .label { color: var(--muted); }
+.exercise-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; margin-bottom: 14px; }
+.exercise-name { font-size: 1.05rem; font-weight: 700; margin-bottom: 2px; }
+.exercise-meta { color: var(--muted); font-size: 0.8rem; margin-bottom: 12px; }
+.chart-wrap { position: relative; height: 200px; margin-bottom: 14px; }
+.session-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+.session-table th { text-align: left; color: var(--muted); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0 8px 6px 0; border-bottom: 1px solid var(--border); }
+.session-table td { padding: 8px 8px 8px 0; vertical-align: top; border-bottom: 1px solid var(--border); }
+.session-table tr:last-child td { border-bottom: none; }
+.set-pill { display: inline-block; background: var(--surface-2); border-radius: 6px; padding: 2px 7px; margin: 1px 3px 1px 0; font-size: 0.78rem; white-space: nowrap; }
+.session-note { color: var(--muted); font-size: 0.78rem; margin-top: 5px; font-style: italic; line-height: 1.4; }
+.empty-state { color: var(--muted); font-size: 0.9rem; text-align: center; padding: 40px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+/* Lock screen (identical to index.html's / the guides' — kept in sync by hand) */
+body.locked { overflow: hidden; }
+.lock-screen { position: fixed; inset: 0; z-index: 9999; background: var(--bg); display: flex; align-items: center; justify-content: center; padding: 20px; }
+.lock-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px 28px; width: 100%; max-width: 320px; text-align: center; }
+.lock-title { font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; }
+.lock-sub { color: var(--muted); font-size: 0.85rem; margin-bottom: 20px; }
+.lock-input { width: 100%; background: var(--surface-2); color: var(--text); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; font-size: 1rem; font-family: inherit; margin-bottom: 12px; }
+.lock-button { width: 100%; background: var(--accent-2); color: #0f1115; border: none; border-radius: 8px; padding: 10px 12px; font-size: 0.95rem; font-weight: 700; font-family: inherit; cursor: pointer; }
+.lock-error { color: var(--danger); font-size: 0.82rem; margin-top: 12px; }
+</style>
+</head>
+<body>
+
+<!-- CLAUDE REMINDER: This lock screen is a hand-kept copy of index.html's —
+     there are 4 files already carrying it (index.html + 3 guides), plus now
+     the 3 progress pages = 7 total. If the passphrase ever changes, update
+     all 7. Not real security, see index.html's own reminder for why. -->
+
+<div id="lockScreen" class="lock-screen">
+  <div class="lock-box">
+    <div class="lock-title">🔒 Workout Guide</div>
+    <div class="lock-sub">Enter the passphrase to continue</div>
+    <input type="password" id="lockInput" class="lock-input" placeholder="Passphrase" autocomplete="off" />
+    <button id="lockSubmit" class="lock-button" type="button">Unlock</button>
+    <div class="lock-error" id="lockError" style="display:none;">Wrong passphrase — try again.</div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var CORRECT_PASSPHRASE = 'FitBobby2026';
+  var lockScreen = document.getElementById('lockScreen');
+  var input = document.getElementById('lockInput');
+  var button = document.getElementById('lockSubmit');
+  var errorEl = document.getElementById('lockError');
+  function tryUnlock() {
+    if (input.value === CORRECT_PASSPHRASE) {
+      localStorage.setItem('fitnessUnlocked', 'true');
+      lockScreen.style.display = 'none';
+      document.body.classList.remove('locked');
+    } else {
+      errorEl.style.display = 'block';
+      input.value = '';
+      input.focus();
+    }
+  }
+  button.addEventListener('click', tryUnlock);
+  input.addEventListener('keydown', function (e) { if (e.key === 'Enter') tryUnlock(); });
+  if (localStorage.getItem('fitnessUnlocked') === 'true') {
+    lockScreen.style.display = 'none';
+  } else {
+    document.body.classList.add('locked');
+    setTimeout(function () { input.focus(); }, 50);
+  }
+})();
+</script>
+
+<div>
+  <a class="back-link" href="../index.html">&larr; Back to dashboard</a>
+  <a class="guide-link" href="2026-08-03-full-body-a-guide.html">📝 Open Guide</a>
+</div>
+<h1>Full-Body A — Progress</h1>
+<div class="subtitle">How each exercise is trending across every logged session</div>
+
+<div id="summaryCard"></div>
+<div id="exerciseCards"></div>
+
+<script src="../data.js"></script>
+<script>
+  const LABEL = "Full-Body A";
+
+  // Fuzzy match — same substring-both-directions logic as the guide pages'
+  // findLastWeight(), so an exercise that got renamed slightly (or had its
+  // equipment note appended/removed) between sessions still groups as one
+  // trend line instead of splintering into look-alike singletons. A
+  // genuinely different exercise (e.g. "Dumbbell Flat Bench Fly" being
+  // later split into "Dumbbell Fly — Close Pump" / "Dumbbell Fly — Wide
+  // Arc") correctly stays ungrouped since neither name is a substring of
+  // the other.
+  function namesMatch(a, b) {
+    const na = a.toLowerCase(), nb = b.toLowerCase();
+    return na.includes(nb) || nb.includes(na);
+  }
+
+  function feelEmoji(feel) {
+    if (feel === 'Easy') return '💪';
+    if (feel === 'Just right') return '🎯';
+    if (feel === 'Hard') return '😓';
+    if (feel === 'Too much') return '⚠️';
+    return '';
+  }
+
+  function fmtDate(d) {
+    const dt = new Date(d + 'T00:00:00');
+    return dt.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  }
+
+  function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  const sessions = gymWorkoutsData
+    .filter(s => s.label === LABEL)
+    .sort((a, b) => a.date.localeCompare(b.date));
+
+  const summaryEl = document.getElementById('summaryCard');
+  const cardsEl = document.getElementById('exerciseCards');
+
+  if (sessions.length === 0) {
+    cardsEl.innerHTML = '<div class="empty-state">No sessions logged against this guide yet. Once a session is saved from the guide page (or merged in from JSONBin), progress will show up here automatically.</div>';
+  } else {
+    const first = sessions[0], last = sessions[sessions.length - 1];
+    summaryEl.innerHTML = `
+      <div class="summary-card">
+        <div class="summary-row"><span class="label">Sessions logged</span><span>${sessions.length}</span></div>
+        <div class="summary-row"><span class="label">First session</span><span>${fmtDate(first.date)}</span></div>
+        <div class="summary-row"><span class="label">Most recent</span><span>${fmtDate(last.date)}</span></div>
+      </div>
+    `;
+
+    // Group exercises across sessions by fuzzy name match, in first-seen order.
+    const groups = [];
+    sessions.forEach(session => {
+      session.exercises.forEach(ex => {
+        const isHold = ex.sets.some(s => s.duration !== undefined);
+        let group = groups.find(g => g.isHold === isHold && namesMatch(g.displayName, ex.name));
+        if (!group) {
+          group = { displayName: ex.name, isHold, entries: [] };
+          groups.push(group);
+        }
+        group.displayName = ex.name; // keep most recent naming as the display label
+        group.entries.push({ date: session.date, sets: ex.sets, note: ex.note || '' });
+      });
+    });
+
+    // Chart.js dark-theme defaults — matches index.html's global setup.
+    const css = getComputedStyle(document.documentElement);
+    const C = {
+      muted:  css.getPropertyValue('--muted').trim(),
+      border: css.getPropertyValue('--border').trim(),
+      blue:   css.getPropertyValue('--accent-2').trim(),
+      green:  css.getPropertyValue('--accent').trim(),
+    };
+    Chart.defaults.color = C.muted;
+    Chart.defaults.borderColor = C.border;
+    Chart.defaults.font.family = getComputedStyle(document.body).fontFamily;
+
+    groups.forEach((g, idx) => {
+      const card = document.createElement('div');
+      card.className = 'exercise-card';
+      const canvasId = `chart-${idx}`;
+      const metricLabel = g.isHold ? 'sec' : 'lb';
+
+      const rowsHtml = [...g.entries].reverse().map(e => {
+        const setPills = e.sets.map((s, i) => {
+          if (g.isHold) {
+            if (s.duration == null) return `<span class="set-pill">Set ${i + 1}: skipped</span>`;
+            return `<span class="set-pill">Set ${i + 1}: ${s.duration}s ${feelEmoji(s.feel)}</span>`;
+          }
+          if (s.weight == null && s.reps == null) return `<span class="set-pill">Set ${i + 1}: skipped</span>`;
+          return `<span class="set-pill">Set ${i + 1}: ${s.reps}×${s.weight}lb ${feelEmoji(s.feel)}</span>`;
+        }).join('');
+        const noteHtml = e.note ? `<div class="session-note">${escapeHtml(e.note)}</div>` : '';
+        return `<tr><td>${fmtDate(e.date)}</td><td>${setPills}${noteHtml}</td></tr>`;
+      }).join('');
+
+      card.innerHTML = `
+        <div class="exercise-name">${escapeHtml(g.displayName)}</div>
+        <div class="exercise-meta">${g.entries.length} session${g.entries.length === 1 ? '' : 's'} logged${g.isHold ? ' · timed hold' : ''}</div>
+        <div class="chart-wrap"><canvas id="${canvasId}"></canvas></div>
+        <table class="session-table">
+          <thead><tr><th>Date</th><th>Sets</th></tr></thead>
+          <tbody>${rowsHtml}</tbody>
+        </table>
+      `;
+      cardsEl.appendChild(card);
+
+      const labels = g.entries.map(e => fmtDate(e.date));
+      const data = g.entries.map(e => {
+        const vals = e.sets.map(s => g.isHold ? s.duration : s.weight).filter(v => v != null);
+        return vals.length ? Math.max(...vals) : null;
+      });
+
+      new Chart(document.getElementById(canvasId), {
+        type: 'line',
+        data: {
+          labels,
+          datasets: [{
+            data,
+            borderColor: C.blue,
+            backgroundColor: C.blue,
+            pointBackgroundColor: C.blue,
+            pointRadius: 4,
+            pointHoverRadius: 6,
+            tension: 0.25,
+            spanGaps: true,
+          }],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: ctx => ctx.parsed.y == null ? 'Skipped' : `${ctx.parsed.y} ${metricLabel} (top set)` } },
+          },
+          scales: {
+            x: { grid: { display: false } },
+            y: { grid: { color: 'rgba(255,255,255,0.06)' }, ticks: { callback: v => v + ' ' + metricLabel } },
+          },
+        },
+      });
+    });
+  }
+</script>
+
+</body>
+</html>
