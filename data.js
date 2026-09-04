@@ -204,7 +204,7 @@ const calorieData = [
   { date: "2026-09-01", value: 2380, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a Chobani strawberry Greek yogurt, a SunChips Garden Salsa snack, a tuna salad/crackers (3 packs)/Chobani blueberry yogurt lunch, a That's It Apple + Cinnamon Crisps treat, a late ribeye/romaine/sweet potato dinner, and a before-bed stovetop popcorn snack" },
   { date: "2026-09-02", value: 2750, note: "partial — Los Tacos No. 1 lunch (2 adobada + 1 carne asada), eggs-over-hard-and-sausage-patty breakfast (later than usual, ~2:35 PM), a SunChips Garden Salsa snack, an afternoon gummy bears/fruit crisps/Chobani yogurt snack, and an after-gym Gai Roasted Chicken Bowl dinner; day likely complete but not explicitly confirmed" },
   { date: "2026-09-03", value: 2420, note: "final — grab-and-go PB&J sandwich + Chobani strawberry yogurt for breakfast (usual office cafe breakfast unavailable, kitchen closed), a tuna salad + 2 hard boiled eggs lunch, a rice protein/PB/banana shake, a reduced-sodium popcorn snack, and a grilled pork chop/sweet potato/corn/broccoli/salad dinner; ~20 over the 2,400 target" },
-  { date: "2026-09-04", value: 902, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani blueberry yogurt, and a tuna salad + 2 hard boiled eggs lunch so far" }
+  { date: "2026-09-04", value: 1042, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani blueberry yogurt, a tuna salad + 2 hard boiled eggs lunch, and a Sun Chips Garden Salsa snack so far" }
 ];
 
 const sleepData = [
@@ -1740,6 +1740,9 @@ const meals = [
   { date: "2026-09-04", time: "11:43", name: "Tuna Salad & 2 Hard Boiled Eggs", photo: "food-photos/2026-09-04-lunch-tuna-salad-eggs.jpeg",
     description: "Standard lunch: 0.34 lb tuna salad (with celery) + 2 whole hard boiled eggs. Same recurring combo and same weight as the Sep 3 lunch — macros reused directly.",
     calories: 442, protein: 39, carbs: 6, fat: 30, sodium: 736 },
+  { date: "2026-09-04", time: "12:02", name: "Sun Chips Garden Salsa", photo: "food-photos/2026-09-04-snack-sunchips-front.jpeg",
+    description: "1 oz package (1 serving per container), label exact — same product/rate as prior Sun Chips Garden Salsa entries, macros reused directly.",
+    calories: 140, protein: 2, carbs: 18, fat: 6, sodium: 140 },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -1848,5 +1851,5 @@ const proteinData = [
   { date: "2026-09-01", value: 158, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a Chobani strawberry Greek yogurt, a SunChips Garden Salsa snack, a tuna salad/crackers (3 packs)/Chobani blueberry yogurt lunch, a That's It Apple + Cinnamon Crisps treat, a late ribeye/romaine/sweet potato dinner, and a before-bed stovetop popcorn snack" },
   { date: "2026-09-02", value: 152, note: "partial — Los Tacos No. 1 lunch (2 adobada + 1 carne asada), eggs-over-hard-and-sausage-patty breakfast (later than usual, ~2:35 PM), a SunChips Garden Salsa snack, an afternoon gummy bears/fruit crisps/Chobani yogurt snack, and an after-gym Gai Roasted Chicken Bowl dinner; day likely complete but not explicitly confirmed" },
   { date: "2026-09-03", value: 177, note: "final — grab-and-go PB&J sandwich + Chobani strawberry yogurt for breakfast (usual office cafe breakfast unavailable, kitchen closed), a tuna salad + 2 hard boiled eggs lunch, a rice protein/PB/banana shake, a reduced-sodium popcorn snack, and a grilled pork chop/sweet potato/corn/broccoli/salad dinner; just 3g short of the 180g target" },
-  { date: "2026-09-04", value: 72, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani blueberry yogurt, and a tuna salad + 2 hard boiled eggs lunch so far" }
+  { date: "2026-09-04", value: 74, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani blueberry yogurt, a tuna salad + 2 hard boiled eggs lunch, and a Sun Chips Garden Salsa snack so far" }
 ];
