@@ -206,7 +206,7 @@ const calorieData = [
   { date: "2026-09-02", value: 2750, note: "partial — Los Tacos No. 1 lunch (2 adobada + 1 carne asada), eggs-over-hard-and-sausage-patty breakfast (later than usual, ~2:35 PM), a SunChips Garden Salsa snack, an afternoon gummy bears/fruit crisps/Chobani yogurt snack, and an after-gym Gai Roasted Chicken Bowl dinner; day likely complete but not explicitly confirmed" },
   { date: "2026-09-03", value: 2420, note: "final — grab-and-go PB&J sandwich + Chobani strawberry yogurt for breakfast (usual office cafe breakfast unavailable, kitchen closed), a tuna salad + 2 hard boiled eggs lunch, a rice protein/PB/banana shake, a reduced-sodium popcorn snack, and a grilled pork chop/sweet potato/corn/broccoli/salad dinner; ~20 over the 2,400 target" },
   { date: "2026-09-04", value: 1122, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani blueberry yogurt, a tuna salad + 2 hard boiled eggs lunch, a Sun Chips Garden Salsa snack, and 2 pouches of Black Forest Organic Gummy Bears so far" },
-  { date: "2026-09-08", value: 350, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast so far. Sep 5-7 (holiday weekend) not logged, by request." }
+  { date: "2026-09-08", value: 465, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast and a small popcorn snack so far. Sep 5-7 (holiday weekend) not logged, by request." }
 ];
 
 const sleepData = [
@@ -1755,6 +1755,9 @@ const meals = [
   { date: "2026-09-08", time: "09:28", name: "Eggs Over-Hard (No Salt) & Sausage Patty", photo: "food-photos/2026-09-08-breakfast-eggs-sausage.jpeg",
     description: "Usual breakfast, back on track after the holiday weekend (Sep 5-7 not logged, by request). 2 large eggs, over-hard, no salt + 1 breakfast sausage patty (~2oz) — same combo reused directly.",
     calories: 350, protein: 21, carbs: 2, fat: 29, sodium: 550 },
+  { date: "2026-09-08", time: "09:46", name: "Whole Foods 365 Organic Reduced Fat & Sodium Popcorn", photo: "food-photos/2026-09-08-snack-popcorn-cup.jpeg",
+    description: "3 small (~8oz) paper cups of popcorn — same product/formulation as the Sep 3 popcorn snack (identical label: 140 cal/6g fat/85mg sodium/18g carb/3g fiber/3g protein per 3 2/3-cup, 28g serving). Same per-cup scaling convention (1 small cup ≈ 1 label cup): 3/3.667 × label values.",
+    calories: 115, protein: 2, carbs: 15, fat: 5, sodium: 70 },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -1864,5 +1867,5 @@ const proteinData = [
   { date: "2026-09-02", value: 152, note: "partial — Los Tacos No. 1 lunch (2 adobada + 1 carne asada), eggs-over-hard-and-sausage-patty breakfast (later than usual, ~2:35 PM), a SunChips Garden Salsa snack, an afternoon gummy bears/fruit crisps/Chobani yogurt snack, and an after-gym Gai Roasted Chicken Bowl dinner; day likely complete but not explicitly confirmed" },
   { date: "2026-09-03", value: 177, note: "final — grab-and-go PB&J sandwich + Chobani strawberry yogurt for breakfast (usual office cafe breakfast unavailable, kitchen closed), a tuna salad + 2 hard boiled eggs lunch, a rice protein/PB/banana shake, a reduced-sodium popcorn snack, and a grilled pork chop/sweet potato/corn/broccoli/salad dinner; just 3g short of the 180g target" },
   { date: "2026-09-04", value: 74, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani blueberry yogurt, a tuna salad + 2 hard boiled eggs lunch, a Sun Chips Garden Salsa snack, and 2 pouches of Black Forest Organic Gummy Bears so far" },
-  { date: "2026-09-08", value: 21, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast so far. Sep 5-7 (holiday weekend) not logged, by request." }
+  { date: "2026-09-08", value: 23, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast and a small popcorn snack so far. Sep 5-7 (holiday weekend) not logged, by request." }
 ];
