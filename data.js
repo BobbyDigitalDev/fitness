@@ -205,7 +205,8 @@ const calorieData = [
   { date: "2026-09-01", value: 2380, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a Chobani strawberry Greek yogurt, a SunChips Garden Salsa snack, a tuna salad/crackers (3 packs)/Chobani blueberry yogurt lunch, a That's It Apple + Cinnamon Crisps treat, a late ribeye/romaine/sweet potato dinner, and a before-bed stovetop popcorn snack" },
   { date: "2026-09-02", value: 2750, note: "partial — Los Tacos No. 1 lunch (2 adobada + 1 carne asada), eggs-over-hard-and-sausage-patty breakfast (later than usual, ~2:35 PM), a SunChips Garden Salsa snack, an afternoon gummy bears/fruit crisps/Chobani yogurt snack, and an after-gym Gai Roasted Chicken Bowl dinner; day likely complete but not explicitly confirmed" },
   { date: "2026-09-03", value: 2420, note: "final — grab-and-go PB&J sandwich + Chobani strawberry yogurt for breakfast (usual office cafe breakfast unavailable, kitchen closed), a tuna salad + 2 hard boiled eggs lunch, a rice protein/PB/banana shake, a reduced-sodium popcorn snack, and a grilled pork chop/sweet potato/corn/broccoli/salad dinner; ~20 over the 2,400 target" },
-  { date: "2026-09-04", value: 1122, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani blueberry yogurt, a tuna salad + 2 hard boiled eggs lunch, a Sun Chips Garden Salsa snack, and 2 pouches of Black Forest Organic Gummy Bears so far" }
+  { date: "2026-09-04", value: 1122, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani blueberry yogurt, a tuna salad + 2 hard boiled eggs lunch, a Sun Chips Garden Salsa snack, and 2 pouches of Black Forest Organic Gummy Bears so far" },
+  { date: "2026-09-08", value: 350, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast so far. Sep 5-7 (holiday weekend) not logged, by request." }
 ];
 
 const sleepData = [
@@ -1751,6 +1752,9 @@ const meals = [
   { date: "2026-09-04", time: "12:14", name: "Black Forest Organic Gummy Bears", photo: "food-photos/2026-09-04-lunch-gummybears.jpeg",
     description: "2 pouches — same product as the Sep 2 snack, macros reused directly at the established rate (40 cal/9g carb/0g fat/0g protein/0mg sodium per 10g pouch, matches the That's It Fruit Crunchables rate).",
     calories: 80, protein: 0, carbs: 18, fat: 0, sodium: 0 },
+  { date: "2026-09-08", time: "09:28", name: "Eggs Over-Hard (No Salt) & Sausage Patty", photo: "food-photos/2026-09-08-breakfast-eggs-sausage.jpeg",
+    description: "Usual breakfast, back on track after the holiday weekend (Sep 5-7 not logged, by request). 2 large eggs, over-hard, no salt + 1 breakfast sausage patty (~2oz) — same combo reused directly.",
+    calories: 350, protein: 21, carbs: 2, fat: 29, sodium: 550 },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -1859,5 +1863,6 @@ const proteinData = [
   { date: "2026-09-01", value: 158, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a Chobani strawberry Greek yogurt, a SunChips Garden Salsa snack, a tuna salad/crackers (3 packs)/Chobani blueberry yogurt lunch, a That's It Apple + Cinnamon Crisps treat, a late ribeye/romaine/sweet potato dinner, and a before-bed stovetop popcorn snack" },
   { date: "2026-09-02", value: 152, note: "partial — Los Tacos No. 1 lunch (2 adobada + 1 carne asada), eggs-over-hard-and-sausage-patty breakfast (later than usual, ~2:35 PM), a SunChips Garden Salsa snack, an afternoon gummy bears/fruit crisps/Chobani yogurt snack, and an after-gym Gai Roasted Chicken Bowl dinner; day likely complete but not explicitly confirmed" },
   { date: "2026-09-03", value: 177, note: "final — grab-and-go PB&J sandwich + Chobani strawberry yogurt for breakfast (usual office cafe breakfast unavailable, kitchen closed), a tuna salad + 2 hard boiled eggs lunch, a rice protein/PB/banana shake, a reduced-sodium popcorn snack, and a grilled pork chop/sweet potato/corn/broccoli/salad dinner; just 3g short of the 180g target" },
-  { date: "2026-09-04", value: 74, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani blueberry yogurt, a tuna salad + 2 hard boiled eggs lunch, a Sun Chips Garden Salsa snack, and 2 pouches of Black Forest Organic Gummy Bears so far" }
+  { date: "2026-09-04", value: 74, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani blueberry yogurt, a tuna salad + 2 hard boiled eggs lunch, a Sun Chips Garden Salsa snack, and 2 pouches of Black Forest Organic Gummy Bears so far" },
+  { date: "2026-09-08", value: 21, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast so far. Sep 5-7 (holiday weekend) not logged, by request." }
 ];
