@@ -206,7 +206,7 @@ const calorieData = [
   { date: "2026-09-02", value: 2750, note: "partial — Los Tacos No. 1 lunch (2 adobada + 1 carne asada), eggs-over-hard-and-sausage-patty breakfast (later than usual, ~2:35 PM), a SunChips Garden Salsa snack, an afternoon gummy bears/fruit crisps/Chobani yogurt snack, and an after-gym Gai Roasted Chicken Bowl dinner; day likely complete but not explicitly confirmed" },
   { date: "2026-09-03", value: 2420, note: "final — grab-and-go PB&J sandwich + Chobani strawberry yogurt for breakfast (usual office cafe breakfast unavailable, kitchen closed), a tuna salad + 2 hard boiled eggs lunch, a rice protein/PB/banana shake, a reduced-sodium popcorn snack, and a grilled pork chop/sweet potato/corn/broccoli/salad dinner; ~20 over the 2,400 target" },
   { date: "2026-09-04", value: 1122, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani blueberry yogurt, a tuna salad + 2 hard boiled eggs lunch, a Sun Chips Garden Salsa snack, and 2 pouches of Black Forest Organic Gummy Bears so far" },
-  { date: "2026-09-08", value: 465, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast and a small popcorn snack so far. Sep 5-7 (holiday weekend) not logged, by request." }
+  { date: "2026-09-08", value: 921, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast, a small popcorn snack, and lunch (shrimp, hard boiled eggs, Chobani yogurt) so far. Sep 5-7 (holiday weekend) not logged, by request." }
 ];
 
 const sleepData = [
@@ -1758,6 +1758,9 @@ const meals = [
   { date: "2026-09-08", time: "09:46", name: "Whole Foods 365 Organic Reduced Fat & Sodium Popcorn", photo: "food-photos/2026-09-08-snack-popcorn-cup.jpeg",
     description: "3 small (~8oz) paper cups of popcorn — same product/formulation as the Sep 3 popcorn snack (identical label: 140 cal/6g fat/85mg sodium/18g carb/3g fiber/3g protein per 3 2/3-cup, 28g serving). Same per-cup scaling convention (1 small cup ≈ 1 label cup): 3/3.667 × label values.",
     calories: 115, protein: 2, carbs: 15, fat: 5, sodium: 70 },
+  { date: "2026-09-08", time: "11:53", name: "Shrimp, Hard Boiled Eggs & Chobani Blueberry Yogurt", photo: "food-photos/2026-09-08-lunch-shrimp.jpeg",
+    description: "0.36 lb (163g, scale-weighed) herb-seasoned shrimp, no butter/label — macros scaled from the established Aug 4 herb-seasoned-shrimp rate (180 cal/36g protein/2g carb/3g fat/350mg sodium per 0.33 lb). Made Here \"Eggs, Romaine\" pack, 2 hard boiled eggs + romaine (114g net wt, label exact — see food-photos/2026-09-08-lunch-egg-ingredients-label.jpeg). Chobani Greek Yogurt Blueberry, 1 container (150g), label exact.",
+    calories: 456, protein: 64, carbs: 18, fat: 13, sodium: 567, sodiumNote: "Shrimp estimate is scaled, not labeled — eggs and yogurt are exact from their labels." },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -1867,5 +1870,5 @@ const proteinData = [
   { date: "2026-09-02", value: 152, note: "partial — Los Tacos No. 1 lunch (2 adobada + 1 carne asada), eggs-over-hard-and-sausage-patty breakfast (later than usual, ~2:35 PM), a SunChips Garden Salsa snack, an afternoon gummy bears/fruit crisps/Chobani yogurt snack, and an after-gym Gai Roasted Chicken Bowl dinner; day likely complete but not explicitly confirmed" },
   { date: "2026-09-03", value: 177, note: "final — grab-and-go PB&J sandwich + Chobani strawberry yogurt for breakfast (usual office cafe breakfast unavailable, kitchen closed), a tuna salad + 2 hard boiled eggs lunch, a rice protein/PB/banana shake, a reduced-sodium popcorn snack, and a grilled pork chop/sweet potato/corn/broccoli/salad dinner; just 3g short of the 180g target" },
   { date: "2026-09-04", value: 74, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani blueberry yogurt, a tuna salad + 2 hard boiled eggs lunch, a Sun Chips Garden Salsa snack, and 2 pouches of Black Forest Organic Gummy Bears so far" },
-  { date: "2026-09-08", value: 23, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast and a small popcorn snack so far. Sep 5-7 (holiday weekend) not logged, by request." }
+  { date: "2026-09-08", value: 87, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast, a small popcorn snack, and lunch (shrimp, hard boiled eggs, Chobani yogurt) so far. Sep 5-7 (holiday weekend) not logged, by request." }
 ];
