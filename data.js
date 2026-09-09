@@ -207,7 +207,7 @@ const calorieData = [
   { date: "2026-09-03", value: 2420, note: "final — grab-and-go PB&J sandwich + Chobani strawberry yogurt for breakfast (usual office cafe breakfast unavailable, kitchen closed), a tuna salad + 2 hard boiled eggs lunch, a rice protein/PB/banana shake, a reduced-sodium popcorn snack, and a grilled pork chop/sweet potato/corn/broccoli/salad dinner; ~20 over the 2,400 target" },
   { date: "2026-09-04", value: 1122, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani blueberry yogurt, a tuna salad + 2 hard boiled eggs lunch, a Sun Chips Garden Salsa snack, and 2 pouches of Black Forest Organic Gummy Bears so far" },
   { date: "2026-09-08", value: 1588, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a small popcorn snack, lunch (shrimp, hard boiled eggs, Chobani yogurt), and dinner (panko-crusted self-caught fluke with a spring mix salad). Sep 5-7 (holiday weekend) not logged, by request." },
-  { date: "2026-09-09", value: 1510, note: "partial — no breakfast today; a Dainobu (56th St) chicken karaage over rice with spicy mayo, a Sesame Dango (5 pieces), and a Chobani blueberry yogurt for lunch so far." }
+  { date: "2026-09-09", value: 1625, note: "partial — no breakfast today; a Dainobu (56th St) chicken karaage over rice with spicy mayo, a Sesame Dango (5 pieces), and a Chobani blueberry yogurt for lunch, plus a small popcorn snack (3 cups) so far." }
 ];
 
 const sleepData = [
@@ -1768,6 +1768,9 @@ const meals = [
   { date: "2026-09-09", time: "13:00", name: "Dainobu Chicken Karaage over Rice, Sesame Dango & Chobani Blueberry Yogurt", photo: "food-photos/2026-09-09-lunch-karaage-rice.jpeg",
     description: "No breakfast today. Chicken karaage (fried, soy-marinated chicken thigh) over white rice with a spicy mayo drizzle, from Dainobu (56th St) — no receipt/menu, so averaged from 3 comparable restaurant chicken-karaage-rice-bowl references (~832 cal/28g protein/102g carb/33g fat average) plus the visible extra spicy mayo drizzle on top (~150 cal/15g fat). Sesame Dango, 5 pieces (99g package, black sesame paste-filled mochi balls) — our label's nutrition panel was torn/illegible, so scaled from the equivalent Sakuraya Sesame Dango product (80 cal/1g protein/14g carb/1.5g fat/30mg sodium per piece) × 5. Chobani Greek Yogurt Blueberry, 1 container (150g), label exact.",
     calories: 1510, protein: 45, carbs: 188, fat: 56, sodium: 1705, sodiumNote: "Karaage/rice/mayo and dango sodium are both estimated (soy marinade, mayo, and packaged-dango salt) — only the yogurt is label-exact. Wide-than-usual uncertainty since neither main item had a readable nutrition panel." },
+  { date: "2026-09-09", time: "16:30", name: "Whole Foods 365 Organic Reduced Fat & Sodium Popcorn", photo: "food-photos/2026-09-08-snack-popcorn-cup.jpeg",
+    description: "3 small (~8oz) paper cups of popcorn — same product/formulation/cup size as the Sep 3 and Sep 8 popcorn snacks (identical label: 140 cal/6g fat/85mg sodium/18g carb/3g fiber/3g protein per 3 2/3-cup, 28g serving). Same per-cup scaling convention: 3/3.667 × label values. Time is a rough placeholder — not logged live.",
+    calories: 115, protein: 2, carbs: 15, fat: 5, sodium: 70 },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -1878,5 +1881,5 @@ const proteinData = [
   { date: "2026-09-03", value: 177, note: "final — grab-and-go PB&J sandwich + Chobani strawberry yogurt for breakfast (usual office cafe breakfast unavailable, kitchen closed), a tuna salad + 2 hard boiled eggs lunch, a rice protein/PB/banana shake, a reduced-sodium popcorn snack, and a grilled pork chop/sweet potato/corn/broccoli/salad dinner; just 3g short of the 180g target" },
   { date: "2026-09-04", value: 74, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani blueberry yogurt, a tuna salad + 2 hard boiled eggs lunch, a Sun Chips Garden Salsa snack, and 2 pouches of Black Forest Organic Gummy Bears so far" },
   { date: "2026-09-08", value: 137, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a small popcorn snack, lunch (shrimp, hard boiled eggs, Chobani yogurt), and dinner (panko-crusted self-caught fluke with a spring mix salad). Sep 5-7 (holiday weekend) not logged, by request." },
-  { date: "2026-09-09", value: 45, note: "partial — no breakfast today; a Dainobu (56th St) chicken karaage over rice with spicy mayo, a Sesame Dango (5 pieces), and a Chobani blueberry yogurt for lunch so far." }
+  { date: "2026-09-09", value: 47, note: "partial — no breakfast today; a Dainobu (56th St) chicken karaage over rice with spicy mayo, a Sesame Dango (5 pieces), and a Chobani blueberry yogurt for lunch, plus a small popcorn snack (3 cups) so far." }
 ];
