@@ -1262,6 +1262,159 @@ const gymWorkoutsData = [
       }
     ],
     note: "Session against the Full-Body B guide (workout_guides/2026-08-03-full-body-b-guide.html) at Lifetime Gym, synced through JSONBin — startedAt 2026-09-02T22:18:13.739Z, endedAt 2026-09-02T23:24:06.057Z (6:18-7:24 PM EDT, ~66 min). Went to Gai Chicken & Rice for dinner afterward (Gai Roasted Chicken Bowl, logged separately at 8:06 PM — timing lines up with the ~40 min gap after this session ended). Romanian Deadlift: the guide's suggested starting numbers were wrong for this session — the barbells were occupied, so Bobby substituted 2x40lb dumbbells per hand (80lb total), which is why this reads lower than the Aug 31 session's 94lb; not a real strength regression, just an equipment substitution. vs. the Aug 31 session (previous Full-Body B): Seated Cable Row's top set moved up (115 lb/Hard vs. 110 lb/Hard) and Half-Kneeling DB Anti-Rotation Press is now a clean 20 lb across all 3 sets (up from starting at 15 lb) — real progress on both. Seated Shoulder Press and Flat/Machine Chest Press held the same top weight (40 lb and 80 lb respectively) but dropped from 15 to 12 reps on some sets — worth watching, though a single session isn't enough to call it a trend. No supplemental Fitbit \"Strength training\" auto-log screenshot sent for this one yet."
+  },
+  {
+    date: "2026-09-04",
+    gym: "Lifetime Gym",
+    label: "Full-Body C",
+    startTime: null,
+    endTime: "19:14",
+    duration: null,          // no startedAt captured this session, so duration can't be computed — see session note
+    exercises: [
+      {
+        name: "Incline Chest Press",
+        note: "",
+        sets: [
+          { reps: 15, weight: 20, feel: null },
+          { reps: 15, weight: 20, feel: null },
+          { reps: 15, weight: 25, feel: null }
+        ]
+      },
+      {
+        name: "Lat Pulldown",
+        note: "",
+        sets: [
+          { reps: 12, weight: 100, feel: null },
+          { reps: 12, weight: 110, feel: null },
+          { reps: 12, weight: 115, feel: null }
+        ]
+      },
+      {
+        name: "Leg Press",
+        note: "",
+        sets: [
+          { reps: 15, weight: 140, feel: null },
+          { reps: 15, weight: 160, feel: null },
+          { reps: 15, weight: 180, feel: null }
+        ]
+      },
+      {
+        name: "Leg Curl",
+        note: "",
+        sets: [
+          { reps: 15, weight: 60, feel: null },
+          { reps: 20, weight: 70, feel: null },
+          { reps: 15, weight: 80, feel: null }
+        ]
+      },
+      {
+        name: "Lateral Raises",
+        note: "",
+        sets: [
+          { reps: 15, weight: 10, feel: null },
+          { reps: 12, weight: 20, feel: null },
+          { reps: 12, weight: 20, feel: null }
+        ]
+      },
+      {
+        name: "Dumbbell Fly — Close Pump",
+        note: "I did 3 sets of these",
+        sets: [
+          { reps: 15, weight: 20, feel: null },
+          { reps: 15, weight: 25, feel: null }
+        ]
+      },
+      {
+        name: "Dumbbell Fly — Wide Arc",
+        note: "",
+        sets: [
+          { reps: 15, weight: 20, feel: null },
+          { reps: 15, weight: 20, feel: null }
+        ]
+      },
+      {
+        name: "Plank Shoulder Taps",
+        note: "",
+        sets: [
+          { duration: null, feel: null },
+          { duration: null, feel: null },
+          { duration: null, feel: null }
+        ]
+      }
+    ],
+    note: "Session against the Full-Body C guide (workout_guides/2026-08-03-full-body-c-guide.html) at Lifetime Gym, synced through JSONBin — no startedAt captured this time, endedAt 2026-09-04T23:14:52.419Z (7:14 PM EDT). Session duration unknown since no start time was logged. Dumbbell Fly — Close Pump: Bobby's note says he did 3 sets, but only 2 sets synced through the app (guide only has 2 set slots for this exercise) — the 3rd set's weight/reps aren't captured; flagged for Bobby to fill in if he wants it recorded. Plank Shoulder Taps: all 3 sets came through blank (no duration or feel) with no note — unclear whether this was skipped or just not logged; flagged for Bobby to confirm. Feel wasn't filled in for any set this session (all null) — every other field synced normally." },
+  {
+    date: "2026-09-08",
+    gym: "Lifetime Gym",
+    label: "Full-Body A",
+    startTime: "18:15",
+    endTime: "19:22",
+    duration: 67,           // minutes — from the app's own startedAt/endedAt via JSONBin
+    exercises: [
+      {
+        name: "Incline Chest Press",
+        note: "",
+        sets: [
+          { reps: 15, weight: 25, feel: "Just right" },
+          { reps: 15, weight: 25, feel: "Just right" },
+          { reps: 15, weight: 25, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Lat Pulldown",
+        note: "",
+        sets: [
+          { reps: 12, weight: 100, feel: "Just right" },
+          { reps: 12, weight: 105, feel: "Just right" },
+          { reps: 12, weight: 110, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Leg Press",
+        note: "",
+        sets: [
+          { reps: 12, weight: 140, feel: "Just right" },
+          { reps: 15, weight: 160, feel: "Just right" },
+          { reps: 15, weight: 180, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Lateral Raises",
+        note: "",
+        sets: [
+          { reps: 10, weight: 10, feel: "Easy" },
+          { reps: 15, weight: 15, feel: "Just right" },
+          { reps: 15, weight: 15, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Dumbbell Fly — Close Pump",
+        note: "Let's add one more rep to this k w",
+        sets: [
+          { reps: 15, weight: 25, feel: "Just right" },
+          { reps: 15, weight: 25, feel: null }
+        ]
+      },
+      {
+        name: "Dumbbell Fly — Wide Arc",
+        note: "Let's add a 3rd. I did 3 sets of 12 of 20lbs",
+        sets: [
+          { reps: 12, weight: 20, feel: null },
+          { reps: 12, weight: 20, feel: null },
+          { reps: 12, weight: 20, feel: null }
+        ]
+      },
+      {
+        name: "Forearm Plank",
+        note: "",
+        sets: [
+          { duration: null, feel: null },
+          { duration: null, feel: null },
+          { duration: null, feel: null }
+        ]
+      }
+    ],
+    note: "Session against the Full-Body A guide (workout_guides/2026-08-03-full-body-a-guide.html) at Lifetime Gym, synced through JSONBin — startedAt 2026-09-08T22:15:11.128Z, endedAt 2026-09-08T23:22:07.079Z (6:15-7:22 PM EDT, ~67 min). Dumbbell Fly — Wide Arc: Bobby's note said he did 3 sets of 12 reps at 20 lb — the guide only synced 2 sets, so the 3rd set (12@20) was added here from the note text, matching the pattern of the first 2. Dumbbell Fly — Close Pump: note reads \"Let's add one more rep to this k w\" — looks cut off/garbled partway through; flagged for Bobby to clarify. Forearm Plank: all 3 sets came through blank (no duration or feel) with no note — unclear whether this was skipped or just not logged; flagged for Bobby to confirm. vs. the Sep 4 Full-Body C session: Incline Chest Press moved up to a clean 25 lb across all 3 sets (up from 20/20/25), and Lat Pulldown/Leg Press both held their top weights — real progress across the board this session."
   }
 ];
 
