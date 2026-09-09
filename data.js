@@ -161,7 +161,8 @@ const weightData = [
   { date: "2026-08-31", value: 201.6, note: "via Fitbit 'You' tab daily summary, fasted status not specified — screenshot sent 2026-09-01 for the prior day. Up 0.4 lb from Aug 30's 201.2, within normal day-to-day noise." },
   { date: "2026-09-01", value: 201.8, note: "via Fitbit 'You' tab daily summary, fasted status not specified — screenshot sent 2026-09-02 for the prior day. Up 0.2 lb from Aug 31's 201.6, within normal day-to-day noise." },
   { date: "2026-09-02", value: 200.8, note: "via Fitbit 'You' tab daily summary, fasted status not specified — screenshot sent 2026-09-03 for the prior day. Down 1.0 lb from Sep 1's 201.8, first sub-201 reading since Aug 29's 201." },
-  { date: "2026-09-03", value: 201.2, note: "via Fitbit 'You' tab daily summary, fasted status not specified — screenshot sent 2026-09-04 for the prior day. Up 0.4 lb from Sep 2's 200.8, within normal day-to-day noise." }
+  { date: "2026-09-03", value: 201.2, note: "via Fitbit 'You' tab daily summary, fasted status not specified — screenshot sent 2026-09-04 for the prior day. Up 0.4 lb from Sep 2's 200.8, within normal day-to-day noise." },
+  { date: "2026-09-04", value: 201.6, note: "via Fitbit 'You' tab daily summary, fasted status not specified — backfilled from a Sep 4 screenshot. Up 0.4 lb from Sep 3's 201.2, within normal day-to-day noise." }
 ];
 
 const calorieData = [
@@ -252,7 +253,8 @@ const sleepData = [
   { date: "2026-08-31", hours: 8.3, score: 89, readiness: 56, note: "8h18m, Good score (89), but Daily Readiness dropped to 56 (Moderate) despite the solid sleep — Cardio Load 95 from the Full-Body B gym session likely the driver. Resting HR 63 bpm, HR range 53-140 bpm for the day. Screenshot only showed duration/score/readiness, no bedtime, wake time, sleep-stage breakdown, or oxygen variation this time." },
   { date: "2026-09-01", hours: 5.67, score: 89, readiness: 56, note: "5h40m, Good score (89), but Daily Readiness only 56 (Moderate) — Cardio Load 7, 3 of 5 exercise days this week. All 5 health metrics in personal range (BR, SpO2, RHR, HRV, skin temp variation); resting HR 63 bpm, HR range 54-123 bpm for the day. Screenshot only showed duration/score/readiness, no bedtime, wake time, sleep-stage breakdown, or oxygen variation this time." },
   { date: "2026-09-02", hours: 6.23, score: 87, readiness: 67, note: "6h14m, Great score (87), Daily Readiness 67 (High) — Cardio Load 63, 5 of 5 exercise days this week (full-week streak, new Fitbit week started Aug 30). 5 of 5 health metrics in personal range (BR, SpO2, RHR, HRV, skin temp variation); resting HR 62 bpm, HR range 50-135 bpm for the day. Screenshot only showed duration/score, no bedtime, wake time, sleep-stage breakdown, or oxygen variation this time." },
-  { date: "2026-09-03", hours: 6.67, score: 88, readiness: 67, bedtime: "23:44", wake: "06:59", deep: 110, rem: 77, light: 212, awake: 35, note: "6h40m, Good score (88), Daily Readiness 67 (High). 11:44 PM-6:59 AM — Awake 35 min, REM 1h17m, Light 3h32m, Deep 1h50m." }
+  { date: "2026-09-03", hours: 6.67, score: 88, readiness: 67, bedtime: "23:44", wake: "06:59", deep: 110, rem: 77, light: 212, awake: 35, note: "6h40m, Good score (88), Daily Readiness 67 (High). 11:44 PM-6:59 AM — Awake 35 min, REM 1h17m, Light 3h32m, Deep 1h50m." },
+  { date: "2026-09-04", hours: 6.95, score: 88, readiness: 68, note: "6h57m, Good score (88), Daily Readiness 68 (High). Screenshot only showed duration/score/readiness, no bedtime, wake time, sleep-stage breakdown, or oxygen variation this time." }
 ];
 
 const stepsData = [
@@ -295,7 +297,8 @@ const stepsData = [
   { date: "2026-08-31", value: 14567, distance: 6.97, calories: 3508, floors: 15, zoneMin: 131, note: "final EOD numbers via Fitbit app, viewed 2026-09-01 — Cardio Load 95, 2 of 5 exercise days this week, Daily Readiness 56 (Moderate). Includes the Full-Body B gym session (see gymWorkoutsData) and the pre/post-workout treadmill + gym-to-dinner walks (see walksData). 5 of 5 health metrics in personal range (BR, SpO2, RHR, HRV, skin temp variation); resting HR 63 bpm, HR range 53-140 bpm for the day." },
   { date: "2026-09-01", value: 9789, distance: 4.7, calories: 2901, floors: 18, zoneMin: 9, note: "final EOD numbers via Fitbit app, viewed 2026-09-02 — Cardio Load 7 (no target), 3 of 5 exercise days this week, Daily Readiness 56 (Moderate). Includes a 1.39mi tracked walk at 5:00 PM (38 min, see walksData). 5 of 5 health metrics in personal range (BR, SpO2, RHR, HRV, skin temp variation); resting HR 63 bpm, HR range 54-123 bpm for the day." },
   { date: "2026-09-02", value: 17779, distance: 8.44, calories: 3712, floors: 13, zoneMin: 67, note: "final EOD numbers via Fitbit app, viewed 2026-09-03 — Cardio Load 63, 5 of 5 exercise days this week (full-week streak), Daily Readiness 67 (High). Includes the Full-Body B gym session (see gymWorkoutsData), a treadmill warm-up/cool-down bracketing it, and several tracked walks (see walksData). 5 of 5 health metrics in personal range (BR, SpO2, RHR, HRV, skin temp variation); resting HR 62 bpm, HR range 50-135 bpm for the day." },
-  { date: "2026-09-03", value: 9277, distance: 4.38, calories: 2803, floors: 15, zoneMin: 3, note: "final EOD numbers via Fitbit app, viewed 2026-09-04 — Cardio Load 3 (no target), 5 of 5 exercise days this week (full-week streak). Includes an 11:32 AM tracked walk (1.2 mi, 44 min — see walksData). 5 of 5 health metrics in personal range (BR, SpO2, RHR, HRV, skin temp variation); resting HR 61 bpm, HR range 50-117 bpm for the day. Daily Readiness 67 (High)." }
+  { date: "2026-09-03", value: 9277, distance: 4.38, calories: 2803, floors: 15, zoneMin: 3, note: "final EOD numbers via Fitbit app, viewed 2026-09-04 — Cardio Load 3 (no target), 5 of 5 exercise days this week (full-week streak). Includes an 11:32 AM tracked walk (1.2 mi, 44 min — see walksData). 5 of 5 health metrics in personal range (BR, SpO2, RHR, HRV, skin temp variation); resting HR 61 bpm, HR range 50-117 bpm for the day. Daily Readiness 67 (High)." },
+  { date: "2026-09-04", value: 14715, distance: 7.07, calories: 3463, floors: 14, zoneMin: 10, note: "final EOD numbers via Fitbit app, backfilled from a Sep 4 screenshot — Cardio Load 21 (no target), 6 of 5 exercise days this week (goal exceeded). Includes a 12:21 PM tracked walk (2.31 mi, 52 min — see walksData). 5 of 5 health metrics in personal range (BR, SpO2, RHR, HRV, skin temp variation); resting HR 61 bpm, HR range 50-109 bpm for the day. Daily Readiness 68 (High)." }
 ];
 
 // Tracked runs. distance/pace/calories are from Strava (usually the full
@@ -570,6 +573,8 @@ const walksData = [
   { date: "2026-09-02", name: "Remainder of day's Fitbit distance", distance: 4.12, note: "Fills the gap between the day's 6 tracked walksData entries (0.62 + 0.83 + 1.02 + 0.52 + 0.62 + 0.71 = 4.32mi) and the day's total Fitbit distance (8.44mi from stepsData)." },
   { date: "2026-09-03", name: "Walk", distance: 1.2, duration: 44, note: "Fitbit, 11:32 AM · 1.2 mi · 44 min." },
   { date: "2026-09-03", name: "Remainder of day's Fitbit distance", distance: 3.18, note: "Fills the gap between the day's 1 tracked walksData entry (1.2mi) and the day's total Fitbit distance (4.38mi from stepsData)." },
+  { date: "2026-09-04", name: "Walk", distance: 2.31, duration: 52, note: "Fitbit, 12:21 PM · 2.31 mi · 52 min." },
+  { date: "2026-09-04", name: "Remainder of day's Fitbit distance", distance: 4.76, note: "Fills the gap between the day's 1 tracked walksData entry (2.31mi) and the day's total Fitbit distance (7.07mi from stepsData)." },
 ];
 
 // Gym workout sessions. One entry per session; exercises listed in order performed.
