@@ -520,7 +520,7 @@
   </div>
 
   <div class="card">
-    <h2><span class="dot blue"></span> Distance Traversed (mi)</h2>
+    <h2><span class="dot blue"></span> Daily Miles (mi)</h2>
     <div class="chart-wrap"><canvas id="walksChart"></canvas></div>
   </div>
 
@@ -1615,7 +1615,7 @@
       plugins: [targetLine(SLEEP_GOAL, C.danger, `Goal · ${SLEEP_GOAL}h`, 'yHours')],
     });
 
-    // ── 6. Distance Traversed — bar chart ────────────────────
+    // ── 6. Daily Miles — bar chart ────────────────────
     // Aggregate walksData by date (multiple walks on same day are summed),
     // scoped to the selected month first.
     const walksGrid = monthDayGrid(month);
@@ -1664,7 +1664,7 @@
     else walksChartInst = new Chart(document.getElementById('walksChart'), { ...walksConfig, plugins: [barValueLabels(v => v.toFixed(2) + ' mi')] });
 
     // ── 7. Runs & Walks — tracked-workout bar chart ───────────
-    // Separate from the Distance Traversed box above, which is the day's
+    // Separate from the Daily Miles box above, which is the day's
     // TOTAL ground covered (walksData, every day, gap-filled) — this box is
     // specific tracked SESSIONS only: dedicated GPS runs (runsData) plus
     // dedicated named walks from walksData (e.g. a tracked lunchtime walk),
@@ -1672,7 +1672,7 @@
     // generic "Remainder of day's Fitbit distance" filler entries and
     // non-walk/run activities (e.g. "Mowed the lawn") since those aren't a
     // run or a walk. 2026-08-24: extended from runs-only to include walks
-    // per Bobby's clarification — Distance Traversed stays untouched.
+    // per Bobby's clarification — Daily Miles stays untouched.
     const trackedRuns = runsData.filter(inMonth).map(r => ({ ...r, type: 'run' }));
     const trackedWalks = walksData
       .filter(inMonth)
