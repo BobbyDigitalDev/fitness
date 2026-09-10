@@ -211,7 +211,7 @@ const calorieData = [
   { date: "2026-09-03", value: 2420, note: "final — grab-and-go PB&J sandwich + Chobani strawberry yogurt for breakfast (usual office cafe breakfast unavailable, kitchen closed), a tuna salad + 2 hard boiled eggs lunch, a rice protein/PB/banana shake, a reduced-sodium popcorn snack, and a grilled pork chop/sweet potato/corn/broccoli/salad dinner; ~20 over the 2,400 target" },
   { date: "2026-09-04", value: 1122, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani blueberry yogurt, a tuna salad + 2 hard boiled eggs lunch, a Sun Chips Garden Salsa snack, and 2 pouches of Black Forest Organic Gummy Bears so far" },
   { date: "2026-09-08", value: 1588, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a small popcorn snack, lunch (shrimp, hard boiled eggs, Chobani yogurt), and dinner (panko-crusted self-caught fluke with a spring mix salad). Sep 5-7 (holiday weekend) not logged, by request." },
-  { date: "2026-09-09", value: 1625, note: "partial — no breakfast today; a Dainobu (56th St) chicken karaage over rice with spicy mayo, a Sesame Dango (5 pieces), and a Chobani blueberry yogurt for lunch, plus a small popcorn snack (3 cups) so far." }
+  { date: "2026-09-09", value: 3179, note: "final — no breakfast; a Dainobu (56th St) chicken karaage over rice with spicy mayo, a Sesame Dango (5 pieces), and a Chobani blueberry yogurt for lunch; a small popcorn snack (3 cups); a Trader Joe's trail mix snack; a rice protein/PB/almond milk shake (no banana); and a steak/avocado/broccoli/sweet potato/naan dinner. A big day, driven mainly by the shake and dinner." }
 ];
 
 const sleepData = [
@@ -1945,6 +1945,15 @@ const meals = [
   { date: "2026-09-09", time: "16:30", name: "Whole Foods 365 Organic Reduced Fat & Sodium Popcorn", photo: "food-photos/2026-09-08-snack-popcorn-cup.jpeg",
     description: "3 small (~8oz) paper cups of popcorn — same product/formulation/cup size as the Sep 3 and Sep 8 popcorn snacks (identical label: 140 cal/6g fat/85mg sodium/18g carb/3g fiber/3g protein per 3 2/3-cup, 28g serving). Same per-cup scaling convention: 3/3.667 × label values. Time is a rough placeholder — not logged live.",
     calories: 115, protein: 2, carbs: 15, fat: 5, sodium: 70 },
+  { date: "2026-09-09", time: "20:03", name: "Trader Joe's Trail Mix", photo: "food-photos/2026-09-09-snack-trailmix-bowl.jpeg",
+    description: "2 tbsp (~20g) of a nut-heavy Trader Joe's trail mix (almonds, walnuts, pistachios, pumpkin seeds, dried cranberries/cherries) — no label photo, estimated from a generic nuts+seeds+dried-fruit trail mix reference (~460 cal/100g) scaled to the small portion shown.",
+    calories: 90, protein: 2, carbs: 9, fat: 6, sodium: 30, sodiumNote: "Estimated — unclear if the nuts are salted; assumed lightly salted." },
+  { date: "2026-09-09", time: "20:21", name: "Rice Protein, Peanut Butter & Almond Milk Shake (No Banana)", photo: "food-photos/2026-09-09-shake-pb-almond-milk-rice-protein.jpeg",
+    description: "3 scoops rice protein + 3 tbsp chunky peanut butter + ice + almond milk, no banana — same recipe as the Aug 8 4:45 PM shake (3 tbsp PB, no banana), macros reused directly.",
+    calories: 740, protein: 62, carbs: 21, fat: 32, sodium: 365 },
+  { date: "2026-09-09", time: "20:31", name: "Steak, Avocado, Broccoli, Sweet Potato & Garlic Naan", photo: "food-photos/2026-09-09-dinner-steak-avocado-broccoli-sweetpotato-naan.jpeg",
+    description: "Pan-seared steak (~4-5oz cooked) topped with caramelized onions, a couple avocado slices, steamed broccoli, one round of roasted sweet potato, and a sliver of garlic naan — homemade, no label/receipt, all portions sized by eye from the photo. Rough visual estimate, not label-exact.",
+    calories: 724, protein: 44, carbs: 54, fat: 38, sodium: 454, sodiumNote: "Estimated throughout — naan and any salt on the steak/onions are the likely main sodium sources; no label to check against." },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -2055,5 +2064,5 @@ const proteinData = [
   { date: "2026-09-03", value: 177, note: "final — grab-and-go PB&J sandwich + Chobani strawberry yogurt for breakfast (usual office cafe breakfast unavailable, kitchen closed), a tuna salad + 2 hard boiled eggs lunch, a rice protein/PB/banana shake, a reduced-sodium popcorn snack, and a grilled pork chop/sweet potato/corn/broccoli/salad dinner; just 3g short of the 180g target" },
   { date: "2026-09-04", value: 74, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani blueberry yogurt, a tuna salad + 2 hard boiled eggs lunch, a Sun Chips Garden Salsa snack, and 2 pouches of Black Forest Organic Gummy Bears so far" },
   { date: "2026-09-08", value: 137, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a small popcorn snack, lunch (shrimp, hard boiled eggs, Chobani yogurt), and dinner (panko-crusted self-caught fluke with a spring mix salad). Sep 5-7 (holiday weekend) not logged, by request." },
-  { date: "2026-09-09", value: 47, note: "partial — no breakfast today; a Dainobu (56th St) chicken karaage over rice with spicy mayo, a Sesame Dango (5 pieces), and a Chobani blueberry yogurt for lunch, plus a small popcorn snack (3 cups) so far." }
+  { date: "2026-09-09", value: 155, note: "final — no breakfast; a Dainobu (56th St) chicken karaage over rice with spicy mayo, a Sesame Dango (5 pieces), and a Chobani blueberry yogurt for lunch; a small popcorn snack (3 cups); a Trader Joe's trail mix snack; a rice protein/PB/almond milk shake (no banana); and a steak/avocado/broccoli/sweet potato/naan dinner." }
 ];
