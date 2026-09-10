@@ -1327,6 +1327,7 @@ const gymWorkoutsData = [
         note: "I did 3 sets of these",
         sets: [
           { reps: 15, weight: 20, feel: null },
+          { reps: 15, weight: 25, feel: null },
           { reps: 15, weight: 25, feel: null }
         ]
       },
@@ -1348,7 +1349,7 @@ const gymWorkoutsData = [
         ]
       }
     ],
-    note: "Session against the Full-Body C guide (workout_guides/2026-08-03-full-body-c-guide.html) at Lifetime Gym, synced through JSONBin — no startedAt captured this time, endedAt 2026-09-04T23:14:52.419Z (7:14 PM EDT). Session duration unknown since no start time was logged. Dumbbell Fly — Close Pump: Bobby's note says he did 3 sets, but only 2 sets synced through the app (guide only has 2 set slots for this exercise) — the 3rd set's weight/reps aren't captured; flagged for Bobby to fill in if he wants it recorded. Plank Shoulder Taps: all 3 sets came through blank (no duration or feel) with no note — unclear whether this was skipped or just not logged; flagged for Bobby to confirm. Feel wasn't filled in for any set this session (all null) — every other field synced normally." },
+    note: "Session against the Full-Body C guide (workout_guides/2026-08-03-full-body-c-guide.html) at Lifetime Gym, synced through JSONBin — no startedAt captured this time, endedAt 2026-09-04T23:14:52.419Z (7:14 PM EDT). Session duration unknown since no start time was logged. Dumbbell Fly — Close Pump: Bobby's note says he did 3 sets, but only 2 sets synced through the app (guide only had 2 set slots for this exercise at the time) — the 3rd set (15@25) was added here per Bobby confirming it matched the 2nd set. Plank Shoulder Taps: all 3 sets came through blank (no duration or feel) with no note — unclear whether this was skipped or just not logged; flagged for Bobby to confirm. Feel wasn't filled in for any set this session (all null) — every other field synced normally." },
   {
     date: "2026-09-08",
     gym: "Lifetime Gym",
@@ -1420,7 +1421,7 @@ const gymWorkoutsData = [
         ]
       }
     ],
-    note: "Session against the Full-Body A guide (workout_guides/2026-08-03-full-body-a-guide.html) at Lifetime Gym, synced through JSONBin — startedAt 2026-09-08T22:15:11.128Z, endedAt 2026-09-08T23:22:07.079Z (6:15-7:22 PM EDT, ~67 min). Dumbbell Fly — Wide Arc: Bobby's note said he did 3 sets of 12 reps at 20 lb — the guide only synced 2 sets, so the 3rd set (12@20) was added here from the note text, matching the pattern of the first 2. Dumbbell Fly — Close Pump: note reads \"Let's add one more rep to this k w\" — looks cut off/garbled partway through; flagged for Bobby to clarify. Forearm Plank: all 3 sets came through blank (no duration or feel) with no note — unclear whether this was skipped or just not logged; flagged for Bobby to confirm. vs. the Sep 4 Full-Body C session: Incline Chest Press moved up to a clean 25 lb across all 3 sets (up from 20/20/25), and Lat Pulldown/Leg Press both held their top weights — real progress across the board this session."
+    note: "Session against the Full-Body A guide (workout_guides/2026-08-03-full-body-a-guide.html) at Lifetime Gym, synced through JSONBin — startedAt 2026-09-08T22:15:11.128Z, endedAt 2026-09-08T23:22:07.079Z (6:15-7:22 PM EDT, ~67 min). Dumbbell Fly — Wide Arc: Bobby's note said he did 3 sets of 12 reps at 20 lb — the guide only synced 2 sets, so the 3rd set (12@20) was added here from the note text, matching the pattern of the first 2. Dumbbell Fly — Close Pump: note reads \"Let's add one more rep to this k w\" — Bobby clarified this meant taking the exercise from 2 sets to 3 (the guide now has 3 set slots for Close Pump and Wide Arc, per build_workout_guide_pages.py). Forearm Plank: all 3 sets came through blank (no duration or feel) with no note — unclear whether this was skipped or just not logged; flagged for Bobby to confirm. vs. the Sep 4 Full-Body C session: Incline Chest Press moved up to a clean 25 lb across all 3 sets (up from 20/20/25), and Lat Pulldown/Leg Press both held their top weights — real progress across the board this session."
   }
 ];
 
