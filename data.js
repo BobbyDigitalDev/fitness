@@ -244,7 +244,7 @@ const calorieData = [
   { date: "2026-09-08", value: 1588, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a small popcorn snack, lunch (shrimp, hard boiled eggs, Chobani yogurt), and dinner (panko-crusted self-caught fluke with a spring mix salad). Sep 5-7 (holiday weekend) not logged, by request." },
   { date: "2026-09-09", value: 3179, note: "final — no breakfast; a Dainobu (56th St) chicken karaage over rice with spicy mayo, a Sesame Dango (5 pieces), and a Chobani blueberry yogurt for lunch; a small popcorn snack (3 cups); a Trader Joe's trail mix snack; a rice protein/PB/almond milk shake (no banana); and a steak/avocado/broccoli/sweet potato/naan dinner. A big day, driven mainly by the shake and dinner." },
   { date: "2026-09-10", value: 2200, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a rice protein/PB/banana shake, and 2 Mamoun's Falafel shawarma sandwiches for dinner." },
-  { date: "2026-09-11", value: 600, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast plus a Chobani strawberry yogurt and a Sun Chips Garden Salsa bag so far." }
+  { date: "2026-09-11", value: 1370, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast, a Chobani strawberry yogurt, a Sun Chips Garden Salsa bag, and a lunch of chicken salad, jerk shrimp, and a second Chobani strawberry yogurt so far." }
 ];
 
 const sleepData = [
@@ -2068,6 +2068,9 @@ const meals = [
   { date: "2026-09-11", time: "09:33", name: "Eggs Over-Hard (No Salt), Sausage Patty, Chobani Strawberry Yogurt & Sun Chips Garden Salsa", photo: "food-photos/2026-09-11-breakfast-eggs-sausage.jpeg",
     description: "Usual breakfast: 2 large eggs, over-hard, no salt + 1 breakfast sausage patty (~2oz), macros reused directly. Plus a Chobani Non-Fat Greek Yogurt, Strawberry on the Bottom (150g container), label-exact. Plus a Sun Chips Garden Salsa 1oz single-serve bag, label-exact — same product/rate as prior Sun Chips Garden Salsa entries, macros reused directly.",
     calories: 600, protein: 34, carbs: 35, fat: 35, sodium: 745, sodiumNote: "Sausage patty (550mg) is the main sodium source; yogurt (55mg) and chips (140mg) are minor, both label-exact." },
+  { date: "2026-09-11", time: "12:15", name: "Chicken Salad, Jerk Shrimp & Chobani Strawberry Yogurt", photo: "food-photos/2026-09-11-lunch-chickensalad-scale.jpeg",
+    description: "Deli chicken salad (0.36 lb / 163g, mayo-based, from a self-serve case — no label, generic-reference estimate at ~300 cal/100g for a mayo-heavy deli-style chicken salad) and Jerk Shrimp (0.31 lb / 141g, soy-marinade per the case label's allergen note — scaled from the established herb-seasoned-shrimp baseline but with carbs/sodium bumped up for the jerk marinade's sugar and soy sauce). Plus a second Chobani Non-Fat Greek Yogurt, Strawberry on the Bottom (150g), label-exact, same product as this morning's breakfast yogurt.",
+    calories: 770, protein: 73, carbs: 25, fat: 44, sodium: 1240, sodiumNote: "Estimated for both the chicken salad and shrimp — no labels for either, deli case only listed allergens (shrimp: soy). Chicken salad's mayo content is the largest sodium contributor." },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -2180,5 +2183,5 @@ const proteinData = [
   { date: "2026-09-08", value: 137, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a small popcorn snack, lunch (shrimp, hard boiled eggs, Chobani yogurt), and dinner (panko-crusted self-caught fluke with a spring mix salad). Sep 5-7 (holiday weekend) not logged, by request." },
   { date: "2026-09-09", value: 155, note: "final — no breakfast; a Dainobu (56th St) chicken karaage over rice with spicy mayo, a Sesame Dango (5 pieces), and a Chobani blueberry yogurt for lunch; a small popcorn snack (3 cups); a Trader Joe's trail mix snack; a rice protein/PB/almond milk shake (no banana); and a steak/avocado/broccoli/sweet potato/naan dinner." },
   { date: "2026-09-10", value: 140, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a rice protein/PB/banana shake, and 2 Mamoun's Falafel shawarma sandwiches for dinner." },
-  { date: "2026-09-11", value: 34, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast plus a Chobani strawberry yogurt and a Sun Chips Garden Salsa bag so far." }
+  { date: "2026-09-11", value: 107, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast, a Chobani strawberry yogurt, a Sun Chips Garden Salsa bag, and a lunch of chicken salad, jerk shrimp, and a second Chobani strawberry yogurt so far." }
 ];
