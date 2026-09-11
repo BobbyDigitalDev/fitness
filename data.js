@@ -243,7 +243,8 @@ const calorieData = [
   { date: "2026-09-04", value: 1122, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani blueberry yogurt, a tuna salad + 2 hard boiled eggs lunch, a Sun Chips Garden Salsa snack, and 2 pouches of Black Forest Organic Gummy Bears so far" },
   { date: "2026-09-08", value: 1588, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a small popcorn snack, lunch (shrimp, hard boiled eggs, Chobani yogurt), and dinner (panko-crusted self-caught fluke with a spring mix salad). Sep 5-7 (holiday weekend) not logged, by request." },
   { date: "2026-09-09", value: 3179, note: "final — no breakfast; a Dainobu (56th St) chicken karaage over rice with spicy mayo, a Sesame Dango (5 pieces), and a Chobani blueberry yogurt for lunch; a small popcorn snack (3 cups); a Trader Joe's trail mix snack; a rice protein/PB/almond milk shake (no banana); and a steak/avocado/broccoli/sweet potato/naan dinner. A big day, driven mainly by the shake and dinner." },
-  { date: "2026-09-10", value: 2200, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a rice protein/PB/banana shake, and 2 Mamoun's Falafel shawarma sandwiches for dinner." }
+  { date: "2026-09-10", value: 2200, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a rice protein/PB/banana shake, and 2 Mamoun's Falafel shawarma sandwiches for dinner." },
+  { date: "2026-09-11", value: 600, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast plus a Chobani strawberry yogurt and a Sun Chips Garden Salsa bag so far." }
 ];
 
 const sleepData = [
@@ -2064,6 +2065,9 @@ const meals = [
     description: "2 traditional lamb shawarma sandwiches from Mamoun's Falafel (mamouns.com/menu) — thinly sliced rotisserie lamb in pita with lettuce, tomato, pickles, and a creamy garlic sauce (per the photo; Mamoun's traditional sandwiches normally come with tahineh, but this one looks like the garlic sauce swap/addition). Mamoun's doesn't publish nutrition facts, so this is a generic-reference estimate for a fully-loaded lamb shawarma pita sandwich (~550 cal/30g protein/55g carb/25g fat each, published ranges run 400-700 cal depending on sauce/bread), doubled for 2 sandwiches — wider-than-usual estimate. Confirmed by Bobby as Sep 10 dinner.",
     calories: 1100, protein: 60, carbs: 110, fat: 50, sodium: 1800, sodiumNote: "Estimated — garlic/tahineh sauce and pita are the likely main sodium sources; no Mamoun's nutrition label exists to check against.",
     note: "Photo received but not saved to food-photos — the upload didn't sync to the file system this session; re-send if you want it archived." },
+  { date: "2026-09-11", time: "09:33", name: "Eggs Over-Hard (No Salt), Sausage Patty, Chobani Strawberry Yogurt & Sun Chips Garden Salsa", photo: "food-photos/2026-09-11-breakfast-eggs-sausage.jpeg",
+    description: "Usual breakfast: 2 large eggs, over-hard, no salt + 1 breakfast sausage patty (~2oz), macros reused directly. Plus a Chobani Non-Fat Greek Yogurt, Strawberry on the Bottom (150g container), label-exact. Plus a Sun Chips Garden Salsa 1oz single-serve bag, label-exact — same product/rate as prior Sun Chips Garden Salsa entries, macros reused directly.",
+    calories: 600, protein: 34, carbs: 35, fat: 35, sodium: 745, sodiumNote: "Sausage patty (550mg) is the main sodium source; yogurt (55mg) and chips (140mg) are minor, both label-exact." },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -2175,5 +2179,6 @@ const proteinData = [
   { date: "2026-09-04", value: 74, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani blueberry yogurt, a tuna salad + 2 hard boiled eggs lunch, a Sun Chips Garden Salsa snack, and 2 pouches of Black Forest Organic Gummy Bears so far" },
   { date: "2026-09-08", value: 137, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a small popcorn snack, lunch (shrimp, hard boiled eggs, Chobani yogurt), and dinner (panko-crusted self-caught fluke with a spring mix salad). Sep 5-7 (holiday weekend) not logged, by request." },
   { date: "2026-09-09", value: 155, note: "final — no breakfast; a Dainobu (56th St) chicken karaage over rice with spicy mayo, a Sesame Dango (5 pieces), and a Chobani blueberry yogurt for lunch; a small popcorn snack (3 cups); a Trader Joe's trail mix snack; a rice protein/PB/almond milk shake (no banana); and a steak/avocado/broccoli/sweet potato/naan dinner." },
-  { date: "2026-09-10", value: 140, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a rice protein/PB/banana shake, and 2 Mamoun's Falafel shawarma sandwiches for dinner." }
+  { date: "2026-09-10", value: 140, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a rice protein/PB/banana shake, and 2 Mamoun's Falafel shawarma sandwiches for dinner." },
+  { date: "2026-09-11", value: 34, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast plus a Chobani strawberry yogurt and a Sun Chips Garden Salsa bag so far." }
 ];
