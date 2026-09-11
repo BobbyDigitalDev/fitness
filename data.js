@@ -166,7 +166,9 @@ const weightData = [
   { date: "2026-09-05", value: 200.8, note: "via Fitbit 'You' tab daily summary, fasted status not specified — backfilled from a Sep 5 screenshot. Down 0.8 lb from Sep 4's 201.6." },
   { date: "2026-09-06", value: 204.0, note: "via Fitbit 'You' tab daily summary, fasted status not specified — backfilled from a Sep 6 screenshot. Up 3.2 lb from Sep 5's 200.8, a bigger jump than the usual day-to-day noise — holiday weekend, meals not logged." },
   { date: "2026-09-08", value: 202.6, note: "via Fitbit 'You' tab daily summary, fasted status not specified — backfilled from a Sep 9 screenshot labeled 'Yesterday'. Down 1.4 lb from Sep 6's 204.0 (no new weigh-in shown Sep 7), back close to the pre-holiday-weekend range. Meals resumed logging this day." },
-  { date: "2026-09-09", value: 201.6, note: "via Fitbit 'You' tab daily summary, fasted status not specified — backfilled from a Sep 10 screenshot labeled 'Yesterday'. Down 1.0 lb from Sep 8's 202.6." }
+  { date: "2026-09-09", value: 201.6, note: "via Fitbit 'You' tab daily summary, fasted status not specified — backfilled from a Sep 10 screenshot labeled 'Yesterday'. Down 1.0 lb from Sep 8's 202.6." },
+  { date: "2026-09-10", value: 201.6, note: "via Fitbit Weight page 30-day trend/weekly list, fasted status not specified — backfilled from a Sep 11 screenshot. Flat vs. Sep 9's 201.6." },
+  { date: "2026-09-11", value: 201, note: "via Fitbit Weight page 30-day trend/weekly list, fasted status not specified — same-day entry. Down 0.6 lb from Sep 10's 201.6." }
 ];
 
 const calorieData = [
