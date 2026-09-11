@@ -1464,7 +1464,7 @@ const gymWorkoutsData = [
         sets: [
           { reps: 12, weight: 15, feel: "Just right" },
           { reps: 15, weight: 20, feel: "Just right" },
-          { reps: null, weight: 20, feel: "Just right" }
+          { reps: 15, weight: 20, feel: "Just right" }
         ]
       },
       {
@@ -1486,7 +1486,7 @@ const gymWorkoutsData = [
         ]
       }
     ],
-    note: "Session against the Full-Body B guide (workout_guides/2026-08-03-full-body-b-guide.html) at Lifetime Gym, synced through JSONBin — startedAt 2026-09-10T22:10:09.062Z, endedAt 2026-09-10T23:18:48.397Z (6:10-7:18 PM EDT, ~69 min). Rear Delt Fly: Bobby swapped the prescribed seated/machine version for an incline-bench chest-supported dumbbell fly instead, per his note — form cue and photo may be worth revisiting to match how he's actually doing it. 3rd set's rep count came through null (weight 20, feel 'Just right' both synced) — flagged for Bobby to fill in if he remembers. Otherwise a clean, fully-logged session — Romanian Deadlift went heavier (up to 115 lb) now that a bar rack was free."
+    note: "Session against the Full-Body B guide (workout_guides/2026-08-03-full-body-b-guide.html) at Lifetime Gym, synced through JSONBin — startedAt 2026-09-10T22:10:09.062Z, endedAt 2026-09-10T23:18:48.397Z (6:10-7:18 PM EDT, ~69 min). Rear Delt Fly: Bobby swapped the prescribed seated/machine version for an incline-bench chest-supported dumbbell fly instead, per his note — form cue and photo may be worth revisiting to match how he's actually doing it. 3rd set's rep count came through null in the app — Bobby confirmed it matched the 2nd set (15 reps @ 20 lb), filled in here. Otherwise a clean, fully-logged session — Romanian Deadlift went heavier (up to 115 lb) now that a bar rack was free."
   }
 ];
 
