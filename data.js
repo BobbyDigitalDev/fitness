@@ -131,6 +131,34 @@
 //                    truth; Cowork sessions should keep reading them directly rather than
 //                    expecting this file to carry that context.)
 
+// Pre-tracking historical weigh-ins (May-Jun 2026), from a Fitbit Weight
+// page screenshot sent 2026-09-11 — predates weightData's Jul 23 start.
+// Reference only: NOT wired into any chart or the "inMonth" dashboard
+// filter (Bobby doesn't want this surfaced on the dashboard even if May/Jun
+// is selected from the month dropdown) — kept here purely so future
+// before/after comparisons have real numbers to point to. Weekly averages
+// per the screenshot: May 17-23 avg 203.5, May 24-30 avg 203.7, Jun 7-13
+// avg 204.8, Jun 14-20 avg 204.9 (the stretch's peak), Jun 21-27 avg 203.5.
+const preTrackingWeightData = [
+  { date: "2026-05-23", value: 201.8 },
+  { date: "2026-05-24", value: 202.4 },
+  { date: "2026-05-27", value: 204.2 },
+  { date: "2026-05-28", value: 204.8 },
+  { date: "2026-06-08", value: 205 },
+  { date: "2026-06-09", value: 206 },
+  { date: "2026-06-10", value: 204.8 },
+  { date: "2026-06-12", value: 203.8 },
+  { date: "2026-06-15", value: 206.2 },
+  { date: "2026-06-16", value: 204.4 },
+  { date: "2026-06-17", value: 204.6 },
+  { date: "2026-06-18", value: 205.2 },
+  { date: "2026-06-19", value: 205 },
+  { date: "2026-06-20", value: 204.6 },
+  { date: "2026-06-22", value: 200.6 },
+  { date: "2026-06-23", value: 203.2 },
+  { date: "2026-06-25", value: 205.6 }
+];
+
 const weightData = [
   { date: "2026-07-23", value: 203.2, note: "morning fasted" },
   { date: "2026-07-25", value: 204.6, note: "afternoon non-fasted — exclude from trend" },
