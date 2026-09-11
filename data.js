@@ -2070,7 +2070,7 @@ const meals = [
     calories: 600, protein: 34, carbs: 35, fat: 35, sodium: 745, sodiumNote: "Sausage patty (550mg) is the main sodium source; yogurt (55mg) and chips (140mg) are minor, both label-exact." },
   { date: "2026-09-11", time: "12:15", name: "Chicken Salad, Jerk Shrimp & Chobani Strawberry Yogurt", photo: "food-photos/2026-09-11-lunch-chickensalad-scale.jpeg",
     description: "Deli chicken salad (0.36 lb / 163g, mayo-based, from a self-serve case — no label, generic-reference estimate at ~300 cal/100g for a mayo-heavy deli-style chicken salad) and Jerk Shrimp (0.31 lb / 141g, soy-marinade per the case label's allergen note — scaled from the established herb-seasoned-shrimp baseline but with carbs/sodium bumped up for the jerk marinade's sugar and soy sauce). Plus a second Chobani Non-Fat Greek Yogurt, Strawberry on the Bottom (150g), label-exact, same product as this morning's breakfast yogurt.",
-    calories: 770, protein: 73, carbs: 25, fat: 44, sodium: 1240, sodiumNote: "Estimated for both the chicken salad and shrimp — no labels for either, deli case only listed allergens (shrimp: soy). Chicken salad's mayo content is the largest sodium contributor." },
+    calories: 770, protein: 73, carbs: 25, fat: 44, sodium: 1240, sodiumNote: "Weights are exact (0.36 lb chicken salad, 0.31 lb shrimp, both from the photo scale readings) — the per-gram nutrition rate is estimated since neither product has a label, only the deli case's allergen tags (shrimp: soy). Chicken salad's mayo content is the largest sodium contributor." },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
