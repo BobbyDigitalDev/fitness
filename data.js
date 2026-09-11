@@ -1422,6 +1422,71 @@ const gymWorkoutsData = [
       }
     ],
     note: "Session against the Full-Body A guide (workout_guides/2026-08-03-full-body-a-guide.html) at Lifetime Gym, synced through JSONBin — startedAt 2026-09-08T22:15:11.128Z, endedAt 2026-09-08T23:22:07.079Z (6:15-7:22 PM EDT, ~67 min). Dumbbell Fly — Wide Arc: Bobby's note said he did 3 sets of 12 reps at 20 lb — the guide only synced 2 sets, so the 3rd set (12@20) was added here from the note text, matching the pattern of the first 2. Dumbbell Fly — Close Pump: note reads \"Let's add one more rep to this k w\" — Bobby clarified this meant taking the exercise from 2 sets to 3 (the guide now has 3 set slots for Close Pump and Wide Arc, per build_workout_guide_pages.py). Forearm Plank: all 3 sets came through blank (no duration or feel) with no note — unclear whether this was skipped or just not logged; flagged for Bobby to confirm. vs. the Sep 4 Full-Body C session: Incline Chest Press moved up to a clean 25 lb across all 3 sets (up from 20/20/25), and Lat Pulldown/Leg Press both held their top weights — real progress across the board this session."
+  },
+  {
+    date: "2026-09-10",
+    gym: "Lifetime Gym",
+    label: "Full-Body B",
+    startTime: "18:10",
+    endTime: "19:18",
+    duration: 69,           // minutes — from the app's own startedAt/endedAt via JSONBin
+    exercises: [
+      {
+        name: "Seated Shoulder Press",
+        note: "",
+        sets: [
+          { reps: 12, weight: 40, feel: "Just right" },
+          { reps: 12, weight: 40, feel: "Just right" },
+          { reps: 12, weight: 40, feel: "Hard" }
+        ]
+      },
+      {
+        name: "Seated Cable Row",
+        note: "",
+        sets: [
+          { reps: 15, weight: 90, feel: "Just right" },
+          { reps: 15, weight: 110, feel: "Just right" },
+          { reps: 15, weight: 115, feel: "Hard" }
+        ]
+      },
+      {
+        name: "Romanian Deadlift",
+        note: "I was able to get a bar rack this time so I went heavy again",
+        sets: [
+          { reps: 12, weight: 95, feel: "Just right" },
+          { reps: 12, weight: 95, feel: "Just right" },
+          { reps: 10, weight: 115, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Rear Delt Fly",
+        note: "I didn't do these while seated on a chair. I did them on an angled bench laying chest first. I've seen it done like this in the gym and online.",
+        sets: [
+          { reps: 12, weight: 15, feel: "Just right" },
+          { reps: 15, weight: 20, feel: "Just right" },
+          { reps: null, weight: 20, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Flat/Machine Chest Press",
+        note: "",
+        sets: [
+          { reps: 15, weight: 60, feel: "Just right" },
+          { reps: 12, weight: 70, feel: "Just right" },
+          { reps: 15, weight: 80, feel: "Hard" }
+        ]
+      },
+      {
+        name: "Half-Kneeling DB Anti-Rotation Press",
+        note: "",
+        sets: [
+          { reps: 15, weight: 20, feel: "Just right" },
+          { reps: 15, weight: 20, feel: "Just right" },
+          { reps: 15, weight: 20, feel: "Just right" }
+        ]
+      }
+    ],
+    note: "Session against the Full-Body B guide (workout_guides/2026-08-03-full-body-b-guide.html) at Lifetime Gym, synced through JSONBin — startedAt 2026-09-10T22:10:09.062Z, endedAt 2026-09-10T23:18:48.397Z (6:10-7:18 PM EDT, ~69 min). Rear Delt Fly: Bobby swapped the prescribed seated/machine version for an incline-bench chest-supported dumbbell fly instead, per his note — form cue and photo may be worth revisiting to match how he's actually doing it. 3rd set's rep count came through null (weight 20, feel 'Just right' both synced) — flagged for Bobby to fill in if he remembers. Otherwise a clean, fully-logged session — Romanian Deadlift went heavier (up to 115 lb) now that a bar rack was free."
   }
 ];
 
