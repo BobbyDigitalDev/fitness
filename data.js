@@ -1526,6 +1526,89 @@ const gymWorkoutsData = [
       }
     ],
     note: "Session against the Full-Body B guide (workout_guides/2026-08-03-full-body-b-guide.html) at Lifetime Gym, synced through JSONBin — startedAt 2026-09-10T22:10:09.062Z, endedAt 2026-09-10T23:18:48.397Z (6:10-7:18 PM EDT, ~69 min). Rear Delt Fly: Bobby swapped the prescribed seated/machine version for an incline-bench chest-supported dumbbell fly instead, per his note — form cue and photo may be worth revisiting to match how he's actually doing it. 3rd set's rep count came through null in the app — Bobby confirmed it matched the 2nd set (15 reps @ 20 lb), filled in here. Otherwise a clean, fully-logged session — Romanian Deadlift went heavier (up to 115 lb) now that a bar rack was free."
+  },
+  {
+    date: "2026-09-12",
+    gym: "Lifetime Gym",
+    label: "Full-Body C",
+    startTime: "12:28",
+    endTime: "13:49",
+    duration: 82,           // minutes — from the app's own startedAt/endedAt via JSONBin
+    exercises: [
+      {
+        name: "Incline Chest Press",
+        note: "",
+        sets: [
+          { reps: 15, weight: 25, feel: "Just right" },
+          { reps: 15, weight: 25, feel: "Just right" },
+          { reps: 16, weight: 25, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Lat Pulldown",
+        note: "",
+        sets: [
+          { reps: 15, weight: 100, feel: "Just right" },
+          { reps: 15, weight: 110, feel: "Just right" },
+          { reps: 15, weight: 110, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Leg Press",
+        note: "",
+        sets: [
+          { reps: 15, weight: 140, feel: "Just right" },
+          { reps: 15, weight: 160, feel: "Just right" },
+          { reps: 15, weight: 180, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Leg Curl",
+        note: "",
+        sets: [
+          { reps: 15, weight: 60, feel: "Just right" },
+          { reps: 15, weight: 70, feel: "Just right" },
+          { reps: 15, weight: 80, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Lateral Raises",
+        note: "",
+        sets: [
+          { reps: 15, weight: 10, feel: "Just right" },
+          { reps: 15, weight: 15, feel: "Hard" },
+          { reps: 15, weight: 15, feel: "Hard" }
+        ]
+      },
+      {
+        name: "Dumbbell Fly — Close Pump",
+        note: "This weight is per hand",
+        sets: [
+          { reps: 15, weight: 25, feel: "Just right" },
+          { reps: 15, weight: 30, feel: "Just right" },
+          { reps: 15, weight: 30, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Dumbbell Fly — Wide Arc",
+        note: "",
+        sets: [
+          { reps: 15, weight: 20, feel: "Just right" },
+          { reps: 15, weight: 20, feel: "Just right" },
+          { reps: 15, weight: 20, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Plank Shoulder Taps",
+        note: "I did Pilates today full of robust core workouts so I'll skip this to wrap things up quicker.",
+        sets: [
+          { duration: null, feel: null },
+          { duration: null, feel: null },
+          { duration: null, feel: null }
+        ]
+      }
+    ],
+    note: "Session against the Full-Body C guide (workout_guides/2026-08-03-full-body-c-guide.html) at Lifetime Gym, synced through JSONBin — startedAt 2026-09-12T16:28:20.015Z, endedAt 2026-09-12T17:49:55.364Z (12:28-1:49 PM EDT, ~82 min). Preceded by a 10:31 AM Pilates class and a treadmill warm-up walk (see events/walksData) — Bobby intentionally skipped Plank Shoulder Taps since Pilates already covered core work and he wanted to wrap up faster. Dumbbell Fly — Close Pump: Bobby clarified the logged weight is per hand (not combined), worth keeping in mind when comparing to earlier sessions where this wasn't specified. Clean, fully-logged session otherwise, with a clear 3-set structure across every exercise — Leg Press and Leg Curl both built cleanly across all 3 sets, Lateral Raises hit Hard on the last two sets."
   }
 ];
 
