@@ -2130,6 +2130,7 @@ const events = [
   { date: "2026-08-31", text: "<strong>Daily stats (backfilled 2026-09-01):</strong> 14,567 steps · 6.97 mi · 15 floors · 3,508 cal burned · 131 zone min · Sleep 8h18m (score 89) · Readiness 56 (Moderate) · RHR 63 bpm (range 53–140) · Cardio Load 95 · 2 of 5 exercise days this week. Full-Body B gym session (see gymWorkoutsData)." },
   { date: "2026-09-01", text: "Walk: 5:00 PM · 1.39 mi · 38 min" },
   { date: "2026-09-01", text: "<strong>Daily stats (backfilled 2026-09-02):</strong> 9,789 steps · 4.7 mi · 18 floors · 2,901 cal burned · 9 zone min · Sleep 5h40m (score 89) · Readiness 56 (Moderate) · RHR 63 bpm (range 54–123) · Cardio Load 7 · 3 of 5 exercise days this week. Weight 201.8 lb." },
+  { date: "2026-09-12", text: "Pilates class, 10:31 AM, 1h40m (Versa 4) — 389 cal per Fitbit, avg HR 85 bpm, Cardio Load 2, Zone Min 2, 2,535 steps. Time in zone: 98% Light (1h40m), 1% Moderate (2m), 0% Vigorous/Peak. Went to Lifetime Gym after class — session details not yet logged." },
 ];
 
 // Structured facts that don't fit a time series — just a one-line goals
