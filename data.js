@@ -635,6 +635,7 @@ const walksData = [
   { date: "2026-09-10", name: "Walk", distance: 0.87, duration: 33, note: "Fitbit, 7:24 PM · 0.87 mi · 33 min." },
   { date: "2026-09-10", name: "Remainder of day's Fitbit distance", distance: 5.50, note: "Fills the gap between the day's 1 tracked walksData entry (0.87mi) and the day's total Fitbit distance (6.37mi from stepsData)." },
   { date: "2026-09-11", name: "Remainder of day's Fitbit distance", distance: 3.17, note: "No individual tracked walk shown for this day — this is the full day's Fitbit distance (3.17mi from stepsData)." },
+  { date: "2026-09-12", name: "Treadmill warm-up walk", distance: 0.56, duration: 10, note: "Fitbit (Versa 4), 12:12 PM — 10:18, avg pace 18'15\"/mi, avg HR 120 bpm (46% Vigorous, 46% Moderate, 7% Light), Cardio Load 10, 1,156 steps, 106 cal. Fitbit auto-labeled this \"Treadmill run,\" but per Bobby it was a warm-up walk right before his strength training session at Lifetime Gym (following the 10:31 AM Pilates class — see events). Logged here in walksData rather than runsData to match how Bobby actually did it." },
 ];
 
 // Gym workout sessions. One entry per session; exercises listed in order performed.
