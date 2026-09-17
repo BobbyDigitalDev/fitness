@@ -355,24 +355,34 @@ body.locked { overflow: hidden; }
     return null;
   }
 
-  // Fixed 10–200 lb list in 5 lb increments, every set, every exercise —
-  // replaced the old "last time ±10/±5 plus Other…" dropdown 2026-09-03
-  // per Bobby's request (he'd floated this back on Aug 31 too: "just have
-  // all the weights in a list... much cleaner"). No custom-entry escape
-  // valve anymore, so the range has to cover real usage — 200 lb ceiling
-  // checked against Leg Press's actual logged max (180 lb) with headroom
-  // to grow. If last time's weight is known, that option is preselected
-  // and marked so the dropdown still opens anchored on it.
+  // Fixed 10–200 lb list in 5 lb increments, every set, every exercise,
+  // plus an "Other…" option that reveals a free-number input — the pure
+  // dropdown (2026-09-03) had no way to log an off-increment weight (e.g.
+  // a pair of 12 lb dumbbells, the only ones free on the rack for Sept 15's
+  // Lateral Raises), so brought a narrow custom-entry escape valve back
+  // 2026-09-17 per Bobby's request, while keeping the 5 lb list as the
+  // default path for the common case. If last time's weight lands on the
+  // list, that option is preselected; if it doesn't (a past custom entry),
+  // "Other…" is preselected instead and the input is pre-filled with it.
   function buildWeightControl(slot) {
     const exName = slot.dataset.exname;
     const setIdx = Number(slot.dataset.set);
     const last = findLastWeight(exName, setIdx);
+    const lastOnList = last != null && last >= 10 && last <= 200 && last % 5 === 0;
     const options = [];
     for (let w = 10; w <= 200; w += 5) options.push(w);
     const selectHtml = `<option value="">— select —</option>` + options.map(v =>
-      `<option value="${v}"${v === last ? ' selected' : ''}>${v} lb${v === last ? ' (last time)' : ''}</option>`
-    ).join('');
-    slot.innerHTML = `<select class="ql-weight-select" data-ex="${slot.dataset.ex}" data-set="${setIdx}">${selectHtml}</select>`;
+      `<option value="${v}"${lastOnList && v === last ? ' selected' : ''}>${v} lb${lastOnList && v === last ? ' (last time)' : ''}</option>`
+    ).join('') + `<option value="other"${last != null && !lastOnList ? ' selected' : ''}>Other…</option>`;
+    const customVal = last != null && !lastOnList ? last : '';
+    slot.innerHTML = `<select class="ql-weight-select" data-ex="${slot.dataset.ex}" data-set="${setIdx}">${selectHtml}</select>` +
+      `<input type="number" step="0.5" min="0" class="ql-weight-custom" data-set="${setIdx}" placeholder="lb" value="${customVal}" style="margin-top:6px; display:${customVal !== '' ? 'block' : 'none'};">`;
+    const selectEl = slot.querySelector('.ql-weight-select');
+    const customEl = slot.querySelector('.ql-weight-custom');
+    selectEl.addEventListener('change', () => {
+      customEl.style.display = selectEl.value === 'other' ? 'block' : 'none';
+      if (selectEl.value === 'other') customEl.focus();
+    });
   }
 
   document.querySelectorAll('.ql-weight-slot').forEach(buildWeightControl);
@@ -390,7 +400,12 @@ body.locked { overflow: hidden; }
   function getWeightValue(exIdx, setIdx) {
     const card = document.querySelector(`[data-exercise-idx="${exIdx}"]`);
     const select = card.querySelector(`.ql-weight-select[data-set="${setIdx}"]`);
-    return select && select.value !== '' ? Number(select.value) : null;
+    if (!select || select.value === '') return null;
+    if (select.value === 'other') {
+      const custom = card.querySelector(`.ql-weight-custom[data-set="${setIdx}"]`);
+      return custom && custom.value !== '' ? Number(custom.value) : null;
+    }
+    return Number(select.value);
   }
 
   document.getElementById('saveBtn').addEventListener('click', async () => {
