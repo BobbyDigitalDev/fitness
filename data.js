@@ -204,7 +204,8 @@ const weightData = [
   { date: "2026-09-10", value: 201.6, note: "via Fitbit Weight page 30-day trend/weekly list, fasted status not specified — backfilled from a Sep 11 screenshot. Flat vs. Sep 9's 201.6." },
   { date: "2026-09-11", value: 201, note: "via Fitbit Weight page 30-day trend/weekly list, fasted status not specified — same-day entry. Down 0.6 lb from Sep 10's 201.6." },
   { date: "2026-09-14", value: 201, note: "via Fitbit Weight page weekly list, fasted status not specified — backfilled from a Sep 15 screenshot. No weigh-in shown for Sep 12 or Sep 13 (real gap in the Fitbit data, not just missing from the log — those two days have no entry to backfill). Flat vs. Sep 11's 201." },
-  { date: "2026-09-15", value: 201.2, note: "via Fitbit Weight page weekly list, fasted status not specified — same-day entry. Up 0.2 lb from Sep 14's 201, within normal day-to-day noise." }
+  { date: "2026-09-15", value: 201.2, note: "via Fitbit Weight page weekly list, fasted status not specified — same-day entry. Up 0.2 lb from Sep 14's 201, within normal day-to-day noise." },
+  { date: "2026-09-17", value: 199.2, note: "via Fitbit Weight Log entry screen, fasted status not specified — same-day entry, BMI 24.3 per the app. Down 2.0 lb from Sep 15's 201.2 (no weigh-in shown Sep 16, confirmed gap — see stepsData note for that day). First sub-200 reading since Aug 27's 199.8. Bigger than the recent day-to-day swings (mostly ±0.2-1.0 lb), so worth confirming with the next weigh-in before reading too much into a single data point, though it's consistent with the flat-to-down drift since early September." }
 ];
 
 const calorieData = [
