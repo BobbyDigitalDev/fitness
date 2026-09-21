@@ -205,7 +205,9 @@ const weightData = [
   { date: "2026-09-11", value: 201, note: "via Fitbit Weight page 30-day trend/weekly list, fasted status not specified — same-day entry. Down 0.6 lb from Sep 10's 201.6." },
   { date: "2026-09-14", value: 201, note: "via Fitbit Weight page weekly list, fasted status not specified — backfilled from a Sep 15 screenshot. No weigh-in shown for Sep 12 or Sep 13 (real gap in the Fitbit data, not just missing from the log — those two days have no entry to backfill). Flat vs. Sep 11's 201." },
   { date: "2026-09-15", value: 201.2, note: "via Fitbit Weight page weekly list, fasted status not specified — same-day entry. Up 0.2 lb from Sep 14's 201, within normal day-to-day noise." },
-  { date: "2026-09-17", value: 199.2, note: "via Fitbit Weight Log entry screen, fasted status not specified — same-day entry, BMI 24.3 per the app. Down 2.0 lb from Sep 15's 201.2 (no weigh-in shown Sep 16, confirmed gap — see stepsData note for that day). First sub-200 reading since Aug 27's 199.8. Bigger than the recent day-to-day swings (mostly ±0.2-1.0 lb), so worth confirming with the next weigh-in before reading too much into a single data point, though it's consistent with the flat-to-down drift since early September." }
+  { date: "2026-09-17", value: 199.2, note: "via Fitbit Weight Log entry screen, fasted status not specified — same-day entry, BMI 24.3 per the app. Down 2.0 lb from Sep 15's 201.2 (no weigh-in shown Sep 16, confirmed gap — see stepsData note for that day). First sub-200 reading since Aug 27's 199.8. Bigger than the recent day-to-day swings (mostly ±0.2-1.0 lb), so worth confirming with the next weigh-in before reading too much into a single data point, though it's consistent with the flat-to-down drift since early September." },
+  { date: "2026-09-18", value: 200.6, note: "via Fitbit 'You' tab daily summary, fasted status not specified — backfilled from a Sep 20 screenshot viewing the Sep 18 date page directly. Up 1.4 lb from Sep 17's 199.2 — the bounce-back the Sep 17 note flagged as likely, given how much bigger that single-day drop was than the usual noise. Still down slightly from Sep 15's 201.2, so the overall drift stays flat-to-down." },
+  { date: "2026-09-19", value: 200.8, note: "via Fitbit 'You' tab daily summary, fasted status not specified — backfilled from a Sep 20 screenshot labeled 'Yesterday'. Up 0.2 lb from Sep 18's 200.6, essentially flat and within normal noise." }
 ];
 
 const calorieData = [
@@ -249,7 +251,7 @@ const calorieData = [
   { date: "2026-09-01", value: 2380, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a Chobani strawberry Greek yogurt, a SunChips Garden Salsa snack, a tuna salad/crackers (3 packs)/Chobani blueberry yogurt lunch, a That's It Apple + Cinnamon Crisps treat, a late ribeye/romaine/sweet potato dinner, and a before-bed stovetop popcorn snack" },
   { date: "2026-09-02", value: 2750, note: "partial — Los Tacos No. 1 lunch (2 adobada + 1 carne asada), eggs-over-hard-and-sausage-patty breakfast (later than usual, ~2:35 PM), a SunChips Garden Salsa snack, an afternoon gummy bears/fruit crisps/Chobani yogurt snack, and an after-gym Gai Roasted Chicken Bowl dinner; day likely complete but not explicitly confirmed" },
   { date: "2026-09-03", value: 2420, note: "final — grab-and-go PB&J sandwich + Chobani strawberry yogurt for breakfast (usual office cafe breakfast unavailable, kitchen closed), a tuna salad + 2 hard boiled eggs lunch, a rice protein/PB/banana shake, a reduced-sodium popcorn snack, and a grilled pork chop/sweet potato/corn/broccoli/salad dinner; ~20 over the 2,400 target" },
-  { date: "2026-09-04", value: 1122, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani blueberry yogurt, a tuna salad + 2 hard boiled eggs lunch, a Sun Chips Garden Salsa snack, and 2 pouches of Black Forest Organic Gummy Bears so far" },
+  { date: "2026-09-04", value: 2612, note: "final — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani blueberry yogurt, a tuna salad + 2 hard boiled eggs lunch, a Sun Chips Garden Salsa snack, 2 pouches of Black Forest Organic Gummy Bears, and an Oh Taisho's yakitori dinner with a Sapporo beer, logged retroactively 2026-09-18 — fills what had been a known dinner gap for this day." },
   { date: "2026-09-08", value: 1588, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a small popcorn snack, lunch (shrimp, hard boiled eggs, Chobani yogurt), and dinner (panko-crusted self-caught fluke with a spring mix salad). Sep 5-7 (holiday weekend) not logged, by request." },
   { date: "2026-09-09", value: 3179, note: "final — no breakfast; a Dainobu (56th St) chicken karaage over rice with spicy mayo, a Sesame Dango (5 pieces), and a Chobani blueberry yogurt for lunch; a small popcorn snack (3 cups); a Trader Joe's trail mix snack; a rice protein/PB/almond milk shake (no banana); and a steak/avocado/broccoli/sweet potato/naan dinner. A big day, driven mainly by the shake and dinner." },
   { date: "2026-09-10", value: 2200, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a rice protein/PB/banana shake, and 2 Mamoun's Falafel shawarma sandwiches for dinner." },
@@ -257,7 +259,9 @@ const calorieData = [
   { date: "2026-09-12", value: 1460, note: "partial — a single grilled jerk chicken leg/thigh (grocery hot bar) after the morning Pilates class, and an after-gym double-chicken Gai Chicken & Rice bowl (Fulton St) so far." },
   { date: "2026-09-13", value: 1940, note: "partial — 2 deli hero sandwiches (Boar's Head lower-sodium ham, honey turkey, salami, no mayo, no photo) during the fishing trip, plus the self-caught panko fluke & salad dinner; beer and chips from the fishing day still not detailed or logged." },
   { date: "2026-09-14", value: 2095, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt, a Chick-fil-A 4-count Chicken Strips meal with a Chobani blueberry yogurt for lunch, and an afternoon PB/banana/rice protein shake (with creatine) so far." },
-  { date: "2026-09-15", value: 1420, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt, a BBQ shrimp/2 hard boiled eggs/Chobani blueberry yogurt/Sun Chips/gummy bears lunch, and a Smash Foods Jam-Packed Bites snack so far." }
+  { date: "2026-09-15", value: 2070, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt, a BBQ shrimp/2 hard boiled eggs/Chobani blueberry yogurt/Sun Chips/gummy bears lunch, a Smash Foods Jam-Packed Bites snack, and half a Whole Foods rotisserie chicken for dinner, logged retroactively 2026-09-18. Day likely complete but not explicitly confirmed." },
+  { date: "2026-09-16", value: 2205, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt and a Sun Chips bag, a company BBQ lunch (brisket, pulled pork, green beans, cornbread), and a Whole Foods rotisserie chicken leg quarter with a side salad for dinner, all logged retroactively 2026-09-18. Day likely complete but not explicitly confirmed." },
+  { date: "2026-09-17", value: 2049, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt and a Sun Chips bag, a shrimp/2 hard boiled eggs/Chobani raspberry yogurt/Lemon Raspberry Cheesecake (60% eaten) lunch, and a Gai Chicken & Rice dinner, all logged retroactively 2026-09-18. Anything else from the day (snacks) not logged." }
 ];
 
 const sleepData = [
@@ -315,7 +319,10 @@ const sleepData = [
   { date: "2026-09-13", hours: 6.77, score: 86, readiness: 67, note: "6h46m, Good score (86), Daily Readiness 67 (High) — backfilled from a Sep 15 screenshot. Screenshot only showed duration/score/readiness, no bedtime, wake time, sleep-stage breakdown, or oxygen variation this time." },
   { date: "2026-09-14", hours: 6.32, score: 86, readiness: 55, note: "6h19m, Good score (86), Daily Readiness only 55 (Moderate) despite the same 86 sleep score as Sep 13 — backfilled from a Sep 15 screenshot labeled 'Yesterday'. Screenshot only showed duration/score/readiness, no bedtime, wake time, sleep-stage breakdown, or oxygen variation this time." },
   { date: "2026-09-15", hours: 6.27, score: 85, readiness: 66, note: "6h16m, Good score (85), Daily Readiness 66 (High) — backfilled from a Sep 17 screenshot. Screenshot only showed duration/score/readiness, no bedtime, wake time, sleep-stage breakdown, or oxygen variation this time." },
-  { date: "2026-09-16", hours: 5.98, score: 83, readiness: 66, note: "5h59m, Good score (83), Daily Readiness 66 (High) — backfilled from a Sep 17 screenshot labeled 'Yesterday'. Screenshot only showed duration/score/readiness, no bedtime, wake time, sleep-stage breakdown, or oxygen variation this time." }
+  { date: "2026-09-16", hours: 5.98, score: 83, readiness: 66, note: "5h59m, Good score (83), Daily Readiness 66 (High) — backfilled from a Sep 17 screenshot labeled 'Yesterday'. Screenshot only showed duration/score/readiness, no bedtime, wake time, sleep-stage breakdown, or oxygen variation this time." },
+  { date: "2026-09-17", hours: 5.83, score: 81, readiness: 53, note: "5h50m, Good score (81), Daily Readiness only 53 (Moderate) — lower than the recent stretch of 66s. Backfilled from a Sep 20 screenshot viewing the Sep 17 date page directly. Screenshot only showed duration/score/readiness, no bedtime, wake time, sleep-stage breakdown, or oxygen variation this time." },
+  { date: "2026-09-18", hours: 6.82, score: 83, readiness: 52, note: "6h49m, Good score (83), Daily Readiness 52 (Moderate) — second day in a row in the low 50s (Sep 17 was 53), down from the mid-60s stretch before that despite sleep scores staying solid (81, 83) both days. Backfilled from a Sep 20 screenshot viewing the Sep 18 date page directly. Screenshot only showed duration/score/readiness, no bedtime, wake time, sleep-stage breakdown, or oxygen variation this time." },
+  { date: "2026-09-19", hours: 5.18, score: 83, readiness: 53, note: "5h11m, Good score (83), Daily Readiness 53 (Moderate) — third day running in the low-to-mid 50s (Sep 17: 53, Sep 18: 52), despite sleep scores staying solid (81, 83, 83) all three days. Shortest duration of the recent stretch. Backfilled from a Sep 20 screenshot labeled 'Yesterday'. Screenshot only showed duration/score/readiness, no bedtime, wake time, sleep-stage breakdown, or oxygen variation." }
 ];
 
 const stepsData = [
@@ -371,7 +378,10 @@ const stepsData = [
   { date: "2026-09-13", value: 7354, distance: 3.62, calories: 3135, floors: 30, zoneMin: 10, note: "final EOD numbers via Fitbit app, backfilled from a Sep 15 screenshot — Cardio Load 16 (no target). No individual tracked walk shown, consistent with the fishing day (boat time doesn't register as Fitbit steps/distance the same way walking does — the sandwiches/fluke dinner logged this day line up with a day mostly off-foot despite 30 floors climbed). 5 of 5 health metrics in personal range (BR, SpO2, RHR, HRV, skin temp variation); resting HR 61 bpm, HR range 50-126 bpm for the day. Daily Readiness 67 (High). Weight tile still showed Sep 11's 201 lb — confirms no weigh-in Sep 12 or Sep 13, matching the gap already noted in weightData." },
   { date: "2026-09-14", value: 10081, distance: 4.84, calories: 3008, floors: 13, zoneMin: 12, note: "final EOD numbers via Fitbit app, backfilled from a Sep 15 screenshot labeled 'Yesterday' — Cardio Load 15 (no target), 1 of 5 exercise days this week (new Fitbit week, resets Sunday). Includes a 1:12 PM tracked walk (0.65mi, 32 min — see walksData). Only 1 of 5 health metrics out of personal range: blood oxygen 92% (below personal range); BR, RHR, HRV, skin temp variation all in range. Resting HR 62 bpm, HR range 51-142 bpm for the day. Daily Readiness 55 (Moderate). Weight 201 lb, matches weightData." },
   { date: "2026-09-15", value: 10871, distance: 5.24, calories: 3123, floors: 19, zoneMin: 24, note: "final EOD numbers via Fitbit app, backfilled from a Sep 17 screenshot — Cardio Load 29 (no target), 3 of 5 exercise days this week (Mon/Tue/Wed checked). Includes a 5:57 PM pre-workout treadmill warm-up walk (0.65mi, 12 min 5 sec, avg pace 18'29\"/mi — see walksData for full detail; Fitbit auto-labeled it 'Treadmill run' but the pace is walking speed, so logged as a walk to match how Bobby actually did it, same pattern as other Fitbit-mislabeled treadmill sessions). Gym session that followed not yet logged. 5 of 5 health metrics in personal range (BR, SpO2, RHR, HRV, skin temp variation); resting HR 61 bpm, HR range 49-122 bpm for the day. Daily Readiness 66 (High). Weight 201.2 lb, matches weightData." },
-  { date: "2026-09-16", value: 11055, distance: 5.35, calories: 3386, floors: 16, zoneMin: 14, note: "final EOD numbers via Fitbit app, backfilled from a Sep 17 screenshot labeled 'Yesterday' — Cardio Load 27 (no target), 3 of 5 exercise days this week (Mon/Tue/Wed checked, same as Sep 15's tally). Includes a 5:31 PM tracked walk (0.63mi, 23 min — see walksData). 5 of 5 health metrics in personal range (BR, SpO2, RHR, HRV, skin temp variation); resting HR 61 bpm, HR range 50-115 bpm for the day. Daily Readiness 66 (High). Weight tile still showed Sep 15's 201.2 lb — no new weigh-in synced this day." }
+  { date: "2026-09-16", value: 11055, distance: 5.35, calories: 3386, floors: 16, zoneMin: 14, note: "final EOD numbers via Fitbit app, backfilled from a Sep 17 screenshot labeled 'Yesterday' — Cardio Load 27 (no target), 3 of 5 exercise days this week (Mon/Tue/Wed checked, same as Sep 15's tally). Includes a 5:31 PM tracked walk (0.63mi, 23 min — see walksData). 5 of 5 health metrics in personal range (BR, SpO2, RHR, HRV, skin temp variation); resting HR 61 bpm, HR range 50-115 bpm for the day. Daily Readiness 66 (High). Weight tile still showed Sep 15's 201.2 lb — no new weigh-in synced this day." },
+  { date: "2026-09-17", value: 9388, distance: 4.49, calories: 2836, floors: 17, zoneMin: 29, note: "final EOD numbers via Fitbit app, backfilled from a Sep 20 screenshot viewing the Sep 17 date page directly (not labeled 'Yesterday') — Cardio Load 19 (no target), 5 of 5 exercise days last week (full completed week). Includes an 8:00 PM tracked walk (0.61mi, 32 min — see walksData). 5 of 5 health metrics in personal range (BR, SpO2, RHR, HRV, skin temp variation); resting HR 63 bpm, HR range 52-138 bpm for the day. Daily Readiness 53 (Moderate) — lower than the recent 66s. Weight 199.2 lb, matches weightData." },
+  { date: "2026-09-18", value: 7815, distance: 3.73, calories: 2730, floors: 14, zoneMin: 0, note: "final EOD numbers via Fitbit app, backfilled from a Sep 20 screenshot viewing the Sep 18 date page directly — Cardio Load 3 (no target), 5 of 5 exercise days last week (same full week as Sep 17's tally). No individual tracked walk shown this time — full day's distance is untracked movement. 5 of 5 health metrics in personal range (BR, SpO2, RHR, HRV, skin temp variation); resting HR 64 bpm, HR range 53-152 bpm for the day. Daily Readiness 52 (Moderate), similar to Sep 17's 53. Weight 200.6 lb, matches weightData — up 1.4 lb from Sep 17's 199.2, normal bounce-back after that bigger single-day drop." },
+  { date: "2026-09-19", value: 13067, distance: 6.12, calories: 3330, floors: 40, zoneMin: 12, note: "final EOD numbers via Fitbit app, backfilled from a Sep 20 screenshot labeled 'Yesterday' — Cardio Load 19 (no target), 5 of 5 exercise days last week (same full week as Sep 17/18). Includes a 2:54 PM tracked walk (0.25mi, 21 min — see walksData). 5 of 5 health metrics in personal range (BR, SpO2, RHR, HRV, skin temp variation); resting HR 63 bpm, HR range 48-124 bpm for the day. Daily Readiness 53 (Moderate), essentially flat with Sep 17/18's 52-53 — third day running in that range. Weight 200.8 lb, matches weightData. Biggest step/floor day of the recent stretch (40 floors, well above the mid-teens typical lately)." }
 ];
 
 // Tracked runs. distance/pace/calories are from Strava (usually the full
@@ -670,6 +680,11 @@ const walksData = [
   { date: "2026-09-15", name: "Remainder of day's Fitbit distance", distance: 4.59, note: "Fills the gap between the day's 1 tracked walksData entry (0.65mi) and the day's total Fitbit distance (5.24mi from stepsData)." },
   { date: "2026-09-16", name: "Walk", distance: 0.63, duration: 23, note: "Fitbit, 5:31 PM · 0.63 mi · 23 min — backfilled from a Sep 17 screenshot labeled 'Yesterday'." },
   { date: "2026-09-16", name: "Remainder of day's Fitbit distance", distance: 4.72, note: "Fills the gap between the day's 1 tracked walksData entry (0.63mi) and the day's total Fitbit distance (5.35mi from stepsData)." },
+  { date: "2026-09-17", name: "Walk", distance: 0.61, duration: 32, note: "Fitbit, 8:00 PM · 0.61 mi · 32 min — backfilled from a Sep 20 screenshot viewing the Sep 17 date page directly." },
+  { date: "2026-09-17", name: "Remainder of day's Fitbit distance", distance: 3.88, note: "Fills the gap between the day's 1 tracked walksData entry (0.61mi) and the day's total Fitbit distance (4.49mi from stepsData)." },
+  { date: "2026-09-18", name: "Remainder of day's Fitbit distance", distance: 3.73, note: "No individual tracked walk shown for this day — this is the full day's Fitbit distance (3.73mi from stepsData)." },
+  { date: "2026-09-19", name: "Tracked walk", distance: 0.25, duration: 21, startTime: "14:54", note: "2:54 PM tracked walk via Fitbit, 0.25mi in 21 min. Backfilled from a Sep 20 screenshot labeled 'Yesterday'." },
+  { date: "2026-09-19", name: "Remainder of day's Fitbit distance", distance: 5.87, note: "Untracked movement — 6.12mi total (from stepsData) minus the 0.25mi tracked walk." },
 ];
 
 // Gym workout sessions. One entry per session; exercises listed in order performed.
@@ -1717,6 +1732,71 @@ const gymWorkoutsData = [
       }
     ],
     note: "Session against the Full-Body A guide (workout_guides/2026-08-03-full-body-a-guide.html) at Lifetime Gym, synced through JSONBin — startedAt 2026-09-15T22:19:57.974Z, endedAt 2026-09-15T23:28:56.659Z (6:19-7:28 PM EDT, ~69 min). Preceded by a 5:57 PM pre-workout treadmill warm-up walk (0.65mi, 12 min — see walksData). A tougher session than Sept 12's Full-Body C — Incline Chest Press and Lat Pulldown both dropped to Hard on the last set (up from Easy on the first), and Lateral Raises hit Hard on the last two sets same as last time. Lateral Raises set 1: raw JSONBin weight was null because the dropdown only offers 10-200 lb in 5 lb steps with no custom-entry option — Bobby's note said it was a pair of 12 lb dumbbells (the only ones available), so that's what's logged here instead of leaving it blank. Bobby also asked in the Lat Pulldown note whether the pinch he felt on the last set was in his lats — worth following up on directly rather than just noting it here."
+  },
+  {
+    date: "2026-09-20",
+    gym: "Lifetime Gym",
+    label: "Full-Body B",
+    startTime: "11:40",
+    endTime: "12:50",
+    duration: 70,           // minutes — from the app's own startedAt/endedAt via JSONBin
+    exercises: [
+      {
+        name: "Seated Shoulder Press",
+        note: "",
+        sets: [
+          { reps: 12, weight: 50, feel: "Hard" },
+          { reps: 12, weight: 50, feel: "Hard" },
+          { reps: 10, weight: 50, feel: "Hard" }
+        ]
+      },
+      {
+        name: "Seated Cable Row",
+        note: "Did this one first due to availability",
+        sets: [
+          { reps: 15, weight: 100, feel: "Just right" },
+          { reps: 15, weight: 110, feel: "Just right" },
+          { reps: 12, weight: 120, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Romanian Deadlift",
+        note: "The bar was 15kg instead of the usual 20kg, which accounts for the odd numbers.",
+        sets: [
+          { reps: 12, weight: 83, feel: "Easy" },
+          { reps: 12, weight: 103, feel: "Just right" },
+          { reps: 12, weight: 103, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Rear Delt Fly",
+        note: "Did a modified version again — chest supported on an incline bench, pulling up from there, instead of the seated version. Bobby prefers this variant and asked to make it the standard going forward (raised the same swap on Sept 10 too).",
+        sets: [
+          { reps: 15, weight: 20, feel: "Just right" },
+          { reps: 15, weight: 20, feel: "Just right" },
+          { reps: 15, weight: 20, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Flat/Machine Chest Press",
+        note: "",
+        sets: [
+          { reps: 15, weight: 60, feel: "Easy" },
+          { reps: 15, weight: 70, feel: "Just right" },
+          { reps: 15, weight: 80, feel: "Hard" }
+        ]
+      },
+      {
+        name: "Half-Kneeling DB Anti-Rotation Press",
+        note: "",
+        sets: [
+          { reps: 15, weight: 20, feel: "Just right" },
+          { reps: 15, weight: 25, feel: "Just right" },
+          { reps: 15, weight: 30, feel: "Just right" }
+        ]
+      }
+    ],
+    note: "Session against the Full-Body B guide (workout_guides/2026-08-03-full-body-b-guide.html) at Lifetime Gym, synced through JSONBin — startedAt 2026-09-20T15:40:57.435Z, endedAt 2026-09-20T16:50:45.266Z (11:40 AM-12:50 PM EDT, ~70 min). Seated Shoulder Press held at 50 lb but hit Hard across all 3 sets, up from Sept 10's 40 lb (also Hard on the last set) — real progress, but worth watching next time to see if 50 lb needs another session or two to stop being an all-Hard weight. Seated Cable Row and Romanian Deadlift both moved up cleanly from Sept 10 (110→120 lb top set; 95/95/115 lb → 83/103/103 lb, though the RDL jump is partly the 15kg vs. 20kg bar per Bobby's note, so not a clean apples-to-apples strength comparison). Rear Delt Fly: this is the second session in a row (after Sept 10) where Bobby swapped the prescribed seated version for a chest-supported incline-bench version and said he prefers it — the guide itself still describes the seated version, so this is a standing request to update it, not just a one-off note. Half-Kneeling DB Anti-Rotation Press hit a new top weight (30 lb) with every set still Just right, room to keep progressing there."
   }
 ];
 
@@ -2229,6 +2309,9 @@ const meals = [
   { date: "2026-09-04", time: "12:14", name: "Black Forest Organic Gummy Bears", photo: "food-photos/2026-09-04-lunch-gummybears.jpeg",
     description: "2 pouches — same product as the Sep 2 snack, macros reused directly at the established rate (40 cal/9g carb/0g fat/0g protein/0mg sodium per 10g pouch, matches the That's It Fruit Crunchables rate).",
     calories: 80, protein: 0, carbs: 18, fat: 0, sodium: 0 },
+  { date: "2026-09-04", time: "20:00", name: "Oh Taisho's (St. Mark's Place): Yakitori & Sapporo Beer", photo: "food-photos/2026-09-04-dinner-ohtaisho-skewers.jpeg",
+    description: "Izakaya dinner at Oh Taisho's (yakitoritaishony.com), logged retroactively 2026-09-18 — a 12oz Sapporo Premium Beer, a grilled soy-glazed rice ball (yaki onigiri) with pickled radish, 3 pork belly (buta bara) skewers, 2 tsukune (chicken meatball) skewers, 1 bacon-wrapped asparagus (asparabacon) skewer, 1 Berkshire pork sausage skewer, and a cabbage side with dipping sauce. No menu/nutrition data from the restaurant, so every component is a visual estimate from typical yakitori-skewer and izakaya-side reference values — wider uncertainty than usual, especially for the tare-glazed items where sauce quantity varies a lot by skewer.",
+    calories: 1490, protein: 65, carbs: 91, fat: 80, sodium: 2460, sodiumNote: "Estimated, but flagged as high — tare glaze (soy-based) on the rice ball, tsukune, and pork belly, plus the sausage and cabbage dipping sauce, stack up fast at an izakaya. This single dinner is roughly a full day's sodium guideline on its own; worth keeping in mind given the Lisinopril/Nifedipine, same flag as the recent BBQ lunch." },
   { date: "2026-09-08", time: "09:28", name: "Eggs Over-Hard (No Salt) & Sausage Patty", photo: "food-photos/2026-09-08-breakfast-eggs-sausage.jpeg",
     description: "Usual breakfast, back on track after the holiday weekend (Sep 5-7 not logged, by request). 2 large eggs, over-hard, no salt + 1 breakfast sausage patty (~2oz) — same combo reused directly.",
     calories: 350, protein: 21, carbs: 2, fat: 29, sodium: 550 },
@@ -2305,6 +2388,27 @@ const meals = [
   { date: "2026-09-15", time: "14:00", name: "Smash Foods Jam-Packed Bites — Sunflower Butter & Strawberry", photo: "food-photos/2026-09-15-snack-smashfoods-strawberry-front.jpeg",
     description: "1 package (5 bites, 50g) — dates, sunflower butter, oat flour, strawberry juice concentrate, date powder, chia seeds, sea salt, vanilla powder, fruit pectin. Label-exact.",
     calories: 220, protein: 6, carbs: 28, fat: 9, sodium: 170, sodiumNote: "Label-exact, 170mg — moderate for a snack, not a concern given the source (sea salt in a whole-food recipe, not a processed-food sodium load)." },
+  { date: "2026-09-15", time: "19:45", name: "Half Whole Foods Classic Rotisserie Chicken", photo: "food-photos/2026-09-15-dinner-wholefoods-chicken.jpeg",
+    description: "Half a Whole Foods Market Classic Rotisserie Chicken (chicken, organic salt & pepper blend only, packed 09.15.26), net wt 1lb 12oz (794g) whole bird including bone — identical product/weight to the Aug 4 entry, macros reused directly from that established calculation (label: 200 cal/18g protein/14g fat/0g carb/360mg sodium per 3oz edible serving; half the bird's edible meat+skin estimated at ~278g/~3.3 servings, assuming ~70% edible yield). Bobby photographed what was left on the plate, not the portion eaten, so the eaten half is inferred from his stated \"half the chicken,\" not visually confirmed.",
+    calories: 650, protein: 58, carbs: 0, fat: 46, sodium: 1160, sodiumNote: "Confirmed via label — Whole Foods rotisserie chicken runs 360mg sodium per 3oz, well above home-roasted (brined/seasoned before cooking). Single biggest sodium contributor of the day." },
+  { date: "2026-09-16", time: "09:30", name: "Eggs Over-Hard (No Salt), Sausage Patty, Chobani Strawberry Yogurt & Sun Chips", photo: "food-photos/2026-09-16-breakfast-eggs-sausage.jpeg",
+    description: "Usual breakfast: 2 large eggs, over-hard, no salt + 1 breakfast sausage patty, macros reused directly from the established baseline. Plus a Chobani Non-Fat Greek Yogurt, Strawberry on the Bottom (150g container, label-exact: 110 cal/11g protein/15g carb/0g fat/55mg sodium) and a Sun Chips Garden Salsa 1oz bag (label-exact: 140 cal/2g protein/18g carb/6g fat/140mg sodium). Logged retroactively 2026-09-18.",
+    calories: 600, protein: 34, carbs: 35, fat: 35, sodium: 745, sodiumNote: "Sausage patty (550mg) is the main sodium source; yogurt (55mg) and Sun Chips (140mg) both label-exact and minor by comparison." },
+  { date: "2026-09-16", time: "12:30", name: "Company BBQ: Brisket, Pulled Pork, Green Beans & Cornbread", photo: "food-photos/2026-09-16-lunch-bbq-brisket-pulledpork.jpeg",
+    description: "Catered company BBQ, no menu/nutrition info available — fully a visual portion estimate, wider uncertainty than usual. ~3oz smoked brisket (bark visible, some fat), ~4.5oz sauced pulled pork, ~1 cup Southern-style green beans cooked with diced onion (likely with bacon/ham fat and added salt, typical of this style), and 2 pieces cornbread (~2.5oz total). No receipt, no label — estimated from typical values for each component at a catered BBQ.",
+    calories: 900, protein: 52, carbs: 57, fat: 48, sodium: 2000, sodiumNote: "Estimated, but flagged as notably high — Southern-style green beans, BBQ sauce on the pulled pork, and a dry-rub bark on the brisket are all salt-heavy prep styles, and this is a single-meal total near the daily 2,300mg sodium guideline on its own. Worth keeping in mind given the Lisinopril/Nifedipine." },
+  { date: "2026-09-16", time: "19:30", name: "Whole Foods Rotisserie Chicken (Leg & Thigh) & Side Salad", photo: "food-photos/2026-09-16-dinner-wholefoods-chicken-salad.jpeg",
+    description: "A Whole Foods Classic Rotisserie Chicken leg quarter (thigh + drumstick, salt & pepper only, skin-on) — same product as the Aug 4 entry, scaled from that label (200 cal/18g protein/14g fat/0g carb/360mg sodium per 3oz edible serving) assuming ~5.5oz edible meat+skin for a leg quarter. Plus a homemade-looking side salad — baby spinach/mixed greens, cherry tomatoes, almonds, pumpkin seeds, walnuts, sesame seeds, and what looks like dried cranberries or roasted beets, dressed in a glossy vinaigrette. No label for the salad (nut/seed content estimated as generous based on the photo), so this half of the meal carries more uncertainty than the chicken.",
+    calories: 705, protein: 39, carbs: 20, fat: 51, sodium: 820, sodiumNote: "Chicken (label-based estimate) and the vinaigrette are the two main sodium sources; the nuts/seeds/greens themselves are low-sodium." },
+  { date: "2026-09-17", time: "09:30", name: "Eggs Over-Hard (No Salt), Sausage Patty, Chobani Strawberry Yogurt & Sun Chips", photo: "food-photos/2026-09-17-breakfast-eggs-sausage.jpeg",
+    description: "Usual breakfast: 2 large eggs, over-hard, no salt + 1 breakfast sausage patty, macros reused directly from the established baseline. Plus a Chobani Non-Fat Greek Yogurt, Strawberry on the Bottom (150g container, label-exact: 110 cal/11g protein/15g carb/0g fat/55mg sodium) and a Sun Chips Garden Salsa 1oz bag (label-exact: 140 cal/2g protein/18g carb/6g fat/140mg sodium). Logged retroactively 2026-09-18 (\"yesterday's breakfast\").",
+    calories: 600, protein: 34, carbs: 35, fat: 35, sodium: 745, sodiumNote: "Sausage patty (550mg) is the main sodium source; yogurt (55mg) and Sun Chips (140mg) both label-exact and minor by comparison." },
+  { date: "2026-09-17", time: "13:00", name: "Shrimp, 2 Hard Boiled Eggs, Chobani Raspberry Yogurt & Lemon Raspberry Cheesecake", photo: "food-photos/2026-09-17-lunch-shrimp-eggs.jpeg",
+    description: "0.36 lb shrimp (plain/lightly seasoned, no visible sauce or butter) — same weight as the Sept 8 lunch, so macros scaled from the established herb-seasoned-shrimp rate (180 cal/36g protein/2g carb/3g fat/350mg sodium per 0.33 lb) the same way. Plus 2 whole hard boiled eggs (standard reused baseline: 156/12.6/1.1/10.6/124, no romaine pack this time) and a Chobani Non-Fat Greek Yogurt Raspberry (150g, label-exact: 110 cal/12g protein/15g carb/0g fat/80mg sodium — note this flavor's label differs slightly from the strawberry variant used on other days, 80mg sodium vs. 55mg). Dessert: a Made Here Lemon Raspberry Cheesecake (shortbread base, raspberry jam layer, cheesecake, white chocolate curls) — the catering label photographed shows all zeros (Cal 0, Net Weight: 0), clearly a broken/placeholder label rather than real data, so this is a from-scratch visual estimate for a rich individual bakery cheesecake (~420 cal/30g fat/34g carb/5g protein/220mg sodium for a full ~4oz portion), of which Bobby ate about 60% (~252 cal/18g fat/20g carb/3g protein/132mg sodium) — wider-than-usual uncertainty given there's no usable label or restaurant data at all for this item.",
+    calories: 714, protein: 67, carbs: 38, fat: 32, sodium: 718, sodiumNote: "Shrimp is the single biggest contributor (scaled estimate, no label); the cheesecake's sodium is also a rough estimate. Eggs and yogurt are exact/reused baselines." },
+  { date: "2026-09-17", time: "19:30", name: "Gai Chicken & Rice: Grilled Chicken Bowl", photo: "food-photos/2026-09-17-dinner-gai-chicken-rice-bowl.jpeg",
+    description: "Dinner at Gai Chicken & Rice (Fulton St) — grilled/glazed chicken over white rice (mix of a heavily charred piece and a lighter roasted piece), with the usual side salad of lettuce, corn, cherry tomatoes, and cucumber. Logged retroactively 2026-09-18 (\"yesterday's dinner\"). Confirmed by Bobby as the standard single-chicken dinner plate despite the generous look in the photo, so macros stay at the established single-portion baseline (Aug 26 entry: 735 cal/46g protein/66g carb/28g fat/715mg sodium for ~6oz chicken + rice + salad). Time is a rough estimate (no Fitbit walk timestamp available for the 17th yet), based on the usual dinner timing for this recurring meal.",
+    calories: 735, protein: 46, carbs: 66, fat: 28, sodium: 715, sodiumNote: "Estimated — no restaurant nutrition data available; soy-based marinades on grilled chicken like this typically run high in sodium, so treat this as a floor, not a ceiling." },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -2414,7 +2518,7 @@ const proteinData = [
   { date: "2026-09-01", value: 158, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a Chobani strawberry Greek yogurt, a SunChips Garden Salsa snack, a tuna salad/crackers (3 packs)/Chobani blueberry yogurt lunch, a That's It Apple + Cinnamon Crisps treat, a late ribeye/romaine/sweet potato dinner, and a before-bed stovetop popcorn snack" },
   { date: "2026-09-02", value: 152, note: "partial — Los Tacos No. 1 lunch (2 adobada + 1 carne asada), eggs-over-hard-and-sausage-patty breakfast (later than usual, ~2:35 PM), a SunChips Garden Salsa snack, an afternoon gummy bears/fruit crisps/Chobani yogurt snack, and an after-gym Gai Roasted Chicken Bowl dinner; day likely complete but not explicitly confirmed" },
   { date: "2026-09-03", value: 177, note: "final — grab-and-go PB&J sandwich + Chobani strawberry yogurt for breakfast (usual office cafe breakfast unavailable, kitchen closed), a tuna salad + 2 hard boiled eggs lunch, a rice protein/PB/banana shake, a reduced-sodium popcorn snack, and a grilled pork chop/sweet potato/corn/broccoli/salad dinner; just 3g short of the 180g target" },
-  { date: "2026-09-04", value: 74, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani blueberry yogurt, a tuna salad + 2 hard boiled eggs lunch, a Sun Chips Garden Salsa snack, and 2 pouches of Black Forest Organic Gummy Bears so far" },
+  { date: "2026-09-04", value: 139, note: "final — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani blueberry yogurt, a tuna salad + 2 hard boiled eggs lunch, a Sun Chips Garden Salsa snack, 2 pouches of Black Forest Organic Gummy Bears, and an Oh Taisho's yakitori dinner with a Sapporo beer, logged retroactively 2026-09-18 — fills what had been a known dinner gap for this day." },
   { date: "2026-09-08", value: 137, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a small popcorn snack, lunch (shrimp, hard boiled eggs, Chobani yogurt), and dinner (panko-crusted self-caught fluke with a spring mix salad). Sep 5-7 (holiday weekend) not logged, by request." },
   { date: "2026-09-09", value: 155, note: "final — no breakfast; a Dainobu (56th St) chicken karaage over rice with spicy mayo, a Sesame Dango (5 pieces), and a Chobani blueberry yogurt for lunch; a small popcorn snack (3 cups); a Trader Joe's trail mix snack; a rice protein/PB/almond milk shake (no banana); and a steak/avocado/broccoli/sweet potato/naan dinner." },
   { date: "2026-09-10", value: 140, note: "final — usual eggs-over-hard-and-sausage-patty breakfast, a rice protein/PB/banana shake, and 2 Mamoun's Falafel shawarma sandwiches for dinner." },
@@ -2422,5 +2526,7 @@ const proteinData = [
   { date: "2026-09-12", value: 109, note: "partial — a single grilled jerk chicken leg/thigh (grocery hot bar) after the morning Pilates class, and an after-gym double-chicken Gai Chicken & Rice bowl (Fulton St) so far." },
   { date: "2026-09-13", value: 143, note: "partial — 2 deli hero sandwiches (Boar's Head lower-sodium ham, honey turkey, salami, no mayo, no photo) during the fishing trip, plus the self-caught panko fluke & salad dinner; beer and chips from the fishing day still not detailed or logged." },
   { date: "2026-09-14", value: 136, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt, a Chick-fil-A 4-count Chicken Strips meal with a Chobani blueberry yogurt for lunch, and an afternoon PB/banana/rice protein shake (with creatine) so far." },
-  { date: "2026-09-15", value: 107, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt, a BBQ shrimp/2 hard boiled eggs/Chobani blueberry yogurt/Sun Chips/gummy bears lunch, and a Smash Foods Jam-Packed Bites snack so far." }
+  { date: "2026-09-15", value: 165, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt, a BBQ shrimp/2 hard boiled eggs/Chobani blueberry yogurt/Sun Chips/gummy bears lunch, a Smash Foods Jam-Packed Bites snack, and half a Whole Foods rotisserie chicken for dinner, logged retroactively 2026-09-18. Day likely complete but not explicitly confirmed." },
+  { date: "2026-09-16", value: 125, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt and a Sun Chips bag, a company BBQ lunch (brisket, pulled pork, green beans, cornbread), and a Whole Foods rotisserie chicken leg quarter with a side salad for dinner, all logged retroactively 2026-09-18. Day likely complete but not explicitly confirmed." },
+  { date: "2026-09-17", value: 147, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt and a Sun Chips bag, a shrimp/2 hard boiled eggs/Chobani raspberry yogurt/Lemon Raspberry Cheesecake (60% eaten) lunch, and a Gai Chicken & Rice dinner, all logged retroactively 2026-09-18. Anything else from the day (snacks) not logged." }
 ];
