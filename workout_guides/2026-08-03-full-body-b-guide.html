@@ -386,6 +386,7 @@ body.locked { overflow: hidden; }
           const input = card.querySelector(`.ql-duration[data-set="${i}"]`);
           return {
             duration: input.value === '' ? null : Number(input.value),
+            weight: getWeightValue(idx, i),
             feel: getFeelValue(idx, i),
           };
         });
