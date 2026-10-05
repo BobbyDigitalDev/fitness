@@ -505,6 +505,44 @@ const runsData = [
     zoneMin: 18,
     note: "Second treadmill run tonight, right after the Full-Body C session — 7:17-7:27 PM, 1,460 steps. Fitbit-only (indoor, no Strava/GPS track). Higher-intensity than the pre-workout warm-up (45% peak zone vs. 0%) despite being after a full lifting session."
   },
+  {
+    date: "2026-10-04",
+    name: "Treadmill Warm-Up (Lifetime Gym)",
+    distance: 0.86,          // mi, Fitbit (indoor treadmill, no Strava/GPS track)
+    movingTime: "15:05",
+    elapsedTime: "15:05",
+    avgPace: "17:38",        // per mi
+    calories: 148,
+    avgHR: 104,               // bpm
+    hrZones: {
+      peak: { min: 0, pct: 0 },
+      vigorous: { min: 2, pct: 12 },
+      moderate: { min: 5, pct: 31 },
+      light: { min: 9, pct: 56 }
+    },
+    cardioLoad: 7,
+    zoneMin: 7,
+    note: "Warm-up on the treadmill before today's Full-Body B session, 12:46-1:01 PM — 1,758 steps. The gym session started at 1:02 PM (see gymWorkoutsData). Fitbit-only (indoor, no Strava/GPS track). Fitbit labels it a 'Treadmill run', but the ~3.4 mph pace is closer to a brisk walk. Heart rate stayed in the light zone for the first ~9 minutes and only climbed into moderate/vigorous over the last 6, a gradual ramp that fits an easy warm-up."
+  },
+  {
+    date: "2026-10-04",
+    name: "Treadmill Cool-Down (Lifetime Gym)",
+    distance: 0.84,          // mi, Fitbit (indoor treadmill, no Strava/GPS track)
+    movingTime: "15:05",
+    elapsedTime: "15:05",
+    avgPace: "17:58",        // per mi
+    calories: 168,
+    avgHR: 126,               // bpm
+    hrZones: {
+      peak: { min: 0, pct: 0 },
+      vigorous: { min: 9, pct: 56 },
+      moderate: { min: 7, pct: 43 },
+      light: { min: 0, pct: 0 }
+    },
+    cardioLoad: 18,
+    zoneMin: 23,
+    note: "Second treadmill session today, 2:26-2:41 PM — 1,763 steps, right after the Full-Body B session ended at 2:24 PM. Fitbit-only (indoor, no Strava/GPS track). Same easy ~3.4 mph pace as the warm-up, but much harder on the heart: avg HR 126 vs. 104, 56% of the time in the vigorous zone vs. 12%, and 23 zone min vs. 7. Same pattern as the Aug 26 session, where the post-lift cool-down also ran at higher intensity than the pre-lift warm-up. A 27-minute walk followed at 2:50 PM (see walksData)."
+  },
 ];
 
 // Tracked walks. distance/pace/calories from Strava; HR data from Fitbit.
@@ -750,6 +788,7 @@ const walksData = [
   { date: "2026-10-02", name: "Remainder of day's Fitbit distance", distance: 4.70, note: "Fills the gap between the day's 1 tracked walksData entry (0.73mi) and the day's total Fitbit distance (5.43mi from stepsData)." },
   { date: "2026-10-03", name: "Walk", distance: 0.3, duration: 19, startTime: "16:34", note: "Fitbit, 4:34 PM · 0.3 mi · 19 min." },
   { date: "2026-10-03", name: "Remainder of day's Fitbit distance", distance: 2.26, note: "Fills the gap between the day's 1 tracked walksData entry (0.3mi) and the day's total Fitbit distance (2.56mi from stepsData)." },
+  { date: "2026-10-04", name: "Walk", distance: 0.71, duration: 27, startTime: "14:50", note: "Fitbit, 2:50 PM · 0.71 mi · 27 min — right after the 2:26 PM treadmill cool-down (see runsData). The 'Remainder of day's Fitbit distance' entry for Oct 4 gets added once the day's EOD stats come in." },
 ];
 
 // Gym workout sessions. One entry per session; exercises listed in order performed.
