@@ -350,6 +350,60 @@ body.locked { overflow: hidden; }
 
   document.querySelectorAll('.ql-weight-slot').forEach(buildWeightControl);
 
+  // Draft autosave (added 2026-10-15) — on iPhone Safari an accidental
+  // edge-swipe or reload used to wipe every weight/rep/feel/note entered so
+  // far. Every input is now mirrored to localStorage on this device and
+  // restored on reload, keyed by guide + date; the draft is cleared once
+  // Save Session succeeds, and ignored if it's older than 18 hours.
+  const DRAFT_KEY = 'workoutDraft:2026-09-22-no-equip-a-guide:' + GUIDE_DATE_TODAY;
+  function draftControls() {
+    return Array.from(document.querySelectorAll('.exercise-card')).flatMap(card =>
+      Array.from(card.querySelectorAll('input, select, textarea')));
+  }
+  function saveDraft() {
+    try {
+      localStorage.setItem(DRAFT_KEY, JSON.stringify({
+        startedAt: sessionStartedAt ? sessionStartedAt.toISOString() : null,
+        values: draftControls().map(el => el.value),
+        savedAt: Date.now(),
+      }));
+    } catch (e) {}
+  }
+  function restoreDraft() {
+    try {
+      const raw = localStorage.getItem(DRAFT_KEY);
+      if (!raw) return;
+      const d = JSON.parse(raw);
+      if (!d || !Array.isArray(d.values) || Date.now() - d.savedAt > 18 * 3600 * 1000) {
+        localStorage.removeItem(DRAFT_KEY);
+        return;
+      }
+      const controls = draftControls();
+      if (d.values.length !== controls.length) return;
+      controls.forEach((el, i) => { el.value = d.values[i]; });
+      document.querySelectorAll('.ql-weight-select').forEach(sel => {
+        const custom = sel.parentElement.querySelector('.ql-weight-custom');
+        if (custom) custom.style.display = (sel.value === 'other' || custom.value !== '') ? 'block' : 'none';
+      });
+      if (d.startedAt) {
+        sessionStartedAt = new Date(d.startedAt);
+        startBtn.disabled = true;
+        startBtn.textContent = 'Started ' + sessionStartedAt.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+        timerLabel.classList.add('active');
+        timerLabel.textContent = 'In progress — ' + formatElapsed(Date.now() - sessionStartedAt.getTime());
+        timerInterval = setInterval(() => {
+          timerLabel.textContent = 'In progress — ' + formatElapsed(Date.now() - sessionStartedAt.getTime());
+        }, 1000);
+      }
+      const st = document.getElementById('saveStatus');
+      st.textContent = 'Restored your unsaved entries from this device.'; st.className = 'save-status info';
+    } catch (e) {}
+  }
+  document.addEventListener('input', e => { if (e.target.closest && e.target.closest('.exercise-card')) saveDraft(); });
+  document.addEventListener('change', e => { if (e.target.closest && e.target.closest('.exercise-card')) saveDraft(); });
+  startBtn.addEventListener('click', saveDraft);
+  restoreDraft();
+
   // Per-set feel dropdown — replaced the old single end-of-exercise feel
   // picker (2026-08-15) so a set-by-set read shows exactly where a session
   // started to break down, instead of one overall rating for the whole
@@ -437,6 +491,7 @@ body.locked { overflow: hidden; }
       const pending = await fetchPendingEntries();
       pending.push(entry);
       await savePendingEntries(pending);
+      try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
       statusEl.textContent = 'Saved ✅ — synced, pending review next session.'; statusEl.className = 'save-status ok';
     } catch (err) {
       statusEl.textContent = "Couldn't save — check your connection and try again."; statusEl.className = 'save-status err';

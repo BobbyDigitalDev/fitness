@@ -286,7 +286,10 @@ const calorieData = [
   { date: "2026-10-04", value: 2185, note: "partial — an after-gym Gai Chicken & Rice double-chicken bowl, a PayDay Peanut Caramel Bar, and a rice protein/whole peanut shake (no banana or peanut butter) so far; no earlier meals logged yet today." },
   { date: "2026-10-05", value: 1911, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt and a Sun Chips Garden Salsa bag, a Community Snacks Sour Cream & Onion chips bag at ~11 AM, a 0.47 lb tuna salad with 2 hard boiled eggs and a Chobani blueberry yogurt for lunch, and a Boar's Head oven roasted turkey spinach wrap for dinner (described only, rough estimate). Not explicitly confirmed as the final meal of the day." },
   { date: "2026-10-06", value: 1776, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt and a Sun Chips Garden Salsa bag, a 0.34 lb tuna salad with 2 hard boiled eggs and a Chobani raspberry yogurt for lunch, and 0.60 lb of Whole Foods grilled jerk chicken (boneless thighs) for dinner. Not explicitly confirmed as the final meals of the day." },
-  { date: "2026-10-07", value: 2824, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani raspberry yogurt and a Sun Chips Garden Salsa bag, a Community Snacks Sour Cream & Onion chips bag midday, a 0.45 lb tuna salad with 2 hard boiled eggs, a Chobani raspberry yogurt and a Nature's Bakery Blueberry Fig Bar for lunch, and 1.5 ribeye steaks for dinner. Not explicitly confirmed as the final meals of the day." }
+  { date: "2026-10-07", value: 2824, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani raspberry yogurt and a Sun Chips Garden Salsa bag, a Community Snacks Sour Cream & Onion chips bag midday, a 0.45 lb tuna salad with 2 hard boiled eggs, a Chobani raspberry yogurt and a Nature's Bakery Blueberry Fig Bar for lunch, and 1.5 ribeye steaks for dinner. Not explicitly confirmed as the final meals of the day." },
+  { date: "2026-10-13", value: 600, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt and a Sun Chips Garden Salsa bag. Later meals (including any pie slices) not yet logged." },
+  { date: "2026-10-14", value: 2427, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt and a Sun Chips Garden Salsa bag, a Community Snacks Sour Cream & Onion chips bag at ~11 AM, a 0.37 lb tuna salad with 2 hard boiled eggs and a Chobani raspberry yogurt for lunch, and 1 whole no-salt ribeye with a small side salad for dinner. Any pie slices after dinner not yet logged." },
+  { date: "2026-10-15", value: 3081, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt and a Sun Chips Garden Salsa bag, lunch of an unlabeled Cuban sandwich with no cheese (rough visual estimate), a pickle spear, a Chobani strawberry yogurt, a Sun Chips Garden Salsa bag and a Nature's Bakery Blueberry Fig Bar, an afternoon rice protein/2 tbsp PB/almond milk shake, and a post-workout 0.52 lb Whole Foods hot bar chicken thighs plus a Whole Foods pumpkin pie slice. Breakfast not logged (may have been skipped, not confirmed); day not confirmed complete." }
 ];
 
 const sleepData = [
@@ -571,6 +574,25 @@ const runsData = [
     cardioLoad: 18,
     zoneMin: 23,
     note: "Second treadmill session today, 2:26-2:41 PM — 1,763 steps, right after the Full-Body B session ended at 2:24 PM. Fitbit-only (indoor, no Strava/GPS track). Same easy ~3.4 mph pace as the warm-up, but much harder on the heart: avg HR 126 vs. 104, 56% of the time in the vigorous zone vs. 12%, and 23 zone min vs. 7. Same pattern as the Aug 26 session, where the post-lift cool-down also ran at higher intensity than the pre-lift warm-up. A 27-minute walk followed at 2:50 PM (see walksData)."
+  },
+  {
+    date: "2026-10-15",
+    name: "Treadmill Warm-Up (Lifetime Gym)",
+    distance: 1.31,          // mi, Fitbit (indoor treadmill, no Strava/GPS track)
+    movingTime: "23:59",
+    elapsedTime: "23:59",
+    avgPace: "18:18",        // per mi, from 3.28 mph average speed
+    calories: 135,
+    avgHR: 94,               // bpm
+    hrZones: {
+      peak: { min: 0, pct: 0 },
+      vigorous: { min: 0, pct: 0 },
+      moderate: { min: 11, pct: 44 },
+      light: { min: 14, pct: 56 }
+    },
+    cardioLoad: 5,
+    zoneMin: 10,
+    note: "Brisk treadmill walk before tonight's Full-Body B session, starting 6:01 PM and running 23:59 on the watch (the gym session started at 6:27 PM, see gymWorkoutsData). Bobby says it was about 22 minutes, so the watch's 24 minutes likely includes some lead-in or tail time (unconfirmed). Fitbit (Versa 4) mislabeled it as a Bike ride, so the activity type is wrong but the numbers are a plausible walk: 3.28 mph average over 1.31 mi, 2 ft elevation gain (flat, consistent with a treadmill). Laps: 3.8 mph for the first 1.00 mi, then 2.41 mph for the last 0.33 mi (a slower finish). Heart rate sat in the moderate zone for roughly the first 12 minutes (peaking around 115-120 bpm by eye on the chart) then dropped into the light zone for the rest, well below the 126 bpm vigorous line the whole time. Fitbit-only (indoor, no Strava/GPS track)."
   },
 ];
 
@@ -2225,6 +2247,71 @@ const gymWorkoutsData = [
       }
     ],
     note: "Session against the Full-Body A guide (workout_guides/2026-08-03-full-body-a-guide.html) at Lifetime Gym, synced through JSONBin — startedAt 2026-10-07T22:06:03.637Z, endedAt 2026-10-07T23:06:47.669Z (6:06-7:06 PM EDT, ~61 min). Forearm Plank skipped on purpose: Bobby's note was \"I did Pilates yesterday so I'll skip planks today\" (Bobby confirmed Pilates was on Oct 6; the class itself isn't in events yet because its details haven't been sent). Lat Pulldown was done seated reversed to pull to the front of the chest, a modified setup rather than the standard grip/position. Versus the last Full-Body A (Sept 15): Incline Chest Press up from 25/25/30 to 30/30/30 (last set 12 reps vs 10, still Hard); Lat Pulldown 100/120/120 vs 100/110/120, all 15 reps and all Just right (Sept 15's last set was Hard); Leg Press 160/180/200 vs 140/160/180, every set Just right; Lateral Raises same weights (12/15/15) but 12 reps on the last two sets vs 15; Wide Arc Fly 20/25/25 vs 20/20/25, now all Just right. Chest-Supported Dumbbell Row (15 reps at 25 lb, Just right) replaced Close Pump Fly in this session, so there is no direct comparison. Preceded by no logged warm-up and no Fitbit-tracked treadmill session yet; Fitbit details for Oct 7 come in once the day's stats are sent."
+  },
+  {
+    date: "2026-10-15",
+    gym: "Lifetime Gym",
+    label: "Full-Body B",
+    startTime: "18:27",
+    endTime: "19:35",
+    duration: 68,           // minutes — from the app's own startedAt/endedAt via JSONBin
+    exercises: [
+      {
+        name: "Seated Shoulder Press",
+        note: "60lbs is still too hard. I can do 10 reps but with difficulty. I accidentally swiped to the prior page. Let’s have the links to all these workouts open on a _blank page so there is no page to go back to.",
+        sets: [
+          { reps: 10, weight: 60, feel: "Hard" },
+          { reps: 10, weight: 50, feel: "Just right" },
+          { reps: 10, weight: 50, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Seated Cable Row",
+        note: "",
+        sets: [
+          { reps: 15, weight: 110, feel: "Just right" },
+          { reps: 15, weight: 120, feel: "Just right" },
+          { reps: 15, weight: 130, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Romanian Deadlift",
+        note: "Weight racks were occupied. I did dumbbells. 35lbs in each hand. I feel this in my lower back as well. Is that normal?",
+        sets: [
+          { reps: 12, weight: 70, feel: "Just right" },
+          { reps: 12, weight: 70, feel: "Just right" },
+          { reps: 12, weight: 95, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Rear Delt Fly",
+        note: "",
+        sets: [
+          { reps: 15, weight: 25, feel: "Just right" },
+          { reps: 15, weight: 30, feel: "Just right" },
+          { reps: 15, weight: 35, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Flat/Machine Chest Press",
+        note: "Machine was occupied. I did 2 - 30lbs weights one for each hand.",
+        sets: [
+          { reps: 15, weight: 60, feel: "Just right" },
+          { reps: 15, weight: 60, feel: "Just right" },
+          { reps: 15, weight: 60, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Half-Kneeling DB Anti-Rotation Press",
+        note: "I need more variation in my workouts. I don’t have any workouts that work my lats",
+        sets: [
+          { reps: 15, weight: 35, feel: "Just right" },
+          { reps: 15, weight: 35, feel: "Just right" },
+          { reps: 15, weight: 35, feel: "Just right" }
+        ]
+      }
+    ],
+    note: "Session against the Full-Body B guide (workout_guides/2026-08-03-full-body-b-guide.html) at Lifetime Gym, synced through JSONBin — startedAt 2026-10-15T22:27:00.020Z, endedAt 2026-10-15T23:35:24.755Z (6:27-7:35 PM EDT, ~68 min). Two equipment substitutions because stations were occupied: Romanian Deadlift was done with dumbbells (Bobby says 35 lb in each hand, which is 70 lb total for sets 1-2; set 3 was logged as 95, which doesn't match 35 per hand, so that value is unverified) and the Flat/Machine Chest Press was done as a dumbbell press with 30 lb in each hand (60 lb total as logged), so neither is directly comparable to the Oct 4 barbell/machine numbers. Versus the last Full-Body B (Oct 4): Seated Shoulder Press 60/50/50 for 10/10/10 reps vs 60/50/50 for 10/12/10, so flat on weight with 2 fewer reps on set 2 and the opening 60 lb set still Hard (Bobby says 60 is still too hard); Seated Cable Row identical at 110/120/130, all 15 reps, all Just right (no progression this time); Rear Delt Fly up 5 lb at every set (25/30/35 vs 20/25/30), all Just right; Half-Kneeling DB Anti-Rotation Press unchanged at 35 lb across all sets. Bobby's notes also flagged: a lower-back feel during the Romanian Deadlift (asked if that is normal), a request for the workout-guide links to open in a new tab so there is no previous page to swipe back to, and that the program has no lat-focused work (Lat Pulldown only appears in Full-Body A). Trained after the usual lunch, and preceded by a brisk treadmill walk at 6:01 PM that Fitbit mislabeled as a Bike ride (see runsData). The day's Fitbit totals (steps, sleep, etc.) are not backfilled yet."
   }
 ];
 
@@ -2918,6 +3005,36 @@ const meals = [
   { date: "2026-10-07", time: "19:30", name: "Grilled Ribeye Steaks (1.5 Steaks)", photo: "food-photos/2026-10-07-dinner-ribeye-steaks.jpeg",
     description: "1.5 ribeye steaks, cooked and served on a plate (three pieces pictured); no sides, sauce or seasoning details given. Portion per Bobby (no raw or cooked weight). Macros are 1.5x the recurring single-steak baseline used across this log (720 cal/65g protein/0g carb/55g fat/380mg sodium per steak, last used for Aug 19), the same approach as the Aug 16 1.5-steak dinner. Dinner time is an estimate (photos were uploaded at ~9:08 PM).",
     calories: 1080, protein: 98, carbs: 0, fat: 83, sodium: 570, sodiumNote: "Estimated from the single-steak baseline assuming light dry seasoning only; real sodium could be higher if the steaks were salted more heavily." },
+  { date: "2026-10-13", time: "09:30", name: "Eggs Over-Hard (No Salt), Sausage Patty, Chobani Strawberry Yogurt & Sun Chips Garden Salsa", photo: "food-photos/2026-10-13-breakfast-eggs-sausage.jpeg",
+    description: "Usual breakfast: 2 large eggs, over-hard, no salt + 1 breakfast sausage patty, macros reused directly from the established baseline. Plus a Chobani Non-Fat Greek Yogurt, Strawberry on the Bottom (150g container, label-exact: 110 cal/11g protein/15g carb/0g fat/55mg sodium) and a Sun Chips Garden Salsa 1oz bag (label-exact: 140 cal/2g protein/18g carb/6g fat/140mg sodium). Time is an estimate (the usual breakfast time).",
+    calories: 600, protein: 34, carbs: 35, fat: 35, sodium: 745, sodiumNote: "Sausage patty (550mg) is the main sodium source; strawberry yogurt (55mg) and Sun Chips (140mg) are label-exact." },
+  { date: "2026-10-14", time: "09:30", name: "Eggs Over-Hard (No Salt), Sausage Patty, Chobani Strawberry Yogurt & Sun Chips Garden Salsa", photo: "food-photos/2026-10-14-breakfast-eggs-sausage.jpeg",
+    description: "Usual breakfast: 2 large eggs, over-hard, no salt + 1 breakfast sausage patty, macros reused directly from the established baseline. Plus a Chobani Non-Fat Greek Yogurt, Strawberry on the Bottom (150g container, label-exact: 110 cal/11g protein/15g carb/0g fat/55mg sodium) and a Sun Chips Garden Salsa 1oz bag (label-exact: 140 cal/2g protein/18g carb/6g fat/140mg sodium). Logged on Oct 15 as 'yesterday's breakfast'; time is an estimate (the usual breakfast time).",
+    calories: 600, protein: 34, carbs: 35, fat: 35, sodium: 745, sodiumNote: "Sausage patty (550mg) is the main sodium source; strawberry yogurt (55mg) and Sun Chips (140mg) are label-exact." },
+  { date: "2026-10-14", time: "11:00", name: "Community Snacks Sour Cream & Onion Kettle Cooked Potato Chips (2 oz bag)", photo: "food-photos/2026-10-14-snack-community-chips-front.jpeg",
+    description: "1 bag (2 oz / 56g, 1 serving per package), label-exact: 300 cal/3g protein/33g carb/18g fat/350mg sodium (3g total sugars, 0g added). Same product as Oct 5 and Oct 7. Nutrition label photo: food-photos/2026-10-14-snack-community-chips-nutrition.jpeg. Logged on Oct 15 as 'yesterday's snack'; 11:00 is an estimate.",
+    calories: 300, protein: 3, carbs: 33, fat: 18, sodium: 350 },
+  { date: "2026-10-14", time: "12:30", name: "Tuna Salad, 2 Hard Boiled Eggs & Chobani Raspberry Yogurt", photo: "food-photos/2026-10-14-lunch-tuna-salad-scale.jpeg",
+    description: "0.37 lb mayo-based tuna salad with celery, no label, weighed exact on the scale (net) + 2 whole hard boiled eggs (halved in the photo; standard 2-egg baseline 156 cal/12.6g protein/1.1g carb/10.6g fat/124mg sodium) + a Chobani Non-Fat Greek Yogurt, Raspberry on the Bottom (150g, label-exact: 110 cal/12g protein/15g carb/0g fat/80mg sodium; photo food-photos/2026-10-14-lunch-yogurt-raspberry.jpeg). Tuna salad from the established per-lb rate (840.5 cal/76.8g protein/13.2g carb/57.8g fat/1800mg sodium per lb) = ~311 cal/28g protein/5g carb/21g fat/666mg. Logged on Oct 15 as 'yesterday's lunch'; time is an estimate (usual lunch time). Egg photo: food-photos/2026-10-14-lunch-tuna-eggs.jpeg.",
+    calories: 577, protein: 53, carbs: 21, fat: 32, sodium: 870, sodiumNote: "Tuna salad (~666mg at the established per-lb rate) is the main sodium source; raspberry yogurt (80mg) is label-exact." },
+  { date: "2026-10-14", time: "19:00", name: "Ribeye Steak (1 Whole, No Salt) & Small Side Salad", photo: "food-photos/2026-10-14-dinner-ribeye-salad.jpeg",
+    description: "1 whole ribeye steak, cooked with no salt, cut up on the plate; no weight given. Macros from the recurring single-steak baseline used across this log (720 cal/65g protein/0g carb/55g fat). Plus a small side salad per Bobby: mixed greens, broccoli, a cherry tomato half, apple slices, almonds, pecan/walnut pieces, dried cranberries, pumpkin and sesame seeds; no visible dressing. Salad estimated at ~230 cal/6g protein/22g carb/14g fat/60mg sodium (nuts, seeds, cranberries and apple drive the calories). Logged on Oct 15 as 'yesterday's dinner'; time is an estimate.",
+    calories: 950, protein: 71, carbs: 22, fat: 69, sodium: 210, sodiumNote: "Steak sodium set to ~150mg (natural only, since cooked with no salt) rather than the 380mg used on earlier salted-or-unspecified steak entries; the salad adds ~60mg. Salad macros are a rough visual estimate and the steak portion is unweighed, so treat this as medium-low confidence." },
+  { date: "2026-10-15", time: "09:30", name: "Eggs Over-Hard (No Salt), Sausage Patty, Chobani Strawberry Yogurt & Sun Chips Garden Salsa", photo: "food-photos/2026-10-15-breakfast-eggs-sausage.jpeg",
+    description: "Usual breakfast: 2 large eggs, over-hard, no salt + 1 breakfast sausage patty, macros reused directly from the established baseline. Plus a Chobani Non-Fat Greek Yogurt, Strawberry on the Bottom (150g container, label-exact: 110 cal/11g protein/15g carb/0g fat/55mg sodium) and a Sun Chips Garden Salsa 1oz bag (label-exact: 140 cal/2g protein/18g carb/6g fat/140mg sodium). Logged late in the evening; time is an estimate (the usual breakfast time).",
+    calories: 600, protein: 34, carbs: 35, fat: 35, sodium: 745, sodiumNote: "The eggs and sausage patty together are ~550mg (the patty is the larger share; the unsalted eggs add only ~140mg naturally); strawberry yogurt (55mg) and Sun Chips (140mg) are label-exact." },
+  { date: "2026-10-15", time: "12:30", name: "Cuban Sandwich (No Cheese), Pickle Spear, Chobani Strawberry Yogurt, Sun Chips Garden Salsa & Nature's Bakery Blueberry Fig Bar", photo: "food-photos/2026-10-15-lunch-cuban-sandwich.jpeg",
+    description: "Cuban sandwich on a ciabatta-style roll with sliced ham, sliced roast pork, pickle slices, mustard and a mayo-type spread, no cheese per Bobby, plus a dill pickle spear on the side. No label or weight, so estimated visually: sandwich ~520 cal/38g protein/42g carb/20g fat/~1,250mg sodium (roll ~200 cal, ham and pork ~230 cal, spread and mustard ~50-90 cal), pickle spear ~5 cal/~300mg sodium. Plus a Chobani Non-Fat Greek Yogurt, Strawberry on the Bottom (150g, label-exact: 110 cal/11g protein/15g carb/0g fat/55mg sodium; photo food-photos/2026-10-15-lunch-yogurt-strawberry.jpeg), a Sun Chips Garden Salsa 1oz bag (label-exact: 140 cal/2g protein/18g carb/6g fat/140mg sodium), and a Nature's Bakery Blueberry Fig Bar (57g, label-exact: 200 cal/3g protein/38g carb/5g fat/75mg sodium; photo food-photos/2026-10-15-lunch-fig-bar-blueberry.jpeg). Time is an estimate (usual lunch time).",
+    calories: 975, protein: 54, carbs: 114, fat: 31, sodium: 1820, sodiumNote: "Deli ham, roast pork, the roll and the pickles all run salty; ~1,550mg of this comes from the unlabeled sandwich and pickle spear, so the sodium figure is a rough estimate (could plausibly be 1,200 to 2,000mg total). The yogurt, chips and fig bar are label-exact." },
+  { date: "2026-10-15", time: "16:30", name: "Rice Protein, Peanut Butter & Almond Milk Shake (No Banana, 2 tbsp PB)",
+    description: "3 scoops rice protein + 6 tsp (2 tbsp) peanut butter + almond milk, no banana, per Bobby (no photo). Same recipe as the Sep 9 shake (740 cal/62g protein/21g carb/32g fat/365mg sodium at 3 tbsp chunky PB), scaled down by 1 tbsp of peanut butter (~95 cal/3.5g protein/3g carb/8g fat/~75mg sodium). Time is an estimate (logged ~4:35 PM).",
+    calories: 645, protein: 58, carbs: 18, fat: 24, sodium: 290, sodiumNote: "Scaled from the Sep 9 shake; peanut butter brand and almond milk volume not specified, so treat as medium confidence." },
+  { date: "2026-10-15", time: "20:00", name: "Whole Foods Hot Bar Chicken Thighs", photo: "food-photos/2026-10-15-dinner-chicken-thighs.jpeg",
+    description: "Whole Foods hot bar chicken thighs, 0.52 lb (8.3 oz) per the checkout scale (photo food-photos/2026-10-15-dinner-chicken-scale.jpeg), all eaten per Bobby ('chicken thighs', post-workout meal; the workout ended 7:35 PM). Macros use the established per-oz rate for the Whole Foods Grilled Jerk Chicken boneless thighs (65 cal/7.25g protein/3.75g fat/~100mg sodium per oz) since no label was shown and the exact seasoning of this batch isn't known (one piece looks plain-herbed, one darker and glazed). Time is an estimate.",
+    calories: 541, protein: 60, carbs: 1, fat: 31, sodium: 830, sodiumNote: "Estimated from the jerk-chicken per-oz rate; if this batch was a less heavily seasoned recipe, real sodium could be notably lower. Skin-on pieces would push fat higher than this." },
+  { date: "2026-10-15", time: "20:15", name: "Whole Foods Pumpkin Pie Slice", photo: "food-photos/2026-10-15-dessert-pumpkin-pie-label.jpeg",
+    description: "1 slice (4 oz / 113g), label-exact: 320 cal/7g protein/44g carb (28g total sugars, 3g added per the label)/13g fat (7g sat)/250mg sodium. Packed 10.15.26 at 17:09, $3.49. Eaten with the chicken as part of the post-workout meal. Time is an estimate.",
+    calories: 320, protein: 7, carbs: 44, fat: 13, sodium: 250 },
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -3049,5 +3166,8 @@ const proteinData = [
   { date: "2026-10-04", value: 155, note: "partial — an after-gym Gai Chicken & Rice double-chicken bowl, a PayDay Peanut Caramel Bar, and a rice protein/whole peanut shake (no banana or peanut butter) so far; no earlier meals logged yet today. Already within 25g of the 180g target." },
   { date: "2026-10-05", value: 131, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt and a Sun Chips Garden Salsa bag, a Community Snacks Sour Cream & Onion chips bag at ~11 AM, a 0.47 lb tuna salad with 2 hard boiled eggs and a Chobani blueberry yogurt for lunch, and a Boar's Head oven roasted turkey spinach wrap for dinner (described only, rough estimate). Not explicitly confirmed as the final meal of the day." },
   { date: "2026-10-06", value: 155, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt and a Sun Chips Garden Salsa bag, a 0.34 lb tuna salad with 2 hard boiled eggs and a Chobani raspberry yogurt for lunch, and 0.60 lb of Whole Foods grilled jerk chicken (boneless thighs) for dinner. Not explicitly confirmed as the final meals of the day." },
-  { date: "2026-10-07", value: 198, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani raspberry yogurt and a Sun Chips Garden Salsa bag, a Community Snacks Sour Cream & Onion chips bag midday, a 0.45 lb tuna salad with 2 hard boiled eggs, a Chobani raspberry yogurt and a Nature's Bakery Blueberry Fig Bar for lunch, and 1.5 ribeye steaks for dinner. Not explicitly confirmed as the final meals of the day." }
+  { date: "2026-10-07", value: 198, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani raspberry yogurt and a Sun Chips Garden Salsa bag, a Community Snacks Sour Cream & Onion chips bag midday, a 0.45 lb tuna salad with 2 hard boiled eggs, a Chobani raspberry yogurt and a Nature's Bakery Blueberry Fig Bar for lunch, and 1.5 ribeye steaks for dinner. Not explicitly confirmed as the final meals of the day." },
+  { date: "2026-10-13", value: 34, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt and a Sun Chips Garden Salsa bag. Later meals (including any pie slices) not yet logged." },
+  { date: "2026-10-14", value: 161, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt and a Sun Chips Garden Salsa bag, a Community Snacks Sour Cream & Onion chips bag at ~11 AM, a 0.37 lb tuna salad with 2 hard boiled eggs and a Chobani raspberry yogurt for lunch, and 1 whole no-salt ribeye with a small side salad for dinner. Any pie slices after dinner not yet logged." },
+  { date: "2026-10-15", value: 213, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt and a Sun Chips Garden Salsa bag, lunch of an unlabeled Cuban sandwich with no cheese (rough visual estimate), a pickle spear, a Chobani strawberry yogurt, a Sun Chips Garden Salsa bag and a Nature's Bakery Blueberry Fig Bar, an afternoon rice protein/2 tbsp PB/almond milk shake, and a post-workout 0.52 lb Whole Foods hot bar chicken thighs plus a Whole Foods pumpkin pie slice. Breakfast not logged (may have been skipped, not confirmed); day not confirmed complete." }
 ];
