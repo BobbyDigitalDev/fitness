@@ -226,7 +226,11 @@ const weightData = [
   { date: "2026-10-12", value: 201, note: "via Fitbit Weight page weekly list, morning weigh-in, backfilled from an Oct 13 screenshot. Up 1.8 lb from Oct 11's 199.2." },
   { date: "2026-10-13", value: 201.6, note: "via Fitbit Weight page weekly list, morning weigh-in, same-day entry. Up 0.6 lb from Oct 12's 201." },
   { date: "2026-10-14", value: 201, note: "via Fitbit, backfilled from an Oct 15 screenshot of the Oct 14 date page, where the Weight tile read 201 lb labeled 'Yesterday' (a tile labeled with the same day, not an older date, so treated as a genuine Oct 14 weigh-in rather than a carried-forward value; the Weight log list itself wasn't in the screenshot). Down 0.6 lb from Oct 13's 201.6." },
-  { date: "2026-10-15", value: 200, note: "via Fitbit, backfilled from an Oct 16 screenshot of the Oct 15 date page, where the Weight tile read 200 lb labeled 'Yesterday' (same-day label, so treated as a genuine Oct 15 weigh-in rather than a carried-forward value; the Weight log list itself wasn't in the screenshot). Down 1.0 lb from Oct 14's 201 and 1.6 lb from Oct 13's 201.6, despite Oct 15 being a 3,000+ cal day by the food log (the weigh-in is a morning reading, so it predates that day's eating)." }
+  { date: "2026-10-15", value: 200, note: "via Fitbit, backfilled from an Oct 16 screenshot of the Oct 15 date page, where the Weight tile read 200 lb labeled 'Yesterday' (same-day label, so treated as a genuine Oct 15 weigh-in rather than a carried-forward value; the Weight log list itself wasn't in the screenshot). Down 1.0 lb from Oct 14's 201 and 1.6 lb from Oct 13's 201.6, despite Oct 15 being a 3,000+ cal day by the food log (the weigh-in is a morning reading, so it predates that day's eating)." },
+  { date: "2026-10-16", value: 200.6, note: "via Fitbit, morning weigh-in, backfilled from an Oct 19 screenshot viewing the Oct 16 date page directly (the tile was labeled Oct 16, so a genuine same-day entry). Up 0.6 lb from Oct 15's 200." },
+  { date: "2026-10-17", value: 201.2, note: "via Fitbit, morning weigh-in, backfilled from an Oct 19 screenshot viewing the Oct 17 date page directly (tile labeled Oct 17, so a genuine same-day entry). Up 0.6 lb from Oct 16's 200.6." },
+  { date: "2026-10-18", value: 201.6, note: "via Fitbit, morning weigh-in, backfilled from an Oct 19 screenshot of the Oct 18 date page, where the Weight tile read 201.6 lb labeled 'Yesterday' (a same-day label, so treated as a genuine Oct 18 weigh-in rather than a carried-forward value; the Weight log list itself wasn't in the screenshot). Up 0.4 lb from Oct 17's 201.2, and equal to Oct 13's 201.6, the high of the past three weeks." },
+  { date: "2026-10-19", value: 202.2, note: "via Fitbit Weight page weekly list, morning weigh-in, same-day entry. Up 0.6 lb from Oct 18's 201.6 and the highest weigh-in since Sep 28 at least (Oct 4-18 ranged 198.8-201.6). The same screenshot's list matches the logged Oct 11-18 values. This Week average 201.9 lbs, Last Week 200.6 lbs, Oct 4-10 200 lbs, so the weekly average has risen about 1-2 lb over two weeks, with the pie slices and the heavier-eating days of Oct 15-17 in that window." }
 ];
 
 const calorieData = [
@@ -291,7 +295,11 @@ const calorieData = [
   { date: "2026-10-07", value: 2824, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani raspberry yogurt and a Sun Chips Garden Salsa bag, a Community Snacks Sour Cream & Onion chips bag midday, a 0.45 lb tuna salad with 2 hard boiled eggs, a Chobani raspberry yogurt and a Nature's Bakery Blueberry Fig Bar for lunch, and 1.5 ribeye steaks for dinner. Not explicitly confirmed as the final meals of the day." },
   { date: "2026-10-13", value: 600, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt and a Sun Chips Garden Salsa bag. Later meals (including any pie slices) not yet logged." },
   { date: "2026-10-14", value: 2427, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt and a Sun Chips Garden Salsa bag, a Community Snacks Sour Cream & Onion chips bag at ~11 AM, a 0.37 lb tuna salad with 2 hard boiled eggs and a Chobani raspberry yogurt for lunch, and 1 whole no-salt ribeye with a small side salad for dinner. Any pie slices after dinner not yet logged." },
-  { date: "2026-10-15", value: 3081, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt and a Sun Chips Garden Salsa bag, lunch of an unlabeled Cuban sandwich with no cheese (rough visual estimate), a pickle spear, a Chobani strawberry yogurt, a Sun Chips Garden Salsa bag and a Nature's Bakery Blueberry Fig Bar, an afternoon rice protein/2 tbsp PB/almond milk shake, and a post-workout 0.52 lb Whole Foods hot bar chicken thighs plus a Whole Foods pumpkin pie slice. Breakfast not logged (may have been skipped, not confirmed); day not confirmed complete." }
+  { date: "2026-10-15", value: 3081, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt and a Sun Chips Garden Salsa bag, lunch of an unlabeled Cuban sandwich with no cheese (rough visual estimate), a pickle spear, a Chobani strawberry yogurt, a Sun Chips Garden Salsa bag and a Nature's Bakery Blueberry Fig Bar, an afternoon rice protein/2 tbsp PB/almond milk shake, and a post-workout 0.52 lb Whole Foods hot bar chicken thighs plus a Whole Foods pumpkin pie slice. Breakfast not logged (may have been skipped, not confirmed); day not confirmed complete." },
+  { date: "2026-10-16", value: 2075, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt and a Sun Chips Garden Salsa bag, plus a lunch of an unlabeled Cuban sandwich with no cheese (rough visual estimate), a pickle spear, a Chobani strawberry yogurt and a Community Snacks Sour Cream & Onion chips bag. Dinner was a plain no-cheese smash burger with pickles (rough visual estimate). Not explicitly confirmed as the final meal of the day." },
+  { date: "2026-10-17", value: 1317, note: "partial — post-Pilates 0.55 lb Whole Foods grilled jerk chicken (boneless thighs) and an after-weight-training 0.69 lb Whole Foods chimichurri roasted chicken legs (boneless thighs); breakfast and other meals not yet logged." },
+  { date: "2026-10-19", value: 1325, note: "partial — usual breakfast plus a 0.38 lb tuna salad, 2 hard boiled eggs, Chobani strawberry yogurt and Sun Chips Garden Salsa for lunch; dinner and any other meals not logged yet." },
+  { date: "2026-10-23", value: 460, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with Chobani strawberry yogurt only (no chips); no other Oct 23 meals logged yet." }
 ];
 
 const sleepData = [
@@ -378,7 +386,11 @@ const sleepData = [
   { date: "2026-10-12", hours: 6.82, score: 80, readiness: 67, note: "6h49m, Good score (80), Daily Readiness 67 (High). Cardio Load 4 (no target). Backfilled from an Oct 13 screenshot labeled 'Yesterday'. Screenshot only showed duration/score/readiness, no bedtime, wake time, sleep-stage breakdown, or oxygen variation." },
   { date: "2026-10-13", hours: 5.67, score: 86, readiness: 89, note: "5h40m, Good score (86), Daily Readiness 89 (High). Cardio Load 13 (no target). Backfilled from an Oct 15 screenshot viewing the Oct 13 date page directly. The shortest night since Oct 9 (4h17m), but it still scored 86 and readiness was the highest in this stretch (Oct 9-12 ranged 13-76). Screenshot only showed duration/score/readiness, no bedtime, wake time, sleep-stage breakdown, or oxygen variation." },
   { date: "2026-10-14", hours: 6.62, score: 80, readiness: 68, note: "6h37m, Good score (80), Daily Readiness 68 (High). Cardio Load 4 (no target). Backfilled from an Oct 15 screenshot labeled 'Yesterday'. Readiness fell from Oct 13's 89 after a 5h40m night. Screenshot only showed duration/score/readiness, no bedtime, wake time, sleep-stage breakdown, or oxygen variation." },
-  { date: "2026-10-15", hours: 6.83, score: 87, readiness: 68, note: "6h50m, Good score (87), Daily Readiness 68 (High). Cardio Load 30 (no target). Backfilled from an Oct 16 screenshot labeled 'Yesterday'. The best sleep score since Oct 5 (89); readiness is the same 68 as Oct 14. Screenshot only showed duration/score/readiness, no bedtime, wake time, sleep-stage breakdown, or oxygen variation." }
+  { date: "2026-10-15", hours: 6.83, score: 87, readiness: 68, note: "6h50m, Good score (87), Daily Readiness 68 (High). Cardio Load 30 (no target). Backfilled from an Oct 16 screenshot labeled 'Yesterday'. The best sleep score since Oct 5 (89); readiness is the same 68 as Oct 14. Screenshot only showed duration/score/readiness, no bedtime, wake time, sleep-stage breakdown, or oxygen variation." },
+  { date: "2026-10-16", hours: 6.15, score: 84, readiness: 67, note: "6h9m, Good score (84), Daily Readiness 67 (High). Cardio Load 5 (no target). Backfilled from an Oct 19 screenshot viewing the Oct 16 date page directly. Screenshot only showed duration/score/readiness, no bedtime, wake time, sleep-stage breakdown, or oxygen variation." },
+  { date: "2026-10-17", hours: 7.75, score: 91, readiness: 67, note: "7h45m, Excellent score (91), Daily Readiness 67 (High). Cardio Load 43 (no target). Backfilled from an Oct 19 screenshot viewing the Oct 17 date page directly. The longest night since Oct 4 (8h22m) and the best sleep score since at least Sep 20 (the previous high was 90). Screenshot only showed duration/score/readiness, no bedtime, wake time, sleep-stage breakdown, or oxygen variation." },
+  { date: "2026-10-18", hours: 5.98, score: 78, readiness: 55, note: "5h59m, Fair score (78), Daily Readiness 55 (Moderate). Cardio Load 3 (no target). Backfilled from an Oct 19 screenshot labeled 'Yesterday'. Down from Oct 17's 7h45m, and the lowest readiness since Oct 10 (13), the only Moderate reading since then (Oct 11-17 were 67-89, all High). Screenshot only showed duration/score/readiness, no bedtime, wake time, sleep-stage breakdown, or oxygen variation." },
+  { date: "2026-10-19", hours: 6.43, score: 85, readiness: null, note: "6h26m, Good score (85), asleep 12:04-7:09 AM per the sleep timeline (No sleep schedule set). Stages: Awake 38 min, REM 1h 23m, Light 3h 28m, Deep 1h 35m. Same-day entry from an Oct 19 screenshot of the Sleep page; Daily Readiness and Cardio Load weren't in the screenshots, so readiness is null." }
 ];
 
 const stepsData = [
@@ -463,7 +475,10 @@ const stepsData = [
   { date: "2026-10-12", value: 9547, distance: 4.55, calories: 2813, floors: 18, zoneMin: 1, note: "final EOD numbers via Fitbit app, backfilled from an Oct 13 screenshot labeled 'Yesterday' — Cardio Load 4 (no target), 2 of 5 exercise days for the week of Oct 11-17 so far (Sun and Mon checked; the Oct 12 credit is the walk below). Includes a 1:37 PM tracked walk (1.12mi, 23 min — see walksData). 4 of 5 health metrics in personal range (BR, SpO2, RHR, HRV); skin temp variation showed 'No data yet'. Resting HR 62 bpm, HR range 50-116 bpm for the day. Daily Readiness 67 (High). Weight 201 lb, matches weightData. A quiet recovery day after Oct 11's big 15,933-step day." },
   { date: "2026-10-13", value: 12502, distance: 5.9, calories: 3171, floors: 18, zoneMin: 6, note: "final EOD numbers via Fitbit app, backfilled from an Oct 15 screenshot viewing the Oct 13 date page directly. Cardio Load 13 (no target). Includes a 1:52 PM tracked walk (0.78mi, 24 min — see walksData). Distance is Fitbit's 1-decimal display (5.9 mi), so the walksData remainder is accurate to about +/-0.05 mi. 4 of 5 health metrics in personal range (BR, SpO2, RHR, HRV); skin temp variation showed 'No data yet'. Resting HR 60 bpm, HR range 46-111 bpm for the day. Daily Readiness 89 (High). Weight 201.6 lb, matches weightData. The exercise-days widget (5 of 5, Sun-Thu checked) in the screenshot is the current week as of Oct 15, so it isn't attributed to this day." },
   { date: "2026-10-14", value: 9244, distance: 4.44, calories: 2987, floors: 14, zoneMin: 3, note: "final EOD numbers via Fitbit app, backfilled from an Oct 15 screenshot labeled 'Yesterday' — Cardio Load 4 (no target). Includes a 6:21 PM tracked walk (0.66mi, 22 min — see walksData). 4 of 5 health metrics in personal range (BR, SpO2, RHR, HRV); skin temp variation showed 'No data yet'. Resting HR 60 bpm, HR range 48-117 bpm for the day. Daily Readiness 68 (High). Weight 201 lb, matches weightData. No lifting session is logged for this day (the JSONBin queue had sessions on Oct 11 and Oct 15 only)." },
-  { date: "2026-10-15", value: 12540, distance: 5.45, calories: 3202, floors: 19, zoneMin: 32, note: "final EOD numbers via Fitbit app, backfilled from an Oct 16 screenshot labeled 'Yesterday' — Cardio Load 30 (no target), 5 of 5 exercise days for the week of Oct 11-17 so far (Sun-Thu checked). The day had the 6:01 PM treadmill walk (1.31 mi, see runsData; Fitbit mislabeled it as a Bike) and the 6:27-7:35 PM Full-Body B session (see gymWorkoutsData), then a 7:42 PM tracked walk (0.41mi, 21 min — see walksData). The Exercise list in this screenshot showed only that 7:42 PM walk, not the treadmill walk or the lifting session. 4 of 5 health metrics in personal range (BR, SpO2, RHR, HRV); skin temp variation showed 'No data yet'. Resting HR 60 bpm, HR range 51-116 bpm for the day. Daily Readiness 68 (High). Weight 200 lb, matches weightData. The most steps since Oct 11 (15,933) and 32 zone min, the most since Oct 11 (61)." }
+  { date: "2026-10-15", value: 12540, distance: 5.45, calories: 3202, floors: 19, zoneMin: 32, note: "final EOD numbers via Fitbit app, backfilled from an Oct 16 screenshot labeled 'Yesterday' — Cardio Load 30 (no target), 5 of 5 exercise days for the week of Oct 11-17 so far (Sun-Thu checked). The day had the 6:01 PM treadmill walk (1.31 mi, see runsData; Fitbit mislabeled it as a Bike) and the 6:27-7:35 PM Full-Body B session (see gymWorkoutsData), then a 7:42 PM tracked walk (0.41mi, 21 min — see walksData). The Exercise list in this screenshot showed only that 7:42 PM walk, not the treadmill walk or the lifting session. (A later Oct 19 screenshot of the Exercise list still shows the 6:01 PM Bike entry, 1.31 mi in 23 min, so it was not deleted.) 4 of 5 health metrics in personal range (BR, SpO2, RHR, HRV); skin temp variation showed 'No data yet'. Resting HR 60 bpm, HR range 51-116 bpm for the day. Daily Readiness 68 (High). Weight 200 lb, matches weightData. The most steps since Oct 11 (15,933) and 32 zone min, the most since Oct 11 (61)." },
+  { date: "2026-10-16", value: 10702, distance: 5.07, calories: 3018, floors: 24, zoneMin: 4, note: "final EOD numbers via Fitbit app, backfilled from an Oct 19 screenshot viewing the Oct 16 date page directly. Cardio Load 5 (no target). No tracked exercise appears for this day (the exercise-days widget shows Friday unchecked), so the whole distance is untracked movement. 4 of 5 health metrics in personal range (BR, SpO2, RHR, HRV); skin temp variation showed 'No data yet'. Resting HR 60 bpm, HR range 50-112 bpm for the day. Daily Readiness 67 (High). Weight 200.6 lb, matches weightData. 24 floors is above every day from Oct 4 through Oct 15 (max 22 on Oct 10), with only 4 zone minutes." },
+  { date: "2026-10-17", value: 13535, distance: 6.19, calories: 3458, floors: 29, zoneMin: 40, note: "final EOD numbers via Fitbit app, backfilled from an Oct 19 screenshot viewing the Oct 17 date page directly. Cardio Load 43 (no target). A Pilates class (10:32 AM, about 50 min actual), a 12:39 PM treadmill warm-up (0.56mi, runsData), the Full-Body A session (12:54 PM, Fitbit-detected as Strength training, 9 zone min) and a 2:05 PM tracked walk (0.38mi, 21 min, walksData). Health metrics 3 of 5 in personal range (BR, RHR, HRV in range; SpO2 and skin temp variation showed 'Some data unavailable'). Resting HR 60 bpm, HR range 49-130 bpm for the day. Daily Readiness 67 (High). Weight 201.2 lb, matches weightData. The most steps since Oct 11 (15,933), the most zone minutes since Oct 11 (61) and the most floors in the log this month (29, previous high 24 on Oct 16)." },
+  { date: "2026-10-18", value: 8242, distance: 4.09, calories: 3124, floors: 6, zoneMin: 0, note: "final EOD numbers via Fitbit app, backfilled from an Oct 19 screenshot labeled 'Yesterday' — Cardio Load 3 (no target). No tracked exercise appears for this day, so the whole distance is untracked movement. The fewest steps since Oct 3 (5,473) and the fewest floors this month (6), a rest day after Oct 17's big one. Health metrics 3 of 5 in personal range (BR, RHR, HRV in range; SpO2 and skin temp variation showed 'Some data unavailable'). Resting HR 62 bpm, HR range 52-150 bpm for the day; the 150 bpm peak has no logged exercise to explain it (cause unknown). Daily Readiness 55 (Moderate). Weight 201.6 lb, matches weightData." }
 ];
 
 // Tracked runs. distance/pace/calories are from Strava (usually the full
@@ -602,6 +617,15 @@ const runsData = [
     zoneMin: 10,
     note: "Brisk treadmill walk before tonight's Full-Body B session, starting 6:01 PM and running 23:59 on the watch (the gym session started at 6:27 PM, see gymWorkoutsData). Bobby says it was about 22 minutes, so the watch's 24 minutes likely includes some lead-in or tail time (unconfirmed). Fitbit (Versa 4) mislabeled it as a Bike ride, so the activity type is wrong but the numbers are a plausible walk: 3.28 mph average over 1.31 mi, 2 ft elevation gain (flat, consistent with a treadmill). Laps: 3.8 mph for the first 1.00 mi, then 2.41 mph for the last 0.33 mi (a slower finish). Heart rate sat in the moderate zone for roughly the first 12 minutes (peaking around 115-120 bpm by eye on the chart) then dropped into the light zone for the rest, well below the 126 bpm vigorous line the whole time. Fitbit-only (indoor, no Strava/GPS track)."
   },
+  {
+    date: "2026-10-17",
+    name: "Treadmill Warm-Up (Lifetime Gym)",
+    distance: 0.56,          // mi, Fitbit (indoor treadmill, no Strava/GPS track)
+    movingTime: "10:00",
+    elapsedTime: "10:00",
+    avgPace: "17:51",        // per mi, from 0.56 mi in 10 min
+    note: "Warm-up on the treadmill before today's Full-Body A session, started 12:39 PM and ran about 10 min (the lifting started 12:53 PM, see gymWorkoutsData). Fitbit labeled it 'Treadmill run', but 0.56 mi in 10 min is a walking pace (~3.4 mph). Backfilled from an Oct 17 screenshot of the Exercise list, which showed only time, distance and duration, so there are no calorie, heart-rate, or zone-time figures for it."
+  }
 ];
 
 // Tracked walks. distance/pace/calories from Strava; HR data from Fitbit.
@@ -870,7 +894,11 @@ const walksData = [
   { date: "2026-10-14", name: "Walk", distance: 0.66, duration: 22, startTime: "18:21", note: "Fitbit, 6:21 PM · 0.66 mi · 22 min. Backfilled from an Oct 15 screenshot labeled 'Yesterday'." },
   { date: "2026-10-14", name: "Remainder of day's Fitbit distance", distance: 3.78, note: "Fills the gap between the day's 1 tracked walksData entry (0.66mi) and the day's total Fitbit distance (4.44mi from stepsData)." },
   { date: "2026-10-15", name: "Walk", distance: 0.41, duration: 21, startTime: "19:42", note: "Fitbit, 7:42 PM · 0.41 mi · 21 min — shortly after the Full-Body B session ended at 7:35 PM. Backfilled from an Oct 16 screenshot labeled 'Yesterday'." },
-  { date: "2026-10-15", name: "Remainder of day's Fitbit distance", distance: 5.04, note: "Fills the gap between the day's 1 tracked walksData entry (0.41mi) and the day's total Fitbit distance (5.45mi from stepsData). Includes the 1.31mi treadmill walk logged in runsData (6:01 PM) plus the gym session and untracked movement." }
+  { date: "2026-10-15", name: "Remainder of day's Fitbit distance", distance: 5.04, note: "Fills the gap between the day's 1 tracked walksData entry (0.41mi) and the day's total Fitbit distance (5.45mi from stepsData). Includes the 1.31mi treadmill walk logged in runsData (6:01 PM) plus the gym session and untracked movement." },
+  { date: "2026-10-16", name: "Remainder of day's Fitbit distance", distance: 5.07, note: "No tracked walks in walksData for this day (no exercise was logged on Fitbit), so this is the whole day's Fitbit distance (5.07mi from stepsData), all untracked movement." },
+  { date: "2026-10-17", name: "Walk", distance: 0.38, duration: 21, startTime: "14:05", note: "Fitbit, 2:05 PM · 0.38 mi · 21 min — shortly after the Full-Body A session ended at 2:00 PM. Backfilled from an Oct 19 screenshot of the Fitbit Exercise list." },
+  { date: "2026-10-17", name: "Remainder of day's Fitbit distance", distance: 5.81, note: "Fills the gap between the day's 1 tracked walksData entry (0.38mi) and the day's total Fitbit distance (6.19mi from stepsData). Includes the 0.56mi treadmill warm-up in runsData (12:39 PM) plus the Pilates class, the gym session and untracked movement." },
+  { date: "2026-10-18", name: "Remainder of day's Fitbit distance", distance: 4.09, note: "No tracked walks in walksData for this day (no exercise was logged on Fitbit), so this is the whole day's Fitbit distance (4.09mi from stepsData), all untracked movement." }
 ];
 
 // Gym workout sessions. One entry per session; exercises listed in order performed.
@@ -2326,6 +2354,220 @@ const gymWorkoutsData = [
       }
     ],
     note: "Session against the Full-Body B guide (workout_guides/2026-08-03-full-body-b-guide.html) at Lifetime Gym, synced through JSONBin — startedAt 2026-10-15T22:27:00.020Z, endedAt 2026-10-15T23:35:24.755Z (6:27-7:35 PM EDT, ~68 min). Two equipment substitutions because stations were occupied: Romanian Deadlift was done with dumbbells (Bobby says 35 lb in each hand, which is 70 lb total for sets 1-2; set 3 was logged as 95, which doesn't match 35 per hand, so that value is unverified) and the Flat/Machine Chest Press was done as a dumbbell press with 30 lb in each hand (60 lb total as logged), so neither is directly comparable to the Oct 4 barbell/machine numbers. Versus the last Full-Body B (Oct 4): Seated Shoulder Press 60/50/50 for 10/10/10 reps vs 60/50/50 for 10/12/10, so flat on weight with 2 fewer reps on set 2 and the opening 60 lb set still Hard (Bobby says 60 is still too hard); Seated Cable Row identical at 110/120/130, all 15 reps, all Just right (no progression this time); Rear Delt Fly up 5 lb at every set (25/30/35 vs 20/25/30), all Just right; Half-Kneeling DB Anti-Rotation Press unchanged at 35 lb across all sets. Bobby's notes also flagged: a lower-back feel during the Romanian Deadlift (asked if that is normal), a request for the workout-guide links to open in a new tab so there is no previous page to swipe back to, and that the program has no lat-focused work (Lat Pulldown only appears in Full-Body A). Trained after the usual lunch, and preceded by a brisk treadmill walk at 6:01 PM that Fitbit mislabeled as a Bike ride (see runsData). The day's Fitbit totals (steps, sleep, etc.) are in stepsData and sleepData for Oct 15."
+  },
+  {
+    date: "2026-10-17",
+    gym: "Lifetime Gym",
+    label: "Full-Body A",
+    startTime: "12:53",
+    endTime: "14:00",
+    duration: 67,           // minutes — from the app's own startedAt/endedAt via JSONBin
+    exercises: [
+      {
+        name: "Incline Chest Press",
+        note: "",
+        sets: [
+          { reps: 15, weight: 30, feel: "Just right" },
+          { reps: 15, weight: 30, feel: "Hard" },
+          { reps: 14, weight: 30, feel: "Hard" }
+        ]
+      },
+      {
+        name: "Lat Pulldown",
+        note: "",
+        sets: [
+          { reps: 15, weight: 100, feel: "Just right" },
+          { reps: 15, weight: 120, feel: "Just right" },
+          { reps: 15, weight: 125, feel: "Hard" }
+        ]
+      },
+      {
+        name: "Leg Press",
+        note: "",
+        sets: [
+          { reps: 20, weight: 160, feel: "Just right" },
+          { reps: 20, weight: 180, feel: "Just right" },
+          { reps: 20, weight: 200, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Lateral Raises",
+        note: "",
+        sets: [
+          { reps: 15, weight: 15, feel: "Just right" },
+          { reps: 15, weight: 15, feel: "Just right" },
+          { reps: 15, weight: 15, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Chest-Supported Dumbbell Row",
+        note: "",
+        sets: [
+          { reps: 15, weight: 35, feel: "Just right" },
+          { reps: 15, weight: 35, feel: "Just right" },
+          { reps: 15, weight: 35, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Dumbbell Fly — Wide Arc",
+        note: "",
+        sets: [
+          { reps: 15, weight: 25, feel: "Just right" },
+          { reps: 15, weight: 25, feel: "Just right" },
+          { reps: 15, weight: 25, feel: "Just right" }
+        ]
+      }
+    ],
+    note: "Session against the Full-Body A guide (workout_guides/2026-08-03-full-body-a-guide.html) at Lifetime Gym, synced through JSONBin — startedAt 2026-10-17T16:53:01.121Z, endedAt 2026-10-17T18:00:00.494Z (12:53-2:00 PM EDT, ~67 min). Forearm Plank skipped on purpose: Bobby's note was \"I did about 50 mins of Pilates today so I'll skip this\" (the Pilates class itself is in events with only what he said so far). Versus the last Full-Body A (Oct 7): Incline Chest Press same 30/30/30 with the last set at 14 reps vs 12, feels unchanged (Just right, Hard, Hard); Lat Pulldown 100/120/125 vs 100/120/120, the last set up 5 lb and rated Hard (Oct 7's were all Just right); Leg Press same 160/180/200 but 20 reps per set vs 15, all Just right; Lateral Raises 15 lb at all three sets for 15 reps each vs 12/15/15 lb for 15/12/12 reps; Chest-Supported Dumbbell Row up 10 lb at every set (35 vs 25), all 15 reps and Just right; Wide Arc Fly 25 lb at every set vs 20/25/25, all Just right. Six of the seven guide exercises were completed with no equipment substitutions noted. Fitbit detected it as Strength training at 12:54 PM, 1h 6m, 238 cal, avg HR 95 bpm, 9 zone min, Cardio Load 10 (10 min Moderate zone, 57 min Light, 0 Vigorous or Peak). It was preceded by a 10-min treadmill warm-up at 12:39 PM (see runsData) and followed by a 21-min, 0.38 mi walk at 2:05 PM. The day's Fitbit totals are in stepsData and sleepData for Oct 17."
+  },
+  {
+    date: "2026-10-19",
+    gym: "Lifetime Gym",
+    label: "Full-Body C",
+    startTime: "18:04",
+    endTime: "19:19",
+    duration: 75,           // minutes, from the app's own startedAt/endedAt via JSONBin
+    exercises: [
+      {
+        name: "Incline Chest Press",
+        note: "",
+        sets: [
+          { reps: 12, weight: 30, feel: "Just right" },
+          { reps: 15, weight: 30, feel: "Just right" },
+          { reps: 15, weight: 30, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Lat Pulldown",
+        note: "",
+        sets: [
+          { reps: 15, weight: 100, feel: "Just right" },
+          { reps: 15, weight: 120, feel: "Just right" },
+          { reps: 15, weight: 125, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Leg Press",
+        note: "",
+        sets: [
+          { reps: 20, weight: 160, feel: "Just right" },
+          { reps: 20, weight: 180, feel: "Just right" },
+          { reps: 20, weight: 200, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Leg Curl",
+        note: "",
+        sets: [
+          { reps: 20, weight: 60, feel: "Just right" },
+          { reps: 20, weight: 70, feel: "Just right" },
+          { reps: 20, weight: 80, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Lateral Raises",
+        note: "",
+        sets: [
+          { reps: 15, weight: 15, feel: "Just right" },
+          { reps: 15, weight: 15, feel: "Just right" },
+          { reps: 15, weight: 15, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Chest-Supported Dumbbell Row",
+        note: "",
+        sets: [
+          { reps: 15, weight: 30, feel: "Just right" },
+          { reps: 15, weight: 30, feel: "Just right" },
+          { reps: 15, weight: 35, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Dumbbell Fly — Wide Arc",
+        note: "",
+        sets: [
+          { reps: 15, weight: 25, feel: "Just right" },
+          { reps: 15, weight: 25, feel: "Just right" },
+          { reps: 15, weight: 25, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Suitcase Carry",
+        note: "",
+        sets: [
+          { duration: 60, weight: 40, feel: "Just right" },
+          { duration: 60, weight: 40, feel: "Just right" },
+          { duration: 60, weight: 40, feel: "Just right" },
+          { duration: 60, weight: 40, feel: "Just right" }
+        ]
+      }
+    ],
+    note: "Session against the Full-Body C guide (workout_guides/2026-08-03-full-body-c-guide.html) at Lifetime Gym, synced through JSONBin. startedAt 2026-10-19T22:04:01.773Z, endedAt 2026-10-19T23:19:22.292Z (6:04-7:19 PM EDT, ~75 min). Every set rated Just right; no exercise notes entered. Leg Press and Leg Curl moved to 20 reps on all sets (Oct 2 C was 15 reps at the same weights). Set numbers are as pulled from the bin on 2026-11-02 and are provisional until Bobby confirms. Merged 2026-11-02."
+  },
+  {
+    date: "2026-10-23",
+    gym: "Lifetime Gym",
+    label: "Full-Body B",
+    startTime: "18:23",
+    endTime: "19:38",
+    duration: 75,           // minutes, from the app's own startedAt/endedAt via JSONBin
+    exercises: [
+      {
+        name: "Seated Shoulder Press",
+        note: "",
+        sets: [
+          { reps: 15, weight: 55, feel: "Just right" },
+          { reps: 15, weight: 55, feel: "Hard" },
+          { reps: 12, weight: 55, feel: "Hard" }
+        ]
+      },
+      {
+        name: "Seated Cable Row",
+        note: "",
+        sets: [
+          { reps: 20, weight: 110, feel: "Just right" },
+          { reps: 15, weight: 120, feel: "Just right" },
+          { reps: 15, weight: 130, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Romanian Deadlift",
+        note: "",
+        sets: [
+          { reps: 15, weight: 95, feel: "Just right" },
+          { reps: 15, weight: 95, feel: "Just right" },
+          { reps: 15, weight: 95, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Rear Delt Fly",
+        note: "",
+        sets: [
+          { reps: 15, weight: 35, feel: "Just right" },
+          { reps: 16, weight: 35, feel: "Just right" },
+          { reps: 15, weight: 35, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Flat/Machine Chest Press",
+        note: "",
+        sets: [
+          { reps: 15, weight: 60, feel: "Easy" },
+          { reps: 15, weight: 70, feel: "Just right" },
+          { reps: 15, weight: 80, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Half-Kneeling DB Anti-Rotation Press",
+        note: "",
+        sets: [
+          { reps: 15, weight: 35, feel: "Just right" },
+          { reps: 15, weight: 35, feel: "Just right" },
+          { reps: 15, weight: 35, feel: "Just right" }
+        ]
+      }
+    ],
+    note: "Session against the Full-Body B guide (workout_guides/2026-08-03-full-body-b-guide.html) at Lifetime Gym, synced through JSONBin. startedAt 2026-10-23T22:23:08.564Z, endedAt 2026-10-23T23:38:05.538Z (6:23-7:38 PM EDT, ~75 min). No exercise notes entered, so the equipment used for Romanian Deadlift (95 lb on all 3 sets) is not recorded; Oct 15 B used 35 lb dumbbells per hand (70 lb) for the first two sets. Seated Shoulder Press 55 lb for 15/15/12 with the last two sets Hard (Oct 15: 60 x10 Hard, then 50 x10, 50 x10). Flat/Machine Chest Press went 60/70/80 (Oct 15: 60 x3). Set numbers are as pulled from the bin on 2026-11-02 and are provisional until Bobby confirms. Merged 2026-11-02."
   }
 ];
 
@@ -2758,13 +3000,13 @@ const meals = [
     description: "After-gym dinner at Gai Chicken & Rice — roasted chicken over white rice with a side salad (lettuce, corn, cherry tomatoes, cucumber) and a citrus dipping sauce. Same specific menu item as the Aug 8 entry ('Gai Roasted Chicken Bowl'), so macros are reused directly from that established baseline rather than re-estimated from scratch.",
     calories: 820, protein: 60, carbs: 78, fat: 29, sodium: 950, sodiumNote: "Restaurant-cooked, no label — reused from the Aug 8 estimate for the same menu item." },
   { date: "2026-08-29", time: "11:31", name: "Grilled Jerk Chicken Legs (Whole Foods)", photo: "food-photos/2026-08-29-lunch-jerk-chicken-box.jpeg",
-    description: "Post-Pilates meal — 0.59 lb (9.44 oz) of Whole Foods hot bar Grilled Jerk Chicken Legs (labeled 'legs' but actually thighs, per Bobby). Deli case label confirms 260 cal per 4oz serving (see food-photos/2026-08-29-lunch-jerk-chicken-label.jpeg), which lines up almost exactly with the per-oz calorie rate already established from the Aug 11 entry of the same exact product (520 cal/8oz portion). Protein/carb/fat/sodium scaled from that Aug 11 per-oz rate rather than re-estimated from scratch, since it's the identical Whole Foods item.",
+    description: "Post-Pilates meal — 0.59 lb (9.44 oz) of Whole Foods hot bar Grilled Jerk Chicken Legs (labeled 'legs' but actually thighs, per Bobby). Hot bar label confirms 260 cal per 4oz serving (see food-photos/2026-08-29-lunch-jerk-chicken-label.jpeg), which lines up almost exactly with the per-oz calorie rate already established from the Aug 11 entry of the same exact product (520 cal/8oz portion). Protein/carb/fat/sodium scaled from that Aug 11 per-oz rate rather than re-estimated from scratch, since it's the identical Whole Foods item.",
     calories: 614, protein: 68, carbs: 1, fat: 35, sodium: 945, sodiumNote: "Jerk seasoning (sea salt is the first ingredient) is the main sodium driver — estimated, scaled from the Aug 11 per-oz rate for this same product." },
   { date: "2026-08-29", time: "11:49", name: "Coffee Caramel Cookie (Whole Foods, x2)", photo: "food-photos/2026-08-29-treat-cookie-front.jpeg",
     description: "Treat — 2 Whole Foods bakery Coffee Caramel Cookies (butter, cane/brown sugar, milk chocolate chunks, toffee, coffee extract, egg; contains milk/eggs/wheat/soy). Sold by weight (0.18 lb for the pair, see food-photos/2026-08-29-treat-cookie-scale.jpeg), but the shelf label gives calories per-cookie ('150 cal, per 1 ea serving size' — food-photos/2026-08-29-treat-cookie-label.jpeg), so calories are label-exact (2 x 150). No full nutrition panel (protein/carb/fat/sodium) on the label — those are estimated from a typical butter-and-sugar bakery cookie of this size and composition.",
     calories: 300, protein: 4, carbs: 36, fat: 16, sodium: 180, sodiumNote: "No nutrition panel — estimated from typical ingredients (butter, salt, baking soda)." },
   { date: "2026-08-31", time: "15:23", name: "Grilled Jerk Chicken Legs (Whole Foods)", photo: "food-photos/2026-08-31-grilled-jerk-chicken-thigh.jpeg",
-    description: "Whole Foods hot bar Grilled Jerk Chicken, 0.37 lb (5.92 oz) per the scale, labeled 'legs' but visibly thighs (same mislabeling as the Aug 11 and Aug 29 entries of this product). Deli case label confirms 260 cal per 4oz serving; macros scaled from the established per-oz rate for this exact item (65 cal / 7.25g protein / 3.75g fat / ~100mg sodium per oz, most recently reconfirmed by the Aug 29 entry) rather than re-estimated from scratch.",
+    description: "Whole Foods hot bar Grilled Jerk Chicken, 0.37 lb (5.92 oz) per the scale, labeled 'legs' but visibly thighs (same mislabeling as the Aug 11 and Aug 29 entries of this product). Hot bar label confirms 260 cal per 4oz serving; macros scaled from the established per-oz rate for this exact item (65 cal / 7.25g protein / 3.75g fat / ~100mg sodium per oz, most recently reconfirmed by the Aug 29 entry) rather than re-estimated from scratch.",
     calories: 385, protein: 43, carbs: 1, fat: 22, sodium: 590, sodiumNote: "Jerk seasoning (sea salt is the first ingredient) is the main driver — same estimate basis as the Aug 11/29 entries of this product." },
   { date: "2026-08-31", time: "15:23", name: "365 Organic Coconut Water (Whole Foods, full 1L bottle)", photo: "food-photos/2026-08-31-coconut-water-365-organic.jpeg",
     description: "Whole Foods 365 Organic Coconut Water, full 33.8 fl oz (1L) bottle, sipped through the Full-Body B workout per Bobby. Label-exact, scaled from the printed per-8oz-serving panel ('about 4 servings per container') to the full 1L using the precise 33.8/8 ratio (4.225x) rather than the label's rounded '4 servings'. Naturally sodium-light and a strong potassium source (~2,365mg for the full bottle, 10% DV per 8oz serving) — worth noting since potassium supports blood pressure management, unlike most of today's sodium load.",
@@ -3005,7 +3247,7 @@ const meals = [
     description: "0.34 lb mayo-based tuna salad with celery, no label, weighed exact on the scale + 2 whole hard boiled eggs (not pictured) + a Chobani Non-Fat Greek Yogurt, Raspberry on the Bottom (150g, label-exact: 110 cal/12g protein/15g carb/0g fat/80mg sodium; photo food-photos/2026-10-06-lunch-yogurt-raspberry.jpeg). Tuna salad from the established per-lb rate (840.5 cal/76.8g protein/13.2g carb/57.8g fat/1800mg sodium per lb) = ~286 cal/26g protein/4.5g carb/20g fat/612mg; eggs from the standard 2-egg baseline (156/12.6/1.1/10.6/124). Same tuna/egg total as the Sep 3 and Sep 4 lunches. Time is an estimate (usual lunch time; photos were uploaded at ~3:10 PM).",
     calories: 552, protein: 51, carbs: 21, fat: 30, sodium: 816, sodiumNote: "Tuna salad (~612mg at the established per-lb rate) is the main sodium source; this raspberry yogurt runs 80mg vs 55mg for the strawberry/blueberry ones." },
   { date: "2026-10-06", time: "19:00", name: "Grilled Jerk Chicken Legs (Whole Foods)", photo: "food-photos/2026-10-06-dinner-jerk-chicken-scale.jpeg",
-    description: "Whole Foods hot bar Grilled Jerk Chicken, 0.60 lb (9.6 oz) per the checkout scale, all eaten. Labeled 'legs' but actually boneless thighs (same mislabeling as the Aug 11, Aug 29, and Aug 31 entries of this product). Deli case label confirms 260 cal per 4oz serving (see food-photos/2026-10-06-dinner-jerk-chicken-label.jpeg); macros scaled from the established per-oz rate for this exact item (65 cal / 7.25g protein / 3.75g fat / ~100mg sodium per oz). Dinner time is an estimate.",
+    description: "Whole Foods hot bar Grilled Jerk Chicken, 0.60 lb (9.6 oz) per the checkout scale, all eaten. Labeled 'legs' but actually boneless thighs (same mislabeling as the Aug 11, Aug 29, and Aug 31 entries of this product). Hot bar label confirms 260 cal per 4oz serving (see food-photos/2026-10-06-dinner-jerk-chicken-label.jpeg); macros scaled from the established per-oz rate for this exact item (65 cal / 7.25g protein / 3.75g fat / ~100mg sodium per oz). Dinner time is an estimate.",
     calories: 624, protein: 70, carbs: 1, fat: 36, sodium: 960, sodiumNote: "Jerk seasoning (sea salt is the first ingredient) is the main driver; estimated from the established per-oz rate, no sodium figure on the label." },
   { date: "2026-10-07", time: "09:30", name: "Eggs Over-Hard (No Salt), Sausage Patty, Chobani Raspberry Yogurt & Sun Chips Garden Salsa", photo: "food-photos/2026-10-07-breakfast-eggs-sausage.jpeg",
     description: "Usual breakfast: 2 large eggs, over-hard, no salt + 1 breakfast sausage patty, macros reused directly from the established baseline. Plus a Chobani Non-Fat Greek Yogurt, Raspberry on the Bottom (150g container, label-exact: 110 cal/12g protein/15g carb/0g fat/80mg sodium) and a Sun Chips Garden Salsa 1oz bag (label-exact: 140 cal/2g protein/18g carb/6g fat/140mg sodium). Time is an estimate (the usual breakfast time); the photos were uploaded at ~9:06 PM.",
@@ -3049,6 +3291,30 @@ const meals = [
   { date: "2026-10-15", time: "20:15", name: "Whole Foods Pumpkin Pie Slice", photo: "food-photos/2026-10-15-dessert-pumpkin-pie-label.jpeg",
     description: "1 slice (4 oz / 113g), label-exact: 320 cal/7g protein/44g carb (28g total sugars, 3g added per the label)/13g fat (7g sat)/250mg sodium. Packed 10.15.26 at 17:09, $3.49. Eaten with the chicken as part of the post-workout meal. Time is an estimate.",
     calories: 320, protein: 7, carbs: 44, fat: 13, sodium: 250 },
+  { date: "2026-10-16", time: "09:30", name: "Eggs Over-Hard (No Salt), Sausage Patty, Chobani Strawberry Yogurt & Sun Chips Garden Salsa", photo: "food-photos/2026-10-16-breakfast-eggs-sausage.jpeg",
+    description: "Usual breakfast: 2 large eggs, over-hard, no salt + 1 breakfast sausage patty, macros reused directly from the established baseline. Plus a Chobani Non-Fat Greek Yogurt, Strawberry on the Bottom (150g container, label-exact: 110 cal/11g protein/15g carb/0g fat/55mg sodium) and a Sun Chips Garden Salsa 1oz bag (label-exact: 140 cal/2g protein/18g carb/6g fat/140mg sodium). Time is an estimate (the usual breakfast time).",
+    calories: 600, protein: 34, carbs: 35, fat: 35, sodium: 745, sodiumNote: "The eggs and sausage patty together are ~550mg (the patty is the larger share; the unsalted eggs add only ~140mg naturally); strawberry yogurt (55mg) and Sun Chips (140mg) are label-exact." },
+  { date: "2026-10-16", time: "12:30", name: "Cuban Sandwich (No Cheese), Pickle Spear, Chobani Strawberry Yogurt & Community Snacks Sour Cream & Onion Chips", photo: "food-photos/2026-10-16-lunch-cuban-sandwich.jpeg",
+    description: "Second Cuban sandwich in two days (Oct 15 was the previous one), no cheese per Bobby: ciabatta-style roll with sliced ham, roast pork, pickle slices, mustard and a mayo-type spread, plus a dill pickle spear on the side. No label or weight, so the same visual estimate as Oct 15 is reused: sandwich ~520 cal/38g protein/42g carb/20g fat/~1,250mg sodium, pickle spear ~5 cal/~300mg sodium. Plus a Chobani Non-Fat Greek Yogurt, Strawberry on the Bottom (150g, label-exact: 110 cal/11g protein/15g carb/0g fat/55mg sodium; photo food-photos/2026-10-16-lunch-yogurt-strawberry.jpeg) and a Community Snacks Sour Cream & Onion Kettle Cooked Potato Chips 2 oz bag (label-exact: 300 cal/3g protein/33g carb/18g fat/350mg sodium; photo food-photos/2026-10-16-lunch-chips-community-front.jpeg). Time is an estimate (usual lunch time).",
+    calories: 935, protein: 52, carbs: 91, fat: 38, sodium: 1955, sodiumNote: "~1,550mg of this comes from the unlabeled sandwich and pickle spear (deli ham, pork, roll and pickles all run salty), so the total could plausibly be 1,600 to 2,400mg; the yogurt and chips are label-exact." },
+  { date: "2026-10-16", time: "19:00", name: "Plain Smash Burger (No Cheese, Pickles)", photo: "food-photos/2026-10-16-dinner-smash-burger.jpeg",
+    description: "A plain single-patty smash burger on a brioche-style bun with a couple of pickles and nothing else, no cheese, per Bobby ('that's about it'). Restaurant unknown, no weight or label, so estimated visually: patty ~5 oz cooked (~350 cal/34g protein/24g fat), bun ~160 cal/28g carb/5g protein/3g fat/230mg sodium, pickles ~5 cal, plus griddle fat. Logged on Oct 17 as 'yesterday's dinner'; time is an estimate.",
+    calories: 540, protein: 40, carbs: 29, fat: 28, sodium: 800, sodiumNote: "Rough estimate (griddle seasoning on the patty, bun and pickles); plausible range 600 to 1,100mg. Calories carry a wide range too since the patty weight is a guess, roughly 450 to 700." },
+  { date: "2026-10-17", time: "11:45", name: "Whole Foods Grilled Jerk Chicken Legs (Boneless Thighs)", photo: "food-photos/2026-10-17-post-pilates-jerk-chicken-chicken.jpeg",
+    description: "Whole Foods hot bar Grilled Jerk Chicken, 0.55 lb (8.8 oz) per the checkout scale (photo food-photos/2026-10-17-post-pilates-jerk-chicken-scale.jpeg), the post-Pilates meal per Bobby, all eaten. Labeled 'legs' but boneless thighs, same as the Oct 6 entry of this product. Hot bar label confirms 260 cal per 4oz serving (photo food-photos/2026-10-17-post-pilates-jerk-chicken-label.jpeg); macros scaled from the established per-oz rate for this item (65 cal/7.25g protein/3.75g fat/~100mg sodium per oz). Time is an estimate (the Pilates ended around 11:20 AM).",
+    calories: 572, protein: 64, carbs: 1, fat: 33, sodium: 880, sodiumNote: "Jerk seasoning (sea salt is the first seasoning ingredient) is the main driver; estimated from the established per-oz rate, no sodium figure on the label." },
+  { date: "2026-10-17", time: "14:45", name: "Whole Foods Chimichurri Roasted Chicken Legs (Boneless Thighs)", photo: "food-photos/2026-10-17-post-workout-chimichurri-chicken-chicken.jpeg",
+    description: "Whole Foods hot bar Chimichurri Roasted Chicken Legs, 0.69 lb (11.0 oz) per the checkout scale (photo food-photos/2026-10-17-post-workout-chimichurri-chicken-scale.jpeg), the after-weight-training meal per Bobby, all eaten. Labeled 'legs' but boneless thighs, per Bobby (all of the hot bar chicken he eats is boneless thighs), so the full scale weight is edible. Hot bar label: 270 cal per 4 oz serving = 67.5 cal/oz (photo food-photos/2026-10-17-post-workout-chimichurri-chicken-label.jpeg), giving ~745 cal; protein and fat from the same per-oz thigh rates used for the Whole Foods jerk chicken (7.25g protein/oz, ~4.2g fat/oz incl. the olive-oil chimichurri). Time is an estimate (Strength training ended 2:00 PM and a walk ran 2:05-2:26 PM). Corrected from a first entry (560 cal) that wrongly assumed bone-in legs.",
+    calories: 745, protein: 80, carbs: 2, fat: 46, sodium: 1050, sodiumNote: "Estimated at ~95mg/oz (salt in both the chicken and the chimichurri; the label gives no sodium); plausible range 800 to 1,300mg." },,
+  { date: "2026-10-19", time: "09:21", name: "Eggs Over-Hard (No Salt), Sausage Patty, Chobani Strawberry Yogurt & Sun Chips Garden Salsa", photo: "food-photos/2026-10-19-breakfast-eggs-sausage.jpeg",
+    description: "Usual breakfast: 2 large eggs, over-hard, no salt + 1 breakfast sausage patty, macros reused directly from the established baseline. Plus a Chobani Non-Fat Greek Yogurt, Strawberry on the Bottom (150g, label visible in photo: 110 cal/11g protein/15g carb/0g fat/55mg sodium) and a Sun Chips Garden Salsa 1oz bag (label visible in photo: 140 cal/2g protein/18g carb/6g fat/140mg sodium). Time (9:21 AM) is from the photos' EXIF timestamps; they were uploaded later that afternoon.",
+    calories: 600, protein: 34, carbs: 35, fat: 35, sodium: 745, sodiumNote: "The eggs and sausage patty together are ~550mg (the patty is the larger share; the unsalted eggs add only ~140mg naturally); strawberry yogurt (55mg) and Sun Chips (140mg) are label-exact." },
+  { date: "2026-10-19", time: "12:30", name: "Tuna Salad (0.38 lb), 2 Hard Boiled Eggs on Arugula, Chobani Strawberry Yogurt & Sun Chips Garden Salsa", photo: "food-photos/2026-10-19-lunch-tuna-salad-eggs.jpeg",
+    description: "Tuna salad weighed on a Mettler Toledo scale with the clamshell tared out (ZERO NET, 0.38 lb), using the per-lb tuna salad baseline (840.5 cal/76.8g protein/13.2g carb/57.8g fat/1,800mg sodium per lb): ~319 cal/29g protein/5g carb/22g fat/~684mg sodium. Plus 2 hard boiled eggs on a few arugula leaves (156 cal/12.6g protein/1.1g carb/10.6g fat/124mg sodium; arugula negligible). Plus one Chobani Non-Fat Greek Yogurt, Strawberry on the Bottom (150g, label-exact: 110 cal/11g protein/15g carb/0g fat/55mg sodium) and one Sun Chips Garden Salsa 1oz bag (label-exact: 140 cal/2g protein/18g carb/6g fat/140mg sodium). Bobby clarified there was only one yogurt and one chip bag; the extra photos are front and back of the same items. Broccoli visible in the background of the yogurt photos is not Bobby's and is not counted. Time (12:30 PM) is from the photos' EXIF timestamps (scale shot 12:30, plated shots 12:33); they were uploaded later that afternoon.",
+    calories: 725, protein: 55, carbs: 39, fat: 39, sodium: 1003, sodiumNote: "~684mg of the sodium is the tuna salad (scaled from a per-lb baseline, so the real figure could differ), eggs ~124mg, yogurt and chips label-exact." },
+  { date: "2026-10-23", time: "09:37", name: "Eggs Over-Hard (No Salt), Sausage Patty & Chobani Strawberry Yogurt", photo: "food-photos/2026-10-23-breakfast-eggs-sausage.jpeg",
+    description: "Usual breakfast without the chips, per Bobby: 2 large eggs, over-hard, no salt + 1 breakfast sausage patty (baseline macros reused), plus a Chobani Non-Fat Greek Yogurt, Strawberry on the Bottom (150g, label-exact: 110 cal/11g protein/15g carb/0g fat/55mg sodium). Totals are the usual 600 cal breakfast minus the Sun Chips bag (140 cal/2g protein/18g carb/6g fat/140mg sodium). Time (9:37 AM) is from the photos' EXIF timestamps. The eggs-and-patty photo was taken partway through eating (a bite is missing), so it is not the full plate.",
+    calories: 460, protein: 32, carbs: 17, fat: 29, sodium: 605, sodiumNote: "The eggs and sausage patty together are ~550mg (the patty is the larger share; the unsalted eggs add only ~140mg naturally); the strawberry yogurt (55mg) is label-exact." }
 ];
 
 // Narrative timeline for the "Activity" feed. Quantitative history
@@ -3104,6 +3370,7 @@ const events = [
   { date: "2026-09-22", text: "Pilates class, 6:32 PM, 1h14m — 318 cal per Fitbit. Backfilled from an Oct 3 screenshot viewing the Sep 22 date page directly; screenshot only showed time/duration/calories, no HR or zone-time breakdown this round." },
   { date: "2026-09-29", text: "Pilates class, 6:34 PM, 53 min — 195 cal per Fitbit. Backfilled from an Oct 3 screenshot viewing the Sep 29 date page directly; screenshot only showed time/duration/calories, no HR or zone-time breakdown this round." },
   { date: "2026-10-06", text: "Pilates class, ~6:30 PM, ~50 min. Not tracked on Fitbit (Bobby forgot to start the watch), so there are no calorie, HR, or zone-time figures. Time and duration are his recollection from Oct 7. Fitbit may still have counted the movement in that day's steps and calories, just not as an exercise." },
+  { date: "2026-10-17", text: "Pilates class, started 10:32 AM, about 50 min actual (Bobby's recollection). Fitbit logged it as 1h 55m because he forgot to stop the watch, so its figures are inflated by the extra ~65 min of wearing it afterward: 371 cal, 2,141 steps, avg HR 78 bpm, all of it in the Light zone (1h 56m), Cardio Load 0, 0 zone min. Treat the duration and calories as unreliable. Backfilled from an Oct 17 screenshot of the Exercise list." },
 ];
 
 // Structured facts that don't fit a time series — just a one-line goals
@@ -3183,5 +3450,9 @@ const proteinData = [
   { date: "2026-10-07", value: 198, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani raspberry yogurt and a Sun Chips Garden Salsa bag, a Community Snacks Sour Cream & Onion chips bag midday, a 0.45 lb tuna salad with 2 hard boiled eggs, a Chobani raspberry yogurt and a Nature's Bakery Blueberry Fig Bar for lunch, and 1.5 ribeye steaks for dinner. Not explicitly confirmed as the final meals of the day." },
   { date: "2026-10-13", value: 34, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt and a Sun Chips Garden Salsa bag. Later meals (including any pie slices) not yet logged." },
   { date: "2026-10-14", value: 161, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt and a Sun Chips Garden Salsa bag, a Community Snacks Sour Cream & Onion chips bag at ~11 AM, a 0.37 lb tuna salad with 2 hard boiled eggs and a Chobani raspberry yogurt for lunch, and 1 whole no-salt ribeye with a small side salad for dinner. Any pie slices after dinner not yet logged." },
-  { date: "2026-10-15", value: 213, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt and a Sun Chips Garden Salsa bag, lunch of an unlabeled Cuban sandwich with no cheese (rough visual estimate), a pickle spear, a Chobani strawberry yogurt, a Sun Chips Garden Salsa bag and a Nature's Bakery Blueberry Fig Bar, an afternoon rice protein/2 tbsp PB/almond milk shake, and a post-workout 0.52 lb Whole Foods hot bar chicken thighs plus a Whole Foods pumpkin pie slice. Breakfast not logged (may have been skipped, not confirmed); day not confirmed complete." }
+  { date: "2026-10-15", value: 213, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt and a Sun Chips Garden Salsa bag, lunch of an unlabeled Cuban sandwich with no cheese (rough visual estimate), a pickle spear, a Chobani strawberry yogurt, a Sun Chips Garden Salsa bag and a Nature's Bakery Blueberry Fig Bar, an afternoon rice protein/2 tbsp PB/almond milk shake, and a post-workout 0.52 lb Whole Foods hot bar chicken thighs plus a Whole Foods pumpkin pie slice. Breakfast not logged (may have been skipped, not confirmed); day not confirmed complete." },
+  { date: "2026-10-16", value: 126, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with a Chobani strawberry yogurt and a Sun Chips Garden Salsa bag, plus a lunch of an unlabeled Cuban sandwich with no cheese (rough visual estimate), a pickle spear, a Chobani strawberry yogurt and a Community Snacks Sour Cream & Onion chips bag. Dinner was a plain no-cheese smash burger with pickles (rough visual estimate). Not explicitly confirmed as the final meal of the day." },
+  { date: "2026-10-17", value: 144, note: "partial — post-Pilates 0.55 lb Whole Foods grilled jerk chicken (boneless thighs) and an after-weight-training 0.69 lb Whole Foods chimichurri roasted chicken legs (boneless thighs); breakfast and other meals not yet logged." },
+  { date: "2026-10-19", value: 89, note: "partial — usual breakfast plus a 0.38 lb tuna salad, 2 hard boiled eggs, Chobani strawberry yogurt and Sun Chips Garden Salsa for lunch; dinner and any other meals not logged yet." },
+  { date: "2026-10-23", value: 32, note: "partial — usual eggs-over-hard-and-sausage-patty breakfast with Chobani strawberry yogurt only (no chips); no other Oct 23 meals logged yet." }
 ];
