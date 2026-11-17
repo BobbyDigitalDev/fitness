@@ -2773,6 +2773,109 @@ const gymWorkoutsData = [
       }
     ],
     note: "Session against the Full-Body B guide at a local Anytime Fitness in Japan, synced through JSONBin. startedAt 2026-11-05T02:10:13.034Z, endedAt 2026-11-05T03:07:46.011Z (11:10 AM-12:07 PM JST, ~58 min). Half-Kneeling DB Anti-Rotation Press skipped, Bobby's note: Skipped. Out of time. (The bin held the app's prefilled 35 lb with no reps; not logged.) Weights were entered as kg in the exercise notes (the app's weight fields were empty or held a prefilled value) and converted to lb at 2.20462, rounded to the nearest pound. Different gym and machines from Life Time, so treat these numbers as not directly comparable to the NYC sessions. Merged 2026-11-05."
+  },
+  {
+    date: "2026-11-09",
+    gym: "Anytime Fitness (Japan)",
+    label: "Full-Body A",
+    startTime: "10:55",
+    endTime: "12:06",
+    duration: 71,
+    exercises: [
+      {
+        name: "Incline Chest Press",
+        note: "Bobby's note: In Japan. Used 14kg dumbbells for all sets. Logged as 31 lb per hand.",
+        sets: [
+          { reps: 15, weight: 31, feel: "Just right" },
+          { reps: 15, weight: 31, feel: "Just right" },
+          { reps: 15, weight: 31, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Lat Pulldown",
+        note: "Bobby's note: In Japan. 50kg. Logged as 110 lb.",
+        sets: [
+          { reps: 15, weight: 110, feel: "Just right" },
+          { reps: 15, weight: 110, feel: "Just right" },
+          { reps: 15, weight: 110, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Leg Press",
+        note: "Bobby's note: In Japan. 70kg. Logged as 154 lb.",
+        sets: [
+          { reps: 20, weight: 154, feel: "Just right" },
+          { reps: 20, weight: 154, feel: "Just right" },
+          { reps: 20, weight: 154, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Lateral Raises",
+        note: "Bobby's note: In Japan. 7kg first set. 8kg second and third set. Logged as 15 / 18 / 18 lb.",
+        sets: [
+          { reps: 15, weight: 15, feel: "Just right" },
+          { reps: 15, weight: 18, feel: "Just right" },
+          { reps: 15, weight: 18, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Chest-Supported Dumbbell Row",
+        note: "Bobby's note: Modified. Used the tall cable framed machine at midlevel with a straight bar. Reached out and pulled into my stomach section. 21.25kg first set. 25kg second set. 28.75kg second set. His note said 'second set' twice; the last was set 3 (confirmed by Bobby 2026-11-17). Logged as 47 / 55 / 63 lb. Cable row variation, not comparable to the dumbbell row numbers.",
+        sets: [
+          { reps: 20, weight: 47, feel: "Easy" },
+          { reps: 20, weight: 55, feel: "Just right" },
+          { reps: 20, weight: 63, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Dumbbell Fly — Wide Arc",
+        note: "Bobby's note: High pulley chest fly. 10kg all sets. Logged as 22 lb per hand (10kg per hand, confirmed by Bobby 2026-11-17). Cable fly, not comparable to the dumbbell fly numbers.",
+        sets: [
+          { reps: 15, weight: 22, feel: "Just right" },
+          { reps: 15, weight: 22, feel: "Just right" },
+          { reps: 15, weight: 22, feel: "Hard" }
+        ]
+      }
+    ],
+    note: "Session against the Full-Body A guide at a local Anytime Fitness in Japan, synced through JSONBin. startedAt 2026-11-09T01:55:31.387Z, endedAt 2026-11-09T03:06:10.063Z (10:55 AM-12:06 PM JST, ~71 min). Forearm Plank skipped, Bobby's note: Skip for now. (The bin held empty sets; not logged.) Weights were entered as kg in the exercise notes (the app's weight fields were empty) and converted to lb at 2.20462, rounded to the nearest pound. Different gym and machines from Life Time, so treat these numbers as not directly comparable to the NYC sessions. Merged 2026-11-17."
+  },
+  {
+    date: "2026-11-16",
+    gym: "Lifetime Gym",
+    label: "Full-Body A",
+    startTime: "18:32",
+    endTime: "19:22",
+    duration: 50,
+    exercises: [
+      {
+        name: "Incline Chest Press",
+        note: "",
+        sets: [
+          { reps: 12, weight: 30, feel: "Just right" },
+          { reps: 12, weight: 30, feel: "Just right" },
+          { reps: 12, weight: 30, feel: "Hard" }
+        ]
+      },
+      {
+        name: "Lat Pulldown",
+        note: "Bobby's note: Sat reversed on the seat to be able to pull down to my chest. Not sure why this machine is positioned this way. (He also sat reversed on Oct 11.)",
+        sets: [
+          { reps: 15, weight: 100, feel: "Just right" },
+          { reps: 15, weight: 120, feel: "Just right" },
+          { reps: 15, weight: 125, feel: "Hard" }
+        ]
+      },
+      {
+        name: "Lateral Raises",
+        note: "",
+        sets: [
+          { reps: 15, weight: 15, feel: "Just right" },
+          { reps: 15, weight: 15, feel: "Just right" },
+          { reps: 15, weight: 15, feel: "Just right" }
+        ]
+      }
+    ],
+    note: "Full-Body A at Life Time, synced through JSONBin. startedAt 2026-11-16T23:32:18.728Z, endedAt 2026-11-17T00:22:02.023Z (6:32-7:22 PM EST, ~50 min). Incomplete session. Bobby's note on Chest-Supported Dumbbell Row: The gym is too crowded to continue. I'm done. Not performed: Leg Press (Bobby confirmed 2026-11-17 he didn't get to it because another person was monopolizing the machine; the bin held only the app's prefilled 160 / 180 / 200 lb with no reps). Not logged as performed: Chest-Supported Dumbbell Row (prefilled 30 / 30 / 35 lb, no reps), Dumbbell Fly Wide Arc (prefilled 25 lb, no reps), Forearm Plank (empty). Merged 2026-11-17."
   }
 ];
 
