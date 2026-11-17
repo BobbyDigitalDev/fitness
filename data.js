@@ -2291,6 +2291,90 @@ const gymWorkoutsData = [
     note: "Session against the Full-Body A guide (workout_guides/2026-08-03-full-body-a-guide.html) at Lifetime Gym, synced through JSONBin — startedAt 2026-10-07T22:06:03.637Z, endedAt 2026-10-07T23:06:47.669Z (6:06-7:06 PM EDT, ~61 min). Forearm Plank skipped on purpose: Bobby's note was \"I did Pilates yesterday so I'll skip planks today\" (Bobby confirmed Pilates was on Oct 6; the class itself isn't in events yet because its details haven't been sent). Lat Pulldown was done seated reversed to pull to the front of the chest, a modified setup rather than the standard grip/position. Versus the last Full-Body A (Sept 15): Incline Chest Press up from 25/25/30 to 30/30/30 (last set 12 reps vs 10, still Hard); Lat Pulldown 100/120/120 vs 100/110/120, all 15 reps and all Just right (Sept 15's last set was Hard); Leg Press 160/180/200 vs 140/160/180, every set Just right; Lateral Raises same weights (12/15/15) but 12 reps on the last two sets vs 15; Wide Arc Fly 20/25/25 vs 20/20/25, now all Just right. Chest-Supported Dumbbell Row (15 reps at 25 lb, Just right) replaced Close Pump Fly in this session, so there is no direct comparison. Preceded by no logged warm-up and no Fitbit-tracked treadmill session yet; Fitbit details for Oct 7 come in once the day's stats are sent."
   },
   {
+    date: "2026-10-11",
+    gym: "Lifetime Gym",
+    label: "Full-Body C",
+    startTime: null,
+    endTime: "15:54",
+    duration: null,          // no startedAt captured this session, so duration can't be computed, see session note
+    exercises: [
+      {
+        name: "Incline Chest Press",
+        note: "Bobby's note: I waited 3 mins between the second and third set and the third set was a little easier. Not sure that that matters much at this point. Set 2 reps and sets 1 and 3 feel were blank in the app.",
+        sets: [
+          { reps: 15, weight: 30, feel: null },
+          { reps: null, weight: 30, feel: "Just right" },
+          { reps: 12, weight: 30, feel: null }
+        ]
+      },
+      {
+        name: "Lat Pulldown",
+        note: "Bobby's note: Sitting reversed for this one again like last time. Set 1 and 3 reps and set 2 feel were blank in the app.",
+        sets: [
+          { reps: null, weight: 100, feel: "Just right" },
+          { reps: 15, weight: 120, feel: null },
+          { reps: null, weight: 120, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Leg Press",
+        note: "Set 2 reps and sets 1 and 3 feel were blank in the app.",
+        sets: [
+          { reps: 15, weight: 160, feel: null },
+          { reps: null, weight: 180, feel: "Just right" },
+          { reps: 15, weight: 200, feel: null }
+        ]
+      },
+      {
+        name: "Leg Curl",
+        note: "",
+        sets: [
+          { reps: 20, weight: 60, feel: "Just right" },
+          { reps: 15, weight: 70, feel: "Just right" },
+          { reps: 20, weight: 80, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Lateral Raises",
+        note: "",
+        sets: [
+          { reps: 15, weight: 15, feel: "Just right" },
+          { reps: 15, weight: 15, feel: "Just right" },
+          { reps: 15, weight: 15, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Chest-Supported Dumbbell Row",
+        note: "",
+        sets: [
+          { reps: 15, weight: 25, feel: "Just right" },
+          { reps: 15, weight: 30, feel: "Just right" },
+          { reps: 15, weight: 30, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Dumbbell Fly — Wide Arc",
+        note: "",
+        sets: [
+          { reps: 15, weight: 25, feel: "Just right" },
+          { reps: 15, weight: 25, feel: "Just right" },
+          { reps: 15, weight: 25, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Suitcase Carry",
+        note: "50 lb, up from 40 lb on Oct 2 (and back to 40 lb on Oct 19).",
+        sets: [
+          { duration: 60, weight: 50, feel: "Just right" },
+          { duration: 60, weight: 50, feel: "Just right" },
+          { duration: 60, weight: 50, feel: "Just right" },
+          { duration: 60, weight: 50, feel: "Just right" }
+        ]
+      }
+    ],
+    note: "Session against the Full-Body C guide (workout_guides/2026-08-03-full-body-c-guide.html) at Lifetime Gym, synced through JSONBin. startedAt was null (Start Session not tapped), endedAt 2026-10-11T19:54:33.071Z (3:54 PM EDT), so start time and duration are unknown. Five sets have blank reps (Incline Chest Press set 2, Lat Pulldown sets 1 and 3, Leg Press set 2) and several have blank feel; blanks are logged as null, not guessed. Merged as is on 2026-11-05 at Bobby's request."
+  },
+  {
     date: "2026-10-15",
     gym: "Lifetime Gym",
     label: "Full-Body B",
@@ -2568,6 +2652,127 @@ const gymWorkoutsData = [
       }
     ],
     note: "Session against the Full-Body B guide (workout_guides/2026-08-03-full-body-b-guide.html) at Lifetime Gym, synced through JSONBin. startedAt 2026-10-23T22:23:08.564Z, endedAt 2026-10-23T23:38:05.538Z (6:23-7:38 PM EDT, ~75 min). No exercise notes entered, so the equipment used for Romanian Deadlift (95 lb on all 3 sets) is not recorded; Oct 15 B used 35 lb dumbbells per hand (70 lb) for the first two sets. Seated Shoulder Press 55 lb for 15/15/12 with the last two sets Hard (Oct 15: 60 x10 Hard, then 50 x10, 50 x10). Flat/Machine Chest Press went 60/70/80 (Oct 15: 60 x3). Set numbers are as pulled from the bin on 2026-11-02 and are provisional until Bobby confirms. Merged 2026-11-02."
+  },
+  {
+    date: "2026-11-02",
+    gym: "Anytime Fitness (Japan)",
+    label: "Full-Body B",
+    startTime: "13:56",
+    endTime: "15:08",
+    duration: 72,           // minutes, from the app's own startedAt/endedAt via JSONBin (Japan time, UTC+9)
+    exercises: [
+      {
+        name: "Seated Shoulder Press",
+        note: "Bobby's note: In Japan so I did 27.5 kilos on the first set, 20k on the second and third set. Logged in lb (27.5 kg = 61 lb, 20 kg = 44 lb).",
+        sets: [
+          { reps: 10, weight: 61, feel: "Hard" },
+          { reps: 15, weight: 44, feel: "Just right" },
+          { reps: 15, weight: 44, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Seated Cable Row",
+        note: "Bobby's note: In Japan so I did 45kg for the first set. 50kg the second set. 55kg third set. Logged in lb (99 / 110 / 121 lb).",
+        sets: [
+          { reps: 15, weight: 99, feel: "Just right" },
+          { reps: 15, weight: 110, feel: "Just right" },
+          { reps: 15, weight: 121, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Romanian Deadlift",
+        note: "Bobby's note: 50kg all sets. Logged as 110 lb.",
+        sets: [
+          { reps: 10, weight: 110, feel: "Just right" },
+          { reps: 10, weight: 110, feel: "Just right" },
+          { reps: 10, weight: 110, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Rear Delt Fly",
+        note: "Bobby's note: 12kg first set, 14kg second and third sets. Per hand (confirmed by Bobby 2026-11-05). Logged as 26 / 31 / 31 lb. Set 3 feel left blank in the app.",
+        sets: [
+          { reps: 12, weight: 26, feel: "Just right" },
+          { reps: 12, weight: 31, feel: "Just right" },
+          { reps: 15, weight: 31, feel: null }
+        ]
+      },
+      {
+        name: "Flat/Machine Chest Press",
+        note: "Bobby's note: 30kg. Logged as 66 lb.",
+        sets: [
+          { reps: 12, weight: 66, feel: "Just right" },
+          { reps: 12, weight: 66, feel: "Just right" },
+          { reps: 12, weight: 66, feel: "Hard" }
+        ]
+      },
+      {
+        name: "Half-Kneeling DB Anti-Rotation Press",
+        note: "Bobby's note: 16kg. Logged as 35 lb.",
+        sets: [
+          { reps: 15, weight: 35, feel: "Just right" },
+          { reps: 15, weight: 35, feel: "Just right" },
+          { reps: 15, weight: 35, feel: "Just right" }
+        ]
+      }
+    ],
+    note: "Session against the Full-Body B guide at a local Anytime Fitness in Japan, synced through JSONBin. startedAt 2026-11-02T04:56:35.600Z, endedAt 2026-11-02T06:08:28.121Z (1:56-3:08 PM JST, ~72 min). Weights were entered as kg in the exercise notes (the app's weight fields were empty or held a prefilled value) and converted to lb at 2.20462, rounded to the nearest pound. Different gym and machines from Life Time, so treat these numbers as not directly comparable to the NYC sessions. Merged 2026-11-05."
+  },
+  {
+    date: "2026-11-05",
+    gym: "Anytime Fitness (Japan)",
+    label: "Full-Body B",
+    startTime: "11:10",
+    endTime: "12:07",
+    duration: 58,           // minutes, from the app's own startedAt/endedAt via JSONBin (Japan time, UTC+9)
+    exercises: [
+      {
+        name: "Seated Shoulder Press",
+        note: "Bobby's note: In Japan. 30kg. Logged as 66 lb.",
+        sets: [
+          { reps: 15, weight: 66, feel: "Just right" },
+          { reps: 15, weight: 66, feel: "Hard" },
+          { reps: 15, weight: 66, feel: "Hard" }
+        ]
+      },
+      {
+        name: "Seated Cable Row",
+        note: "Bobby's note: In Japan 45kg first set. 57.5kg second set. 60kg second set. The 60 kg was the third set (confirmed by Bobby 2026-11-05). Logged as 99 / 127 / 132 lb.",
+        sets: [
+          { reps: 20, weight: 99, feel: "Easy" },
+          { reps: 15, weight: 127, feel: "Just right" },
+          { reps: 15, weight: 132, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Romanian Deadlift",
+        note: "Bobby's note: 40kg first set, 50kg second and third sets. Logged as 88 / 110 / 110 lb. Set 3 feel left blank in the app.",
+        sets: [
+          { reps: 15, weight: 88, feel: "Just right" },
+          { reps: 15, weight: 110, feel: "Just right" },
+          { reps: 15, weight: 110, feel: null }
+        ]
+      },
+      {
+        name: "Rear Delt Fly",
+        note: "Bobby's note: 16kg per hand for all sets. Logged as 35 lb.",
+        sets: [
+          { reps: 10, weight: 35, feel: "Just right" },
+          { reps: 15, weight: 35, feel: "Just right" },
+          { reps: 15, weight: 35, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Flat/Machine Chest Press",
+        note: "Bobby's note: Exercise substitution. Standing cable chest press. 12.4kg per hand. Logged as 27 lb per hand. Not comparable to the machine chest press numbers. Set 3 feel left blank in the app.",
+        sets: [
+          { reps: 15, weight: 27, feel: "Just right" },
+          { reps: 15, weight: 27, feel: "Just right" },
+          { reps: 10, weight: 27, feel: null }
+        ]
+      }
+    ],
+    note: "Session against the Full-Body B guide at a local Anytime Fitness in Japan, synced through JSONBin. startedAt 2026-11-05T02:10:13.034Z, endedAt 2026-11-05T03:07:46.011Z (11:10 AM-12:07 PM JST, ~58 min). Half-Kneeling DB Anti-Rotation Press skipped, Bobby's note: Skipped. Out of time. (The bin held the app's prefilled 35 lb with no reps; not logged.) Weights were entered as kg in the exercise notes (the app's weight fields were empty or held a prefilled value) and converted to lb at 2.20462, rounded to the nearest pound. Different gym and machines from Life Time, so treat these numbers as not directly comparable to the NYC sessions. Merged 2026-11-05."
   }
 ];
 
