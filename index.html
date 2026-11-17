@@ -86,24 +86,11 @@
     font-size: 0.8rem;
     margin: -8px 4px 12px;
   }
-  /* Collapsible section (Recommended Daily Eating Schedule), added 2026-11-17.
-     <details> with the heading as its <summary>; closed by default. */
-  details.collapsible-section > summary.section-title {
-    cursor: pointer;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  details.collapsible-section > summary.section-title::-webkit-details-marker { display: none; }
-  details.collapsible-section > summary.section-title::marker { content: ""; }
-  details.collapsible-section > summary.section-title:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; border-radius: 4px; }
-  details.collapsible-section > summary .section-chevron {
-    color: var(--muted);
-    font-size: 0.8rem;
-    transition: transform 0.15s ease;
-  }
-  details.collapsible-section[open] > summary .section-chevron { transform: rotate(90deg); }
+  /* Recommended Daily Eating Schedule reuses the Meals/Workouts day-group bar
+     (.meal-day-group / .meal-day-header, 2026-11-17); inner card drops its own frame. */
+  .meal-day-group > .eating-schedule-body { padding: 0; }
+  .meal-day-group > .eating-schedule-body .section-note { margin: 12px 18px 0; }
+  .meal-day-group > .eating-schedule-body .chart-card { border: none; border-radius: 0; margin-bottom: 0; background: transparent; }
   /* Protocol card */
   .chart-card {
     background: var(--surface);
@@ -551,9 +538,10 @@
 
 <!-- CLAUDE REMINDER: Update this section whenever Bobby changes his feeding schedule, meal timing, or food choices. Keep calories and protein columns in sync. Update totals row. This is a RECOMMENDATION/plan, not a log of what actually happened — don't rename it back to something that implies it's real-time or actual. -->
 <!-- ── Recommended Daily Eating Schedule (table — not a chart) ───────────────── -->
-<details class="collapsible-section">
-<summary class="section-title"><span class="section-chevron">&#9656;</span> Recommended Daily Eating Schedule</summary>
-<div class="section-note" style="margin-top:0;">13:11 Intermittent Fasting Window — 11:00 AM → 8:00 PM &nbsp;·&nbsp; Target: 180–200g protein · 2,400 cal</div>
+<details class="meal-day-group" style="margin: 28px 0 12px;">
+<summary class="meal-day-header"><span>Recommended Daily Eating Schedule</span><span class="meal-chevron">▾</span></summary>
+<div class="eating-schedule-body">
+<div class="section-note">13:11 Intermittent Fasting Window — 11:00 AM → 8:00 PM &nbsp;·&nbsp; Target: 180–200g protein · 2,400 cal</div>
 
 <div class="chart-card">
   <table class="protocol-table">
@@ -624,6 +612,7 @@
       <span>Daily total <strong>~155–167g from meals.</strong> Add snacks (e.g. Greek yogurt, cottage cheese) to reach 180g goal.</span>
     </div>
   </div>
+</div>
 </div>
 </details>
 
