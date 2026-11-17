@@ -9,7 +9,7 @@
 // here wires up Quick Log on the dashboard AND weight/reps/feel logging on
 // every workout guide at the same time.
 //
-// Fill in binId + accessKey once the JSONBin bin exists (Bobby creates it —
+// Fill in binId + accessKey once the JSONBin bin exists (the owner creates it —
 // see WORKFLOW.md for exact steps; Claude can't create third-party accounts
 // on his behalf). accessKey should be a JSONBin "Access Key" scoped to
 // read+update only, NOT the account's master key.

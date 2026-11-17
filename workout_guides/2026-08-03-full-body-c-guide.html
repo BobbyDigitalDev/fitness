@@ -129,9 +129,9 @@ body.locked { overflow: hidden; }
 <a class="back-link" href="../index.html">&larr; Back to dashboard</a>
 <a class="progress-link" href="progress-full-body-c.html">📈 View Progress</a>
 <h1>Full-Body C</h1>
-<div class="subtitle">Saturday · Leg Emphasis · Life Time Battery Park · ~45–60 min</div>
+<div class="subtitle">Saturday · Leg Emphasis · Life Time · ~45–60 min</div>
 
-<div class="safety-box"><b>Before anything else:</b> start your Fitbit workout tracking now, before you do your warm-up — it's easy to forget once you're moving, and starting late throws off the session's cardio load, zone minutes, and calorie numbers.<br><br><b>Warm-up (5–10 min):</b> 5 min light cardio (brisk walk, bike, or rower, easy pace) &rarr; arm circles and band pull-aparts, 15–20 reps each &rarr; one light warm-up set of exercise #1 (light plates, 12–15 easy reps) before loading real weight.<br><br>Several moves here have you lying, seated, or bending forward: move between positions calmly rather than popping up fast — Nifedipine can cause dizziness on standing. Hydrate before, during, and after.</div>
+<div class="safety-box"><b>Before anything else:</b> start your Fitbit workout tracking now, before you do your warm-up — it's easy to forget once you're moving, and starting late throws off the session's cardio load, zone minutes, and calorie numbers.<br><br><b>Warm-up (5–10 min):</b> 5 min light cardio (brisk walk, bike, or rower, easy pace) &rarr; arm circles and band pull-aparts, 15–20 reps each &rarr; one light warm-up set of exercise #1 (light plates, 12–15 easy reps) before loading real weight.<br><br>Several moves here have you lying, seated, or bending forward: move between positions calmly rather than popping up fast — blood pressure medication can cause dizziness on standing. Hydrate before, during, and after.</div>
 
 <div class="section-title">Today's Full-Body Focus</div>
 <div class="focus-text">Push and pull repeat Tuesday's pattern — pecs and back width get their third touch of the week. The leg slot expands to two moves today: leg press for quads, then leg curl for hamstrings. If you ran this morning or yesterday, keep both conservative on weight and prioritize form over load.</div>
@@ -276,7 +276,7 @@ body.locked { overflow: hidden; }
       <div class="exercise-name">8. Suitcase Carry</div>
       <div class="exercise-target">CORE · ANTI-LATERAL-FLEXION</div>
       
-      <div class="exercise-cue">Hold one moderately heavy dumbbell at your side, arm straight, shoulders level and square. Walk for the set's duration without letting your torso lean toward the loaded side — your core is doing the work of resisting that pull, not your arm. If space is tight, march in place or hold a static standing brace instead of actually walking. Do sets 1-2 with the weight in one hand, then switch for sets 3-4 — each hand gets 2 clean sets. Rest 45-60 sec between sets. Changed from 3 to 4 sets 2026-10-02 per Bobby's request, so the hand-switch divides evenly.</div>
+      <div class="exercise-cue">Hold one moderately heavy dumbbell at your side, arm straight, shoulders level and square. Walk for the set's duration without letting your torso lean toward the loaded side — your core is doing the work of resisting that pull, not your arm. If space is tight, march in place or hold a static standing brace instead of actually walking. Do sets 1-2 with the weight in one hand, then switch for sets 3-4 — each hand gets 2 clean sets. Rest 45-60 sec between sets. Changed from 3 to 4 sets 2026-10-02 per the owner's request, so the hand-switch divides evenly.</div>
       <table class="sets-table">
         <thead><tr><th>Set</th><th>Duration</th><th>Weight (lb)</th><th>Feel</th></tr></thead>
         <tbody><tr><td>Set 1</td><td><input type="number" class="ql-duration" data-ex="7" data-set="0" placeholder="45" /> sec</td><td><span class="ql-weight-slot" data-ex="7" data-set="0" data-exname="Suitcase Carry"></span></td><td><select class="ql-feel" data-ex="7" data-set="0"><option value="">—</option><option value="Easy">💪 Easy</option><option value="Just right">🎯 Just right</option><option value="Hard">😓 Hard</option><option value="Too much">⚠️ Too much</option></select></td></tr><tr><td>Set 2</td><td><input type="number" class="ql-duration" data-ex="7" data-set="1" placeholder="45" /> sec</td><td><span class="ql-weight-slot" data-ex="7" data-set="1" data-exname="Suitcase Carry"></span></td><td><select class="ql-feel" data-ex="7" data-set="1"><option value="">—</option><option value="Easy">💪 Easy</option><option value="Just right">🎯 Just right</option><option value="Hard">😓 Hard</option><option value="Too much">⚠️ Too much</option></select></td></tr><tr><td>Set 3</td><td><input type="number" class="ql-duration" data-ex="7" data-set="2" placeholder="45" /> sec</td><td><span class="ql-weight-slot" data-ex="7" data-set="2" data-exname="Suitcase Carry"></span></td><td><select class="ql-feel" data-ex="7" data-set="2"><option value="">—</option><option value="Easy">💪 Easy</option><option value="Just right">🎯 Just right</option><option value="Hard">😓 Hard</option><option value="Too much">⚠️ Too much</option></select></td></tr><tr><td>Set 4</td><td><input type="number" class="ql-duration" data-ex="7" data-set="3" placeholder="45" /> sec</td><td><span class="ql-weight-slot" data-ex="7" data-set="3" data-exname="Suitcase Carry"></span></td><td><select class="ql-feel" data-ex="7" data-set="3"><option value="">—</option><option value="Easy">💪 Easy</option><option value="Just right">🎯 Just right</option><option value="Hard">😓 Hard</option><option value="Too much">⚠️ Too much</option></select></td></tr></tbody>
@@ -305,7 +305,7 @@ body.locked { overflow: hidden; }
   // Session start/end timestamps — captured explicitly rather than
   // inferred later from Fitbit's auto-detected walks (which are frequently
   // off by 30+ min from when lifting actually started/stopped). Start is
-  // Bobby's own tap, End is whenever he hits Save Session.
+  // The owner's own tap, End is whenever he hits Save Session.
   let sessionStartedAt = null;
   let timerInterval = null;
   const startBtn = document.getElementById('startBtn');
@@ -360,7 +360,7 @@ body.locked { overflow: hidden; }
   // dropdown (2026-09-03) had no way to log an off-increment weight (e.g.
   // a pair of 12 lb dumbbells, the only ones free on the rack for Sept 15's
   // Lateral Raises), so brought a narrow custom-entry escape valve back
-  // 2026-09-17 per Bobby's request, while keeping the 5 lb list as the
+  // 2026-09-17 per the owner's request, while keeping the 5 lb list as the
   // default path for the common case. If last time's weight lands on the
   // list, that option is preselected; if it doesn't (a past custom entry),
   // "Other…" is preselected instead and the input is pre-filled with it.

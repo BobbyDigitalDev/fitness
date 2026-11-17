@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bobby's Fitness Journey</title>
+<title>Fitness Journey</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
   :root {
@@ -371,9 +371,9 @@
     .daily-progress-grid { grid-template-columns: 1fr; }
   }
   /* Lock screen — client-side passphrase gate, added 2026-08-03 for the
-     bobbydigitaldev.com/fitness publish. NOT real security (the passphrase
+     the public site publish. NOT real security (the passphrase
      is plain text in this file's source, visible via view-source) — this
-     is only meant to keep casual/accidental visitors out, per Bobby's own
+     is only meant to keep casual/accidental visitors out, per the owner's own
      choice when this was set up. See WORKFLOW.md for how to change it. */
   body.locked { overflow: hidden; }
   .lock-screen {
@@ -432,17 +432,17 @@
 <body>
 
 <!-- CLAUDE REMINDER: This lock screen exists only for the public
-     bobbydigitaldev.com/fitness copy. It is NOT real security — the
+     the public site copy. It is NOT real security — the
      passphrase below is plain text, visible to anyone who views this
      file's source. It exists to keep casual/accidental visitors out,
-     nothing more. Bobby chose this specifically over publishing with no
+     nothing more. The owner chose this specifically over publishing with no
      gate at all when this went live 2026-08-03 (see WORKFLOW.md). To
      change the passphrase, edit CORRECT_PASSPHRASE in the script just
-     below and tell Bobby the new value — there's no way to recover the
+     below and tell the owner the new value — there's no way to recover the
      old one from this file once changed. -->
 <div id="lockScreen" class="lock-screen">
   <div class="lock-box">
-    <div class="lock-title">🔒 Bobby's Fitness Journey</div>
+    <div class="lock-title">🔒 Fitness Journey</div>
     <div class="lock-sub">Enter the passphrase to continue</div>
     <input type="password" id="lockInput" class="lock-input" placeholder="Passphrase" autocomplete="off" />
     <button id="lockSubmit" class="lock-button" type="button">Unlock</button>
@@ -482,7 +482,7 @@
 </script>
 
 <header>
-  <h1>Bobby's Fitness Journey</h1>
+  <h1>Fitness Journey</h1>
   <div class="date" id="today"></div>
   <div class="section-note" id="goalsSummary" style="margin-top:6px;"></div>
   <div class="month-picker">
@@ -536,7 +536,7 @@
 
 </div>
 
-<!-- CLAUDE REMINDER: Update this section whenever Bobby changes his feeding schedule, meal timing, or food choices. Keep calories and protein columns in sync. Update totals row. This is a RECOMMENDATION/plan, not a log of what actually happened — don't rename it back to something that implies it's real-time or actual. -->
+<!-- CLAUDE REMINDER: Update this section whenever the owner changes his feeding schedule, meal timing, or food choices. Keep calories and protein columns in sync. Update totals row. This is a RECOMMENDATION/plan, not a log of what actually happened — don't rename it back to something that implies it's real-time or actual. -->
 <!-- ── Recommended Daily Eating Schedule (table — not a chart) ───────────────── -->
 <details class="meal-day-group" style="margin: 28px 0 12px;">
 <summary class="meal-day-header"><span>Recommended Daily Eating Schedule</span><span class="meal-chevron">▾</span></summary>
@@ -626,14 +626,14 @@
      2026-08-04 in favor of pages with built-in weight/reps/feel logging
      that syncs through a JSONBin pending queue (site/quicklog-config.js —
      the dashboard's own general Quick Log form for weight/sleep/meals was
-     removed the same day per Bobby's request; this queue mechanism is now
+     removed the same day per the owner's request; this queue mechanism is now
      used only by the workout guides). When a new
      guide gets built for a gym day, link it with <a
      class="schedule-pdf-link" href="workout_guides/FILENAME.html"
      target="_blank">📝 Open Guide</a> (class name is a holdover from the
      PDF era, not worth renaming). See build_workout_guide_pages.py at the
      Fitness root for the generator, and WORKFLOW.md for the full picture.
-     The Sunday column is intentionally NOT prescribed — Bobby manages
+     The Sunday column is intentionally NOT prescribed — the owner manages
      running/Pilates himself; don't add specifics there without being asked. -->
 <!-- ── Gym Workouts ─────────────────────────────────── -->
 <div class="section-title">🏋️ Gym Workouts</div>
@@ -663,8 +663,8 @@
 </div>
 
 <!-- CLAUDE REMINDER: Home Workouts — added 2026-08-13, generalized 2026-08-15
-     (originally built for a Cape Coral, FL trip, since renamed to be
-     usable anywhere Bobby's away from Life Time equipment — travel,
+     (originally built for a trip, since renamed to be
+     usable anywhere the owner's away from Life Time equipment — travel,
      staying somewhere else, etc). 2x15lb dumbbells + floor space only, no
      bench/bar/bands. Not a weekly table like the gym section above since
      it's used on an as-needed basis (3-4x/week whichever days work), not
@@ -674,15 +674,14 @@
      load, since two fixed 15lb dumbbells can't progress by weight the way
      a gym stack does).
 
-     No-Equipment A/B/C — added 2026-09-22, ahead of the Sep 23-27 Dallas
-     trip (Airbnb, zero gym/weight access) — folded into this same section
-     2026-09-22 per Bobby's request to keep page height down, rather than
+     No-Equipment A/B/C — added 2026-09-22, ahead of a short trip (rental, zero gym/weight access) — folded into this same section
+     2026-09-22 per the owner's request to keep page height down, rather than
      a separate section+card. Distinct from Home A/B/C above, which still
      assume 2x15lb dumbbells — these assume literally no equipment at all,
      just floor space and whatever furniture is around (a sturdy
      table/counter edge, a wall). Kneeling push-up is the prescribed push
-     variant throughout, not a fallback, per Bobby's right wrist
-     (snowboarding injury) — see build_workout_guide_pages.py's
+     variant throughout, not a fallback, per the owner's right wrist
+     (old wrist injury) — see build_workout_guide_pages.py's
      "NO-EQUIPMENT WORKOUTS" section for the full design rationale. If
      this section is ever split back into two, restore two section-title/
      section-note blocks, one per program. -->
@@ -709,7 +708,7 @@
   </div>
 </div>
 
-<!-- CLAUDE REMINDER: Update this section (and meals array in data.js) whenever Bobby logs any food or meal. Add newest meal at the top. Include: date, time, description, calories, protein. Scoped to the month selector — renderFeeds() re-filters this on every month change, same as the charts above. -->
+<!-- CLAUDE REMINDER: Update this section (and meals array in data.js) whenever the owner logs any food or meal. Add newest meal at the top. Include: date, time, description, calories, protein. Scoped to the month selector — renderFeeds() re-filters this on every month change, same as the charts above. -->
 <!-- ── Meals ───────────────────────────────────────── -->
 <div class="section-title">Meals</div>
 
@@ -718,7 +717,7 @@
      pull straight from calorieData/proteinData's daily totals; sodium is
      summed live from today's meals[] entries (no dedicated sodiumData
      array exists), so all three "fill" the moment a meal is logged — no
-     separate tracking needed. Sodium ring added 2026-08-03 — Bobby's on BP
+     separate tracking needed. Sodium ring added 2026-08-03 — the owner's on BP
      medication, so it's worth watching alongside calories/protein, not just
      flagging per-meal in sodiumNote. -->
 <div class="chart-card daily-progress-card">
@@ -741,19 +740,19 @@
 
 <div class="day-grouped-list" id="meals"></div>
 
-<!-- CLAUDE REMINDER: Update this section (and data.js events/stepsData/walksData/runsData) whenever Bobby reports Fitbit stats, a walk, a run, or any workout. Most recent first. Include: date, time, activity type, distance, duration, steps, zone min, readiness.
+<!-- CLAUDE REMINDER: Update this section (and data.js events/stepsData/walksData/runsData) whenever the owner reports Fitbit stats, a walk, a run, or any workout. Most recent first. Include: date, time, activity type, distance, duration, steps, zone min, readiness.
      walksData vs runsData: walksData is the day's general Fitbit distance (add an entry every day EOD stats come in, even with no dedicated tracked walk — see data.js comments). runsData is ONLY for dedicated GPS-tracked runs (Strava), with their own pace/elevation/HR detail, and feeds the separate "Strava Runs" chart, not the "Walks" chart. Scoped to the month selector — renderFeeds() re-filters this on every month change, same as the charts above. -->
 <!-- ── Activity ───────────────────────────────────── -->
 <div class="section-title">Activity</div>
 <div class="day-grouped-list" id="activity"></div>
 
-<!-- CLAUDE REMINDER: Update this section (and data.js gymWorkoutsData) whenever Bobby logs a gym session — exercises, sets, reps, weights. Do NOT also add a summary line to events[] — that got removed 2026-08-03 as a duplicate once this card existed. Scoped to the month selector — renderWorkouts() re-filters this on every month change, same as Meals/Activity above. -->
+<!-- CLAUDE REMINDER: Update this section (and data.js gymWorkoutsData) whenever the owner logs a gym session — exercises, sets, reps, weights. Do NOT also add a summary line to events[] — that got removed 2026-08-03 as a duplicate once this card existed. Scoped to the month selector — renderWorkouts() re-filters this on every month change, same as Meals/Activity above. -->
 <!-- ── Workouts ───────────────────────────────────── -->
 <div class="section-title">Workouts</div>
 <div class="day-grouped-list" id="workouts"></div>
 
 <script src="data.js"></script>
-<!-- CLAUDE REMINDER: Charts pull from data.js arrays. When logging food → update calorieData + proteinData. When Bobby weighs in → update weightData. When Fitbit EOD comes in → update stepsData + walksData. When sleep data comes in → update sleepData. Always update data.js AND index.html static sections together. -->
+<!-- CLAUDE REMINDER: Charts pull from data.js arrays. When logging food → update calorieData + proteinData. When the owner weighs in → update weightData. When Fitbit EOD comes in → update stepsData + walksData. When sleep data comes in → update sleepData. Always update data.js AND index.html static sections together. -->
 <script>
   // ── Date header ──────────────────────────────────────────
   document.getElementById('today').textContent = new Date().toLocaleDateString('en-US', {
@@ -779,7 +778,7 @@
   // "2026-07-24" → "Friday - July, 24th, 2026"  (used as the day-group
   // header in the Meals/Activity/Workouts feeds below) — full weekday
   // name added 2026-08-03, changed to this fuller "Weekday - Month, Dayth,
-  // Year" format 2026-08-10 per Bobby's request (previous compact "(Fri)
+  // Year" format 2026-08-10 per the owner's request (previous compact "(Fri)
   // Jul 24 '26" form read as too terse/cryptic once the cards were mostly
   // collapsed and this became the only thing visible per day).
   function formatLabel(iso) {
@@ -1210,7 +1209,7 @@
     // under target rather than blue — sodium's worth a cautious eye
     // throughout the day, not just once it's blown past the limit — and
     // red once over, one step more urgent than calories' amber, matching
-    // how directly it works against Bobby's BP medication.
+    // how directly it works against blood pressure.
     const todaysMeals = meals.filter(m => m.date === todayStr);
     const knownSodiumMeals = todaysMeals.filter(m => m.sodium != null);
     const consumedSodium = knownSodiumMeals.reduce((sum, m) => sum + m.sodium, 0);
@@ -1250,13 +1249,13 @@
   // the ceiling before they start getting squeezed unreadably thin at this
   // card width. A fixed rolling window (e.g. "last 30 days") was
   // considered and would've solved the crowding on its own, but a real
-  // month picker gives Bobby actual control over which window he's
+  // month picker gives the owner actual control over which window he's
   // looking at, not just whatever the last N days happen to be.
   function ym(dateStr) { return dateStr.slice(0, 7); }
 
   // Fill color for "no data logged this day" placeholder boxes on the
   // daily-cadence bar charts (weight, calories, protein, steps, sleep,
-  // walks) — added 2026-08-07 at Bobby's request. Without these, a chart
+  // walks) — added 2026-08-07 at the owner's request. Without these, a chart
   // simply skips missing days and draws adjacent bars right next to each
   // other, which visually compresses the timeline and can make a gap look
   // like a real jump/trend. A flat grey box in the gap's exact calendar
@@ -1267,7 +1266,7 @@
   // of the month or today (whichever is earlier) — so a chart never draws
   // gap boxes for future days that just haven't happened yet. Months are
   // only ever selectable (see getAvailableMonths below) if they contain at
-  // least one logged data point somewhere, so there's no "before Bobby
+  // least one logged data point somewhere, so there's no "before the owner
   // started tracking" case to worry about at the front of the grid either.
   function monthDayGrid(month) {
     const [y, m] = month.split('-').map(Number);
@@ -1699,7 +1698,7 @@
     // generic "Remainder of day's Fitbit distance" filler entries and
     // non-walk/run activities (e.g. "Mowed the lawn") since those aren't a
     // run or a walk. 2026-08-24: extended from runs-only to include walks
-    // per Bobby's clarification — Daily Miles stays untouched.
+    // per the owner's clarification — Daily Miles stays untouched.
     const trackedRuns = runsData.filter(inMonth).map(r => ({ ...r, type: 'run' }));
     const trackedWalks = walksData
       .filter(inMonth)
