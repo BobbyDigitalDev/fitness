@@ -2877,6 +2877,146 @@ const gymWorkoutsData = [
       }
     ],
     note: "Full-Body A at Life Time, synced through JSONBin. startedAt 2026-11-16T23:32:18.728Z, endedAt 2026-11-17T00:22:02.023Z (6:32-7:22 PM EST, ~50 min). Incomplete session. Bobby's note on Chest-Supported Dumbbell Row: The gym is too crowded to continue. I'm done. Not performed: Leg Press (Bobby confirmed 2026-11-17 he didn't get to it because another person was monopolizing the machine; the bin held only the app's prefilled 160 / 180 / 200 lb with no reps). Not logged as performed: Chest-Supported Dumbbell Row (prefilled 30 / 30 / 35 lb, no reps), Dumbbell Fly Wide Arc (prefilled 25 lb, no reps), Forearm Plank (empty). Merged 2026-11-17."
+  },
+  {
+    date: "2026-11-18",
+    gym: "Lifetime Gym",
+    label: "Full-Body B",
+    startTime: "17:50",
+    endTime: "19:08",
+    duration: 78,
+    exercises: [
+      {
+        name: "Seated Shoulder Press",
+        note: "Bobby's note: I did 6 reps at 60lbs and went down to 50lbs for the remaining 6 as it was too heavy and my right elbow was clicking too much. This work out always kills my arms. The app logged set 1 as 12 reps at 60 lb; his note describes it as 6 reps at 60 lb and 6 at 50 lb, so set 1 is ambiguous (logged as entered, not resolved).",
+        sets: [
+          { reps: 12, weight: 60, feel: "Hard" },
+          { reps: 10, weight: 50, feel: "Hard" },
+          { reps: 9, weight: 50, feel: "Hard" }
+        ]
+      },
+      {
+        name: "Seated Cable Row",
+        note: "",
+        sets: [
+          { reps: 20, weight: 100, feel: "Just right" },
+          { reps: 20, weight: 120, feel: "Just right" },
+          { reps: 15, weight: 130, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Romanian Deadlift",
+        note: "",
+        sets: [
+          { reps: 15, weight: 94, feel: "Just right" },
+          { reps: 15, weight: 94, feel: "Just right" },
+          { reps: 15, weight: 94, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Rear Delt Fly",
+        note: "",
+        sets: [
+          { reps: 15, weight: 35, feel: "Just right" },
+          { reps: 15, weight: 35, feel: "Just right" },
+          { reps: 15, weight: 35, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Flat/Machine Chest Press",
+        note: "",
+        sets: [
+          { reps: 15, weight: 70, feel: "Just right" },
+          { reps: 15, weight: 75, feel: "Just right" },
+          { reps: 15, weight: 75, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Half-Kneeling DB Anti-Rotation Press",
+        note: "",
+        sets: [
+          { reps: 15, weight: 35, feel: "Just right" },
+          { reps: 15, weight: 35, feel: "Just right" },
+          { reps: 15, weight: 35, feel: "Just right" }
+        ]
+      }
+    ],
+    note: "Session against the Full-Body B guide at Lifetime Gym, synced through JSONBin. startedAt 2026-11-18T22:50:46.294Z, endedAt 2026-11-19T00:08:21.904Z (5:50-7:08 PM EST, ~78 min). Right elbow clicking during Seated Shoulder Press per Bobby's note. Merged 2026-11-24."
+  },
+  {
+    date: "2026-11-23",
+    gym: "Lifetime Gym",
+    label: "Full-Body C",
+    startTime: "18:05",
+    endTime: "19:34",
+    duration: 89,
+    exercises: [
+      {
+        name: "Incline Chest Press",
+        note: "",
+        sets: [
+          { reps: 15, weight: 30, feel: "Just right" },
+          { reps: 15, weight: 30, feel: "Just right" },
+          { reps: 15, weight: 30, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Lat Pulldown",
+        note: "",
+        sets: [
+          { reps: 20, weight: 100, feel: "Just right" },
+          { reps: 15, weight: 120, feel: "Just right" },
+          { reps: 15, weight: 125, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Leg Press",
+        note: "",
+        sets: [
+          { reps: 20, weight: 160, feel: "Just right" },
+          { reps: 20, weight: 180, feel: "Just right" },
+          { reps: 20, weight: 200, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Lateral Raises",
+        note: "Set 3 reps were blank in the app (weight and feel were entered).",
+        sets: [
+          { reps: 15, weight: 15, feel: "Just right" },
+          { reps: 15, weight: 15, feel: "Just right" },
+          { reps: null, weight: 15, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Chest-Supported Dumbbell Row",
+        note: "",
+        sets: [
+          { reps: 15, weight: 35, feel: "Just right" },
+          { reps: 15, weight: 35, feel: "Just right" },
+          { reps: 15, weight: 35, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Dumbbell Fly — Wide Arc",
+        note: "",
+        sets: [
+          { reps: 15, weight: 30, feel: "Just right" },
+          { reps: 15, weight: 30, feel: "Just right" },
+          { reps: 15, weight: 30, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Suitcase Carry",
+        note: "",
+        sets: [
+          { duration: 60, weight: 40, feel: "Just right" },
+          { duration: 60, weight: 40, feel: "Just right" },
+          { duration: 60, weight: 40, feel: "Just right" },
+          { duration: 60, weight: 40, feel: "Just right" }
+        ]
+      }
+    ],
+    note: "Session against the Full-Body C guide at Lifetime Gym, synced through JSONBin. startedAt 2026-11-23T23:05:56.400Z, endedAt 2026-11-24T00:34:46.413Z (6:05-7:34 PM EST, ~89 min). Leg Curl is not logged as performed: the bin held only the app's prefilled 60 / 70 / 80 lb with no reps or feel, so it is unknown whether it was done. Lateral Raises set 3 reps were blank (logged as null, not guessed). Merged 2026-11-24."
   }
 ];
 

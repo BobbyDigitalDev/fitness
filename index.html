@@ -916,8 +916,8 @@
   function formatSet(s) {
     let base;
     if (s.duration != null) base = `${s.duration}s`;
-    else if (s.weight != null) base = `${s.reps}×${s.weight}lb`;
-    else base = `${s.reps} reps`;
+    else if (s.weight != null) base = `${s.reps != null ? s.reps : '?'}×${s.weight}lb`; // '?' = reps left blank in the app
+    else base = `${s.reps != null ? s.reps : '?'} reps`;
     // sets[].feel: added 2026-08-15 — shown inline per set so a session
     // that starts easy and falls apart by set 3 is visible at a glance,
     // instead of one rating for the whole exercise.
