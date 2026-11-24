@@ -2888,11 +2888,11 @@ const gymWorkoutsData = [
     exercises: [
       {
         name: "Seated Shoulder Press",
-        note: "Bobby's note: I did 6 reps at 60lbs and went down to 50lbs for the remaining 6 as it was too heavy and my right elbow was clicking too much. This work out always kills my arms. The app logged set 1 as 12 reps at 60 lb; his note describes it as 6 reps at 60 lb and 6 at 50 lb, so set 1 is ambiguous (logged as entered, not resolved).",
+        note: "Bobby's note: I did 6 reps at 60lbs and went down to 50lbs for the remaining 6 as it was too heavy and my right elbow was clicking too much. This work out always kills my arms. Corrected by Bobby 2026-11-24: set 1 was 12 reps at 60 lb; he gassed out on set 2 at 60 lb and managed 6 reps; set 3 was 6 reps at 50 lb. (The app had logged set 2 as 10 reps at 50 lb and set 3 as 9 reps at 50 lb; his correction replaces those numbers.)",
         sets: [
           { reps: 12, weight: 60, feel: "Hard" },
-          { reps: 10, weight: 50, feel: "Hard" },
-          { reps: 9, weight: 50, feel: "Hard" }
+          { reps: 6, weight: 60, feel: "Hard" },
+          { reps: 6, weight: 50, feel: "Hard" }
         ]
       },
       {
@@ -2979,12 +2979,21 @@ const gymWorkoutsData = [
         ]
       },
       {
+        name: "Leg Curl",
+        note: "Bobby confirmed 2026-11-24 he did this (20 reps at 60 / 70 / 80 lb). The app held only the prefilled weights with no reps or feel, so feel is blank.",
+        sets: [
+          { reps: 20, weight: 60, feel: null },
+          { reps: 20, weight: 70, feel: null },
+          { reps: 20, weight: 80, feel: null }
+        ]
+      },
+      {
         name: "Lateral Raises",
-        note: "Set 3 reps were blank in the app (weight and feel were entered).",
+        note: "Set 3 reps were blank in the app (weight and feel were entered); Bobby confirmed 2026-11-24 it was 15 reps.",
         sets: [
           { reps: 15, weight: 15, feel: "Just right" },
           { reps: 15, weight: 15, feel: "Just right" },
-          { reps: null, weight: 15, feel: "Just right" }
+          { reps: 15, weight: 15, feel: "Just right" }
         ]
       },
       {
@@ -3016,7 +3025,7 @@ const gymWorkoutsData = [
         ]
       }
     ],
-    note: "Session against the Full-Body C guide at Lifetime Gym, synced through JSONBin. startedAt 2026-11-23T23:05:56.400Z, endedAt 2026-11-24T00:34:46.413Z (6:05-7:34 PM EST, ~89 min). Leg Curl is not logged as performed: the bin held only the app's prefilled 60 / 70 / 80 lb with no reps or feel, so it is unknown whether it was done. Lateral Raises set 3 reps were blank (logged as null, not guessed). Merged 2026-11-24."
+    note: "Session against the Full-Body C guide at Lifetime Gym, synced through JSONBin. startedAt 2026-11-23T23:05:56.400Z, endedAt 2026-11-24T00:34:46.413Z (6:05-7:34 PM EST, ~89 min). Leg Curl: the bin held only the app's prefilled 60 / 70 / 80 lb with no reps or feel; Bobby confirmed on 2026-11-24 he did 20 reps at each weight (feel not recorded). Lateral Raises set 3 reps were blank in the app; Bobby confirmed 15. Merged 2026-11-24."
   }
 ];
 
