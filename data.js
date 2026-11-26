@@ -3026,6 +3026,80 @@ const gymWorkoutsData = [
       }
     ],
     note: "Session against the Full-Body C guide at Lifetime Gym, synced through JSONBin. startedAt 2026-11-23T23:05:56.400Z, endedAt 2026-11-24T00:34:46.413Z (6:05-7:34 PM EST, ~89 min). Leg Curl: the bin held only the app's prefilled 60 / 70 / 80 lb with no reps or feel; Bobby confirmed on 2026-11-24 he did 20 reps at each weight (feel not recorded). Lateral Raises set 3 reps were blank in the app; Bobby confirmed 15. Merged 2026-11-24."
+  },
+  {
+    date: "2026-11-25",
+    gym: "Lifetime Gym",
+    label: "Full-Body A",
+    startTime: "16:21",
+    endTime: "17:49",
+    duration: 88,
+    exercises: [
+      {
+        name: "Incline Chest Press",
+        note: "Bobby's note: My left elbow started to click again and I had to stop. Set 3 ended at 11 reps instead of 15.",
+        sets: [
+          { reps: 15, weight: 30, feel: "Just right" },
+          { reps: 15, weight: 30, feel: "Just right" },
+          { reps: 11, weight: 30, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Lat Pulldown",
+        note: "",
+        sets: [
+          { reps: 20, weight: 100, feel: "Just right" },
+          { reps: 15, weight: 120, feel: "Just right" },
+          { reps: 15, weight: 125, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Leg Press",
+        note: "",
+        sets: [
+          { reps: 20, weight: 160, feel: "Just right" },
+          { reps: 20, weight: 180, feel: "Just right" },
+          { reps: 20, weight: 200, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Lateral Raises",
+        note: "",
+        sets: [
+          { reps: 15, weight: 15, feel: "Just right" },
+          { reps: 15, weight: 15, feel: "Just right" },
+          { reps: 15, weight: 15, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Chest-Supported Dumbbell Row",
+        note: "",
+        sets: [
+          { reps: 15, weight: 35, feel: "Just right" },
+          { reps: 15, weight: 35, feel: "Just right" },
+          { reps: 15, weight: 35, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Dumbbell Fly — Wide Arc",
+        note: "",
+        sets: [
+          { reps: 15, weight: 30, feel: "Just right" },
+          { reps: 15, weight: 30, feel: "Just right" },
+          { reps: 12, weight: 30, feel: "Just right" }
+        ]
+      },
+      {
+        name: "Forearm Plank",
+        note: "",
+        sets: [
+          { duration: 60, feel: "Just right" },
+          { duration: 60, feel: "Just right" },
+          { duration: 60, feel: "Just right" }
+        ]
+      }
+    ],
+    note: "Session against the Full-Body A guide at Lifetime Gym, synced through JSONBin. startedAt 2026-11-25T21:21:34.429Z, endedAt 2026-11-25T22:49:47.992Z (4:21-5:49 PM EST, ~88 min). Left elbow clicking again during Incline Chest Press (Bobby's note); his right elbow clicked on Nov 18 during Seated Shoulder Press. Merged 2026-11-26."
   }
 ];
 
